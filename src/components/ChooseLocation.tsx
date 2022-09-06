@@ -1,7 +1,7 @@
 import React from "react";
 
-const ChooseLocationPage = () => {
+const ChooseLocation = () => {
   return <h1>ChooseLocationPage</h1>;
 };
 
-export default ChooseLocationPage;
+export default ChooseLocation;
