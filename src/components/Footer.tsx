@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import footerLogo from "../logos/footerLogo.png";
+import footerLogo1 from "../logos/footerLogo1.png";
 import {
   joinLinks,
   aboutLinks,
@@ -16,7 +16,7 @@ const Footer = () => {
     <Wrapper>
       <footer className="app-footer">
         <div className="container">
-          <img src={footerLogo} alt="plova logo" className="footer-logo" />
+          <img src={footerLogo1} alt="plova logo" className="footer-logo" />
           <div className="footer-info">
             <div className="links">
               <h2>Join Us!</h2>

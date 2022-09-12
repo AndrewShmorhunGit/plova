@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const FastServices = () => {
-  return <h1>FastServices</h1>;
+  return <Wrapper>FastServices</Wrapper>;
 };
 
 const Wrapper = styled.main`

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const SideBar = () => {
-  return <h1>SideBar</h1>;
+  return <Wrapper>SideBar</Wrapper>;
 };
 
 const Wrapper = styled.main`

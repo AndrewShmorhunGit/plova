@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const FoodNearGallery = () => {
-  return <h1>FoodNearGallery</h1>;
+  return <Wrapper>FoodNearGallery</Wrapper>;
 };
 
 const Wrapper = styled.main`
