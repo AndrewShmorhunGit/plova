@@ -8,11 +8,10 @@ Demo version of famous delivery application 'Glovo'
 
 App presentation using development best practices like:
 
-1. React & TypeScrypt
+1. React & TypeScript
 2. Redux, redux-tool-kit
 3. Git and Github
-4. Deployed by netlify
-5. And more, and more.. to be continue..
+4. And more, and more.. to be continue..
 
 ---
 
