@@ -28,6 +28,12 @@ body {
   word-wrap: break-word;
 }
 
+.container {
+  width: 70vw;
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+
 style {
   --helio-primitive-color-aqua50: #e5f4fcff;
   --helio-primitive-color-aqua800: #05202eff;

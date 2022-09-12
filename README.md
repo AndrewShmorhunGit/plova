@@ -25,7 +25,12 @@ Libraries are used in app:
 - Normalize.css
 - Styled-components
 - React Icons
+
+Design tools:
+
 - Figma
+- Eye Dropper
+- Favicon
 
 ---
 
