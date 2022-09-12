@@ -24,6 +24,8 @@ Libraries are used in app:
 - Stripe
 - Normalize.css
 - Styled-components
+- React Icons
+- Figma
 
 ---
 
