@@ -9,7 +9,7 @@ import {
   language,
 } from "../units/data";
 
-const Footer = () => {
+export const Footer = () => {
   const country: string = "Ukraine";
 
   return (
@@ -168,4 +168,3 @@ const Wrapper = styled.main`
     gap: 1rem;
   }
 `;
-export default Footer;

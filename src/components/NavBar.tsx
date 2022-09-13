@@ -4,7 +4,7 @@ import headerLogo from "../logos/headerLogo.png";
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+export const NavBar = () => {
   const [showLocation, setShowLocation] = useState(false);
   const [showSignUpForm, setShowSignUpForm] = useState(false);
 
@@ -200,5 +200,3 @@ const Wrapper = styled.header`
     min-width: 2rem;
   }
 `;
-
-export default NavBar;

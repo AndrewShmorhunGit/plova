@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const FoodNearGallery = () => {
+export const FoodNearGallery = () => {
   return <Wrapper>FoodNearGallery</Wrapper>;
 };
 
@@ -83,5 +83,3 @@ const Wrapper = styled.main`
     font-weight: 700;
   }
 `;
-
-export default FoodNearGallery;

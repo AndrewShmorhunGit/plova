@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const FastServices = () => {
+export const FastServices = () => {
   return <Wrapper>FastServices</Wrapper>;
 };
 
@@ -62,5 +62,3 @@ const Wrapper = styled.main`
     margin-left: 5px;
   }
 `;
-
-export default FastServices;

@@ -1,5 +1,3 @@
-const ErrorPage = () => {
+export const ErrorPage = () => {
   return <div></div>;
 };
-
-export default ErrorPage;

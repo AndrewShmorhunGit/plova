@@ -1,5 +1,18 @@
-const HomePage = () => {
-  return <h1>HomePage</h1>;
+import styled from "styled-components";
+
+export const HomePage = () => {
+  return (
+    <Wrapper className="container">
+      <main>
+        <h2>HomePage</h2>
+      </main>
+    </Wrapper>
+  );
 };
 
-export default HomePage;
+const Wrapper = styled.main`
+  main {
+    min-hight: 50vh;
+    font-size: 10rem;
+  }
+`;

@@ -1,7 +1,13 @@
 import styled from "styled-components";
 
-const SideBar = () => {
-  return <Wrapper>SideBar</Wrapper>;
+export const SideBar = () => {
+  return (
+    <Wrapper>
+      <main>
+        <h2>SideBar</h2>
+      </main>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.main`
@@ -17,6 +23,7 @@ const Wrapper = styled.main`
     text-transform: none;
     margin-bottom: 2rem;
   }
+  h2 {
+    font-size: 5rem;
+  }
 `;
-
-export default SideBar;
