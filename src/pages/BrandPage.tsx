@@ -1,3 +1,10 @@
+import { Link } from "react-router-dom";
+
 export function BrandPage() {
-  return <h1>BrandPage</h1>;
+  return (
+    <main>
+      <h1>BrandPage</h1>
+      <Link to="/">Back Home</Link>
+    </main>
+  );
 }

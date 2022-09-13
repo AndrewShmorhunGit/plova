@@ -1,3 +1,10 @@
+import { Link } from "react-router-dom";
+
 export const CreditCardPage = () => {
-  return <h1>CreditCardPage</h1>;
+  return (
+    <main>
+      <h1>CreditCardPage</h1>
+      <Link to="/">Back Home</Link>
+    </main>
+  );
 };
