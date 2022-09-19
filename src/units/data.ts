@@ -89,4 +89,5 @@ export const categories = [
   { id: 6, category: "Seafood", icon: GiFishingBoat },
   { id: 7, category: "Breakfast", icon: BiDish },
   { id: 8, category: "Tea & coffee", icon: GiCoffeeCup },
+  { id: 8, category: "Fast Food" },
 ];
