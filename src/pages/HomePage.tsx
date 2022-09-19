@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { FastServices, FoodNearGallery } from "../components";
 
 export const HomePage = () => {
   return (
-    <Wrapper className="container">
+    <Wrapper>
+      <FastServices />
+      <FoodNearGallery />
       <main>
         <h2>HomePage</h2>
         <Link to="/brand">
@@ -31,7 +34,7 @@ export const HomePage = () => {
 
 const Wrapper = styled.main`
   main {
-    min-hight: 50vh;
-    font-size: 2rem;
+    // min-hight: 50vh;
+    // font-size: 2rem;
   }
 `;

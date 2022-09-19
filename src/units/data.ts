@@ -4,6 +4,18 @@ import {
   TiSocialFacebook,
 } from "react-icons/ti";
 
+import {
+  GiFullPizza,
+  GiIceCreamCone,
+  GiHamburger,
+  GiFallingLeaf,
+  GiFishingBoat,
+  GiCoffeeCup,
+} from "react-icons/gi";
+
+import { TbGrill } from "react-icons/tb";
+import { BiDish } from "react-icons/bi";
+
 export const joinLinks = [
   {
     id: 1,
@@ -62,13 +74,19 @@ export const language = ["English", "French", "Russian", "Spanish"];
 
 export const brands = ["McDonald's", "KFC", "Taco Bell", "Burger King"];
 
+interface categories {
+  id: number;
+  category: string;
+  icon: JSX.Element;
+}
+
 export const categories = [
-  "Pizza",
-  "Ice Cream",
-  "Burgers",
-  "Vegetarian",
-  "Grill",
-  "Seafood",
-  "Breakfast",
-  "Tea & coffee",
+  { id: 1, category: "Pizza", icon: GiFullPizza },
+  { id: 2, category: "Ice Cream", icon: GiIceCreamCone },
+  { id: 3, category: "Burgers", icon: GiHamburger },
+  { id: 4, category: "Vegetarian", icon: GiFallingLeaf },
+  { id: 5, category: "Grill", icon: TbGrill },
+  { id: 6, category: "Seafood", icon: GiFishingBoat },
+  { id: 7, category: "Breakfast", icon: BiDish },
+  { id: 8, category: "Tea & coffee", icon: GiCoffeeCup },
 ];

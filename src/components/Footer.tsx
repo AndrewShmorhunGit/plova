@@ -71,7 +71,7 @@ export const Footer = () => {
               <div className="country-links">
                 {brands.map((item, index) => {
                   return (
-                    <a key={index} href="#">
+                    <a key={index} href={`#${item}`}>
                       <p>{item}</p>
                     </a>
                   );
@@ -82,9 +82,10 @@ export const Footer = () => {
               <h2>Top categories: {country}</h2>
               <div className="country-links">
                 {categories.map((item, index) => {
+                  const { category } = item;
                   return (
-                    <a key={index} href="#">
-                      <p>{item}</p>
+                    <a key={index} href={`#${category}`}>
+                      <p>{category}</p>
                     </a>
                   );
                 })}

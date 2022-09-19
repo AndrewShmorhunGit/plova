@@ -17,5 +17,16 @@
     "jsx": "react-jsx",
     "noUnusedLocals": true
   },
-  "include": ["src"]
+  "include": [
+    "**/styles/**/*",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.yml",
+    "**/*.yaml",
+    "**/*.css",
+    "**/*.scss",
+    "**/*",
+    ".d.ts",
+    "next-env.d.ts"
+  ]
 }
