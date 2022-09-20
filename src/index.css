@@ -40,6 +40,30 @@ body {
   justify-content: center;
 }
 
+.btn {
+  background-color: #cccccc;
+  color: #00a082;
+  text-align: center;
+  text-decoration: none;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  height: 3.6rem;
+  width: auto;
+  border-radius: 2.4rem;
+  font-size: 2rem;
+  font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 700;
+  box-shadow: 0 3px 5px 0 #0000001a;
+  border: none;
+  letter-spacing: 0.2rem;
+}
+
+.btn:hover {
+  background-color: #008068;
+  color: #cccccc;
+  cursor: pointer;
+}
+
 style {
   --helio-primitive-color-aqua50: #e5f4fcff;
   --helio-primitive-color-aqua800: #05202eff;

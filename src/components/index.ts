@@ -14,6 +14,7 @@ import { StartOrderWindow } from "./StartOrderWindow";
 import { UserComponent } from "./UserComponent";
 import { ChooseLocation } from "./ChooseLocation";
 import { Registration } from "./Registration";
+import { Partnership } from "./Partnership";
 
 export {
   Footer,
@@ -32,4 +33,5 @@ export {
   UserComponent,
   ChooseLocation,
   Registration,
+  Partnership,
 };

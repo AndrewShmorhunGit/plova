@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { FastServices, FoodNearGallery, PopularNear } from "../components";
+import {
+  FastServices,
+  FoodNearGallery,
+  Partnership,
+  PopularNear,
+} from "../components";
 
 export const HomePage = () => {
   return (
@@ -8,6 +13,7 @@ export const HomePage = () => {
       <FastServices />
       <FoodNearGallery />
       <PopularNear />
+      <Partnership />
       <main>
         <h2>HomePage</h2>
         <Link to="/brand">

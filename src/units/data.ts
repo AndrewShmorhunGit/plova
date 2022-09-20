@@ -100,3 +100,30 @@ export const categories = [
   { id: 8, category: "Tea & coffee", icon: GiCoffeeCup },
   { id: 9, category: "Fast Food" },
 ];
+
+export const cooperationData = [
+  {
+    id: 1,
+    image:
+      "https://res.cloudinary.com/glovoapp/image/fetch/w_254,h_220,c_lpad,b_transparent,f_auto,q_auto:low,dpr_3.0/https://glovoapp.com/images/corporate-container/rider-image.png",
+    theme: "Become a rider",
+    text: "Be your own boss! Enjoy flexibility, freedom and competitive earnings by delivering with Plova.",
+    linkTo: "https://couriers.glovoapp.com/ua/",
+  },
+  {
+    id: 2,
+    image:
+      "https://res.cloudinary.com/glovoapp/image/fetch/w_254,h_220,c_lpad,b_transparent,f_auto,q_auto:low,dpr_3.0/https://glovoapp.com/images/corporate-container/partners-image.png",
+    theme: "Become a partner",
+    text: "Grow with Plova! Our technology and user base can help you boost sales and unlock new opportunities!",
+    linkTo: "https://sell.glovoapp.com/",
+  },
+  {
+    id: 3,
+    image:
+      "https://res.cloudinary.com/glovoapp/image/fetch/w_254,h_220,c_lpad,b_transparent,f_auto,q_auto:low,dpr_2.0/https://glovoapp.com/images/corporate-container/careers-image.png",
+    theme: "Careers",
+    text: "Ready for an exciting new challenge? If you’re ambitious, humble, and love working with others, then we want to hear from you!",
+    linkTo: "https://jobs.glovoapp.com/",
+  },
+];

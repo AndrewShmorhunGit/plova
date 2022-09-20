@@ -46,7 +46,7 @@ const Wrapper = styled.section`
     height: 4.8rem;
     width: auto;
     border-radius: 2.4rem;
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
     font-weight: 700;
     box-shadow: 0 3px 5px 0 #0000001a;
