@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const FoodNearGallery = () => {
   return (
@@ -131,7 +132,9 @@ export const FoodNearGallery = () => {
           </a>
         </div>
         <div className="center">
-          <button className="btn-more">See More Restaurants</button>
+          <Link to="/brand" className="btn-more center">
+            See More Restaurants
+          </Link>
         </div>
       </section>
     </Wrapper>
@@ -141,8 +144,8 @@ export const FoodNearGallery = () => {
 const Wrapper = styled.section`
   .gallery {
     display: block;
-    hight: 100avh;
     color: #212529;
+    padding-bottom: 4rem;
   }
 
   .decoration-swg {
@@ -161,6 +164,7 @@ const Wrapper = styled.section`
     grid-template-rows: repeat(5, 1fr);
     row-gap: 2rem;
     column-gap: 2rem;
+    padding-bottom: 0;
   }
 
   .gallery-unit {
@@ -212,6 +216,7 @@ const Wrapper = styled.section`
     background-color: #cccccc;
     color: #00a082;
     text-align: center;
+    text-decoration: none;
     padding-left: 1.6rem;
     padding-right: 1.6rem;
     height: 4.8rem;

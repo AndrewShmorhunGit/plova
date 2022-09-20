@@ -86,7 +86,7 @@ export const brands = [
 interface categories {
   id: number;
   category: string;
-  icon: JSX.Element;
+  icon?: JSX.Element;
 }
 
 export const categories = [

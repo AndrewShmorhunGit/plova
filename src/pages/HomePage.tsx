@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { FastServices, FoodNearGallery } from "../components";
+import { FastServices, FoodNearGallery, PopularNear } from "../components";
 
 export const HomePage = () => {
   return (
     <Wrapper>
       <FastServices />
       <FoodNearGallery />
+      <PopularNear />
       <main>
         <h2>HomePage</h2>
         <Link to="/brand">
