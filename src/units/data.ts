@@ -14,7 +14,7 @@ import {
 } from "react-icons/gi";
 
 import { TbGrill } from "react-icons/tb";
-import { BiDish } from "react-icons/bi";
+// import { BiDish } from "react-icons/bi";
 
 export const joinLinks = [
   {
@@ -72,7 +72,16 @@ export const socialLinks = [
 
 export const language = ["English", "French", "Russian", "Spanish"];
 
-export const brands = ["McDonald's", "KFC", "Taco Bell", "Burger King"];
+export const brands = [
+  "McDonald's",
+  "KFC",
+  "Puzata Hata",
+  "Burger King",
+  "Okko Cafe",
+  "Doner Market",
+  "Chelentano",
+  "Sushi Wok",
+];
 
 interface categories {
   id: number;
@@ -87,7 +96,7 @@ export const categories = [
   { id: 4, category: "Vegetarian", icon: GiFallingLeaf },
   { id: 5, category: "Grill", icon: TbGrill },
   { id: 6, category: "Seafood", icon: GiFishingBoat },
-  { id: 7, category: "Breakfast", icon: BiDish },
+  { id: 7, category: "Sushi" },
   { id: 8, category: "Tea & coffee", icon: GiCoffeeCup },
-  { id: 8, category: "Fast Food" },
+  { id: 9, category: "Fast Food" },
 ];

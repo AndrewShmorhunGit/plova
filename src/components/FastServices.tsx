@@ -72,7 +72,7 @@ export const FastServices = () => {
   );
 };
 
-const Wrapper = styled.main`
+const Wrapper = styled.section`
   .landing-jumbotron {
     display: flex;
     flex-direction: column;
