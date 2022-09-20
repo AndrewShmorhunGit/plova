@@ -34,6 +34,12 @@ body {
   max-width: var(--max-width);
 }
 
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 style {
   --helio-primitive-color-aqua50: #e5f4fcff;
   --helio-primitive-color-aqua800: #05202eff;

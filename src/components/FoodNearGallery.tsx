@@ -17,26 +17,122 @@ export const FoodNearGallery = () => {
         </div>
         <div className="gallery-container">
           {/* Will be programmatically from units or server */}
-          <div className="gallery-unit">
-            <a href="#">
-              <img src="" alt="" />
-              <h1>Gallery unit1</h1>
-              <p>
-                <span>rate</span>finger <p>numbers</p>
-              </p>
-            </a>
-          </div>
-          <div className="gallery-unit">
-            <h1>Gallery unit2</h1>
-          </div>
-          <div className="gallery-unit">
-            <h1>Gallery unit3</h1>
-          </div>
-          <div className="gallery-unit">
-            <h1>Gallery unit4</h1>
-          </div>
+          <a href="#" className="gallery-unit-link">
+            <div className="gallery-unit">
+              <img src="unit image" alt="" />
+              <h1 className="unit-title">Gallery unit</h1>
+            </div>
+            <div className="unit-info">
+              <div>
+                <p>
+                  <span>rate</span>_ numbers
+                </p>
+              </div>
+              <p>delivery time</p>
+            </div>
+          </a>
+          <a href="#" className="gallery-unit-link">
+            <div className="gallery-unit">
+              <img src="unit image" alt="" />
+              <h1 className="unit-title">Gallery unit</h1>
+            </div>
+            <div className="unit-info">
+              <div>
+                <p>
+                  <span>rate</span>_ numbers
+                </p>
+              </div>
+              <p>delivery time</p>
+            </div>
+          </a>
+          <a href="#" className="gallery-unit-link">
+            <div className="gallery-unit">
+              <img src="unit image" alt="" />
+              <h1 className="unit-title">Gallery unit</h1>
+            </div>
+            <div className="unit-info">
+              <div>
+                <p>
+                  <span>rate</span>_ numbers
+                </p>
+              </div>
+              <p>delivery time</p>
+            </div>
+          </a>
+          <a href="#" className="gallery-unit-link">
+            <div className="gallery-unit">
+              <img src="unit image" alt="" />
+              <h1 className="unit-title">Gallery unit</h1>
+            </div>
+            <div className="unit-info">
+              <div>
+                <p>
+                  <span>rate</span>_ numbers
+                </p>
+              </div>
+              <p>delivery time</p>
+            </div>
+          </a>
+          <a href="#" className="gallery-unit-link">
+            <div className="gallery-unit">
+              <img src="unit image" alt="" />
+              <h1 className="unit-title">Gallery unit</h1>
+            </div>
+            <div className="unit-info">
+              <div>
+                <p>
+                  <span>rate</span>_ numbers
+                </p>
+              </div>
+              <p>delivery time</p>
+            </div>
+          </a>
+          <a href="#" className="gallery-unit-link">
+            <div className="gallery-unit">
+              <img src="unit image" alt="" />
+              <h1 className="unit-title">Gallery unit</h1>
+            </div>
+            <div className="unit-info">
+              <div>
+                <p>
+                  <span>rate</span>_ numbers
+                </p>
+              </div>
+              <p>delivery time</p>
+            </div>
+          </a>
+          <a href="#" className="gallery-unit-link">
+            <div className="gallery-unit">
+              <img src="unit image" alt="" />
+              <h1 className="unit-title">Gallery unit</h1>
+            </div>
+            <div className="unit-info">
+              <div>
+                <p>
+                  <span>rate</span>_ numbers
+                </p>
+              </div>
+              <p>delivery time</p>
+            </div>
+          </a>
+          <a href="#" className="gallery-unit-link">
+            <div className="gallery-unit">
+              <img src="unit image" alt="" />
+              <h1 className="unit-title">Gallery unit</h1>
+            </div>
+            <div className="unit-info">
+              <div>
+                <p>
+                  <span>rate</span>_ numbers
+                </p>
+              </div>
+              <p>delivery time</p>
+            </div>
+          </a>
         </div>
-        <button className="more-button btn">See More Restaurants</button>
+        <div className="center">
+          <button className="btn-more">See More Restaurants</button>
+        </div>
       </section>
     </Wrapper>
   );
@@ -46,6 +142,7 @@ const Wrapper = styled.section`
   .gallery {
     display: block;
     hight: 100avh;
+    color: #212529;
   }
 
   .decoration-swg {
@@ -61,12 +158,29 @@ const Wrapper = styled.section`
   .gallery-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 5rem repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    row-gap: 2rem;
+    column-gap: 2rem;
   }
 
   .gallery-unit {
-    min-hight: 5rem;
     display: flex;
+    min-hight: 10rem;
+    font-size: 4rem;
+    align-items: center;
+    justify-content: center;
+    border: solid black 1px;
+  }
+
+  .gallery-unit-link {
+    border: solid black 1px;
+    text-decoration: none;
+    padding: 1rem 1rem;
+  }
+
+  .unit-info {
+    display: flex;
+    justify-content: space-between;
   }
 
   .title {
@@ -92,5 +206,28 @@ const Wrapper = styled.section`
     font-size: 1.8rem;
     color: #ffc244ff;
     background-color: #ffc244ff;
+  }
+
+  .btn-more {
+    background-color: #cccccc;
+    color: #00a082;
+    text-align: center;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    height: 4.8rem;
+    width: auto;
+    border-radius: 2.4rem;
+    font-size: 2rem;
+    font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: 700;
+    box-shadow: 0 3px 5px 0 #0000001a;
+    border: none;
+    letter-spacing: 0.2rem;
+  }
+
+  .btn-more:hover {
+    background-color: #008068;
+    color: #cccccc;
+    cursor: pointer;
   }
 `;
