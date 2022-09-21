@@ -101,6 +101,14 @@ export const categories = [
   { id: 9, category: "Fast Food" },
 ];
 
+interface cooperationData {
+  id: number;
+  image: string;
+  theme: string;
+  text: string;
+  linkTo: string;
+}
+
 export const cooperationData = [
   {
     id: 1,
