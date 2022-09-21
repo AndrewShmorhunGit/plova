@@ -1,5 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Footer, NavBar } from "./components";
+import {
+  Footer,
+  //  NavBar
+} from "./components";
 import {
   BrandPage,
   CategoryPage,
@@ -13,7 +16,7 @@ import {
 function App() {
   return (
     <Router>
-      <NavBar />
+      {/* <NavBar /> */}
 
       {/* <SideBar /> */}
       <Routes>

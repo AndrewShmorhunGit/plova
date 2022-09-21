@@ -1,26 +1,33 @@
-import styled from "styled-components";
 // import { Link } from "react-router-dom";
+import { useState } from "react";
 import {
   FastServices,
   FoodNearGallery,
   Partnership,
   PopularNear,
+  Registration,
+  NavBar,
 } from "../components";
 
 export const HomePage = () => {
+  const [showRegistration, setShowRegistration] = useState(false);
+
   return (
-    <Wrapper>
+    <>
+      <NavBar
+        setShowRegistration={setShowRegistration}
+        showRegistration={showRegistration}
+      />
+      {showRegistration && (
+        <Registration
+          setShowRegistration={setShowRegistration}
+          // showRegistration={showRegistration}
+        />
+      )}
       <FastServices />
       <FoodNearGallery />
       <PopularNear />
       <Partnership />
-    </Wrapper>
+    </>
   );
 };
-
-const Wrapper = styled.main`
-  main {
-    // min-hight: 50vh;
-    // font-size: 2rem;
-  }
-`;
