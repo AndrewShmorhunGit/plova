@@ -22,7 +22,7 @@ export const NavBar = ({
   const search: string = "Search";
   return (
     <Wrapper>
-      <header>
+      <header className="nav-sticky">
         <div className="header-for-city-page">
           <div className="header-layout">
             <Link to="/">
@@ -91,6 +91,11 @@ export const NavBar = ({
 };
 
 const Wrapper = styled.header`
+  // .nav-sticky {
+  //   position: sticky;
+  //   top: 0;
+  // }
+
   .header-for-city-page {
     background-color: #ffc244ff;
     position: relative;

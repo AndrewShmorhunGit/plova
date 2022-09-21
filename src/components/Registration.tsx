@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { FaTimes } from "react-icons/fa";
+import logo from "../logos/logo.png";
 export const Registration = ({
   // showRegistration,
   setShowRegistration,
@@ -11,6 +12,9 @@ export const Registration = ({
     <Wrapper>
       <div className="registration-container show-registration">
         <div className="content">
+          <header>
+            <img src={logo} alt="" className="logo" />
+          </header>
           <h1>Sign up to Plova</h1>
           <button
             className="close-btn"
@@ -18,7 +22,30 @@ export const Registration = ({
           >
             <FaTimes onClick={() => setShowRegistration(false)} />
           </button>
-          <header>{/* <Logo /> */}</header>
+          <button className="btn-fb btn center">Facebook</button>
+          <p className="center">or</p>
+          <form action="" className="form">
+            <div className="input-line">
+              <p style={{ paddingRight: "1rem" }}>icon</p>
+              <input
+                type="text"
+                className="form-input"
+                placeholder="first name"
+              />
+            </div>
+            <div className="input-line">
+              <p style={{ paddingRight: "1rem" }}>icon</p>
+              <input type="text" className="form-input" placeholder="e-mail" />
+            </div>
+            <div className="input-line">
+              <p style={{ paddingRight: "1rem" }}>icon</p>
+              <input type="text" className="form-input" />
+            </div>
+          </form>
+          <button className="btn-fb btn center">Sign up with e-mail</button>
+          <p>
+            Get an account already? <a href="#">Log in</a>
+          </p>
           <div className="nav-links">
             {/* <NavLinks toggleSidebar={toggle} /> */}
           </div>
@@ -57,6 +84,7 @@ const Wrapper = styled.aside`
     display: flex;
     align-items: center;
     flex-direction: column;
+    gap: 4rem;
   }
   .close-btn {
     position: absolute;
@@ -68,6 +96,26 @@ const Wrapper = styled.aside`
     color: grey;
     cursor: pointer;
   }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .form-input {
+    border: none;
+    border-bottom: solid 1px grey;
+  }
+  .input-line {
+    width: 26rem;
+    display: flex;
+  }
+
+  .logo {
+    width: 12rem;
+  }
+
   .nav-links {
     padding-top: 2rem;
     display: flex;

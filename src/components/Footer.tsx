@@ -16,7 +16,7 @@ export const Footer = () => {
     <Wrapper>
       {/* <div className="decoration-svg center">
         <img
-          src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/curve--small.svg"
+          src="https://couriers.glovoapp.com/svg/curve.svg"
           alt="deco-curve"
           className="curve"
         />
