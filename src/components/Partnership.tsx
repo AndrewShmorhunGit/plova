@@ -40,6 +40,7 @@ const Wrapper = styled.main`
   .cooperation {
     background-color: #e9f8f5;
     padding: 6.4rem;
+    hight: 100%;
   }
 
   .join {
