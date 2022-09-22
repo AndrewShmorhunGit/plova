@@ -64,6 +64,10 @@ body {
   cursor: pointer;
 }
 
+.block {
+  display: block;
+}
+
 style {
   --helio-primitive-color-aqua50: #e5f4fcff;
   --helio-primitive-color-aqua800: #05202eff;

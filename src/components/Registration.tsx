@@ -2,10 +2,8 @@ import styled from "styled-components";
 import { FaTimes } from "react-icons/fa";
 import logo from "../logos/logo.png";
 export const Registration = ({
-  // showRegistration,
   setShowRegistration,
 }: {
-  // showRegistration: boolean;
   setShowRegistration: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   return (
@@ -59,6 +57,7 @@ const Wrapper = styled.aside`
   // @media (min-width: 992px) {
   //   display: none;
   // }
+
   .registration-container {
     position: fixed;
     inset: 0;
@@ -69,16 +68,20 @@ const Wrapper = styled.aside`
     z-index: -1;
     opacity: 0;
     transition: var(--transition);
+    overflow: auto;
   }
+
   .show-registration {
     z-index: 99;
     opacity: 1;
   }
+
   .content {
     background: #fff;
     width: 60rem;
-    height: 90vh;
+    height: 75rem;
     border-radius: 1rem;
+    // margin-top: 30rem;
     padding: 4rem 2rem;
     position: relative;
     display: flex;
@@ -86,6 +89,7 @@ const Wrapper = styled.aside`
     flex-direction: column;
     gap: 4rem;
   }
+
   .close-btn {
     position: absolute;
     top: 10px;
@@ -107,6 +111,7 @@ const Wrapper = styled.aside`
     border: none;
     border-bottom: solid 1px grey;
   }
+
   .input-line {
     width: 26rem;
     display: flex;
@@ -125,6 +130,7 @@ const Wrapper = styled.aside`
     display: flex;
     flex-direction: column;
   }
+
   .nav-link {
     display: flex;
     align-items: center;
@@ -133,12 +139,15 @@ const Wrapper = styled.aside`
     text-transform: capitalize;
     transition: var(--transition);
   }
+
   .nav-link:hover {
     color: var(--grey-900);
   }
+
   .nav-link:hover .icon {
     color: var(--primary-500);
   }
+
   .icon {
     font-size: 1.5rem;
     margin-right: 1rem;
@@ -146,9 +155,11 @@ const Wrapper = styled.aside`
     place-items: center;
     transition: var(--transition);
   }
+
   .active {
     color: var(--grey-900);
   }
+
   .active .icon {
     color: var(--primary-500);
   }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SearchLocationModal } from "./index";
 import styled from "styled-components";
 
 export const LocationInput = () => {
@@ -8,26 +9,30 @@ export const LocationInput = () => {
     <Wrapper>
       <section>
         <h1 className="title center">Explore delivery in Kyiv, Right Bank</h1>
-        <div className="center">
-          <div className="location-setup center">
-            <form
-              action=""
-              className="location-form center"
-              onClick={() => setShowLocationModal(!showLocationModal)}
-            >
-              <label className="form-label">Flag</label>
-              <input
-                type="text"
-                className="location-input"
-                placeholder="What's your address?"
-              />
-            </form>
-            <div className="current-location">
-              <div className="icon">%</div>
-              <h3 className="use-current">Use current location</h3>
+        {!showLocationModal ? (
+          <div className="center">
+            <div className="location-setup center">
+              <form
+                action=""
+                className="location-form center"
+                onClick={() => setShowLocationModal(!showLocationModal)}
+              >
+                <label className="form-label">Flag</label>
+                <input
+                  type="text"
+                  className="location-input"
+                  placeholder="What's your address?"
+                />
+              </form>
+              <div className="current-location">
+                <div className="icon">&</div>
+                <h3 className="use-current">Use current location</h3>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <SearchLocationModal setShowLocationModal={setShowLocationModal} />
+        )}
       </section>
     </Wrapper>
   );

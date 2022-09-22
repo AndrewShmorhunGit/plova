@@ -16,6 +16,7 @@ import { ChooseLocation } from "./ChooseLocation";
 import { Registration } from "./Registration";
 import { Partnership } from "./Partnership";
 import { LocationInput } from "./LocationInput";
+import { SearchLocationModal } from "./SearchLocationModal";
 export {
   Footer,
   Cart,
@@ -35,4 +36,5 @@ export {
   Registration,
   Partnership,
   LocationInput,
+  SearchLocationModal,
 };
