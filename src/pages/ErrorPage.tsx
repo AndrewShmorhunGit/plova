@@ -26,6 +26,7 @@ const Wrapper = styled.header`
   align-items: center;
   justify-content: center;
   padding: 6rem 0;
+
   img {
     width: 12vw;
     max-width: 600px;

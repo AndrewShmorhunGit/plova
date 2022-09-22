@@ -15,7 +15,7 @@ import { UserComponent } from "./UserComponent";
 import { ChooseLocation } from "./ChooseLocation";
 import { Registration } from "./Registration";
 import { Partnership } from "./Partnership";
-
+import { LocationInput } from "./LocationInput";
 export {
   Footer,
   Cart,
@@ -34,4 +34,5 @@ export {
   ChooseLocation,
   Registration,
   Partnership,
+  LocationInput,
 };

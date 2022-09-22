@@ -3,47 +3,40 @@ import { categories } from "../units/data";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import locationLogoYellow from "../logos/locationLogoYellow.png";
+import { LocationInput } from "./index";
 
 const address: string = "136 Pym St, Nottingham";
 
 export const FastServices = () => {
   const [showLocation, setShowLocation] = useState(false);
+  const location: boolean = false;
 
   return (
     <Wrapper>
       <section className="landing-jumbotron">
-        <div
-          className="user-address-content"
-          onClick={() => setShowLocation(!showLocation)}
-        >
-          <div className="user-address-content-text">
-            <p>
-              Delivery to the address:
-              <span className="address-content-text">{` ${address}`}</span>
-            </p>
-            <div className="chevron">
-              <FaChevronDown />
+        {location ? (
+          <div
+            className="user-address-content"
+            onClick={() => setShowLocation(!showLocation)}
+          >
+            <div className="user-address-content-text">
+              <p>
+                Delivery to the address:
+                <span className="address-content-text">{` ${address}`}</span>
+              </p>
+              <div className="chevron">
+                <FaChevronDown />
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          className="categories-container"
-          // style={{ transform: `translateZ(-1rem)` }}
-        >
+        ) : (
+          <LocationInput />
+        )}
+        <div className="categories-container">
           {categories.map((item) => {
             const { id, category } = item;
             return (
-              <a
-                key={id}
-                href={`#${category}`}
-                className={`link-bubble`}
-                // style={{
-                //   animationName: `categories-appear`,
-                //   animationDuration: `${id * 0.01}s`,
-                //   animationDelay: `${id * 0.2}s`,
-                //   animationFillMode: "backwards",
-                // }}
-              >
+              <a key={id} href={`#${category}`} className={`link-bubble`}>
                 <div
                   className="category"
                   style={{
@@ -51,11 +44,8 @@ export const FastServices = () => {
                     animationDuration: `${id * 0.1}s`,
                     animationDelay: `${id * 0.2}s`,
                     animationFillMode: "backwards",
-                    // animationTimingFunction: ``,
                   }}
                 >
-                  {/* <div className="category-icon">{icon}</div> */}
-                  {/* <div className="category-icon">{locationLogoYellow}</div> */}
                   <img
                     className="category-logo"
                     src={locationLogoYellow}

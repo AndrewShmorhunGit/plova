@@ -112,6 +112,10 @@ const Wrapper = styled.aside`
     display: flex;
   }
 
+  .form-input:focus {
+    outline: none;
+  }
+
   .logo {
     width: 12rem;
   }
