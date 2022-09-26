@@ -17,6 +17,8 @@ import { Registration } from "./Registration";
 import { Partnership } from "./Partnership";
 import { LocationInput } from "./LocationInput";
 import { SearchLocationModal } from "./SearchLocationModal";
+import { MapSearch } from "./MapSearch";
+
 export {
   Footer,
   Cart,
@@ -37,4 +39,5 @@ export {
   Partnership,
   LocationInput,
   SearchLocationModal,
+  MapSearch,
 };
