@@ -22,7 +22,7 @@ export const SearchLocationModal = ({
               <div className="search">
                 <form action="" className="form">
                   <label htmlFor="" className="label">
-                    Flag
+                    🚩
                   </label>
                   <input
                     className="form-input"
@@ -31,7 +31,7 @@ export const SearchLocationModal = ({
                   />
                 </form>
                 <div className="current-location center">
-                  <div className="icon">&</div>
+                  <div className="icon">✔</div>
                   <h3 className="use-current">Use current location</h3>
                 </div>
                 <div className="center">

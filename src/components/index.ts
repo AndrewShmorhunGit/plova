@@ -20,7 +20,10 @@ import { SearchLocationModal } from "./SearchLocationModal";
 import { MapSearch } from "./MapSearch";
 import { Sections } from "./Sections";
 import { InputHeader } from "./InputHeader";
+import { BrandLabel } from "./BrandLabel";
+
 export {
+  BrandLabel,
   InputHeader,
   Sections,
   Footer,
