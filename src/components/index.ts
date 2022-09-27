@@ -18,8 +18,11 @@ import { Partnership } from "./Partnership";
 import { LocationInput } from "./LocationInput";
 import { SearchLocationModal } from "./SearchLocationModal";
 import { MapSearch } from "./MapSearch";
-
+import { Sections } from "./Sections";
+import { InputHeader } from "./InputHeader";
 export {
+  InputHeader,
+  Sections,
   Footer,
   Cart,
   FastServices,
