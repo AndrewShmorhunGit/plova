@@ -34,6 +34,13 @@ body {
   max-width: var(--max-width);
 }
 
+.container-products {
+  width: 80vw;
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+
+
 .center {
   display: flex;
   align-items: center;

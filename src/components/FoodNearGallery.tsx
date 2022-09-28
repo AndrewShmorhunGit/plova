@@ -20,114 +20,114 @@ export const FoodNearGallery = () => {
           {/* Will be programmatically from units or server */}
           <a href="#" className="gallery-unit-link">
             <div className="gallery-unit">
-              <img src="unit image" alt="" />
-              <h1 className="unit-title">Gallery unit</h1>
+              <p className="brand-name">Brand Unit</p>
             </div>
             <div className="unit-info">
               <div>
                 <p>
-                  <span>rate</span>_ numbers
+                  <span>👍 {`100`}%</span> ({`num`})
                 </p>
               </div>
-              <p>delivery time</p>
+              <p>🚀 {`price`} $</p>
+              <p>{`min`}' 🕔</p>
             </div>
           </a>
           <a href="#" className="gallery-unit-link">
             <div className="gallery-unit">
-              <img src="unit image" alt="" />
-              <h1 className="unit-title">Gallery unit</h1>
+              <p className="brand-name">Brand Unit</p>
             </div>
             <div className="unit-info">
               <div>
                 <p>
-                  <span>rate</span>_ numbers
+                  <span>👍 {`100`}%</span> ({`num`})
                 </p>
               </div>
-              <p>delivery time</p>
+              <p>🚀 {`price`} $</p>
+              <p>{`min`}' 🕔</p>
             </div>
           </a>
           <a href="#" className="gallery-unit-link">
             <div className="gallery-unit">
-              <img src="unit image" alt="" />
-              <h1 className="unit-title">Gallery unit</h1>
+              <p className="brand-name">Brand Unit</p>
             </div>
             <div className="unit-info">
               <div>
                 <p>
-                  <span>rate</span>_ numbers
+                  <span>👍 {`100`}%</span> ({`num`})
                 </p>
               </div>
-              <p>delivery time</p>
+              <p>🚀 {`price`} $</p>
+              <p>{`min`}' 🕔</p>
             </div>
           </a>
           <a href="#" className="gallery-unit-link">
             <div className="gallery-unit">
-              <img src="unit image" alt="" />
-              <h1 className="unit-title">Gallery unit</h1>
+              <p className="brand-name">Brand Unit</p>
             </div>
             <div className="unit-info">
               <div>
                 <p>
-                  <span>rate</span>_ numbers
+                  <span>👍 {`100`}%</span> ({`num`})
                 </p>
               </div>
-              <p>delivery time</p>
+              <p>🚀 {`price`} $</p>
+              <p>{`min`}' 🕔</p>
             </div>
           </a>
           <a href="#" className="gallery-unit-link">
             <div className="gallery-unit">
-              <img src="unit image" alt="" />
-              <h1 className="unit-title">Gallery unit</h1>
+              <p className="brand-name">Brand Unit</p>
             </div>
             <div className="unit-info">
               <div>
                 <p>
-                  <span>rate</span>_ numbers
+                  <span>👍 {`100`}%</span> ({`num`})
                 </p>
               </div>
-              <p>delivery time</p>
+              <p>🚀 {`price`} $</p>
+              <p>{`min`}' 🕔</p>
             </div>
           </a>
           <a href="#" className="gallery-unit-link">
             <div className="gallery-unit">
-              <img src="unit image" alt="" />
-              <h1 className="unit-title">Gallery unit</h1>
+              <p className="brand-name">Brand Unit</p>
             </div>
             <div className="unit-info">
               <div>
                 <p>
-                  <span>rate</span>_ numbers
+                  <span>👍 {`100`}%</span> ({`num`})
                 </p>
               </div>
-              <p>delivery time</p>
+              <p>🚀 {`price`} $</p>
+              <p>{`min`}' 🕔</p>
             </div>
           </a>
           <a href="#" className="gallery-unit-link">
             <div className="gallery-unit">
-              <img src="unit image" alt="" />
-              <h1 className="unit-title">Gallery unit</h1>
+              <p className="brand-name">Brand Unit</p>
             </div>
             <div className="unit-info">
               <div>
                 <p>
-                  <span>rate</span>_ numbers
+                  <span>👍 {`100`}%</span> ({`num`})
                 </p>
               </div>
-              <p>delivery time</p>
+              <p>🚀 {`price`} $</p>
+              <p>{`min`}' 🕔</p>
             </div>
           </a>
           <a href="#" className="gallery-unit-link">
             <div className="gallery-unit">
-              <img src="unit image" alt="" />
-              <h1 className="unit-title">Gallery unit</h1>
+              <p className="brand-name">Brand Unit</p>
             </div>
             <div className="unit-info">
               <div>
                 <p>
-                  <span>rate</span>_ numbers
+                  <span>👍 {`100`}%</span> ({`num`})
                 </p>
               </div>
-              <p>delivery time</p>
+              <p>🚀 {`price`} $</p>
+              <p>{`min`}' 🕔</p>
             </div>
           </a>
         </div>
@@ -152,6 +152,7 @@ const Wrapper = styled.section`
     display: block;
     width: 90%;
   }
+
   .curve {
     position: absolute;
     width: 100%;
@@ -161,30 +162,44 @@ const Wrapper = styled.section`
   .gallery-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(5, 1fr);
-    row-gap: 2rem;
-    column-gap: 2rem;
-    padding-bottom: 0;
+    grid-template-rows: repeat(4, 32rem);
+    row-gap: 4rem;
+    column-gap: 4rem;
+    padding-bottom: 4rem;
   }
 
   .gallery-unit {
-    display: flex;
-    min-hight: 10rem;
-    font-size: 4rem;
-    align-items: center;
-    justify-content: center;
-    border: solid black 1px;
+    width: 100%;
+    text-align: center;
+    font-size: 6rem;
+    background-image: url(https://res.cloudinary.com/glovoapp/w_450,h_250,c_fill,f_auto,q_30/Stores/kjs9mixrpbf3zoqhtiv1);
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .gallery-unit-link {
-    border: solid black 1px;
+    // width: 45rem;
+    // border: solid black 1px;
+    border-radius: 1rem;
     text-decoration: none;
-    padding: 1rem 1rem;
+    // padding: 1rem 1rem;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
+    transition: all 1s;
+  }
+
+  a:hover {
+    transition: all 1s;
+    .gallery-unit {
+      transform: scale(1.1);
+    }
   }
 
   .unit-info {
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
+    overflow: visible;
   }
 
   .title {
@@ -196,6 +211,13 @@ const Wrapper = styled.section`
     font-size: 3rem;
     font-weight: 600;
     position: relative;
+  }
+
+  .brand-name {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    color: #fff;
+    z-index: 99;
   }
 
   .food-deco {
