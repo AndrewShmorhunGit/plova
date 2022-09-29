@@ -8,17 +8,12 @@ import {
 } from "../components/index";
 
 export function BrandPage() {
-  const val: boolean = true;
+  // const val: boolean = true;
 
   return (
     <>
-      {val ? (
-        <>
-          <Header />
-        </>
-      ) : (
-        <InputHeader />
-      )}
+      <Header />
+      <InputHeader />
       <Sections />
       <Products />
       <Cart />

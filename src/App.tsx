@@ -17,7 +17,6 @@ function App() {
   return (
     <Router>
       {/* <NavBar /> */}
-
       {/* <SideBar /> */}
       <Routes>
         <Route path="/" element={<HomePage />} />
