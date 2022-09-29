@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import footerLogo1 from "../logos/footerLogo1.png";
-import { BrandGrid, SideBar } from "./index";
+import { SideBar } from "./index";
 
 export const Header = () => {
   return (
@@ -16,7 +16,6 @@ export const Header = () => {
               <SideBar />
             </div>
           </div>
-          <BrandGrid />
         </div>
       </header>
     </Wrapper>

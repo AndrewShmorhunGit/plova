@@ -1,11 +1,5 @@
 import { Link } from "react-router-dom";
-import {
-  Header,
-  Sections,
-  Cart,
-  Products,
-  InputHeader,
-} from "../components/index";
+import { Header, BrandGrid, InputHeader } from "../components/index";
 
 export function BrandPage() {
   // const val: boolean = true;
@@ -14,9 +8,7 @@ export function BrandPage() {
     <>
       <Header />
       <InputHeader />
-      <Sections />
-      <Products />
-      <Cart />
+      <BrandGrid />
       <Link to="/">Back Home</Link>
     </>
   );
