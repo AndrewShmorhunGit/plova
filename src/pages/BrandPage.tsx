@@ -8,8 +8,8 @@ export function BrandPage() {
     <>
       <Header />
       <InputHeader />
-      <BrandGrid />
       <Link to="/">Back Home</Link>
+      <BrandGrid />
     </>
   );
 }

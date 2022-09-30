@@ -31,15 +31,18 @@ export const Partnership = () => {
             })}
           </div>
         </div>
+        <div className="transition"></div>
       </section>
     </Wrapper>
   );
 };
 
-const Wrapper = styled.main`
+const Wrapper = styled.section`
+  position: relative;
+
   .cooperation {
     background-color: #e9f8f5;
-    padding: 6.4rem;
+    padding: 6.4rem 0 18rem 0;
     hight: 100%;
   }
 
@@ -65,6 +68,17 @@ const Wrapper = styled.main`
 
   .btn-join {
     width: 15rem;
+  }
+
+  .transition {
+    width: 120%;
+    height: 16rem;
+    background-color: #1d1d1d;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    position: absolute;
+    bottom: -10rem;
+    left: -10%;
   }
 
   h1 {
