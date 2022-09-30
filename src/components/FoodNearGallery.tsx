@@ -19,8 +19,11 @@ export const FoodNearGallery = () => {
         <div className="gallery-container">
           {/* Will be programmatically from units or server */}
           <a href="#" className="gallery-unit-link">
-            <div className="gallery-unit">
-              <p className="brand-name">Brand Unit</p>
+            <div className="div-container ">
+              <div className="gallery-unit">
+                <div className=" overlay"></div>
+                <p className="brand-name">Brand Unit</p>
+              </div>
             </div>
             <div className="unit-info">
               <div>
@@ -33,8 +36,11 @@ export const FoodNearGallery = () => {
             </div>
           </a>
           <a href="#" className="gallery-unit-link">
-            <div className="gallery-unit">
-              <p className="brand-name">Brand Unit</p>
+            <div className="div-container ">
+              <div className="gallery-unit">
+                <div className=" overlay"></div>
+                <p className="brand-name">Brand Unit</p>
+              </div>
             </div>
             <div className="unit-info">
               <div>
@@ -47,8 +53,11 @@ export const FoodNearGallery = () => {
             </div>
           </a>
           <a href="#" className="gallery-unit-link">
-            <div className="gallery-unit">
-              <p className="brand-name">Brand Unit</p>
+            <div className="div-container ">
+              <div className="gallery-unit">
+                <div className=" overlay"></div>
+                <p className="brand-name">Brand Unit</p>
+              </div>
             </div>
             <div className="unit-info">
               <div>
@@ -61,8 +70,11 @@ export const FoodNearGallery = () => {
             </div>
           </a>
           <a href="#" className="gallery-unit-link">
-            <div className="gallery-unit">
-              <p className="brand-name">Brand Unit</p>
+            <div className="div-container ">
+              <div className="gallery-unit">
+                <div className=" overlay"></div>
+                <p className="brand-name">Brand Unit</p>
+              </div>
             </div>
             <div className="unit-info">
               <div>
@@ -75,8 +87,11 @@ export const FoodNearGallery = () => {
             </div>
           </a>
           <a href="#" className="gallery-unit-link">
-            <div className="gallery-unit">
-              <p className="brand-name">Brand Unit</p>
+            <div className="div-container ">
+              <div className="gallery-unit">
+                <div className=" overlay"></div>
+                <p className="brand-name">Brand Unit</p>
+              </div>
             </div>
             <div className="unit-info">
               <div>
@@ -89,8 +104,11 @@ export const FoodNearGallery = () => {
             </div>
           </a>
           <a href="#" className="gallery-unit-link">
-            <div className="gallery-unit">
-              <p className="brand-name">Brand Unit</p>
+            <div className="div-container ">
+              <div className="gallery-unit">
+                <div className=" overlay"></div>
+                <p className="brand-name">Brand Unit</p>
+              </div>
             </div>
             <div className="unit-info">
               <div>
@@ -103,8 +121,11 @@ export const FoodNearGallery = () => {
             </div>
           </a>
           <a href="#" className="gallery-unit-link">
-            <div className="gallery-unit">
-              <p className="brand-name">Brand Unit</p>
+            <div className="div-container ">
+              <div className="gallery-unit">
+                <div className=" overlay"></div>
+                <p className="brand-name">Brand Unit</p>
+              </div>
             </div>
             <div className="unit-info">
               <div>
@@ -117,8 +138,28 @@ export const FoodNearGallery = () => {
             </div>
           </a>
           <a href="#" className="gallery-unit-link">
-            <div className="gallery-unit">
-              <p className="brand-name">Brand Unit</p>
+            <div className="div-container ">
+              <div className="gallery-unit">
+                <div className=" overlay"></div>
+                <p className="brand-name">Brand Unit</p>
+              </div>
+            </div>
+            <div className="unit-info">
+              <div>
+                <p>
+                  <span>👍 {`100`}%</span> ({`num`})
+                </p>
+              </div>
+              <p>🚀 {`price`} $</p>
+              <p>{`min`}' 🕔</p>
+            </div>
+          </a>
+          <a href="#" className="gallery-unit-link">
+            <div className="div-container ">
+              <div className="gallery-unit">
+                <div className=" overlay"></div>
+                <p className="brand-name">Brand Unit</p>
+              </div>
             </div>
             <div className="unit-info">
               <div>
@@ -161,45 +202,70 @@ const Wrapper = styled.section`
 
   .gallery-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, 32rem);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, 24rem);
     row-gap: 4rem;
     column-gap: 4rem;
     padding-bottom: 4rem;
   }
 
   .gallery-unit {
-    width: 100%;
+    width: auto;
+    height: 18rem;
     text-align: center;
-    font-size: 6rem;
+    // font-size: 4rem;
     background-image: url(https://res.cloudinary.com/glovoapp/w_450,h_250,c_fill,f_auto,q_30/Stores/kjs9mixrpbf3zoqhtiv1);
     background-repeat: no-repeat;
     background-size: cover;
+    transition: all 0.5s;
+  }
+
+  .brand-name {
+    position: absolute;
+    top: 8.5%;
+    bottom: 10%;
+    right: 10%;
+    left: 10%;
+    color: #fff;
+    text-align: center;
+    text-transform: capitalize;
+    padding: 6rem 5rem 5rem 5rem;
+    font-size: 3.2rem;
+    z-index: 3;
+  }
+  .overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 3;
+  }
+
+  .div-container {
+    overflow: hidden;
+    position: relative;
   }
 
   .gallery-unit-link {
-    // width: 45rem;
-    // border: solid black 1px;
+    height: 22rem;
     border-radius: 1rem;
     text-decoration: none;
-    // padding: 1rem 1rem;
-    overflow: hidden;
     box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
-    transition: all 1s;
+    overflow: hidden;
   }
 
-  a:hover {
-    transition: all 1s;
+  .gallery-unit-link:hover {
     .gallery-unit {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
   }
 
   .unit-info {
-    padding: 1rem 2rem;
+    height: 5rem;
+    padding: 2rem 2rem 4rem 2rem;
     display: flex;
     justify-content: space-between;
-    overflow: visible;
+    align-items: center;
+    z-index: 2;
   }
 
   .title {
@@ -211,13 +277,6 @@ const Wrapper = styled.section`
     font-size: 3rem;
     font-weight: 600;
     position: relative;
-  }
-
-  .brand-name {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
-    color: #fff;
-    z-index: 99;
   }
 
   .food-deco {

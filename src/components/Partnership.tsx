@@ -24,7 +24,7 @@ export const Partnership = () => {
                   <h2 className="sub-title center">{item.theme}</h2>
                   <p className="center">{item.text}</p>
                   <a href={item.linkTo} className="btn-join btn center">
-                    Join us!
+                    Join!
                   </a>
                 </div>
               );
@@ -67,7 +67,7 @@ const Wrapper = styled.section`
   }
 
   .btn-join {
-    width: 15rem;
+    width: 12rem;
   }
 
   .transition {
