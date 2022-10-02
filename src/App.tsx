@@ -1,5 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Footer, NavBar, SideBar } from "./components";
+import {
+  Footer,
+  //  NavBar
+} from "./components";
 import {
   BrandPage,
   CategoryPage,
@@ -13,8 +16,9 @@ import {
 function App() {
   return (
     <Router>
-      <NavBar />
-      <SideBar />
+      {/* <NavBar /> */}
+
+      {/* <SideBar /> */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/brand" element={<BrandPage />} />

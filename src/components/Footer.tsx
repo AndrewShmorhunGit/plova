@@ -14,6 +14,13 @@ export const Footer = () => {
 
   return (
     <Wrapper>
+      {/* <div className="decoration-svg center">
+        <img
+          src="https://couriers.glovoapp.com/svg/curve.svg"
+          alt="deco-curve"
+          className="curve"
+        />
+      </div> */}
       <footer className="app-footer">
         <div className="container">
           <img src={footerLogo1} alt="plova logo" className="footer-logo" />
@@ -68,10 +75,10 @@ export const Footer = () => {
             </div>
             <div className="popular">
               <h2>Popular brands: {country}</h2>
-              <div className="country-links">
+              <div className="country-links center">
                 {brands.map((item, index) => {
                   return (
-                    <a key={index} href="#">
+                    <a key={index} href={`#${item}`} className="link">
                       <p>{item}</p>
                     </a>
                   );
@@ -80,11 +87,12 @@ export const Footer = () => {
             </div>
             <div className="categories">
               <h2>Top categories: {country}</h2>
-              <div className="country-links">
+              <div className="country-links center">
                 {categories.map((item, index) => {
+                  const { category } = item;
                   return (
-                    <a key={index} href="#">
-                      <p>{item}</p>
+                    <a key={index} href={`#${category}`} className="link">
+                      <p>{category}</p>
                     </a>
                   );
                 })}
@@ -99,18 +107,21 @@ export const Footer = () => {
 
 const Wrapper = styled.main`
   .app-footer {
-    // min-hight: 20vh;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: flex-start;
     background-color: #1d1d1dff;
-    z-index: 9;
-    // border-image-source: var(--footer-wave-desktop);
-    background-clip: padding-box;
-    // border-image-slice: 68 0 0;
     border-top: 6.8rem solid transparent;
     padding-bottom: 4.2rem;
   }
+
+  // .decoration-swg {
+  //   padding-top: 5rem;
+  //   display: block;
+  //   width: 90%;
+  // }
+  // .curve {
+  //   position: absolute;
+  //   width: 100%;
+  //   object-fit: cover;
+  // }
 
   h2 {
     // font-size: 2rem;
@@ -166,5 +177,14 @@ const Wrapper = styled.main`
     display: flex;
     padding: 1rem 2rem;
     gap: 1rem;
+  }
+
+  .link {
+    display: inline;
+    min-width: auto;
+  }
+
+  p {
+    text-align: center;
   }
 `;

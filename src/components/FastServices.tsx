@@ -1,64 +1,194 @@
 import styled from "styled-components";
+import { categories } from "../units/data";
+import { useState } from "react";
+import { FaChevronDown } from "react-icons/fa";
+import locationLogoYellow from "../logos/locationLogoYellow.png";
+import { LocationInput } from "./index";
+
+const address: string = "136 Pym St, Nottingham";
 
 export const FastServices = () => {
-  return <Wrapper>FastServices</Wrapper>;
+  const [showLocation, setShowLocation] = useState(false);
+  const location: boolean = false;
+
+  return (
+    <Wrapper>
+      <section className="landing-jumbotron">
+        {location ? (
+          <div
+            className="user-address-content"
+            onClick={() => setShowLocation(!showLocation)}
+          >
+            <div className="user-address-content-text">
+              <p>
+                Delivery to the address:
+                <span className="address-content-text">{` ${address}`}</span>
+              </p>
+              <div className="chevron">
+                <FaChevronDown />
+              </div>
+            </div>
+          </div>
+        ) : (
+          <LocationInput />
+        )}
+        <div className="categories-container">
+          {categories.map((item) => {
+            const { id, category } = item;
+            return (
+              <a key={id} href={`#${category}`} className={`link-bubble`}>
+                <div
+                  className="category"
+                  style={{
+                    animationName: `categories-appear`,
+                    animationDuration: `${id * 0.1}s`,
+                    animationDelay: `${id * 0.2}s`,
+                    animationFillMode: "backwards",
+                  }}
+                >
+                  <img
+                    className="category-logo"
+                    src={locationLogoYellow}
+                    alt={`${category} logo`}
+                  />
+                  <p className="category-text">{category}</p>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    </Wrapper>
+  );
 };
 
-const Wrapper = styled.main`
-  .search-adapter[data-v-c65ad7b0] {
-    height: 0;
-    transition: height 0.3s ease;
-    background-color: var(--helio-color-globalBackground);
-  }
-  .landing__jumbotron[data-v-c65ad7b0] {
+const Wrapper = styled.section`
+  .landing-jumbotron {
     display: flex;
-    background-color: var(--helio-color-globalBackground);
-    overflow: hidden;
-    position: relative;
-    padding-bottom: var(--helio-space-3XL);
-  }
-  .landing__jumbotron[data-v-c65ad7b0] {
-    display: flex;
-    background-color: var(--helio-color-globalBackground);
-    overflow: hidden;
-    position: relative;
-    padding-bottom: var(--helio-space-3XL);
-  }
-  .landing__jumbotron__container[data-v-c65ad7b0] {
-    min-width: 0;
-    margin: auto;
-  }
-  .landing__address-input[data-v-c65ad7b0] {
-    display: flex;
+    flex-direction: column;
+    gap: 3rem;
     justify-content: center;
-    margin-bottom: 20px;
-    margin-top: 48px;
-  }
-  .current-address-container[data-v-b74a28ec] {
-    position: relative;
-    display: block;
-  }
-  .address-picker-wrapper[data-v-393121f2] {
-    position: relative;
-    height: 50px;
-  }
-  .address-picker[data-v-393121f2] {
-    font-size: 24px;
-    line-height: 1.2;
-    font-weight: 300;
-    color: var(--helio-color-primaryText);
-    text-align: center;
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    padding-left: 6px;
-  }
-  .address-picker__address[data-v-393121f2] {
-    font-size: 24px;
-    line-height: 1.2;
-    font-weight: 700;
-    display: flex;
     align-items: center;
-    margin-left: 5px;
+    background-color: #ffc244ff;
+    padding-bottom: 6.4rem;
+    padding-top: 4.8rem;
+  }
+
+  .user-address-content {
+    font-size: 2.4rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .user-address-content-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.05rem;
+  }
+
+  .address-content-text {
+    cursor: pointer;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+  }
+
+  .chevron {
+    margin-bottom: -0.6rem;
+    padding-left: 1rem;
+    width: 3rem;
+    cursor: pointer;
+  }
+
+  .categories-container {
+    max-width: 70rem;
+    min-height: 30rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+
+  .category-text {
+    font-size: 1.4rem;
+  }
+
+  .category {
+    box-shadow: none;
+    border: none;
+    text-align: center;
+    flex-direction: row;
+    // -webkit-user-select: none;
+    // -moz-user-select: none;
+    user-select: none;
+    height: 11.5rem;
+    width: 11.5rem;
+    font-size: 1rem;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.5s;
+    // animation-name: categories-appear;
+    // animation-duration: 0.5s;
+  }
+
+  .category:hover {
+    transform: scale(1.1);
+  }
+
+  .category-logo {
+    max-width: 70%;
+  }
+
+  .link-bubble {
+    text-decoration: none;
+
+    color: #343a40;
+    margin: 1rem;
+    border-radius: 50%;
+  }
+
+  .link3 {
+    display: none;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  @keyframes categories-appear {
+    0% {
+      transform: translateZ(-1rem);
+      opacity: 0;
+      height: 1rem;
+      width: 1rem;
+    }
+    ,
+    25% {
+      // opacity: 50%;
+      height: 3rem;
+      width: 3rem;
+    }
+    ,
+    50% {
+      display: none
+      height: 6rem;
+      width: 6rem;
+    }
+
+    ,
+    75% {
+      height: 9rem;
+      width: 9rem;
+    }
+
+    ,
+    100% {
+      // display:block;
+      opacity: 100%;
+      height: 11.5rem;
+      width: 11.5rem;
+    }
   }
 `;

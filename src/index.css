@@ -14,10 +14,10 @@ body {
   font-weight: 300;
   font-size: 14px;
   color: var(--helio-color-primaryText);
-  -webkit-font-smoothing: antialiased;
+  /* -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
   -webkit-tap-highlight-color: transparent;
-  overflow-x: hidden;
+  overflow-x: hidden; */
 }
 .app-wrapper {
   height: auto;
@@ -32,6 +32,69 @@ body {
   width: 70vw;
   margin: 0 auto;
   max-width: var(--max-width);
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  background-color: #cccccc;
+  color: #00a082;
+  text-align: center;
+  text-decoration: none;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  height: 3.6rem;
+  width: auto;
+  border-radius: 2.4rem;
+  font-size: 2rem;
+  font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 700;
+  box-shadow: 0 3px 5px 0 #0000001a;
+  border: none;
+  letter-spacing: 0.2rem;
+}
+
+.btn:hover {
+  background-color: #008068;
+  color: #cccccc;
+  cursor: pointer;
+}
+
+.block {
+  display: block;
+}
+
+/* REUSABLE GRID */
+
+.grid {
+  display: grid;
+  column-gap: 9.6rem;
+  row-gap: 9.6rem;
+  /* margin-bottom: 9.6rem; */
+}
+
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
 }
 
 style {

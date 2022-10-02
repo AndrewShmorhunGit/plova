@@ -4,20 +4,25 @@ import headerLogo from "../logos/headerLogo.png";
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
-export const NavBar = () => {
+export const NavBar = ({
+  showRegistration,
+  setShowRegistration,
+}: {
+  showRegistration: boolean;
+  setShowRegistration: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const [showLocation, setShowLocation] = useState(false);
-  const [showSignUpForm, setShowSignUpForm] = useState(false);
 
   console.log(
-    `выбор локации: ${showLocation} |`,
-    `окно регистрации: ${showSignUpForm}`
+    `выбор локации: ${showLocation} |`
+    // `окно регистрации: ${showSignUpForm}`
   );
 
   const address: string = "136 Pym St, Nottingham";
   const search: string = "Search";
   return (
     <Wrapper>
-      <header>
+      <header className="nav-sticky">
         <div className="header-for-city-page">
           <div className="header-layout">
             <Link to="/">
@@ -73,7 +78,7 @@ export const NavBar = () => {
               </div>
               <button
                 className="btn-start"
-                onClick={() => setShowSignUpForm(!showSignUpForm)}
+                onClick={() => setShowRegistration(!showRegistration)}
               >
                 Start!
               </button>
@@ -86,6 +91,11 @@ export const NavBar = () => {
 };
 
 const Wrapper = styled.header`
+  // .nav-sticky {
+  //   position: sticky;
+  //   top: 0;
+  // }
+
   .header-for-city-page {
     background-color: #ffc244ff;
     position: relative;

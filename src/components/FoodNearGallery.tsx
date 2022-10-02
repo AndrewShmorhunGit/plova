@@ -1,85 +1,238 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const FoodNearGallery = () => {
-  return <Wrapper>FoodNearGallery</Wrapper>;
+  return (
+    <Wrapper>
+      <div className="decoration-svg">
+        <img
+          src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/curve--small.svg"
+          alt="deco-curve"
+          className="curve"
+        />
+      </div>
+      <section className="container gallery">
+        <div className="title">
+          <div className="food-deco">div</div>
+          <span className="food-title">Food near you</span>
+        </div>
+        <div className="gallery-container">
+          {/* Will be programmatically from units or server */}
+          <a href="#" className="gallery-unit-link">
+            <div className="gallery-unit">
+              <img src="unit image" alt="" />
+              <h1 className="unit-title">Gallery unit</h1>
+            </div>
+            <div className="unit-info">
+              <div>
+                <p>
+                  <span>rate</span>_ numbers
+                </p>
+              </div>
+              <p>delivery time</p>
+            </div>
+          </a>
+          <a href="#" className="gallery-unit-link">
+            <div className="gallery-unit">
+              <img src="unit image" alt="" />
+              <h1 className="unit-title">Gallery unit</h1>
+            </div>
+            <div className="unit-info">
+              <div>
+                <p>
+                  <span>rate</span>_ numbers
+                </p>
+              </div>
+              <p>delivery time</p>
+            </div>
+          </a>
+          <a href="#" className="gallery-unit-link">
+            <div className="gallery-unit">
+              <img src="unit image" alt="" />
+              <h1 className="unit-title">Gallery unit</h1>
+            </div>
+            <div className="unit-info">
+              <div>
+                <p>
+                  <span>rate</span>_ numbers
+                </p>
+              </div>
+              <p>delivery time</p>
+            </div>
+          </a>
+          <a href="#" className="gallery-unit-link">
+            <div className="gallery-unit">
+              <img src="unit image" alt="" />
+              <h1 className="unit-title">Gallery unit</h1>
+            </div>
+            <div className="unit-info">
+              <div>
+                <p>
+                  <span>rate</span>_ numbers
+                </p>
+              </div>
+              <p>delivery time</p>
+            </div>
+          </a>
+          <a href="#" className="gallery-unit-link">
+            <div className="gallery-unit">
+              <img src="unit image" alt="" />
+              <h1 className="unit-title">Gallery unit</h1>
+            </div>
+            <div className="unit-info">
+              <div>
+                <p>
+                  <span>rate</span>_ numbers
+                </p>
+              </div>
+              <p>delivery time</p>
+            </div>
+          </a>
+          <a href="#" className="gallery-unit-link">
+            <div className="gallery-unit">
+              <img src="unit image" alt="" />
+              <h1 className="unit-title">Gallery unit</h1>
+            </div>
+            <div className="unit-info">
+              <div>
+                <p>
+                  <span>rate</span>_ numbers
+                </p>
+              </div>
+              <p>delivery time</p>
+            </div>
+          </a>
+          <a href="#" className="gallery-unit-link">
+            <div className="gallery-unit">
+              <img src="unit image" alt="" />
+              <h1 className="unit-title">Gallery unit</h1>
+            </div>
+            <div className="unit-info">
+              <div>
+                <p>
+                  <span>rate</span>_ numbers
+                </p>
+              </div>
+              <p>delivery time</p>
+            </div>
+          </a>
+          <a href="#" className="gallery-unit-link">
+            <div className="gallery-unit">
+              <img src="unit image" alt="" />
+              <h1 className="unit-title">Gallery unit</h1>
+            </div>
+            <div className="unit-info">
+              <div>
+                <p>
+                  <span>rate</span>_ numbers
+                </p>
+              </div>
+              <p>delivery time</p>
+            </div>
+          </a>
+        </div>
+        <div className="center">
+          <Link to="/brand" className="btn-more center">
+            See More Restaurants
+          </Link>
+        </div>
+      </section>
+    </Wrapper>
+  );
 };
 
-const Wrapper = styled.main`
-  .city-highlights[data-v-8eb533ce] {
-    width: 100%;
+const Wrapper = styled.section`
+  .gallery {
+    display: block;
+    color: #212529;
+    padding-bottom: 4rem;
   }
-  .city-highlights__curve[data-v-8eb533ce] {
+
+  .decoration-swg {
+    display: block;
+    width: 90%;
+  }
+  .curve {
     position: absolute;
     width: 100%;
-    -o-object-fit: cover;
     object-fit: cover;
   }
-  img {
-    border-style: none;
-  }
-  .city-highlights__curve--mobile[data-v-8eb533ce] {
-    display: none;
-  }
-  @media (min-width: 1025px) .landing-highlights[data-v-8eb533ce] {
-    padding-top: var(--helio-space-2XL);
-  }
-  .landing-highlights[data-v-8eb533ce] {
-    position: relative;
-  }
-  .container {
-    margin: 0 auto;
-    max-width: 1120px;
-    padding: 0;
-    position: relative;
-    width: 100%;
-    box-sizing: border-box;
+
+  .gallery-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    row-gap: 2rem;
+    column-gap: 2rem;
+    padding-bottom: 0;
   }
 
-  // element.style {
-  //   --background-image: url(https\:\/\/res\.cloudinary\.com\/glovoapp\/image\/fetch\/\/q_auto\/https\:\/\/glovoapp\.com\/images\/svg\/highlights\.svg);
-  // }
-
-  .highlights-title[data-v-2da59028] {
-    color: var(--helio-color-primaryText);
-    font-size: 20px;
-    line-height: 1.4;
-    font-weight: 400;
-    width: 100%;
-    text-align: center;
-    margin: 0;
-  }
-  h3 {
-    display: block;
-    font-size: 1.17em;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-  }
-  .collection {
-    padding: 10px 0;
-    flex-wrap: wrap;
-  }
-  .cols {
+  .gallery-unit {
     display: flex;
-    flex-wrap: wrap;
-    margin-left: -0.75%;
-    margin-right: -0.75%;
+    min-hight: 10rem;
+    font-size: 4rem;
+    align-items: center;
+    justify-content: center;
+    border: solid black 1px;
   }
-  .landing-highlights__view-all[data-v-62430906] {
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    margin: 0 auto 100px;
+
+  .gallery-unit-link {
+    border: solid black 1px;
+    text-decoration: none;
+    padding: 1rem 1rem;
+  }
+
+  .unit-info {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .title {
+    padding-top: 8rem;
+    padding-bottom: 3.6rem;
+  }
+
+  .food-title {
+    font-size: 3rem;
+    font-weight: 600;
+    position: relative;
+  }
+
+  .food-deco {
+    overflow: hidden;
+    position: absolute;
+    border-radius: 10rem;
+    margin-top: 1rem;
+    margin-left: -0.3rem;
+    min-hight: 2rem;
+    min-width: 8.5rem;
+    padding: 0 0.6rem;
+    font-size: 1.8rem;
+    color: #ffc244ff;
+    background-color: #ffc244ff;
+  }
+
+  .btn-more {
+    background-color: #cccccc;
+    color: #00a082;
     text-align: center;
-    cursor: pointer;
-    background: var(--helio-color-softAccentBackground);
-    border-radius: 34px;
-    padding: 8px 16px;
-    color: var(--helio-color-accent);
-    font-size: 18px;
-    line-height: 1.4;
+    text-decoration: none;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    height: 4.8rem;
+    width: auto;
+    border-radius: 2.4rem;
+    font-size: 2rem;
+    font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
     font-weight: 700;
+    box-shadow: 0 3px 5px 0 #0000001a;
+    border: none;
+    letter-spacing: 0.2rem;
+  }
+
+  .btn-more:hover {
+    background-color: #008068;
+    color: #cccccc;
+    cursor: pointer;
   }
 `;

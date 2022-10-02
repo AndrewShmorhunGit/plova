@@ -14,6 +14,10 @@ import { StartOrderWindow } from "./StartOrderWindow";
 import { UserComponent } from "./UserComponent";
 import { ChooseLocation } from "./ChooseLocation";
 import { Registration } from "./Registration";
+import { Partnership } from "./Partnership";
+import { LocationInput } from "./LocationInput";
+import { SearchLocationModal } from "./SearchLocationModal";
+import { MapSearch } from "./MapSearch";
 
 export {
   Footer,
@@ -32,4 +36,8 @@ export {
   UserComponent,
   ChooseLocation,
   Registration,
+  Partnership,
+  LocationInput,
+  SearchLocationModal,
+  MapSearch,
 };
