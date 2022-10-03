@@ -1,7 +1,19 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { obj } from "../units/top12Data";
+import { dataDel } from "../units/top12DeliveryData";
+import { hrivnaToDollarConverter } from "../units/data";
 
 export const FoodNearGallery = () => {
+  const cutName = (name: string) => {
+    if (name.includes("/")) {
+      const newName = name.slice(0, name.indexOf("/") - 1);
+      return newName.toUpperCase();
+    } else {
+      return name.toUpperCase();
+    }
+  };
+
   return (
     <Wrapper>
       <div className="decoration-svg">
@@ -18,7 +30,7 @@ export const FoodNearGallery = () => {
         </div>
         <div className="gallery-container">
           {/* Will be programmatically from units or server */}
-          <a href="#" className="gallery-unit-link">
+          {/* <a href="#" className="gallery-unit-link">
             <div className="div-container ">
               <div className="gallery-unit">
                 <div className=" overlay"></div>
@@ -34,143 +46,54 @@ export const FoodNearGallery = () => {
               <p>🚀 {`price`} $</p>
               <p>{`min`}' 🕔</p>
             </div>
-          </a>
-          <a href="#" className="gallery-unit-link">
-            <div className="div-container ">
-              <div className="gallery-unit">
-                <div className=" overlay"></div>
-                <p className="brand-name">Brand Unit</p>
-              </div>
-            </div>
-            <div className="unit-info">
-              <div>
-                <p>
-                  <span>👍 {`100`}%</span> ({`num`})
-                </p>
-              </div>
-              <p>🚀 {`price`} $</p>
-              <p>{`min`}' 🕔</p>
-            </div>
-          </a>
-          <a href="#" className="gallery-unit-link">
-            <div className="div-container ">
-              <div className="gallery-unit">
-                <div className=" overlay"></div>
-                <p className="brand-name">Brand Unit</p>
-              </div>
-            </div>
-            <div className="unit-info">
-              <div>
-                <p>
-                  <span>👍 {`100`}%</span> ({`num`})
-                </p>
-              </div>
-              <p>🚀 {`price`} $</p>
-              <p>{`min`}' 🕔</p>
-            </div>
-          </a>
-          <a href="#" className="gallery-unit-link">
-            <div className="div-container ">
-              <div className="gallery-unit">
-                <div className=" overlay"></div>
-                <p className="brand-name">Brand Unit</p>
-              </div>
-            </div>
-            <div className="unit-info">
-              <div>
-                <p>
-                  <span>👍 {`100`}%</span> ({`num`})
-                </p>
-              </div>
-              <p>🚀 {`price`} $</p>
-              <p>{`min`}' 🕔</p>
-            </div>
-          </a>
-          <a href="#" className="gallery-unit-link">
-            <div className="div-container ">
-              <div className="gallery-unit">
-                <div className=" overlay"></div>
-                <p className="brand-name">Brand Unit</p>
-              </div>
-            </div>
-            <div className="unit-info">
-              <div>
-                <p>
-                  <span>👍 {`100`}%</span> ({`num`})
-                </p>
-              </div>
-              <p>🚀 {`price`} $</p>
-              <p>{`min`}' 🕔</p>
-            </div>
-          </a>
-          <a href="#" className="gallery-unit-link">
-            <div className="div-container ">
-              <div className="gallery-unit">
-                <div className=" overlay"></div>
-                <p className="brand-name">Brand Unit</p>
-              </div>
-            </div>
-            <div className="unit-info">
-              <div>
-                <p>
-                  <span>👍 {`100`}%</span> ({`num`})
-                </p>
-              </div>
-              <p>🚀 {`price`} $</p>
-              <p>{`min`}' 🕔</p>
-            </div>
-          </a>
-          <a href="#" className="gallery-unit-link">
-            <div className="div-container ">
-              <div className="gallery-unit">
-                <div className=" overlay"></div>
-                <p className="brand-name">Brand Unit</p>
-              </div>
-            </div>
-            <div className="unit-info">
-              <div>
-                <p>
-                  <span>👍 {`100`}%</span> ({`num`})
-                </p>
-              </div>
-              <p>🚀 {`price`} $</p>
-              <p>{`min`}' 🕔</p>
-            </div>
-          </a>
-          <a href="#" className="gallery-unit-link">
-            <div className="div-container ">
-              <div className="gallery-unit">
-                <div className=" overlay"></div>
-                <p className="brand-name">Brand Unit</p>
-              </div>
-            </div>
-            <div className="unit-info">
-              <div>
-                <p>
-                  <span>👍 {`100`}%</span> ({`num`})
-                </p>
-              </div>
-              <p>🚀 {`price`} $</p>
-              <p>{`min`}' 🕔</p>
-            </div>
-          </a>
-          <a href="#" className="gallery-unit-link">
-            <div className="div-container ">
-              <div className="gallery-unit">
-                <div className=" overlay"></div>
-                <p className="brand-name">Brand Unit</p>
-              </div>
-            </div>
-            <div className="unit-info">
-              <div>
-                <p>
-                  <span>👍 {`100`}%</span> ({`num`})
-                </p>
-              </div>
-              <p>🚀 {`price`} $</p>
-              <p>{`min`}' 🕔</p>
-            </div>
-          </a>
+          </a> */}
+          {obj.elements.map((item, index) => {
+            // console.log(item.singleData.storeData.store);
+            const store = item.singleData.storeData.store;
+
+            const delObj =
+              dataDel.elements[
+                dataDel.elements.findIndex(
+                  (obj, index, array) =>
+                    store.addressId === array[index].storeAddressId
+                )
+              ];
+
+            return (
+              <a href="#" key={store.id} className="gallery-unit-link">
+                <div className="div-container ">
+                  <div
+                    className="gallery-unit"
+                    style={{
+                      backgroundImage: `url(https://res.cloudinary.com/glovoapp/w_450,h_250,c_fill,f_auto,q_30/${store.imageId})`,
+                    }}
+                  >
+                    <div className="overlay"></div>
+                    <p className="brand-name">{cutName(store.name)}</p>
+                  </div>
+                </div>
+                <div className="unit-info">
+                  <div>
+                    <p>
+                      <span>👍 {store.ratingInfo.cardLabel}</span> (
+                      {store.ratingInfo.totalRatingLabel})
+                    </p>
+                  </div>
+                  <p>
+                    <span>
+                      🚀 {hrivnaToDollarConverter(store.serviceFee)} $
+                    </span>
+                  </p>
+
+                  <p>
+                    <span>
+                      {`${delObj.etaLowerBound}-${delObj.etaUpperBound} `} 🕔
+                    </span>
+                  </p>
+                </div>
+              </a>
+            );
+          })}
         </div>
         <div className="center">
           <Link to="/brand" className="btn-more center">
@@ -214,7 +137,7 @@ const Wrapper = styled.section`
     height: 18rem;
     text-align: center;
     // font-size: 4rem;
-    background-image: url(https://res.cloudinary.com/glovoapp/w_450,h_250,c_fill,f_auto,q_30/Stores/kjs9mixrpbf3zoqhtiv1);
+    background-image: url(https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/bckg-pattern.svg);
     background-repeat: no-repeat;
     background-size: cover;
     transition: all 0.5s;
@@ -227,10 +150,12 @@ const Wrapper = styled.section`
     right: 10%;
     left: 10%;
     color: #fff;
+    min-width: 20rem;
     text-align: center;
     text-transform: capitalize;
-    padding: 6rem 5rem 5rem 5rem;
-    font-size: 3.2rem;
+    padding: 6rem 1rem 5rem 1rem;
+    font-size: 2.6rem;
+    font-weight: 600;
     z-index: 3;
   }
   .overlay {
@@ -260,6 +185,7 @@ const Wrapper = styled.section`
   }
 
   .unit-info {
+    color: #343a40;
     height: 5rem;
     padding: 2rem 2rem 4rem 2rem;
     display: flex;

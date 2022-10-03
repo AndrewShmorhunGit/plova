@@ -10,14 +10,16 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  font-family: "Helvetica Neue", "Helvetica", sans-serif, "Gotham", "Arial";
+  font-family: "Segoe UI", "Helvetica Neue", "Helvetica", sans-serif, "Gotham",
+    "Arial";
   font-weight: 300;
   font-size: 14px;
   color: var(--helio-color-primaryText);
   /* -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
   -webkit-tap-highlight-color: transparent;
-  overflow-x: hidden; */
+  */
+  overflow-x: hidden;
 }
 .app-wrapper {
   height: auto;
@@ -102,6 +104,10 @@ body {
 
 .grid--5-cols {
   grid-template-columns: repeat(5, 1fr);
+}
+
+span {
+  font-weight: 600;
 }
 
 style {

@@ -39,10 +39,11 @@ export const BrandGrid = () => {
           <div className="menu-container">
             <p className="menu">longname menu</p>
             <strong className="chevron center">
+              {/* { toggle ? <BsChevronDown /> : <BsChevronUp /> ? } */}
               <BsChevronDown />
             </strong>
           </div>
-          <div className="sub-menu-container hide">
+          <div className={`sub-menu-container hide`}>
             <p className="sub-menu">sub-menu</p>
             <p className="sub-menu">sub-menu longname</p>
             <p className="sub-menu">sub-menu</p>
@@ -239,6 +240,7 @@ const Wrapper = styled.div`
 
   .sections-title {
     padding: 2rem 2rem;
+    text-transform: capitalize;
   }
 
   .menu {

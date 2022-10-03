@@ -11,7 +11,7 @@ export const Partnership = () => {
               alt=""
             />
           </div>
-          <h1 className="center">Lets do it together</h1>
+          <h1 className="center">Let's do it together</h1>
           <div className="join center">
             {cooperationData.map((item) => {
               return (
