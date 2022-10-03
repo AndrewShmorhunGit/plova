@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 
 export const BrandGrid = () => {
   return (
@@ -29,16 +30,59 @@ export const BrandGrid = () => {
         </div>
         <div className="grid-sections">
           <h3 className="sections-title">🍱 sections</h3>
-          <p className="sub-menu">sub menu</p>
-          <p className="sub-menu">sub menu</p>
-          <p className="sub-menu">sub menu</p>
-          <p className="sub-menu">sub menu</p>
-          <p className="sub-menu">sub menu</p>
-          <p className="sub-menu">sub menu</p>
-          <p className="sub-menu">sub menu</p>
-          <p className="sub-menu">sub menu</p>
-          <p className="sub-menu">sub menu</p>
-          <p className="sub-menu">sub menu</p>
+          <div className="menu-container">
+            <p className="menu">menu</p>
+            <strong className="chevron center">
+              <BsChevronDown />
+            </strong>
+          </div>
+          <div className="menu-container">
+            <p className="menu">longname menu</p>
+            <strong className="chevron center">
+              <BsChevronDown />
+            </strong>
+          </div>
+          <div className="sub-menu-container hide">
+            <p className="sub-menu">sub-menu</p>
+            <p className="sub-menu">sub-menu longname</p>
+            <p className="sub-menu">sub-menu</p>
+            <p className="sub-menu">sub-menu longname</p>
+            <p className="sub-menu">sub-menu</p>
+          </div>
+          <div className="menu-container">
+            <p className="menu">menu</p>
+            <strong className="chevron center">
+              <BsChevronUp />
+            </strong>
+          </div>
+          <div className="sub-menu-container">
+            <p className="sub-menu">sub-menu</p>
+            <p className="sub-menu">sub-menu longname</p>
+            <p className="sub-menu">sub-menu</p>
+            <p className="sub-menu">sub-menu longname</p>
+            <p className="sub-menu">sub-menu</p>
+          </div>
+          <div className="menu-container">
+            <p className="menu">menu</p>
+          </div>
+          <div className="menu-container">
+            <p className="menu">menu</p>
+          </div>
+          <div className="menu-container">
+            <p className="menu">menu</p>
+          </div>
+          <div className="menu-container">
+            <p className="menu">menu</p>
+          </div>
+          <div className="menu-container">
+            <p className="menu">menu</p>
+          </div>
+          <div className="menu-container">
+            <p className="menu">menu</p>
+          </div>
+          <div className="menu-container">
+            <p className="menu">menu</p>
+          </div>
         </div>
         <div className="grid-products">
           <form action="onSubmit" className="search-form">
@@ -49,10 +93,10 @@ export const BrandGrid = () => {
               className="search-input"
             />
           </form>
-          <h2 className="sub-title">sub menu(active)</h2>
+          <h2 className="sub-title">menu(active)</h2>
           <div className="products">
             <div className="product">
-              <p>sub menu</p>
+              <p>menu</p>
               <img
                 src="https://res.cloudinary.com/glovoapp/image/fetch//f_auto,q_auto/https://glovoapp.com/images/image_preview_card/placeholder.png"
                 alt=""
@@ -60,7 +104,7 @@ export const BrandGrid = () => {
               />
             </div>
             <div className="product">
-              <p>sub menu</p>
+              <p>menu</p>
               <img
                 src="https://res.cloudinary.com/glovoapp/image/fetch//f_auto,q_auto/https://glovoapp.com/images/image_preview_card/placeholder.png"
                 alt=""
@@ -68,11 +112,20 @@ export const BrandGrid = () => {
               />
             </div>
             <div className="single-product">
-              <h3 className="single-product-name">single product</h3>
-              <p className="single-product-description">product description</p>
-              <p className="single-product-image">product image</p>
-              <p className="single-product-price">price</p>
-              <p className="single-product-add">➕</p>
+              <div className="sp-div1">
+                <p className="single-product-image">image</p>
+                <div>
+                  <h4 className="single-product-name">single product</h4>
+                  <p className="single-product-description">
+                    Product description. Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Pariatur, eos.
+                  </p>
+                </div>
+              </div>
+              <div className="sp-div2">
+                <p className="single-product-price">price</p>
+                <p className="single-product-add">➕</p>
+              </div>
             </div>
           </div>
         </div>
@@ -83,6 +136,25 @@ export const BrandGrid = () => {
 };
 
 const Wrapper = styled.div`
+  .hide {
+    display: none;
+  }
+
+  .sub-menu {
+    background-color: #f5f5f5;
+    height: auto;
+    // width: 10rem;
+    padding: 2rem 2rem;
+    display: flex;
+    cursor: pointer;
+  }
+
+  .menu-container {
+    display: flex;
+    border-bottom: solid 1px grey;
+    cursor: pointer;
+  }
+
   margin-top: -10.5rem;
   margin-bottom: 5rem .brand-title {
     font-size: 3.6rem;
@@ -115,10 +187,11 @@ const Wrapper = styled.div`
     padding: 0 7.5vw;
     column-gap: 1.6rem;
     row-gap: 1.6rem;
+    height: auto;
   }
 
   .grid-title {
-    width: 60vw;
+    min-width: 60vw;
     grid-column: 1/3;
     grid-row: 1/2;
     box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
@@ -138,22 +211,45 @@ const Wrapper = styled.div`
   }
   .grid-sections {
     background-color: #fff;
-    text-transform: capitalize;
+    text-transform: uppercase;
+    width: 18rem;
+    height: 80vh;
+    overflow-y: scroll;
+    position: relative;
+    padding-bottom: 5rem;
   }
+
+  .transition {
+    margin-bottom: -7rem;
+    width: 120%;
+    height: 16rem;
+    background-color: #1d1d1d;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    position: absolute;
+    bottom: -22rem;
+    left: -10%;
+  }
+
   .grid-products {
     background-color: #fff;
     padding: 1rem 2rem;
     height: auto;
-    position: relative;
   }
 
   .sections-title {
     padding: 2rem 2rem;
   }
 
-  .sub-menu {
-    padding: 1rem 2rem;
-    border-bottom: solid 1px grey;
+  .menu {
+    height: auto;
+    width: 10rem;
+    padding: 2rem 2rem;
+    display: flex;
+  }
+
+  .chevron {
+    padding-left: 3rem;
   }
 
   .search-form {
@@ -204,6 +300,8 @@ const Wrapper = styled.div`
     border: none;
     position: relative;
     box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
+    cursor: pointer;
+    transition: all 0.5s;
   }
 
   .product-image {
@@ -215,23 +313,48 @@ const Wrapper = styled.div`
   .single-product {
     height: 16rem;
     margin: 1rem 1rem;
-    padding: 3rem 0 1rem 3rem;
+    padding: 1rem 1rem 1rem 1rem;
     background-color: #fff;
     box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
+    text-transform: none;
+    cursor: pointer;
+    transition: all 0.5s;
   }
 
-  .transition {
-    margin-bottom: -7rem;
-    width: 120%;
-    height: 16rem;
-    background-color: #1d1d1d;
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
-    position: absolute;
-    bottom: -10rem;
-    left: -10%;
+  .product:hover,
+  .single-product:hover {
+    transform: scale(1.05);
+  }
+
+  .sp-div1 {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .sp-div2 {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2.8rem;
+  }
+
+  .single-product-image {
+    display: block;
+    background-color: red;
+    border-radius: 1rem;
+    min-height: 9rem;
+    min-width: 9rem;
+  }
+
+  .single-product-name {
+    padding-bottom: 1rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  .single-product-description {
+    font-size: 1.4rem;
   }
 `;
