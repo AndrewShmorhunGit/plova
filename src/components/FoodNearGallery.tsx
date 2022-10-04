@@ -25,8 +25,10 @@ export const FoodNearGallery = () => {
       </div>
       <section className="container gallery">
         <div className="title">
-          <div className="food-deco">div</div>
-          <span className="food-title">Food near you</span>
+          <span className="food-title">
+            <div className="food-deco">Food</div> near you
+            <div className="deco"></div>
+          </span>
         </div>
         <div className="gallery-container">
           {/* Will be programmatically from units or server */}
@@ -81,13 +83,12 @@ export const FoodNearGallery = () => {
                   </div>
                   <p>
                     <span>
-                      🚀 {hrivnaToDollarConverter(store.serviceFee)} $
+                      🚴‍♂️ {` ${hrivnaToDollarConverter(store.serviceFee)}$  `}
                     </span>
-                  </p>
 
-                  <p>
                     <span>
-                      {`${delObj.etaLowerBound}-${delObj.etaUpperBound} `} 🕔
+                      {` /  ${delObj.etaLowerBound}-${delObj.etaUpperBound} `}
+                      🕔
                     </span>
                   </p>
                 </div>
@@ -97,7 +98,7 @@ export const FoodNearGallery = () => {
         </div>
         <div className="center">
           <Link to="/brand" className="btn-more center">
-            See More Restaurants
+            See more restaurants
           </Link>
         </div>
       </section>
@@ -106,10 +107,11 @@ export const FoodNearGallery = () => {
 };
 
 const Wrapper = styled.section`
+  // overflow-x: hide;
   .gallery {
     display: block;
     color: #212529;
-    padding-bottom: 4rem;
+    padding-bottom: 8rem;
   }
 
   .decoration-swg {
@@ -125,8 +127,8 @@ const Wrapper = styled.section`
 
   .gallery-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(3, 24rem);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 24rem);
     row-gap: 4rem;
     column-gap: 4rem;
     padding-bottom: 4rem;
@@ -158,6 +160,7 @@ const Wrapper = styled.section`
     font-weight: 600;
     z-index: 3;
   }
+
   .overlay {
     width: 100%;
     height: 100%;
@@ -187,6 +190,7 @@ const Wrapper = styled.section`
   .unit-info {
     color: #343a40;
     height: 5rem;
+    font-size: 1.6rem;
     padding: 2rem 2rem 4rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -200,32 +204,39 @@ const Wrapper = styled.section`
   }
 
   .food-title {
-    font-size: 3rem;
+    display: flex;
+    gap: 1rem;
+    font-size: 3.6rem;
     font-weight: 600;
-    position: relative;
+    // position: relative;
+  }
+
+  .deco {
+    width: 1rem;
+    height: 1.5rem;
+    background-color: red;
+    background-image: url(../images/design/highlights.svg);
+    background-size: cover;
   }
 
   .food-deco {
-    overflow: hidden;
-    position: absolute;
+    margin-top: 2.3rem;
+    display: flex;
+    align-items: flex-end;
+    // justify-content: flex-start;
+    height: 1.8rem;
     border-radius: 10rem;
-    margin-top: 1rem;
-    margin-left: -0.3rem;
-    min-hight: 2rem;
-    min-width: 8.5rem;
-    padding: 0 0.6rem;
-    font-size: 1.8rem;
-    color: #ffc244ff;
     background-color: #ffc244ff;
+    background-size: cover;
   }
 
   .btn-more {
-    background-color: #cccccc;
+    background-color: #e9f8f5;
     color: #00a082;
     text-align: center;
     text-decoration: none;
-    padding-left: 1.6rem;
-    padding-right: 1.6rem;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
     height: 4.8rem;
     width: auto;
     border-radius: 2.4rem;
@@ -234,12 +245,6 @@ const Wrapper = styled.section`
     font-weight: 700;
     box-shadow: 0 3px 5px 0 #0000001a;
     border: none;
-    letter-spacing: 0.2rem;
-  }
-
-  .btn-more:hover {
-    background-color: #008068;
-    color: #cccccc;
-    cursor: pointer;
+    // letter-spacing: 0.2rem;
   }
 `;

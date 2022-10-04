@@ -9,6 +9,7 @@ export const PopularNear = () => {
           <img
             src="https://res.cloudinary.com/glovoapp/image/fetch//w_140,h_140,q_auto/https://glovoapp.com/images/landing/cities.svg"
             alt="building pictures"
+            className="image"
           />
         </div>
         <h1 className="title center">Top Categories in `here`</h1>
@@ -49,10 +50,14 @@ const Wrapper = styled.section`
     font-size: 1.6rem;
     font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
     font-weight: 700;
-    box-shadow: 0 3px 5px 0 #0000001a;
     border: none;
     letter-spacing: 0.1rem;
     transition: all 0.5s;
+  }
+
+  .image {
+    height: 15rem;
+    margin-bottom: 2rem;
   }
 
   .link:hover {

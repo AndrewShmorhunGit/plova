@@ -1,16 +1,20 @@
 import styled from "styled-components";
 import { cooperationData } from "../units/data";
+// import corporateWaveDesktopPartnership from "../images/design/corporateWaveDesktopPartnership.svg";
+
 export const Partnership = () => {
   return (
     <Wrapper>
+      <div className="top-transition center">
+        <img
+          src="https://res.cloudinary.com/glovoapp/image/fetch//w_117,h_80,b_transparent,c_lpad,q_auto/https://glovoapp.com/images/corporate-container/together.svg"
+          alt=""
+          className="center"
+        />
+      </div>
+
       <section className="cooperation">
         <div className="container">
-          <div className="center">
-            <img
-              src="https://res.cloudinary.com/glovoapp/image/fetch//w_117,h_80,b_transparent,c_lpad,q_auto/https://glovoapp.com/images/corporate-container/together.svg"
-              alt=""
-            />
-          </div>
           <h1 className="center">Let's do it together</h1>
           <div className="join center">
             {cooperationData.map((item) => {
@@ -42,7 +46,7 @@ const Wrapper = styled.section`
 
   .cooperation {
     background-color: #e9f8f5;
-    padding: 6.4rem 0 18rem 0;
+    padding: 2.4rem 0 18rem 0;
     hight: 100%;
   }
 
@@ -69,6 +73,12 @@ const Wrapper = styled.section`
   .btn-join {
     width: 12rem;
   }
+  .top-transition {
+    // background-color: red;
+    // display: flex;
+    background-image: url(../images/design/corporateWaveDesktopPartnership.svg);
+    background-size: 100vw 10rem;
+  }
 
   .transition {
     width: 120%;
@@ -82,18 +92,21 @@ const Wrapper = styled.section`
   }
 
   h1 {
-    font-size: 3.6rem;
+    font-size: 4.6rem;
+    letter-spacing: 0.1rem;
     text-align: center;
+    padding-bottom: 4rem;
   }
 
   h2 {
-    font-size: 3rem;
+    font-size: 2.8rem;
     text-align: center;
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
   }
 
   p {
-    font-size: 1.8rem;
+    font-size: 2rem;
     text-align: center;
   }
 `;

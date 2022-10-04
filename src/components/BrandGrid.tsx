@@ -128,6 +128,118 @@ export const BrandGrid = () => {
                 <p className="single-product-add">➕</p>
               </div>
             </div>
+            <div className="single-product">
+              <div className="sp-div1">
+                <p className="single-product-image">image</p>
+                <div>
+                  <h4 className="single-product-name">single product</h4>
+                  <p className="single-product-description">
+                    Product description. Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Pariatur, eos.
+                  </p>
+                </div>
+              </div>
+              <div className="sp-div2">
+                <p className="single-product-price">price</p>
+                <p className="single-product-add">➕</p>
+              </div>
+            </div>
+            <div className="single-product">
+              <div className="sp-div1">
+                <p className="single-product-image">image</p>
+                <div>
+                  <h4 className="single-product-name">single product</h4>
+                  <p className="single-product-description">
+                    Product description. Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Pariatur, eos.
+                  </p>
+                </div>
+              </div>
+              <div className="sp-div2">
+                <p className="single-product-price">price</p>
+                <p className="single-product-add">➕</p>
+              </div>
+            </div>
+            <div className="single-product">
+              <div className="sp-div1">
+                <p className="single-product-image">image</p>
+                <div>
+                  <h4 className="single-product-name">single product</h4>
+                  <p className="single-product-description">
+                    Product description. Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Pariatur, eos.
+                  </p>
+                </div>
+              </div>
+              <div className="sp-div2">
+                <p className="single-product-price">price</p>
+                <p className="single-product-add">➕</p>
+              </div>
+            </div>
+            <div className="single-product">
+              <div className="sp-div1">
+                <p className="single-product-image">image</p>
+                <div>
+                  <h4 className="single-product-name">single product</h4>
+                  <p className="single-product-description">
+                    Product description. Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Pariatur, eos.
+                  </p>
+                </div>
+              </div>
+              <div className="sp-div2">
+                <p className="single-product-price">price</p>
+                <p className="single-product-add">➕</p>
+              </div>
+            </div>
+            <div className="single-product">
+              <div className="sp-div1">
+                <p className="single-product-image">image</p>
+                <div>
+                  <h4 className="single-product-name">single product</h4>
+                  <p className="single-product-description">
+                    Product description. Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Pariatur, eos.
+                  </p>
+                </div>
+              </div>
+              <div className="sp-div2">
+                <p className="single-product-price">price</p>
+                <p className="single-product-add">➕</p>
+              </div>
+            </div>
+            <div className="single-product">
+              <div className="sp-div1">
+                <p className="single-product-image">image</p>
+                <div>
+                  <h4 className="single-product-name">single product</h4>
+                  <p className="single-product-description">
+                    Product description. Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Pariatur, eos.
+                  </p>
+                </div>
+              </div>
+              <div className="sp-div2">
+                <p className="single-product-price">price</p>
+                <p className="single-product-add">➕</p>
+              </div>
+            </div>
+            <div className="single-product">
+              <div className="sp-div1">
+                <p className="single-product-image">image</p>
+                <div>
+                  <h4 className="single-product-name">single product</h4>
+                  <p className="single-product-description">
+                    Product description. Lorem ipsum dolor, sit amet consectetur
+                    adipisicing elit. Pariatur, eos.
+                  </p>
+                </div>
+              </div>
+              <div className="sp-div2">
+                <p className="single-product-price">price</p>
+                <p className="single-product-add">➕</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -193,6 +305,7 @@ const Wrapper = styled.div`
 
   .grid-title {
     min-width: 60vw;
+    min-height: 20vh;
     grid-column: 1/3;
     grid-row: 1/2;
     box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
@@ -223,19 +336,20 @@ const Wrapper = styled.div`
   .transition {
     margin-bottom: -7rem;
     width: 120%;
-    height: 16rem;
+    height: 15rem;
     background-color: #1d1d1d;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
     position: absolute;
-    bottom: -22rem;
+    bottom: -16rem;
     left: -10%;
   }
 
   .grid-products {
     background-color: #fff;
     padding: 1rem 2rem;
-    height: auto;
+    height: 75vh;
+    overflow-y: scroll;
   }
 
   .sections-title {
