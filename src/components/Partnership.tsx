@@ -28,7 +28,7 @@ export const Partnership = () => {
                   <h2 className="sub-title center">{item.theme}</h2>
                   <p className="center">{item.text}</p>
                   <a href={item.linkTo} className="btn-join btn center">
-                    Join!
+                    Join us
                   </a>
                 </div>
               );
@@ -43,6 +43,10 @@ export const Partnership = () => {
 
 const Wrapper = styled.section`
   position: relative;
+
+  .container {
+    padding-bottom: 6rem;
+  }
 
   .cooperation {
     background-color: #e9f8f5;
@@ -71,8 +75,14 @@ const Wrapper = styled.section`
   }
 
   .btn-join {
-    width: 12rem;
+    font-size: 2rem;
+    color: #fff;
+    padding: 2.5rem 6rem;
+    border-radius: 10rem;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
   }
+
   .top-transition {
     // background-color: red;
     // display: flex;
