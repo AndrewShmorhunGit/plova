@@ -31,7 +31,7 @@ body {
 }
 
 .container {
-  width: 70vw;
+  width: 60vw;
   margin: 0 auto;
   max-width: var(--max-width);
 }

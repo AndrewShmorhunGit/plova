@@ -43,7 +43,8 @@ export const Partnership = () => {
 
 const Wrapper = styled.section`
   position: relative;
-
+  overflow-x: hidden;
+  overflow-y: hidden;
   .container {
     padding-bottom: 6rem;
   }
