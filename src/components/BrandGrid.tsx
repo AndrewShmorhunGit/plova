@@ -29,7 +29,14 @@ export const BrandGrid = () => {
           <h1>Chart</h1>
         </div>
         <div className="grid-sections">
-          <h3 className="sections-title">🍱 sections</h3>
+          <div className="sections center">
+            <img
+              className="squares"
+              src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/sections-square.svg"
+              alt="squares"
+            />
+            <h3 className="sections-title">sections</h3>
+          </div>
           <div className="menu-container">
             <p className="menu">menu</p>
             <strong className="chevron center">
@@ -37,7 +44,7 @@ export const BrandGrid = () => {
             </strong>
           </div>
           <div className="menu-container">
-            <p className="menu">longname menu</p>
+            <p className="menu">long name menu</p>
             <strong className="chevron center">
               {/* { toggle ? <BsChevronDown /> : <BsChevronUp /> ? } */}
               <BsChevronDown />
@@ -45,9 +52,9 @@ export const BrandGrid = () => {
           </div>
           <div className={`sub-menu-container hide`}>
             <p className="sub-menu">sub-menu</p>
-            <p className="sub-menu">sub-menu longname</p>
+            <p className="sub-menu">sub-menu long name</p>
             <p className="sub-menu">sub-menu</p>
-            <p className="sub-menu">sub-menu longname</p>
+            <p className="sub-menu">sub-menu long name</p>
             <p className="sub-menu">sub-menu</p>
           </div>
           <div className="menu-container">
@@ -352,9 +359,19 @@ const Wrapper = styled.div`
     overflow-y: scroll;
   }
 
-  .sections-title {
-    padding: 2rem 2rem;
+  .sections {
+    display: flex;
+    padding: 2rem;
+    margin-left: -40%;
     text-transform: capitalize;
+    color: #00a082;
+    font-size: 1.2rem;
+  }
+
+  .squares {
+    height: 1.4rem;
+    width: 1.4rem;
+    margin-right: 0.4rem;
   }
 
   .menu {

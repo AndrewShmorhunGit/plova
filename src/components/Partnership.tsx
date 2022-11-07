@@ -15,7 +15,7 @@ export const Partnership = () => {
 
       <section className="cooperation">
         <div className="container">
-          <h1 className="center">Let's do it together</h1>
+          <h2 className="center">Let's do it together</h2>
           <div className="join center">
             {cooperationData.map((item) => {
               return (
@@ -25,7 +25,7 @@ export const Partnership = () => {
                     alt="working people"
                     className="cooperation-image center"
                   />
-                  <h2 className="sub-title center">{item.theme}</h2>
+                  <h3 className="sub-title center">{item.theme}</h3>
                   <p className="center">{item.text}</p>
                   <a href={item.linkTo} className="btn-join btn center">
                     Join us
@@ -45,6 +45,7 @@ const Wrapper = styled.section`
   position: relative;
   overflow-x: hidden;
   overflow-y: hidden;
+
   .container {
     padding-bottom: 6rem;
   }
@@ -61,7 +62,7 @@ const Wrapper = styled.section`
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(1, 1fr);
     row-gap: 4rem;
-    column-gap: 6rem;
+    column-gap: 3rem;
     padding-bottom: 0;
   }
 
@@ -102,14 +103,14 @@ const Wrapper = styled.section`
     left: -10%;
   }
 
-  h1 {
+  h2 {
     font-size: 4.6rem;
     letter-spacing: 0.1rem;
     text-align: center;
     padding-bottom: 4rem;
   }
 
-  h2 {
+  h3 {
     font-size: 2.8rem;
     text-align: center;
     font-weight: 700;
@@ -117,7 +118,8 @@ const Wrapper = styled.section`
   }
 
   p {
-    font-size: 2rem;
+    font-size: 1.7rem;
     text-align: center;
+    font-weight: 400;
   }
 `;
