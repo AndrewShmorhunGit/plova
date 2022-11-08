@@ -7,14 +7,19 @@ export const BrandGrid = () => {
       <div className="product-body">
         <div className="grid-title">
           <div className="brand-title">
-            <h1>Brand name</h1>
+            <h1>KFC</h1>
             <div className="icons">
               <p>
                 <strong>🕔</strong>
                 {`delivery time`}'
               </p>
               <p>
-                <strong>🚀</strong>
+                <strong>
+                  <img
+                    src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/glyphs/store-delivery-light.svg"
+                    alt=""
+                  />
+                </strong>
                 {`deliv price`} $
               </p>
               <p>
@@ -26,7 +31,28 @@ export const BrandGrid = () => {
           </div>
         </div>
         <div className="grid-chart">
-          <h1>Chart</h1>
+          <div className="cart">
+            <h1 className="empty-chart-title center">Your plova</h1>
+            <img
+              className="empty-chart-image"
+              src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/astronaut-grey-scale.svg"
+              alt="spaceman around the food"
+            />
+            <p className="empty-chart-paragraph center">
+              You've not added any products yet. When you do, you'll see them
+              here!
+            </p>
+          </div>
+          <div className="empty-chart-bottom center">
+            <img
+              className="chart-bottom-image"
+              src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/feedback/info.svg"
+              alt=""
+            />
+            <p>
+              Reach <span>5,00 $</span> to save <span>1,00 $</span> in fees!
+            </p>
+          </div>
         </div>
         <div className="grid-sections">
           <div className="sections center">
@@ -275,7 +301,7 @@ const Wrapper = styled.div`
     cursor: pointer;
   }
 
-  margin-top: -10.5rem;
+  margin-top: -11rem;
   margin-bottom: 5rem .brand-title {
     font-size: 3.6rem;
     p {
@@ -299,7 +325,7 @@ const Wrapper = styled.div`
   }
 
   .product-body {
-    width: 87vw;
+    width: 182rem;
     height: auto;
     display: grid;
     grid-template-columns: 0.5fr 3fr 1.5fr;
@@ -320,14 +346,15 @@ const Wrapper = styled.div`
     padding: 3rem 3rem;
     border-radius: 1rem;
   }
+
   .grid-chart {
     background-color: blue;
     grid-row: 1/-1;
     grid-column: 3/4;
     background-color: #fff;
     box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
-    height: 45rem;
-    width: 30rem;
+    height: 50rem;
+    width: 32rem;
     border-radius: 1rem;
   }
   .grid-sections {
@@ -341,15 +368,13 @@ const Wrapper = styled.div`
   }
 
   .transition {
-    margin-bottom: -7rem;
-    width: 120%;
+    display: block;
+    width: 110%;
     height: 15rem;
     background-color: #1d1d1d;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
-    position: absolute;
-    bottom: -16rem;
-    left: -10%;
+    margin: 2rem -10rem -5rem -10rem;
   }
 
   .grid-products {
@@ -489,5 +514,42 @@ const Wrapper = styled.div`
 
   .single-product-description {
     font-size: 1.4rem;
+  }
+
+  .cart {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    // padding-top: 4rem;
+    padding: 4rem 4rem 4.6rem 4rem;
+    min-height: 40rem;
+  }
+
+  .empty-chart-paragraph {
+    font-size: 1.8rem;
+    text-align: center;
+    font-weight: 400;
+  }
+
+  .empty-chart-image {
+    display: flex;
+  }
+
+  .empty-chart-bottom {
+    height: 6rem;
+    padding: 0 1rem 2rem 1rem;
+    font-size: 1.35rem;
+    font-weight: 300;
+    border-top: 4px solid #e9f8f5;
+    letter-spacing: 0.05rem;
+  }
+
+  .chart-bottom-image {
+    height: 1.6rem;
+    padding-right: 0.4rem;
+  }
+
+  h1 {
+    font-size: 4.8rem;
   }
 `;

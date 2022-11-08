@@ -4,9 +4,8 @@ export const SideBar = () => {
   return (
     <Wrapper>
       <main className="main">
-        <h2 className="main">main district</h2>
-        <h2>
-          <strong> {` > address / brand`}</strong>
+        <h2 className="main">
+          Kiev, right bank Restaurants<strong> KFC</strong>
         </h2>
       </main>
     </Wrapper>
@@ -27,7 +26,13 @@ const Wrapper = styled.main`
   }
 
   h2 {
-    font-size: 1.4rem;
+    font-weight: 300;
+    font-size: 1.3rem;
     padding-right: 0.6rem;
+    text-decoration: underline;
+  }
+
+  strong {
+    text-decoration: none;
   }
 `;

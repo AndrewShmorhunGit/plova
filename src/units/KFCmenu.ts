@@ -1,5 +1,5 @@
 export const menuKFC = {
-  Buckets: [
+  buckets: [
     // {
     //   categoryName: "Buckets",
     //   categoryImage:
@@ -48,7 +48,7 @@ export const menuKFC = {
         "https://kfc-images.s3.eu-west-1.amazonaws.com/img/5.%20Baket%20Duet.png",
     },
   ],
-  FriedChicken: [
+  friedChicken: [
     // {
     //   categoryName: "Yammy Chicken",
     //   categoryImage:
@@ -97,7 +97,7 @@ export const menuKFC = {
         "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/zofrzvcf3cdh3ksdp1bh",
     },
   ],
-  Burgers: [
+  burgers: [
     // {
     //   categoryName: "Burgers",
     //   categoryImage:
@@ -178,7 +178,7 @@ export const menuKFC = {
         "https://kfc-images.s3.eu-west-1.amazonaws.com/img/1.%20Tost%202%20Sura.png",
     },
   ],
-  Sauces: [
+  sauces: [
     // {
     //   categoryName: "Sauces",
     //   categoryImage:
@@ -189,7 +189,7 @@ export const menuKFC = {
       description: "",
       price: 0.4,
       image:
-        "https://kfc-images.s3.eu-west-1.amazonaws.com/img/1.%20Tost%202%20Sura.png",
+        "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/bp7d9a3ktgrlyoydhpcm",
     },
     {
       name: "ketchup sauce",
@@ -283,8 +283,60 @@ export const menuKFC = {
         "https://kfc-images.s3.eu-west-1.amazonaws.com/img/9.%20Mafin_Shoco.png",
     },
   ],
-  ColdDrincs: [{}],
-  SideDishes: [{}],
-  Coffee: [{}],
-  Other: [{}],
+  coldDrincs: [
+    // {
+    //   categoryName: "cold drinks",
+    //   categoryImage:
+    //     "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Collections/kzyck66la6exnggphlmv",
+    // },
+    {
+      name: "Pepsi 0,5 l",
+      description: "",
+      price: 1,
+      image:
+        "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ptqmefujc1699ruh0w1a",
+    },
+    {
+      name: "Mirinda 0,33 l",
+      description: "",
+      price: 1,
+      image:
+        "https://kfc-images.s3.eu-west-1.amazonaws.com/img/512_Mirinda_0.3.png",
+    },
+    {
+      name: "7 Up 0,33 l",
+      description: "",
+      price: 1,
+      image:
+        "https://kfc-images.s3.eu-west-1.amazonaws.com/img/512_7up_0.3.png",
+    },
+  ],
+  coffee: [
+    // {
+    //   categoryName: "coffee",
+    //   categoryImage:
+    // "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Collections/k1a49nunckoycbem7uce",
+    // },
+    {
+      name: "Cappuccino",
+      description: "",
+      price: 1.3,
+      image:
+        "https://kfc-images.s3.eu-west-1.amazonaws.com/img/11.%20Capuchino%2004.png",
+    },
+    {
+      name: "Latte",
+      description: "",
+      price: 1.3,
+      image:
+        "https://kfc-images.s3.eu-west-1.amazonaws.com/img/11.%20Late%2004.png",
+    },
+    {
+      name: "Raspberry tea",
+      description: "",
+      price: 1.2,
+      image:
+        "https://kfc-images.s3.eu-west-1.amazonaws.com/img/512x512_KFC_Punch_20201215.png",
+    },
+  ],
 };
