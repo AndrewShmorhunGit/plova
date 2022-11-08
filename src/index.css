@@ -10,7 +10,7 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  font-family: "Segoe UI", "Helvetica Neue", "Helvetica", sans-serif, "Gotham",
+  font-family: "Gotham", "Segoe UI", "Helvetica Neue", "Helvetica", sans-serif,
     "Arial";
   font-weight: 300;
   font-size: 14px;

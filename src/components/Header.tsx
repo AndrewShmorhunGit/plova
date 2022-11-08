@@ -41,7 +41,7 @@ export const Header = () => {
                   className="header-user-address__content__arrow"
                 />
                 <div className="center">
-                  <div className="menu-icon">
+                  <div className="menu-icon-user">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -66,7 +66,7 @@ export const Header = () => {
                       </g>
                     </svg>
                   </div>
-                  <div className="menu-icon">
+                  <div className="menu-icon-orders">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="34"
@@ -135,6 +135,7 @@ const Wrapper = styled.header`
     margin-right: -1rem;
     min-width: 31.75rem;
     padding-top: 0.9rem;
+    margin-top: -0.1rem;
     color: white;
     font-size: 1.6rem;
     font-weight: 600;
@@ -151,12 +152,19 @@ const Wrapper = styled.header`
     height: 2rem;
     color: white;
     padding-left: 0.15rem;
-    // padding-right: 2rem;
+    margin-right: -0.8rem;
+    margin-top: 0.15rem;
   }
 
-  .menu-icon {
-    padding: 0.1rem 1.1rem;
-    justify-content: space-between;
+  .menu-icon-user {
+    padding: 0.1rem 1.6rem;
+    cursor: pointer;
+    margin-top: 0.1rem;
+  }
+  .menu-icon-orders {
+    padding: 0.1rem 0.8rem;
+    cursor: pointer;
+    margin-top: 0.1rem;
   }
 
   .header-top {

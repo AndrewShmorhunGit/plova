@@ -32,7 +32,7 @@ export const BrandGrid = () => {
         </div>
         <div className="grid-chart">
           <div className="cart">
-            <h1 className="empty-chart-title center">Your plova</h1>
+            <h2 className="empty-chart-title center">Your plova</h2>
             <img
               className="empty-chart-image"
               src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/astronaut-grey-scale.svg"
@@ -289,7 +289,6 @@ const Wrapper = styled.div`
   .sub-menu {
     background-color: #f5f5f5;
     height: auto;
-    // width: 10rem;
     padding: 2rem 2rem;
     display: flex;
     cursor: pointer;
@@ -322,28 +321,30 @@ const Wrapper = styled.div`
 
   strong {
     padding-right: 0.5rem;
+    font-family: "Gotham Office";
+    font-weight: bold;
   }
 
   .product-body {
-    width: 182rem;
+    width: 182.25rem;
     height: auto;
     display: grid;
     grid-template-columns: 0.5fr 3fr 1.5fr;
     grid-template-rows: auto 1fr;
-    padding: 0 7.5vw;
-    column-gap: 1.6rem;
+    padding: 0 13.1rem;
+    column-gap: 2rem;
     row-gap: 1.6rem;
     height: auto;
   }
 
   .grid-title {
-    min-width: 60vw;
-    min-height: 20vh;
+    min-width: 55.5rem;
+    min-height: 20.5rem;
     grid-column: 1/3;
     grid-row: 1/2;
     box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
     background: #fff;
-    padding: 3rem 3rem;
+    padding: 3rem 4rem;
     border-radius: 1rem;
   }
 
@@ -354,7 +355,7 @@ const Wrapper = styled.div`
     background-color: #fff;
     box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
     height: 50rem;
-    width: 32rem;
+    width: 32.5rem;
     border-radius: 1rem;
   }
   .grid-sections {
@@ -365,6 +366,10 @@ const Wrapper = styled.div`
     overflow-y: scroll;
     position: relative;
     padding-bottom: 5rem;
+  }
+
+  .grid-sections::-webkit-scrollbar {
+    width: 0;
   }
 
   .transition {
@@ -382,6 +387,10 @@ const Wrapper = styled.div`
     padding: 1rem 2rem;
     height: 75vh;
     overflow-y: scroll;
+  }
+
+  .grid-products::-webkit-scrollbar {
+    width: 0;
   }
 
   .sections {
@@ -418,7 +427,7 @@ const Wrapper = styled.div`
 
   label {
     padding-right: 1rem;
-    margin-left: -0.5rem;
+    // margin-left: -0.5rem;
   }
 
   .search-input {
@@ -442,7 +451,6 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 1rem;
-    // background-color:#f5f5f5;
     text-transform: uppercase;
   }
 
@@ -551,5 +559,9 @@ const Wrapper = styled.div`
 
   h1 {
     font-size: 4.8rem;
+  }
+
+  h2 {
+    font-size: 3.2rem;
   }
 `;
