@@ -107,8 +107,6 @@ export const Header = () => {
 };
 
 const Wrapper = styled.header`
-  // backgroundImage
-
   .header {
     display: flex;
     flex-direction: column;
@@ -116,18 +114,20 @@ const Wrapper = styled.header`
 
   .image-background {
     padding-top: 2rem;
+    // filter: blur(1rem);
     background: linear-gradient(
       rgba(134, 142, 150, 0.5),
       rgba(241, 243, 245, 0.5)
     );
     background-image: linear-gradient(
-        rgba(134, 142, 150, 0.2),
-        rgba(241, 243, 245, 0.1)
+        0deg,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.5)
       ),
-      url(https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/ghnxcawgjavs80qhpz5y);
-    // background-repeat: no-repeat;
+      url(https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/szzdemcat83pqf3hyyrd);
     background-size: cover;
-
+    background-position: center;
+    overflow: hide;
     height: 24.5rem;
   }
 

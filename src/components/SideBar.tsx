@@ -5,7 +5,7 @@ export const SideBar = () => {
     <Wrapper>
       <main className="main">
         <h2 className="main">
-          Kiev, right bank Restaurants<strong> KFC</strong>
+          Kiev | Restaurants | <strong>KFC</strong>
         </h2>
       </main>
     </Wrapper>

@@ -99,20 +99,6 @@ export const Footer = () => {
 };
 
 const Wrapper = styled.main`
-  position: relative;
-  .transition {
-    width: 120%;
-    height: 16rem;
-    background-color: #1d1d1d;
-    background-color: red;
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
-    position: absolute;
-    top: -5.5rem;
-    left: -10%;
-    z-index: -1;
-  }
-
   .app-footer {
     background-color: #1d1d1dff;
     padding-bottom: 4.2rem;

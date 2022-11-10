@@ -7,204 +7,144 @@ import { menuKFC } from "../units/kfcMenu";
 export const BrandGrid = () => {
   return (
     <Wrapper>
-      <div className="product-body">
-        <div className="grid-title">
-          <div className="brand-title">
-            <h1>KFC</h1>
-            <div className="icons">
-              <div className="del-icon-container center">
-                <img
-                  className="del-icon"
-                  src="https://res.cloudinary.com/glovoapp/w_22,h_22,c_pad,b_transparent,f_auto,q_auto:low,dpr_2.0/filters/sorting/near_me_light"
-                  alt=""
-                />
-                <p>10-20'</p>
+      <div className="container-products">
+        <div className="product-body">
+          <div className="grid-title">
+            <div className="brand-title">
+              <h1>{menuKFC.brandName}</h1>
+              <div className="icons">
+                <div className="del-icon-container center">
+                  <img
+                    className="del-icon"
+                    src="https://res.cloudinary.com/glovoapp/w_22,h_22,c_pad,b_transparent,f_auto,q_auto:low,dpr_2.0/filters/sorting/near_me_light"
+                    alt=""
+                  />
+                  <p>10-20'</p>
+                </div>
+                <div className="del-icon-container center">
+                  <img
+                    className="del-icon"
+                    src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/glyphs/store-delivery-light.svg"
+                    alt=""
+                  />
+                  <p>10.00$</p>
+                </div>
+                <div className="del-icon-container center">
+                  <img className="del-icon" src={ratingExcellent} alt="" />
+                  <p>100 %</p>
+                </div>
               </div>
-              <div className="del-icon-container center">
-                <img
-                  className="del-icon"
-                  src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/glyphs/store-delivery-light.svg"
-                  alt=""
-                />
-                <p>10.00$</p>
-              </div>
-              <div className="del-icon-container center">
-                <img className="del-icon" src={ratingExcellent} alt="" />
-                <p>100 %</p>
-              </div>
+              <p className="message">message</p>
             </div>
-            <p className="message">message</p>
           </div>
-        </div>
-        <div className="grid-chart">
-          <div className="cart">
-            <h2 className="empty-chart-title center">Your plova</h2>
-            <img
-              className="empty-chart-image"
-              src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/astronaut-grey-scale.svg"
-              alt="spaceman around the food"
-            />
-            <p className="empty-chart-paragraph center">
-              You've not added any products yet. When you do, you'll see them
-              here!
-            </p>
+          <div className="grid-chart">
+            <div className="chart">
+              <h2 className="empty-chart-title center">Your plova</h2>
+              <img
+                className="empty-chart-image"
+                src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/astronaut-grey-scale.svg"
+                alt="spaceman around the food"
+              />
+              <p className="empty-chart-paragraph center">
+                You've not added any products yet. When you do, you'll see them
+                here!
+              </p>
+            </div>
+            <div className="empty-chart-bottom center">
+              <img
+                className="chart-bottom-image"
+                src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/feedback/info.svg"
+                alt=""
+              />
+              <p>
+                Reach <span>5,00 $</span> to save <span>1,00 $</span> in fees!
+              </p>
+            </div>
           </div>
-          <div className="empty-chart-bottom center">
-            <img
-              className="chart-bottom-image"
-              src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/feedback/info.svg"
-              alt=""
-            />
-            <p>
-              Reach <span>5,00 $</span> to save <span>1,00 $</span> in fees!
-            </p>
-          </div>
-        </div>
-        <div className="grid-sections">
-          <div className="sections center">
-            <img
-              className="squares"
-              src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/sections-square.svg"
-              alt="squares"
-            />
-            <h3 className="sections-title">sections</h3>
-          </div>
-
-          {menuKFC.menu.map((item, index) => {
-            return (
-              <div
-                className="menu-container"
-                onClick={() =>
-                  console.log(`clicked ${item.category.categoryName}`)
-                }
-              >
-                <p className="menu">{item.category.categoryName}</p>
-              </div>
-            );
-          })}
-          {/* <div className="menu-container">
-            <p className="menu">menu</p>
-            <strong className="chevron center">
-              <BsChevronDown />
-            </strong>
-          </div>
-          <div className="menu-container">
-            <p className="menu">longnamemenu</p>
-            <strong className="chevron center">
-              
-              <BsChevronDown />
-            </strong>
-          </div>
-          <div className={`sub-menu-container hide`}>
-            <p className="sub-menu">sub-menu</p>
-            <p className="sub-menu">sub-menulongname</p>
-            <p className="sub-menu">sub-menu</p>
-            <p className="sub-menu">sub-menulongname</p>
-            <p className="sub-menu">sub-menu</p>
-          </div>
-          <div className="menu-container">
-            <p className="menu">menu</p>
-            <strong className="chevron center">
-              <BsChevronUp />
-            </strong>
-          </div>
-          <div className="sub-menu-container">
-            <p className="sub-menu">sub-menu</p>
-            <p className="sub-menu">sub-menulongname</p>
-            <p className="sub-menu">sub-menu</p>
-            <p className="sub-menu">sub-menulongname</p>
-            <p className="sub-menu">sub-menu</p>
-          </div>
-          <div className="menu-container">
-            <p className="menu">menu</p>
-          </div>
-          <div className="menu-container">
-            <p className="menu">menu</p>
-          </div>
-          <div className="menu-container">
-            <p className="menu">menu</p>
-          </div>
-          <div className="menu-container">
-            <p className="menu">menu</p>
-          </div>
-          <div className="menu-container">
-            <p className="menu">menu</p>
-          </div>
-          <div className="menu-container">
-            <p className="menu">menu</p>
-          </div>
-          <div className="menu-container">
-            <p className="menu">menu</p>
-          </div> */}
-        </div>
-        <div className="grid-products">
-          <form action="onSubmit" className="search-form">
-            <label>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="13"
-                height="15"
-                fill="none"
-              >
-                <circle
-                  cx="6"
-                  cy="6.721"
-                  r="5"
-                  stroke="#9B9B9B"
-                  stroke-width="1.6"
-                />
-                <path
-                  stroke="#9B9B9B"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.6"
-                  d="M9.396 10.723L12 13.72"
-                />
-              </svg>
-            </label>
-            <input
-              type="text"
-              placeholder="Search in BrandName"
-              className="search-input"
-            />
-          </form>
-          {/* <h2 className="sub-title">menu(active)</h2> */}
-          <div className="products">
+          <div className="grid-sections">
+            <div className="sections center">
+              <img
+                className="squares"
+                src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/sections-square.svg"
+                alt="squares"
+              />
+              <h3 className="sections-title">sections</h3>
+            </div>
             {menuKFC.menu.map((item, index) => {
               return (
                 <div
-                  className="product-category"
+                  className="menu-container"
                   onClick={() =>
                     console.log(`clicked ${item.category.categoryName}`)
                   }
                 >
-                  <p>{item.category.categoryName}</p>
-                  <div className="product-image-div">
-                    <img
-                      className="blob"
-                      src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/image_preview_card/blob.svg"
-                      alt="blob"
-                    />
-                    <img
-                      className="product-category-image"
-                      src={item.category.categoryImage}
-                      alt=""
-                    />
-                    <img
-                      className="arrow"
-                      src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/image_preview_card/arrow.svg"
-                      alt=""
-                    />
-                  </div>
+                  <p className="menu">{item.category.categoryName}</p>
                 </div>
               );
             })}
+          </div>
+          <div className="grid-products">
+            <form action="onSubmit" className="search-form">
+              <label>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="13"
+                  height="15"
+                  fill="none"
+                >
+                  <circle
+                    cx="6"
+                    cy="6.721"
+                    r="5"
+                    stroke="#9B9B9B"
+                    stroke-width="1.6"
+                  />
+                  <path
+                    stroke="#9B9B9B"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.6"
+                    d="M9.396 10.723L12 13.72"
+                  />
+                </svg>
+              </label>
+              <input
+                type="text"
+                placeholder="Search in `BrandName`"
+                className="search-input"
+              />
+            </form>
+            <div className="products">
+              {menuKFC.menu.map((item, index) => {
+                return (
+                  <div
+                    className="product-category"
+                    onClick={() =>
+                      console.log(`clicked ${item.category.categoryName}`)
+                    }
+                  >
+                    <p className="category-name">
+                      {item.category.categoryName}
+                    </p>
+                    <div className="product-image-div">
+                      <img
+                        className="product-category-image"
+                        src={item.category.categoryImage}
+                        alt=""
+                      />
+                      <img
+                        className="arrow"
+                        src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/image_preview_card/arrow.svg"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                );
+              })}
 
-            <div className="single-product">
+              {/* <div className="single-product">
               <div className="sp-div1">
-                <div className="single-product-image">
-                  {/* {imageFromData} */}
-                </div>
+                <div className="single-product-image"></div>
                 <div>
                   <h4 className="single-product-name">single product</h4>
                   <p className="single-product-description">
@@ -247,6 +187,7 @@ export const BrandGrid = () => {
                 <p className="single-product-price">price</p>
                 <p className="single-product-add">➕</p>
               </div>
+            </div> */}
             </div>
           </div>
         </div>
@@ -257,41 +198,7 @@ export const BrandGrid = () => {
 };
 
 const Wrapper = styled.div`
-  .hide {
-    display: none;
-  }
-
   margin-top: -11rem;
-  .brand-title {
-    font-size: 3.6rem;
-    p {
-      font-size: 2rem;
-    }
-    .message {
-      font-size: 1.6rem;
-      padding: 1.6rem 0;
-    }
-  }
-
-  .icons {
-    padding-top: 2rem;
-    display: flex;
-    gap: 2rem;
-    // font-size: 2rem;
-  }
-
-  .del-icon-container {
-    height: 2.6rem;
-    p {
-      letter-spacing: 0.1rem;
-      font-size: 1.6rem;
-    }
-  }
-
-  .del-icon {
-    height: 2.6rem;
-    padding-right: 0.8rem;
-  }
 
   strong {
     padding-right: 0.5rem;
@@ -301,12 +208,11 @@ const Wrapper = styled.div`
   }
 
   .product-body {
-    width: 182.25rem;
+    max-width: 156rem;
     height: auto;
     display: grid;
-    grid-template-columns: 0.5fr 3fr 1.5fr;
+    grid-template-columns: 0.5fr 4.25fr 1.5fr;
     grid-template-rows: auto 1fr;
-    padding: 0 13.1rem;
     column-gap: 1rem;
     row-gap: 1.6rem;
     height: auto;
@@ -342,7 +248,19 @@ const Wrapper = styled.div`
     padding-bottom: 5rem;
   }
 
+  .grid-products {
+    background-color: #fff;
+    padding: 1rem 0rem 0rem 0rem;
+    height: 90rem;
+    max-width: 120rem;
+    overflow-y: scroll;
+  }
+
   .grid-sections::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .grid-products::-webkit-scrollbar {
     width: 0;
   }
 
@@ -356,15 +274,35 @@ const Wrapper = styled.div`
     margin: 2rem -10rem -5rem -10rem;
   }
 
-  .grid-products {
-    background-color: #fff;
-    padding: 1rem 0rem 0rem 0rem;
-    height: 90rem;
-    overflow-y: scroll;
+  .brand-title {
+    font-size: 3.6rem;
+    p {
+      font-size: 2rem;
+    }
+    .message {
+      font-size: 1.6rem;
+      padding: 1.6rem 0;
+    }
   }
 
-  .grid-products::-webkit-scrollbar {
-    width: 0;
+  .icons {
+    padding-top: 2rem;
+    display: flex;
+    gap: 2rem;
+    // font-size: 2rem;
+  }
+
+  .del-icon-container {
+    height: 2.6rem;
+    p {
+      letter-spacing: 0.1rem;
+      font-size: 1.6rem;
+    }
+  }
+
+  .del-icon {
+    height: 2.6rem;
+    padding-right: 0.8rem;
   }
 
   .sections {
@@ -400,10 +338,12 @@ const Wrapper = styled.div`
   }
 
   .menu {
-    // height: 4.9rem;
-    // width: 9.9rem;
-    padding: 1.85rem 0rem 1.85rem 2.3rem;
+    padding: 1.7rem 0rem 1.7rem 2.3rem;
     display: flex;
+    text-transform: capitalize;
+    font-weight: 400;
+    color: #3a3a3a;
+    font-size: 1.6rem;
   }
 
   .chevron {
@@ -412,7 +352,6 @@ const Wrapper = styled.div`
 
   .search-form {
     background-color: #f5f5f5;
-    // margin: 0 0.6rem 0.1rem 0rem;
     padding: 1.25rem 1rem 1.2rem 1.8rem;
     border-radius: 10rem;
     label {
@@ -422,7 +361,6 @@ const Wrapper = styled.div`
   }
 
   .search-input {
-    width: 75rem;
     font-size: 1.6rem;
     background-color: #f5f5f5;
     border: none;
@@ -443,7 +381,7 @@ const Wrapper = styled.div`
     grid-template-columns: 1fr 1fr;
     column-gap: 1rem;
     row-gap: 1rem;
-    text-transform: uppercase;
+    font-weight: 700;
   }
 
   .product-category {
@@ -452,7 +390,6 @@ const Wrapper = styled.div`
     border-radius: 1rem;
     padding: 3rem 0 1rem 3rem;
     height: 15rem;
-    // width: 45rem;
     font-weight: 700;
     font-size: 1.8rem;
     letter-spacing: 0.05rem;
@@ -464,40 +401,32 @@ const Wrapper = styled.div`
     overflow: hidden;
   }
 
-  .product-image {
-    position: absolute;
-    top: 1.55rem;
-    right: -1.05rem;
-    z-index: 0;
-    background-color: yellow;
-  }
   .product-image-div {
     position: absolute;
     left: 1rem;
 
-    .blob {
-      // background-color: red;
-      position: absolute;
-      bottom: -11rem;
-      left: 30rem;
-      // overflow: hidden;
-      z-index: auto;
-    }
     .product-category-image {
       position: absolute;
       width: 12.5rem;
-      left: 29.5rem;
-      top: -3rem;
+      left: 30rem;
+      top: -3.5rem;
       z-index: 4;
+      -webkit-mask-image: url(https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/image_preview_card/blob.svg);
+      background-color: #f5f5f5;
     }
 
     .arrow {
       // background-color: green;
       position: absolute;
-      top: 5.4rem;
-      left: 36.5rem;
+      top: 4.4rem;
+      left: 36rem;
       z-index: 5;
     }
+  }
+
+  .category-name {
+    padding-top: 1rem;
+    font-size: 1.8rem;
   }
 
   .single-product {
@@ -547,7 +476,7 @@ const Wrapper = styled.div`
     font-size: 1.4rem;
   }
 
-  .cart {
+  .chart {
     display: flex;
     flex-direction: column;
     gap: 3.6rem;
