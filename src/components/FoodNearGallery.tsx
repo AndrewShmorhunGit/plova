@@ -50,7 +50,6 @@ export const FoodNearGallery = () => {
             </div>
           </a> */}
           {obj.elements.map((item, index) => {
-            // console.log(item.singleData.storeData.store);
             const store = item.singleData.storeData.store;
 
             const delObj =
