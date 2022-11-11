@@ -407,12 +407,11 @@ const Wrapper = styled.div`
 
     .product-category-image {
       position: absolute;
-      margin: auto 0;
-      width: 12.5rem;
+      width: 14rem;
       left: 30rem;
-      top: -3.5rem;
-      z-index: 4;
-      -webkit-mask-image: url(https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/image_preview_card/blob.svg);
+      top: -5rem;
+      // z-index: 4;
+      mask-image: url(https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/image_preview_card/blob.svg);
       background-color: #f5f5f5;
     }
 

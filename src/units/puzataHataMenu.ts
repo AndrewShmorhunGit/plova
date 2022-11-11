@@ -33,6 +33,8 @@ export const puzataHataMenu = {
   deliveryTime2: 25,
   deliveryPrice: 1,
   rate: 94,
+  message:
+    "Disposable utensils are not included in the price of meals. If necessary, order additionally.",
   menu: [
     {
       category: {
