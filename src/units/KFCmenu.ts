@@ -10,9 +10,16 @@ interface menuKFC {
       category: {
         categoryName: string;
         categoryImage: string;
+        bonus: string;
       };
       products: [
-        { name: string; description: string; price: number; image: string }
+        {
+          name: string;
+          description: string;
+          price: number;
+          image: string;
+          modifiers: string;
+        }
       ];
     }
   ];

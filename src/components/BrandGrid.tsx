@@ -407,6 +407,7 @@ const Wrapper = styled.div`
 
     .product-category-image {
       position: absolute;
+      margin: auto 0;
       width: 12.5rem;
       left: 30rem;
       top: -3.5rem;
