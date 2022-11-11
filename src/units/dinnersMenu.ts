@@ -28,7 +28,7 @@ interface dinnersMenu {
 export const dinnersMenu = {
   brandName: "Dinner's",
   headerBackgroundImage:
-    "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/jygn2rd6hek5qlvybw3n",
+    "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/r2gtlvid07hxkcf9n4mr",
   deliveryTime1: 25,
   deliveryTime2: 35,
   deliveryPrice: 1,
@@ -40,145 +40,57 @@ export const dinnersMenu = {
         categoryName: "Top sellers",
         categoryImage:
           "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/jfxxpnxnspq61u27c1ki",
-        bonus: "",
+        bonus: "Deals",
       },
       products: [
         {
-          name: "Borscht with sour cream and shawarma with chicken",
+          name: "Set Imperial",
           description:
-            "Borscht with sour cream, 330/30g & Shawarma with chicken, not spicy, 360g, total: 720 g",
-          price: 5,
+            "Philadelphia with salmon, Philadelphia with eel, Philadelphia with shrimp, Philadelphia with tuna in sesame, California with crab mix in caviar, California with eel in sesame, California tempura, roll with salmon and cucumber, crunch with shrimp, tender with salmon...",
+          price: 55,
           image:
-            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/hkwlvj1but2mwjbink9o",
-          bonuses: "",
-          modifiers: "",
-        },
-        {
-          name: "Chicken breast su-vid with vegetables",
-          description:
-            "Chicken breast su-vid baked zucchini and baby carrots 170/180g",
-          price: 5,
-          image:
-            "https://api.getorder.biz/product/44340/image/44/700/700/2000040459.webp",
-          bonuses: "",
-          modifiers: "",
-        },
-        {
-          name: "Chicken chop and mashed potatoes",
-          description:
-            "Fried chicken chop. Served with mashed potatoes and butter 100/160g",
-          price: 4,
-          image:
-            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/jfxxpnxnspq61u27c1ki",
-          bonuses: "",
-          modifiers: "",
-        },
-        {
-          name: "Caesar salad with chicken",
-          description:
-            "Chicken breast, bacon, cherry tomatoes, lettuce, Parmesan cheese, cream, mustard, sunflower oil, ground black pepper, salt, soy sauce, wheat bread, sugar, garlic 180g",
-          price: 4,
-          image:
-            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/uxjkyokjtoq8961ty9z2",
-          bonuses: "",
-          modifiers: "",
-        },
-        {
-          name: "Solyanka",
-          description:
-            "Aromatic soup with smoked meats, olives and lemon. Served with sour cream, lemon, capers and sourdough bread 300/15/30g",
-          price: 4,
-          image:
-            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/anz7xlfg1tqrberxo2mh",
-          bonuses: "",
-          modifiers: "",
-        },
-      ],
-    },
-    {
-      category: {
-        categoryName: "Combo menu",
-        categoryImage: "Promotional menu",
-        bonus: "-20%",
-      },
-      products: [
-        {
-          name: "Pork loin su-vid and roasted vegetables",
-          description:
-            "Pork loin on the bone sous vide. Served with baked vegetables (zucchini, eggplant, bell pepper). 220/180g",
-          price: 4.5,
-          image:
-            "https://api.getorder.biz/product/38757/image/44/700/700/2000040324.webp",
-          modifiers: "",
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/wixzwitohm7zjd6rynv2",
           bonuses: "-20%",
+          modifiers: "",
         },
         {
-          name: "Pate with caramelized apple",
+          name: "Same Te Set",
           description:
-            "Chicken liver pate, caramelized apple. Served with bread. 180/60g",
-          price: 2,
+            "Philadelphia Salmon, California Sesame Salmon, California Tempura, Salmon Maki, Shrimp Crunch, Baked Shrimp",
+          price: 27.5,
           image:
-            "https://api.getorder.biz/product/26216/image/44/700/700/2000040204.webp",
-          modifiers: "",
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ynkvxm5za0vvekexhhhv",
           bonuses: "-20%",
-        },
-        {
-          name: "Baked vegetables",
-          description: "Baked eggplant, zucchini and bell pepper 180g",
-          price: 4.5,
-          image:
-            "https://api.getorder.biz/product/38711/image/44/700/700/2000040346.webp",
-          modifiers: "",
-          bonuses: "-20%",
-        },
-      ],
-    },
-    {
-      category: {
-        categoryName: "Breakfasts",
-        categoryImage:
-          "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Collections/pgp02jcatqufodyin0en",
-        bonus: "",
-      },
-      products: [
-        {
-          name: "American breakfast",
-          description:
-            "Fried eggs, french fries, bacon, fresh tomatoes, ketchup, spices 350g",
-          price: 4,
-          image:
-            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/alvam8bj97alif8gew8v",
-          bonuses: "",
           modifiers: "",
         },
         {
-          name: "Omelet with chicken",
+          name: "Maldives Set",
           description:
-            "Chicken eggs, spices, mayonnaise, butter, salad mix, grilled chicken fillet, grilled eggplant and tomatoes, baked baby carrots. Served with sourdough bread 270g",
-          price: 3,
+            "Tender with salmon, California tempura, tempura roll with salmon, baked with shrimp, baked with tuna (spicy)",
+          price: 25,
           image:
-            "https://api.getorder.biz/product/38781/image/44/700/700/2000040339.webp",
-          bonuses: "",
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/enskro6baes50oqpoblr",
+          bonuses: "-10%",
           modifiers: "",
         },
         {
-          name: "Scrambled eggs with chicken",
+          name: "Set Fusion",
           description:
-            "Chicken eggs (2 pcs.), spices, grilled chicken fillet, grilled eggplant and tomatoes, mixed salad. Served with sourdough bread 215g",
-          price: 3,
+            "Tender with salmon, tempura roll with salmon, tempura roll with tuna, baked with shrimp",
+          price: 25,
           image:
-            "https://api.getorder.biz/product/38790/image/44/700/700/2000040336.webp",
-          bonuses: "",
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/igjnyqbucjzykoi1kwas",
+          bonuses: "-10%",
           modifiers: "",
         },
         {
-          name: "Pancakes with strawberry jam",
+          name: "Seth Sakura",
           description:
-            "Pancakes, strawberry jam, vanilla sauce, powdered sugar, strawberries. 250 g",
-          price: 2,
+            "Philadelphia with salmon, Philadelphia with eel in sesame, Felix roll with tuna, California with crab mix in sesame",
+          price: 20,
           image:
-            "https://api.getorder.biz/product/38784/image/44/700/700/2000040335.webp",
-          bonuses: "",
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/gtwgkxchjmbheoilwn66",
+          bonuses: "-10%",
           modifiers: "",
         },
       ],
@@ -187,200 +99,241 @@ export const dinnersMenu = {
       category: {
         categoryName: "Networks",
         categoryImage:
-          "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Collections/fodcdgpzox0pitfosxqn",
-        bonus: "",
-      },
-      products: [
-        {
-          name: "Set Baked salmon, steamed vegetables, boiled egg and Caesar salad",
-          description:
-            "Baked salmon, 100g & Steamed vegetables, 130g & Uzvar, 250ml & Caesar salad with chicken, 180g. Total: 660g",
-          price: 10,
-          image:
-            "https://api.getorder.biz/product/38772/image/44/700/700/2000040384.webp",
-          modifiers: "",
-        },
-        {
-          name: "Set Borscht, Kiev cutlet with mashed potatoes and Olivier salad",
-          description:
-            "Kiev cutlet, 140g & Mashed potatoes, 160g & Olivier salad with chicken, 180g & Borscht with sour cream, 330/30g. Total: 840g",
-          price: 8,
-          image:
-            "https://api.getorder.biz/product/38767/image/44/700/700/2000040370.webp",
-          modifiers: "",
-        },
-        {
-          name: "Set Fried hake in batter, mashed potatoes and cabbage and cucumber salad",
-          description:
-            "Fried hake in batter, 130g & Mashed potatoes, 160g & Cabbage and cucumber salad, 180g. Total: 470g",
-          price: 5,
-          image:
-            "https://api.getorder.biz/product/38774/image/44/700/700/2000040389.webp",
-          modifiers: "",
-        },
-        {
-          name: "Borscht set, dumplings with potatoes and mushrooms and cabbage salad",
-          description:
-            "Borscht with sour cream, 330/30g & Dumplings with potatoes and mushrooms, 200/30g & Cabbage and cucumber salad, 180g. Total: 770g",
-          price: 5,
-          image:
-            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/kjxk4dhqw6nt7nvxlkzf",
-          modifiers: "",
-        },
-      ],
-    },
-    {
-      category: {
-        categoryName: "Combo menu",
-        categoryImage:
-          "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Collections/gnucnonxotk6znqzbwhe",
-        bonus: "",
-      },
-      products: [
-        {
-          name: "Duck leg with couscous and Caesar salad",
-          description:
-            "Duck leg with pineapple, 200g & Couscous with butter, 180g & Caesar salad with chicken, 180g. Total: 560g",
-          price: 10,
-          image:
-            "https://api.getorder.biz/product/38736/image/44/700/700/2000040361.webp",
-          modifiers: "",
-        },
-        {
-          name: "Turkey fricassee with buckwheat and chicken broth",
-          description:
-            "Turkey fricassee in cream sauce, 160g & Buckwheat porridge, 180g & Chicken broth with egg and homemade noodles, 300/30/10g. Total: 680g",
-          price: 5,
-          image:
-            "https://api.getorder.biz/product/38738/image/44/700/700/2000040368.webp",
-          modifiers: "",
-        },
-        {
-          name: "Pea soup and potato dumplings with mushrooms and egg",
-          description:
-            "Pea soup with smoked meats and crackers, 300/30g & Potato dumplings with mushrooms and egg, 200/30g. Total: 560g",
-          price: 5,
-          image:
-            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/oecwt7z2poczgsnmojag",
-          modifiers: "",
-        },
-        {
-          name: "Turkey fricassee with buckwheat and chicken broth",
-          description:
-            "Turkey fricassee in cream sauce, 160g & Buckwheat porridge, 180g & Chicken broth with egg and homemade noodles, 300/30/10g. Total: 680g",
-          price: 5,
-          image:
-            "https://api.getorder.biz/product/38738/image/44/700/700/2000040368.webp",
-          modifiers: "",
-        },
-      ],
-    },
-    {
-      category: {
-        categoryName: "First courses",
-        categoryImage:
-          "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Collections/x8cbunznhdt4da4txtqy",
-        bonus: "",
-      },
-      products: [
-        {
-          name: "Solyanka",
-          description:
-            "Aromatic soup with smoked meats, olives and lemon. Served with sour cream, lemon, capers and sourdough bread 300/15/30g",
-          price: 4,
-          image:
-            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/anz7xlfg1tqrberxo2mh",
-          modifiers: "",
-        },
-        {
-          name: "Mushroom cream soup",
-          description:
-            "Mushroom cream soup, cream, spices. Served with sourdough bread 300/30g",
-          price: 4,
-          image:
-            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/tgxtcrkomzoroo1jqlwe",
-          modifiers: "",
-        },
-        {
-          name: "Chicken broth with egg and homemade noodles",
-          description:
-            "Chicken meat, chicken eggs, homemade egg noodles, carrots, onions, parsley, water, celery, salt, ground black pepper, bay leaf. Served with sourdough bread 300/30/10g",
-          price: 2.5,
-          image:
-            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ln7npvmvtmrzsuydlbhl",
-          modifiers: "",
-        },
-      ],
-    },
-    {
-      category: {
-        categoryName: "Pancakes and cheesecakes",
-        categoryImage:
-          "https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/image_preview_card/arrow.svg",
+          "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/wzmzy5os4hbnz0phoahz",
         bonus: "-20%",
       },
       products: [
         {
-          name: "Cheesecakes with sour cream, 3pcs",
-          description: "Cheesecakes, powdered sugar, butter, sour cream 140g",
-          price: 2.5,
+          name: "Set Imperial",
+          description:
+            "Philadelphia with salmon, Philadelphia with eel, Philadelphia with shrimp, Philadelphia with tuna in sesame, California with crab mix in caviar, California with eel in sesame, California tempura, roll with salmon and cucumber, crunch with shrimp, tender with salmon..",
+          price: 55,
           image:
-            "https://media.puzatahata.ua/__sized__/images/productosg/2021/02/25/015d863d-4e24-4a20-a524-5d8d971fe205-thumbnail-400x400-100.jpg",
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/wixzwitohm7zjd6rynv2",
+          bonuses: "-20%",
           modifiers: "",
         },
         {
-          name: "Pancake with cheese and raisins, 1pc.",
+          name: "Set Favorite",
           description:
-            "Pancake based on wheat flour and milk, filled with homemade cheese and raisins 85/30g",
-          price: 2,
+            "Philadelphia with salmon, Philadelphia with shrimp, Philadelphia with tuna, Philadelphia with tuna in sesame, crunch with shrimp, futomaki with salmon (spicy), baked with crab mix, tempura roll with salmon, tempura roll with tuna..",
+          price: 25,
           image:
-            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ztkigcvechyhgl9pkcny",
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/apsb3tvorjwfjbfbidbr",
+          bonuses: "-10%",
           modifiers: "",
         },
         {
-          name: "Pancake with chicken and mushrooms, 1pc.",
+          name: "Set All Inclusive",
           description:
-            "Pancake based on wheat flour and milk, filling with chicken fillet, mushrooms and cream, butter 85/30g",
-          price: 2,
+            "Philadelphia with salmon, Philadelphia with eel, Philadelphia with shrimp, Philadelphia with salmon in sesame, California with eel in sesame, roll with salmon and cucumber, crunch with shrimp, futomaki with shrimp in tempura..",
+          price: 25,
           image:
-            "https://api.getorder.biz/product/26232/image/44/700/700/2000040207.webp",
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/d5q13kkzfwhq9zpwsctg",
+          bonuses: "-10%",
+          modifiers: "",
+        },
+        {
+          name: "Seth Hokku",
+          description:
+            "Philadelphia with salmon, Philadelphia with shrimp, Philadelphia with tuna, Philadelphia with eel in sesame, crunch with shrimp, Felix roll with smoked salmon, sushi nigiri with salmon, sushi nigiri with shrimp..",
+          price: 22.5,
+          image:
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/zeytvsvvx6hm5ydcvosg",
+          bonuses: "-10%",
+          modifiers: "",
+        },
+        {
+          name: "Family Set",
+          description:
+            "Philadelphia with salmon, Philadelphia with shrimp, California with salmon in sesame, California tempura, crunch with shrimp, maki with salmon, maki with shrimp, felix roll with tuna, tender with salmon..",
+          price: 20,
+          image:
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/hk7or7rpu5zehs3c6gab",
+          bonuses: "-25%",
           modifiers: "",
         },
       ],
     },
     {
       category: {
-        categoryName: "Dumplings and dumplings",
+        categoryName: "Roles",
         categoryImage:
-          "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/kyonyp896pmj3wjryuzz",
+          "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/yl6hbozhvayntmedpi03",
+        bonus: "-20%",
+      },
+      products: [
+        {
+          name: "Roll Philadelphia Gourmet",
+          description: "Rice, salmon, eel, tobiko caviar, cream cheese, nori",
+          price: 11,
+          image:
+            "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ayewso8ffolalnlfqik8",
+          bonuses: "",
+          modifiers: "",
+        },
+        {
+          name: "Rol Golden Dragon",
+          description:
+            "Rice, eel, avocado, cucumber, sesame, crab mix, unagi sauce, nori",
+          price: 7.5,
+          image:
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/m8glwqiz6fptjinwvuys",
+          bonuses: "-20%",
+          modifiers: "",
+        },
+        {
+          name: "Red Dragon Roll",
+          description:
+            "Rice, salmon, avocado, cucumber, mayonnaise, crab mix, tobiko caviar, nori",
+          price: 7.5,
+          image:
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/gc3n7u166xepl4xkgdeb",
+          bonuses: "-20%",
+          modifiers: "",
+        },
+        {
+          name: "Philadelphia roll with tuna",
+          description: "Rice, salmon, eel, tobiko caviar, cream cheese, nori",
+          price: 7.5,
+          image:
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/lfzjrfl4veaxqfggigig",
+          bonuses: "",
+          modifiers: "",
+        },
+        {
+          name: "Philadelphia roll with salmon",
+          description: "Rice, salmon, cream cheese, avocado, cucumber, nori",
+          price: 5,
+          image:
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/yl6hbozhvayntmedpi03",
+          bonuses: "-20%",
+          modifiers: "",
+        },
+        {
+          name: "Roll Baked with shrimp",
+          description:
+            "Rice, tempura shrimp, iceberg lettuce, cheese sauce, bell pepper, sesame, cucumber, nori",
+          price: 6,
+          image:
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/wxmcd9qd1ixsbm186aaa",
+          bonuses: "",
+          modifiers: "",
+        },
+      ],
+    },
+    {
+      category: {
+        categoryName: "Appetizer",
+        categoryImage:
+          "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/j52mtl4ksheknwfozzym",
         bonus: "",
       },
       products: [
         {
-          name: "Dumplings with beef and pork",
+          name: "Hiyashi wakame salad",
           description:
-            "Pork and beef filling, butter, spices Served with sour cream 200/30g",
-          price: 3,
+            "Hyashi algae, nut sauce (soy sauce, rice vinegar, cashew nuts, apples, sesame, onion, garlic, sugar syrup, vegetable oil), sesame",
+          price: 3.5,
           image:
-            "https://api.getorder.biz/product/26229/image/44/700/700/2000040210.webp",
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/bznxqaawz0a8ya0ro07p",
+          bonuses: "",
           modifiers: "",
         },
         {
-          name: "Dumplings with cherries",
-          description:
-            "Dumplings with cherry filling, sugar, butter. Served with sour cream 200/30g",
-          price: 2,
+          name: "Mozzarella fries",
+          description: "Mozzarella fries",
+          price: 3.5,
           image:
-            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/kyonyp896pmj3wjryuzz",
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/j52mtl4ksheknwfozzym",
+          bonuses: "",
           modifiers: "",
         },
         {
-          name: "Dumplings with potatoes",
-          description:
-            "Dumplings stuffed with potatoes, onions, spices, butter. Served with sour cream 200/30g",
-          price: 2,
+          name: "Chicken strips",
+          description: "Chicken strips",
+          price: 3.5,
           image:
-            "https://api.getorder.biz/product/38705/image/44/700/700/2000040289.webp",
+            "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/iyk23ksl1bpo7pvqdlu4",
+          bonuses: "",
+          modifiers: "",
+        },
+        {
+          name: "Rice chips",
+          description: "Rice chips",
+          price: 1.5,
+          image:
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/j71jrjorzffppwwpnjmf",
+          bonuses: "",
+          modifiers: "",
+        },
+      ],
+    },
+    {
+      category: {
+        categoryName: "Soups and Udons",
+        categoryImage:
+          "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ttcnkykdmqeb3owovxfg",
+        bonus: "",
+      },
+      products: [
+        {
+          name: "Udon noodles with shrimp",
+          description:
+            "Udon noodles, broccoli, carrots, beans, shrimp, mussels, squid, green onions, oyster sauce, tonkatsu sauce",
+          price: 5,
+          image:
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/wixzwitohm7zjd6rynv2",
+          bonuses: "",
+          modifiers: "",
+        },
+        {
+          name: "Udon noodles with chicken",
+          description:
+            "Udon noodles, chicken fillet, carrots, broccoli, bell pepper, oyster sauce, onion",
+          price: 4,
+          image:
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/w0ujtwgkfgefbiqfuuba",
+          bonuses: "",
+          modifiers: "",
+        },
+        {
+          name: "Miso soup with salmon",
+          description:
+            "Miso broth, salmon, tofu, wakame, sesame seeds, green onions",
+          price: 2.5,
+          image:
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/don90hv9r9tuhyag2wpu",
+          bonuses: "",
+          modifiers: "",
+        },
+        {
+          name: "Miso classic soup",
+          description: "Miso broth, tofu, wakame, sesame seeds, green onions",
+          price: 1.7,
+          image:
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ttcnkykdmqeb3owovxfg",
+          bonuses: "",
+          modifiers: "",
+        },
+      ],
+    },
+    {
+      category: {
+        categoryName: "Top sellers",
+        categoryImage:
+          "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/jfxxpnxnspq61u27c1ki",
+        bonus: "Deals",
+      },
+      products: [
+        {
+          name: "Set Imperial",
+          description:
+            "Philadelphia with salmon, Philadelphia with eel, Philadelphia with shrimp, Philadelphia with tuna in sesame, California with crab mix in caviar, California with eel in sesame, California tempura, roll with salmon and cucumber, crunch with shrimp, tender with salmon...",
+          price: 55,
+          image:
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/wixzwitohm7zjd6rynv2",
+          bonuses: "-20%",
           modifiers: "",
         },
       ],
@@ -389,92 +342,82 @@ export const dinnersMenu = {
       category: {
         categoryName: "Desserts",
         categoryImage:
-          "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Collections/dq6jzvuz67nhjiuzgwvu",
-        bonus: "",
+          "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/dbzqftoxmuxsvtzxgmkv",
+        bonus: "-20%",
       },
       products: [
         {
-          name: "Cheesecake with salted caramel",
-          description:
-            "Flour, powdered sugar, chicken eggs, butter, baking powder, ground cinnamon, Philadelphia cheese, cream, sour milk cheese, vanilla sugar, salt, sugar",
-          price: 2.5,
-          image:
-            "https://api.getorder.biz/product/18370/image/44/700/700/2000038385.webp",
-          modifiers: "",
-        },
-        {
-          name: "Napoleon cake",
-          description: "Sugar, egg, flour, butter, milk, puff pastry",
+          name: "Cherry tart",
+          description: "Cherry tart",
           price: 2,
           image:
-            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/mfux6nm7g2kzjs4wud4s",
-          modifiers: "",
-        },
-        {
-          name: "Ant cake",
-          description:
-            "Flour, walnuts, butter, condensed milk, sour cream, sugar, chicken egg, powdered sugar, chocolate glaze",
-          price: 2,
-          image:
-            "https://api.getorder.biz/product/18369/image/44/700/700/2000039264.webp",
-          modifiers: "",
-        },
-        {
-          name: "Waffle cake",
-          description: "Waffle cakes, condensed milk, butter",
-          price: 1.5,
-          image:
-            "https://api.getorder.biz/product/18366/image/44/700/700/2000037890.webp",
-          modifiers: "",
-        },
-        {
-          name: "Mr. cherry cat",
-          description: "Cherry, cream, milk, cherry juice, sugar, gelatin",
-          price: 1.5,
-          image:
-            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/xjjrw9w6z31s8eae98t9",
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/dbzqftoxmuxsvtzxgmkv",
+          bonuses: "-20%",
           modifiers: "",
         },
       ],
     },
     {
       category: {
-        categoryName: "Drinks",
+        categoryName: "Addition",
         categoryImage:
-          "https://api.getorder.biz/product/18418/image/44/700/700/2000038729.webp",
+          "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/df48wzjtigugjn6sylul",
         bonus: "",
       },
       products: [
         {
-          name: "Stewed fruit",
-          description: "Dried fruits, honey, sugar, lemon, water 250ml",
-          price: 0.7,
+          name: "Unagi sauce supplement",
+          description: "Soy sauce, sugar, mirin sauce",
+          price: 0.5,
           image:
-            "https://api.getorder.biz/product/18418/image/44/700/700/2000038729.webp",
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/pzvvc3l4xpqqbzq2txpo",
+          bonuses: "",
           modifiers: "",
         },
         {
-          name: "Currant juice",
-          description: "250ml",
-          price: 0.7,
+          name: "Nut Sauce Supplement",
+          description:
+            "Cashew nut, sesame, onion, rice vinegar, soy sauce, vegetable oil, apple, garlic",
+          price: 0.5,
           image:
-            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/gfpgd5yfpxgsmvyqc9hs",
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/xoulc99n9voavwykr9hu",
+          bonuses: "",
           modifiers: "",
         },
         {
-          name: "Bonaqua water (sparkling)",
-          description: "500ml",
-          price: 0.7,
+          name: "Kimchi sauce (spicy)",
+          description: "Chili pepper, vinegar, sugar, salt",
+          price: 0.5,
           image:
-            "https://api.getorder.biz/product/50408/image/44/700/700/2000040801.webp",
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/p191vlhvs0kwlkgwrgc6",
+          bonuses: "",
           modifiers: "",
         },
         {
-          name: "Bonaqua water (still)",
-          description: "500ml",
-          price: 0.7,
+          name: "Wasabi supplement",
+          description: "Wasabi",
+          price: 0.5,
           image:
-            "https://api.getorder.biz/product/50409/image/44/700/700/2000040804.webp",
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/bjwnjhwh80bkrdycvnwm",
+          bonuses: "",
+          modifiers: "",
+        },
+        {
+          name: "Chopsticks",
+          description: "Chopsticks",
+          price: 0.1,
+          image:
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/m0x5rklavjtmpbg5vy1z",
+          bonuses: "",
+          modifiers: "",
+        },
+        {
+          name: "Locker for sticks",
+          description: "Locker",
+          price: 0.05,
+          image:
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/hdelxmtocabjoefpzxhl",
+          bonuses: "",
           modifiers: "",
         },
       ],
