@@ -3,8 +3,8 @@ import { categories } from "../units/data";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 // import locationLogoYellow from "../logos/locationLogoYellow.png"
-import { LocationInput } from "./index";
-
+// import { LocationInput } from "./index";
+// Времеенно убираем поиск локации... чтобы сделать пиксельперфект HomePage
 const address: string = "136 Pym St, Nottingham";
 
 export const FastServices = () => {
@@ -30,7 +30,8 @@ export const FastServices = () => {
             </div>
           </div>
         ) : (
-          <LocationInput />
+          ""
+          // <LocationInput />
         )}
         <div className="categories-container">
           {categories.map((item) => {
