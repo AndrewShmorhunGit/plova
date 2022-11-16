@@ -7,6 +7,7 @@ import raitngExcellent from "../images/common/ratingExcellent.png";
 import ratingExcellentRegular from "../images/common/ratingExcellentRegular.png";
 import ratingGood from "../images/common/ratingGood.png";
 import deliveryImage from "../images/common/storeDeliveryLight.svg";
+import decoImage from "../images/design/decoImageFoodGallery.png";
 
 export const FoodNearGallery = () => {
   const cutName = (name: string) => {
@@ -64,7 +65,9 @@ export const FoodNearGallery = () => {
         <div className="title">
           <span className="food-title">
             <div className="food-deco">Food</div> near you
-            <div className="deco"></div>
+            <div className="deco">
+              <img className="deco-image" src={decoImage} alt="" />
+            </div>
           </span>
         </div>
         <div className="gallery-container center">
@@ -82,46 +85,49 @@ export const FoodNearGallery = () => {
               ];
 
             return (
-              <a href="#" key={store.id} className="gallery-unit-link">
-                <div className="div-container ">
-                  <div
-                    className="gallery-unit"
-                    style={{
-                      backgroundImage: `url(https://res.cloudinary.com/glovoapp/w_450,h_250,c_fill,f_auto,q_30/${store.imageId})`,
-                    }}
-                  >
-                    <div className="overlay"></div>
-                    <p className="brand-name">{cutName(store.name)}</p>
+              <div className="gallery-div">
+                <a href="#" key={store.id} className="gallery-unit-link">
+                  <div className="div-container ">
+                    <div
+                      className="gallery-unit"
+                      style={{
+                        backgroundImage: `url(https://res.cloudinary.com/glovoapp/w_450,h_250,c_fill,f_auto,q_30/${store.imageId})`,
+                      }}
+                    >
+                      <div className="overlay"></div>
+                      {/* <p className="brand-name">{cutName(store.name)}</p> */}
+                    </div>
                   </div>
-                </div>
-                <div className="unit-info">
-                  <div className="rate-container">
-                    <p className="rate-p">
-                      {checkRateFunc(store.ratingInfo.cardLabel)}
-                    </p>
-                    <p className="reviews-numbers-p">
-                      ({store.ratingInfo.totalRatingLabel})
-                    </p>
-                  </div>
-                  <div className="delivery-container">
-                    <p className="delivery-p">
-                      <span className="price-span">
-                        <img
-                          className="delivery-image"
-                          src={deliveryImage}
-                          alt=""
-                        />
-                        {` ${hrivnaToDollarConverter(store.serviceFee)} $  `}
-                      </span>
+                  <div className="unit-info">
+                    <div className="rate-container">
+                      <p className="rate-p">
+                        {checkRateFunc(store.ratingInfo.cardLabel)}
+                      </p>
+                      <p className="reviews-numbers-p">
+                        ({store.ratingInfo.totalRatingLabel})
+                      </p>
+                      <p className="brand-name">{cutName(store.name)}</p>
+                    </div>
+                    <div className="delivery-container">
+                      <p className="delivery-p">
+                        <span className="price-span">
+                          <img
+                            className="delivery-image"
+                            src={deliveryImage}
+                            alt=""
+                          />
+                          {` ${hrivnaToDollarConverter(store.serviceFee)} $  `}
+                        </span>
 
-                      <span className="delivery-span">
-                        {` ·  ${delObj.etaLowerBound}-${delObj.etaUpperBound} `}
-                        min
-                      </span>
-                    </p>
+                        <span className="delivery-span">
+                          {` ·  ${delObj.etaLowerBound}-${delObj.etaUpperBound} `}
+                          min
+                        </span>
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </a>
+                </a>
+              </div>
             );
           })}
         </div>
@@ -163,6 +169,15 @@ const Wrapper = styled.section`
     padding-bottom: 6rem;
   }
 
+  .gallery-unit-link,
+  .gallery-div {
+    height: 22rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
+    overflow: hidden;
+  }
+
   .gallery-unit {
     width: auto;
     height: 16.8rem;
@@ -173,17 +188,17 @@ const Wrapper = styled.section`
     transition: all 0.5s;
   }
 
+  .gallery-div {
+    position: relative;
+  }
   .brand-name {
     position: absolute;
-    top: 8.5%;
-    bottom: 10%;
-    right: 10%;
-    left: 10%;
-    color: #fff;
+    top: 7rem;
+    left: 8rem;
+    color: white;
     min-width: 20rem;
     text-align: center;
     text-transform: capitalize;
-    padding: 6rem 1rem 5rem 1rem;
     font-size: 2.6rem;
     font-weight: 600;
     z-index: 3;
@@ -199,14 +214,6 @@ const Wrapper = styled.section`
   .div-container {
     overflow: hidden;
     position: relative;
-  }
-
-  .gallery-unit-link {
-    height: 22rem;
-    border-radius: 1rem;
-    text-decoration: none;
-    box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
-    overflow: hidden;
   }
 
   .gallery-unit-link:hover {
@@ -235,27 +242,40 @@ const Wrapper = styled.section`
     gap: 1rem;
     font-size: 3rem;
     font-weight: 600;
-    // position: relative;
+    position: relative;
   }
 
   .deco {
+    position: absolute;
     width: 1rem;
     height: 3rem;
-    background-color: red;
-    background-image: url(../images/design/highlights.svg);
-    background-size: cover;
+    top: -1rem;
+    left: 20rem;
+  }
+
+  .deco-image {
+    width: 1rem;
   }
 
   .food-deco {
     margin-top: 1.5rem;
     display: flex;
     align-items: flex-end;
-    // justify-content: flex-start;
     height: 1.8rem;
     border-radius: 10rem;
     background-color: #ffc244ff;
     background-size: cover;
   }
+
+  // .food-title::after {
+  //   content: "!aaaA";
+  //   color: #ffc244ff;
+  //   position: absolute;
+  //   width: 0.8rem;
+  //   height: 1.3rem;
+  //   right: -1rem;
+  //   top: 0;
+  // }
 
   .btn-more {
     background-color: #e9f8f5;

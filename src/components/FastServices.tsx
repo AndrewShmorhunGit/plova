@@ -109,7 +109,7 @@ const Wrapper = styled.section`
   }
 
   .category-text {
-    font-size: 1.43rem;
+    font-size: 1.3rem;
     margin-top: -1.5rem;
     font-weight: 400;
     color: dark-grey;
