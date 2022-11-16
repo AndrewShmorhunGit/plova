@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import { obj } from "../units/top12Data";
 import { dataDel } from "../units/top12DeliveryData";
 import { hrivnaToDollarConverter } from "../units/data";
+import raitngExcellent from "../images/common/ratingExcellent.png";
+import ratingExcellentRegular from "../images/common/ratingExcellentRegular.png";
+import ratingGood from "../images/common/ratingGood.png";
+import deliveryImage from "../images/common/storeDeliveryLight.svg";
 
 export const FoodNearGallery = () => {
   const cutName = (name: string) => {
@@ -12,6 +16,39 @@ export const FoodNearGallery = () => {
     } else {
       return name.toUpperCase();
     }
+  };
+
+  const checkRateFunc = (
+    data: string,
+    rate1 = raitngExcellent,
+    rate2 = ratingGood,
+    rate3 = ratingExcellentRegular
+  ) => {
+    if (Number(data.slice(0, -1)) > 96) {
+      return (
+        <span className="rate-span">
+          <img className="rate-image" src={rate1} alt="" /> {data}
+        </span>
+      );
+    }
+    if (Number(data.slice(0, -1)) < 95) {
+      return (
+        <span className="rate-span">
+          <img className="rate-image" src={rate3} alt="" />
+          {data}
+        </span>
+      );
+    }
+    if (Number(data.slice(0, -1)) < 97) {
+      return (
+        <span className="rate-span">
+          <img className="rate-image" src={rate2} alt="" />
+          {data}
+        </span>
+      );
+    }
+
+    return "Not a number!";
   };
 
   return (
@@ -30,25 +67,9 @@ export const FoodNearGallery = () => {
             <div className="deco"></div>
           </span>
         </div>
-        <div className="gallery-container">
+        <div className="gallery-container center">
           {/* Will be programmatically from units or server */}
-          {/* <a href="#" className="gallery-unit-link">
-            <div className="div-container ">
-              <div className="gallery-unit">
-                <div className=" overlay"></div>
-                <p className="brand-name">Brand Unit</p>
-              </div>
-            </div>
-            <div className="unit-info">
-              <div>
-                <p>
-                  <span>👍 {`100`}%</span> ({`num`})
-                </p>
-              </div>
-              <p>🚀 {`price`} $</p>
-              <p>{`min`}' 🕔</p>
-            </div>
-          </a> */}
+
           {obj.elements.map((item, index) => {
             const store = item.singleData.storeData.store;
 
@@ -74,22 +95,31 @@ export const FoodNearGallery = () => {
                   </div>
                 </div>
                 <div className="unit-info">
-                  <div>
-                    <p>
-                      <span>👍 {store.ratingInfo.cardLabel}</span> (
-                      {store.ratingInfo.totalRatingLabel})
+                  <div className="rate-container">
+                    <p className="rate-p">
+                      {checkRateFunc(store.ratingInfo.cardLabel)}
+                    </p>
+                    <p className="reviews-numbers-p">
+                      ({store.ratingInfo.totalRatingLabel})
                     </p>
                   </div>
-                  <p>
-                    <span>
-                      🚴‍♂️ {` ${hrivnaToDollarConverter(store.serviceFee)}$  `}
-                    </span>
+                  <div className="delivery-container">
+                    <p className="delivery-p">
+                      <span className="price-span">
+                        <img
+                          className="delivery-image"
+                          src={deliveryImage}
+                          alt=""
+                        />
+                        {` ${hrivnaToDollarConverter(store.serviceFee)} $  `}
+                      </span>
 
-                    <span>
-                      {` /  ${delObj.etaLowerBound}-${delObj.etaUpperBound} `}
-                      🕔
-                    </span>
-                  </p>
+                      <span className="delivery-span">
+                        {` ·  ${delObj.etaLowerBound}-${delObj.etaUpperBound} `}
+                        min
+                      </span>
+                    </p>
+                  </div>
                 </div>
               </a>
             );
@@ -107,10 +137,10 @@ export const FoodNearGallery = () => {
 
 const Wrapper = styled.section`
   // overflow-x: hide;
+
   .gallery {
-    display: block;
     color: #212529;
-    padding-bottom: 8rem;
+    padding: 4rem 0 8rem 0;
   }
 
   .decoration-swg {
@@ -126,18 +156,17 @@ const Wrapper = styled.section`
 
   .gallery-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 24rem);
+    grid-template-columns: repeat(3, 35rem);
+    grid-template-rows: repeat(4, 20rem);
     row-gap: 4rem;
-    column-gap: 4rem;
-    padding-bottom: 4rem;
+    column-gap: 3rem;
+    padding-bottom: 6rem;
   }
 
   .gallery-unit {
     width: auto;
-    height: 18rem;
+    height: 16.8rem;
     text-align: center;
-    // font-size: 4rem;
     background-image: url(https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/bckg-pattern.svg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -190,7 +219,7 @@ const Wrapper = styled.section`
     color: #343a40;
     height: 5rem;
     font-size: 1.6rem;
-    padding: 2rem 2rem 4rem 2rem;
+    padding: 0rem 2rem 0rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -198,28 +227,27 @@ const Wrapper = styled.section`
   }
 
   .title {
-    padding-top: 8rem;
-    padding-bottom: 3.6rem;
+    padding: 7.8rem 0 4.8rem 8rem;
   }
 
   .food-title {
     display: flex;
     gap: 1rem;
-    font-size: 3.6rem;
+    font-size: 3rem;
     font-weight: 600;
     // position: relative;
   }
 
   .deco {
     width: 1rem;
-    height: 1.5rem;
+    height: 3rem;
     background-color: red;
     background-image: url(../images/design/highlights.svg);
     background-size: cover;
   }
 
   .food-deco {
-    margin-top: 2.3rem;
+    margin-top: 1.5rem;
     display: flex;
     align-items: flex-end;
     // justify-content: flex-start;
@@ -245,5 +273,56 @@ const Wrapper = styled.section`
     box-shadow: 0 3px 5px 0 #0000001a;
     border: none;
     // letter-spacing: 0.2rem;
+  }
+
+  .rate-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .rate-image,
+  .delivery-image {
+    height: 2.2rem;
+  }
+
+  .rate-span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-weight: 400;
+  }
+
+  .reviews-numbers-p {
+    font-weight: 400;
+    color: grey;
+    font-size: 1.4rem;
+  }
+
+  .delivery-container {
+    max-width: 20rem;
+  }
+
+  .delivery-p {
+    display: flex;
+  }
+
+  .price-span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding-right: 0.4rem;
+    font-weight: 400;
+  }
+
+  .delivery-span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // gap: 0.4rem;
+    font-size: 1.6rem;
   }
 `;

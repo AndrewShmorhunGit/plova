@@ -83,15 +83,54 @@ interface categories {
 }
 
 export const categories = [
-  { id: 1, category: "Pizza", icon: "🍕" },
-  { id: 2, category: "Ice Cream", icon: "🍦" },
-  { id: 3, category: "Burgers", icon: "🍔" },
-  { id: 4, category: "Vegetarian", icon: "🥗" },
-  { id: 5, category: "Grill", icon: "🥓" },
-  { id: 6, category: "Seafood", icon: "🐟" },
-  { id: 7, category: "Sushi", icon: "🍣" },
-  { id: 8, category: "Tea & coffee", icon: "☕" },
-  { id: 9, category: "Fast Food", icon: "🍟" },
+  {
+    id: 1,
+    category: "Charity",
+    iconUrl:
+      "https://res.cloudinary.com/glovoapp/w_60,h_60,c_fit,f_auto,q_auto:best/StoreCategories/jwum2o0vanhq29kmennd",
+  },
+  {
+    id: 2,
+    category: "Food",
+    iconUrl:
+      "https://res.cloudinary.com/glovoapp/w_60,h_60,c_fit,f_auto,q_auto:best/StoreCategories/prj0mlcuvmymzfh8pqjz",
+  },
+  {
+    id: 3,
+    category: "Plova Express",
+    iconUrl:
+      "https://res.cloudinary.com/glovoapp/w_60,h_60,c_fit,f_auto,q_auto:best/StoreCategories/hxgpd20fgz7ykr6gnh8x",
+  },
+  {
+    id: 4,
+    category: "Groceries",
+    iconUrl:
+      "https://res.cloudinary.com/glovoapp/w_60,h_60,c_fit,f_auto,q_auto:best/CategoryGroups/lcmflctz9nuq7odxz0rk",
+  },
+  {
+    id: 5,
+    category: "Shops & Services",
+    iconUrl:
+      "https://res.cloudinary.com/glovoapp/w_60,h_60,c_fit,f_auto,q_auto:best/CategoryGroups/pltazoi0lkmpwhwb3aom",
+  },
+  {
+    id: 6,
+    category: "Pharmacy & Beauty",
+    iconUrl:
+      "https://res.cloudinary.com/glovoapp/w_60,h_60,c_fit,f_auto,q_auto:best/CategoryGroups/laa5wggggfjirdvhngz5",
+  },
+  {
+    id: 7,
+    category: "Coffee & Desserts",
+    iconUrl:
+      "https://res.cloudinary.com/glovoapp/w_60,h_60,c_fit,f_auto,q_auto:best/StoreCategories/vevdez89piflyonld84d",
+  },
+  {
+    id: 8,
+    category: "Anything",
+    iconUrl:
+      "https://res.cloudinary.com/glovoapp/w_60,h_60,c_fit,f_auto,q_auto:best/CategoryGroups/favmxfgt35oymbx7wi54",
+  },
 ];
 
 interface cooperationData {

@@ -131,7 +131,7 @@ export const Registration = ({
               By creating an account, you automatically accept our
               <div>
                 <a href="#">Terms of service, </a>
-                <a href="#"> Privacy Policy</a> and
+                <a href="#">Privacy Policy</a> and
                 <a href="#"> Cookies Policy</a>
               </div>
             </div>

@@ -80,7 +80,7 @@ export const NavBar = ({
                 className="btn-start"
                 onClick={() => setShowRegistration(!showRegistration)}
               >
-                Start!
+                Get started
               </button>
             </div>
           </div>
@@ -164,15 +164,15 @@ const Wrapper = styled.header`
     text-align: center;
     padding-left: 1.6rem;
     padding-right: 1.6rem;
-    height: 4.8rem;
-    width: 12.6rem;
+    height: 4.2rem;
+    width: 13.6rem;
     border-radius: 2.4rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
     font-weight: 700;
     box-shadow: 0 3px 5px 0 #0000001a;
     border: none;
-    letter-spacing: 0.2rem;
+    // letter-spacing: 0.2rem;
   }
 
   .btn-start:hover {
