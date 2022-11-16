@@ -75,7 +75,10 @@ export const FoodNearGallery = () => {
 
           {obj.elements.map((item, index) => {
             const store = item.singleData.storeData.store;
-
+            const promo = store.promotions.map((obj) => {
+              return obj.title.includes("%") ? obj.title : "";
+            });
+            // checkPromo(store.promotions);
             const delObj =
               dataDel.elements[
                 dataDel.elements.findIndex(
@@ -95,7 +98,6 @@ export const FoodNearGallery = () => {
                       }}
                     >
                       <div className="overlay"></div>
-                      {/* <p className="brand-name">{cutName(store.name)}</p> */}
                     </div>
                   </div>
                   <div className="unit-info">
@@ -106,6 +108,9 @@ export const FoodNearGallery = () => {
                       <p className="reviews-numbers-p">
                         ({store.ratingInfo.totalRatingLabel})
                       </p>
+                      {store.promotions.length && (
+                        <div className="booster center">{promo}</div>
+                      )}
                       <p className="brand-name">{cutName(store.name)}</p>
                     </div>
                     <div className="delivery-container">
@@ -169,13 +174,18 @@ const Wrapper = styled.section`
     padding-bottom: 6rem;
   }
 
-  .gallery-unit-link,
   .gallery-div {
     height: 22rem;
     border-radius: 1rem;
     text-decoration: none;
     box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
-    overflow: hidden;
+  }
+
+  .gallery-unit-link {
+    height: 22rem;
+    border-radius: 1rem;
+    text-decoration: none;
+    box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
   }
 
   .gallery-unit {
@@ -191,6 +201,7 @@ const Wrapper = styled.section`
   .gallery-div {
     position: relative;
   }
+
   .brand-name {
     position: absolute;
     top: 7rem;
@@ -204,6 +215,25 @@ const Wrapper = styled.section`
     z-index: 3;
   }
 
+  .booster {
+    position: absolute;
+    bottom: -1rem;
+    top: -0.5rem;
+    right: 3rem;
+    color: black;
+    width: 6rem;
+    height: 3rem;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1.6rem;
+    font-weight: 700;
+    background-color: #ffc244;
+    z-index: 3;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    // overflow: visible;
+  }
+
   .overlay {
     width: 100%;
     height: 100%;
@@ -213,6 +243,8 @@ const Wrapper = styled.section`
 
   .div-container {
     overflow: hidden;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
     position: relative;
   }
 
@@ -266,16 +298,6 @@ const Wrapper = styled.section`
     background-color: #ffc244ff;
     background-size: cover;
   }
-
-  // .food-title::after {
-  //   content: "!aaaA";
-  //   color: #ffc244ff;
-  //   position: absolute;
-  //   width: 0.8rem;
-  //   height: 1.3rem;
-  //   right: -1rem;
-  //   top: 0;
-  // }
 
   .btn-more {
     background-color: #e9f8f5;
