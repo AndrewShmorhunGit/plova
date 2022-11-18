@@ -1,3 +1,21 @@
+@font-face {
+  font-family: "Gotham Office";
+  src: url(../src/fonts/gotham/GothamOffice-Bold.woff2),
+    url(../src/fonts/gotham/GothamOffice-Bold.woff);
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham Office";
+  src: url(../src/fonts/gotham/GothamOffice-Regular.woff2),
+    url(../src/fonts/gotham/GothamOffice-Regular.woff);
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,9 +28,8 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  font-family: "Gotham", "Segoe UI", "Helvetica Neue", "Helvetica", sans-serif,
-    "Arial";
-  font-weight: 300;
+  font-family: "Gotham Office", "Prompt", sans-serif, "Arial";
+  font-weight: 800;
   font-size: 14px;
   color: var(--helio-color-primaryText);
   /* -webkit-font-smoothing: antialiased;

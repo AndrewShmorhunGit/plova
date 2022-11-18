@@ -19,7 +19,17 @@ export const NavBar = ({
   );
 
   const address: string = "136 Pym St, Nottingham";
-  const search: string = "Search";
+  // const formActive: boolean = false;
+  // const changeFormState = (): void => {
+  //   return formActive;
+  // };
+  // const showTarget = (event: Event): void => {
+  //   event.preventDefault();
+  //   return console.log(event.target);
+  // };
+
+  // const event: Event = showTarget(Event);
+
   return (
     <Wrapper>
       <header className="nav-sticky">
@@ -28,19 +38,23 @@ export const NavBar = ({
             <Link to="/">
               <img src={headerLogo} alt="plova logo" className="logo" />
             </Link>
+
             <div className="header-center">
+              {/* {event.target === `<input type="text" class="search-input">` && ( */}
               <label className="search-label">
                 <FiSearch />
               </label>
+              {/* )} */}
               <form
                 className="form-input"
                 onSubmit={() => console.log("onSubmit!")}
+                onClick={() => {}}
               >
                 <input
                   type="text"
                   className="search-input"
-                  placeholder={search}
-                  value=""
+                  // placeholder={search}
+                  // value=""
                   onChange={() => console.log("onChange!")}
                 />
               </form>
@@ -133,6 +147,10 @@ const Wrapper = styled.header`
 
   .form-input {
     max-width: 46rem;
+  }
+
+  .form-input:focus {
+    label: none;
   }
 
   .search-label {

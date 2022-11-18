@@ -52,6 +52,21 @@ export const FoodNearGallery = () => {
     return "Not a number!";
   };
 
+  // interface promotion {
+  //   id: number;
+  //   title: string;
+  //   type: string;
+  //   isPrime: boolean;
+  //   origin: string;
+  // }
+
+  // const functionTS = (data: Array<promotion>) => {
+  //   const promo = data.map((obj) => {
+  //     return obj.title.includes("%") ? obj.title : "";
+  //   });
+  //   return promo;
+  // };
+
   return (
     <Wrapper>
       <div className="decoration-svg">
@@ -78,7 +93,6 @@ export const FoodNearGallery = () => {
             const promo = store.promotions.map((obj) => {
               return obj.title.includes("%") ? obj.title : "";
             });
-            // checkPromo(store.promotions);
             const delObj =
               dataDel.elements[
                 dataDel.elements.findIndex(
@@ -108,7 +122,7 @@ export const FoodNearGallery = () => {
                       <p className="reviews-numbers-p">
                         ({store.ratingInfo.totalRatingLabel})
                       </p>
-                      {store.promotions.length && (
+                      {store.promotions.length !== 0 && (
                         <div className="booster center">{promo}</div>
                       )}
                       <p className="brand-name">{cutName(store.name)}</p>

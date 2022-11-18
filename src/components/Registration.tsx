@@ -145,10 +145,6 @@ export const Registration = ({
 };
 
 const Wrapper = styled.aside`
-  // @media (min-width: 992px) {
-  //   display: none;
-  // }
-
   .registration-container {
     position: fixed;
     inset: 0;
@@ -158,7 +154,6 @@ const Wrapper = styled.aside`
     padding: 8.5rem 0;
     z-index: -1;
     opacity: 0;
-    transition: var(--transition);
     overflow: auto;
   }
 

@@ -203,7 +203,7 @@ const Wrapper = styled.div`
   strong {
     padding-right: 0.5rem;
     font-family: "Gotham Office";
-    font-weight: 800;
+    // font-weight: 800;
     color: black;
   }
 
