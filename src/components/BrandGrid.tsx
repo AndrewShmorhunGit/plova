@@ -1,12 +1,13 @@
 import styled from "styled-components";
-// import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 import ratingExcellent from "../images/common/ratingExcellent.png";
-// import searchNew from "../images/common/search-new.svg";
-import { chornomorkaMenu } from "../units/chornomorkaMenu";
-
+// import { useSearchBrandDataQuery } from "../store/plova/plova.api";
+import { chornomorkaMenu } from "../units/menu/chornomorkaMenu";
 const data = chornomorkaMenu;
 
 export const BrandGrid = () => {
+  // const { isLoading, isError, storeData } =
+  //   useSearchBrandDataQuery("BigMenuDataSet.ts");
+
   return (
     <Wrapper>
       <div className="container-products">

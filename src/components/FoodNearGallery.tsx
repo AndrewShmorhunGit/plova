@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { obj } from "../units/top12Data";
-import { dataDel } from "../units/top12DeliveryData";
+import { obj } from "../units/data/top12Data";
+import { dataDel } from "../units/data/top12DeliveryData";
 import { hrivnaToDollarConverter } from "../units/data";
 import raitngExcellent from "../images/common/ratingExcellent.png";
 import ratingExcellentRegular from "../images/common/ratingExcellentRegular.png";
 import ratingGood from "../images/common/ratingGood.png";
 import deliveryImage from "../images/common/storeDeliveryLight.svg";
 import decoImage from "../images/design/decoImageFoodGallery.png";
-import { menuGlobal } from "../units/BigMenuDataSet";
+import { menuGlobal } from "../units/menu/BigMenuDataSet";
 
 export const FoodNearGallery = () => {
   const cutName = (name: string) => {
