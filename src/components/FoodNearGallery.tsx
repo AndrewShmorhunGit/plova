@@ -8,7 +8,7 @@ import ratingExcellentRegular from "../images/common/ratingExcellentRegular.png"
 import ratingGood from "../images/common/ratingGood.png";
 import deliveryImage from "../images/common/storeDeliveryLight.svg";
 import decoImage from "../images/design/decoImageFoodGallery.png";
-// import { bigData } from "../units/BigMenuDataSet";
+import { menuGlobal } from "../units/BigMenuDataSet";
 
 export const FoodNearGallery = () => {
   const cutName = (name: string) => {
@@ -91,9 +91,11 @@ export const FoodNearGallery = () => {
 
           {obj.elements.map((item, index) => {
             const store = item.singleData.storeData.store;
+
             const promo = store.promotions.map((obj) => {
               return obj.title.includes("%") ? obj.title : "";
             });
+
             const delObj =
               dataDel.elements[
                 dataDel.elements.findIndex(
@@ -102,9 +104,17 @@ export const FoodNearGallery = () => {
                 )
               ];
 
+            const currentMenuIndex = menuGlobal.findIndex(
+              (brand) => brand.id === store.id
+            );
+
             return (
-              <div className="gallery-div">
-                <Link to="/brand" key={store.id} className="gallery-unit-link">
+              <div className="gallery-div" key={store.id}>
+                <Link
+                  to={`brand/kiev/${store.slug}`}
+                  className="gallery-unit-link"
+                  onClick={() => console.log(menuGlobal[currentMenuIndex])}
+                >
                   <div className="div-container ">
                     <div
                       className="gallery-unit"

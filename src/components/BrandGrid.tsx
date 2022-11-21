@@ -200,7 +200,7 @@ export const BrandGrid = () => {
 };
 
 const Wrapper = styled.div`
-  margin-top: -11rem;
+  margin-top: -10rem;
 
   strong {
     padding-right: 0.5rem;
@@ -412,11 +412,6 @@ const Wrapper = styled.div`
       left: 31rem;
       top: -4.5rem;
       mask-image: url(https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/image_preview_card/blob.svg);
-      // z-index: 4;
-      // mask-position: right-top;
-      // mask-size: contain;
-      // mask-size: 20rem;
-      // mask-clip: border-box;
       object-fit: cover;
       background-color: #f5f5f5;
     }

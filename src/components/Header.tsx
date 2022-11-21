@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import footerLogo1 from "../logos/footerLogo1.png";
 import { SideBar } from "./index";
@@ -10,7 +11,10 @@ export const Header = () => {
         <div className="image-background">
           <div className="container-products">
             <div className="header-top">
-              <img src={footerLogo1} alt="" className="header-logo" />
+              <Link to="/">
+                <img src={footerLogo1} alt="" className="header-logo" />
+              </Link>
+
               <div
                 className="header-address center"
                 // onClick={() => setShowLocation(!showLocation)}
@@ -144,7 +148,6 @@ const Wrapper = styled.header`
   .header-user-address-content-location-icon {
     height: 1.6rem;
     padding-right: 0.5rem;
-    // margin-top: 0.1rem;
     stretch: white;
   }
 
