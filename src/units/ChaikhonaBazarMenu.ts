@@ -5,6 +5,7 @@ interface chaikhonaBazar {
   deliveryTime2: number;
   deliveryPrice: number;
   rate: number;
+  message: string;
   menu: [
     {
       category: {

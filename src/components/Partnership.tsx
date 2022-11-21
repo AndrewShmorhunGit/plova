@@ -5,11 +5,22 @@ import { cooperationData } from "../units/data";
 export const Partnership = () => {
   return (
     <Wrapper>
-      <div className="top-transition center">
+      <div className="top-transition">
+        {/* <img
+          src={corporateWaveDesktopPartnership}
+          alt="wave"
+          className="wave"
+        /> */}
+        <img
+          src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/landing/waves/corporate-wave-desktop.svg"
+          alt=""
+          className="wave"
+        />
+
         <img
           src="https://res.cloudinary.com/glovoapp/image/fetch//w_117,h_80,b_transparent,c_lpad,q_auto/https://glovoapp.com/images/corporate-container/together.svg"
           alt=""
-          className="center"
+          className="hand-shake"
         />
       </div>
 
@@ -35,25 +46,24 @@ export const Partnership = () => {
             })}
           </div>
         </div>
-        <div className="transition"></div>
       </section>
+      <div className="transition">
+        <img src="" alt="" />
+      </div>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.section`
-  position: relative;
-  overflow-x: hidden;
-  overflow-y: hidden;
-
   .container {
-    padding-bottom: 6rem;
+    padding: 2rem 0 15rem 0;
   }
 
   .cooperation {
     background-color: #e9f8f5;
-    padding: 2.4rem 0 18rem 0;
+    padding: 2.4rem 0 6rem 0;
     hight: 100%;
+    position: relative;
   }
 
   .join {
@@ -72,6 +82,19 @@ const Wrapper = styled.section`
     gap: 2rem;
   }
 
+  .top-transition {
+    position: relative;
+    height: auto;
+  }
+
+  .hand-shake {
+    position: absolute;
+    z-index: 3;
+    left: calc(50% - 60px);
+    top: calc(75% - 60px);
+    width: 12rem;
+  }
+
   .cooperation-image {
     height: 24rem;
   }
@@ -85,22 +108,16 @@ const Wrapper = styled.section`
     letter-spacing: 0.05rem;
   }
 
-  .top-transition {
-    // background-color: red;
-    // display: flex;
-    background-image: url(../images/design/corporateWaveDesktopPartnership.svg);
-    background-size: 100vw 10rem;
+  .wave {
+    display: flex;
+    min-width: 100%;
+    max-width: 200%;
   }
 
   .transition {
-    width: 120%;
+    display: flex;
     height: 16rem;
     background-color: #1d1d1d;
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
-    position: absolute;
-    bottom: -10rem;
-    left: -10%;
   }
 
   h2 {

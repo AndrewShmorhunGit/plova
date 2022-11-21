@@ -5,6 +5,7 @@ interface chornomorkaMenu {
   deliveryTime2: number;
   deliveryPrice: number;
   rate: number;
+  message: string;
   menu: [
     {
       category: {
@@ -33,6 +34,7 @@ export const chornomorkaMenu = {
   deliveryTime2: 35,
   deliveryPrice: 1,
   rate: 98,
+  message: "",
   menu: [
     {
       category: {
@@ -336,7 +338,7 @@ export const chornomorkaMenu = {
       category: {
         categoryName: "Sauces",
         categoryImage:
-          "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Collections/ntqxtjtku4ipvsip63gk",
+          "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ykwwqockkqrrhksxdazd",
         bonus: "",
       },
       products: [
@@ -394,24 +396,6 @@ export const chornomorkaMenu = {
           price: 0.4,
           image:
             "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/rceplgybxfaybcfyoo95",
-          modifiers: "",
-        },
-      ],
-    },
-    {
-      category: {
-        categoryName: "Sauces",
-        categoryImage:
-          "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ykwwqockkqrrhksxdazd",
-      },
-      products: [
-        {
-          name: "Waffle cake with condensed milk (130g)",
-          description:
-            "Waffle cakes are smeared with boiled condensed milk, which we cook ourselves, sprinkled with walnuts.",
-          price: 2,
-          image:
-            "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/bp7d9a3ktgrlyoydhpcm",
           modifiers: "",
         },
       ],

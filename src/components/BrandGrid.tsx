@@ -2,7 +2,9 @@ import styled from "styled-components";
 // import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 import ratingExcellent from "../images/common/ratingExcellent.png";
 // import searchNew from "../images/common/search-new.svg";
-import { menuKFC } from "../units/kfcMenu";
+import { chornomorkaMenu } from "../units/chornomorkaMenu";
+
+const data = chornomorkaMenu;
 
 export const BrandGrid = () => {
   return (
@@ -11,7 +13,7 @@ export const BrandGrid = () => {
         <div className="product-body">
           <div className="grid-title">
             <div className="brand-title">
-              <h1>{menuKFC.brandName}</h1>
+              <h1>{data.brandName}</h1>
               <div className="icons">
                 <div className="del-icon-container center">
                   <img
@@ -19,7 +21,7 @@ export const BrandGrid = () => {
                     src="https://res.cloudinary.com/glovoapp/w_22,h_22,c_pad,b_transparent,f_auto,q_auto:low,dpr_2.0/filters/sorting/near_me_light"
                     alt=""
                   />
-                  <p>10-20'</p>
+                  <p className="icons-p">{`${data.deliveryTime1}-${data.deliveryTime2}'`}</p>
                 </div>
                 <div className="del-icon-container center">
                   <img
@@ -27,14 +29,14 @@ export const BrandGrid = () => {
                     src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/glyphs/store-delivery-light.svg"
                     alt=""
                   />
-                  <p>10.00$</p>
+                  <p className="icons-p">{data.deliveryPrice} $</p>
                 </div>
                 <div className="del-icon-container center">
                   <img className="del-icon" src={ratingExcellent} alt="" />
-                  <p>100 %</p>
+                  <p className="icons-p"> {data.rate}%</p>
                 </div>
               </div>
-              <p className="message">message</p>
+              <p className="message">{data.message}</p>
             </div>
           </div>
           <div className="grid-chart">
@@ -70,7 +72,7 @@ export const BrandGrid = () => {
               />
               <h3 className="sections-title">sections</h3>
             </div>
-            {menuKFC.menu.map((item, index) => {
+            {data.menu.map((item, index) => {
               return (
                 <div
                   className="menu-container"
@@ -110,12 +112,12 @@ export const BrandGrid = () => {
               </label>
               <input
                 type="text"
-                placeholder="Search in `BrandName`"
+                placeholder="Search in 'BrandName'"
                 className="search-input"
               />
             </form>
             <div className="products">
-              {menuKFC.menu.map((item, index) => {
+              {data.menu.map((item, index) => {
                 return (
                   <div
                     className="product-category"
@@ -275,13 +277,15 @@ const Wrapper = styled.div`
   }
 
   .brand-title {
-    font-size: 3.6rem;
-    p {
-      font-size: 2rem;
-    }
     .message {
-      font-size: 1.6rem;
-      padding: 1.6rem 0;
+      font-size: 1.4rem;
+      font-weight: 500;
+      padding: 2rem 0rem;
+      color: #1aa98f;
+    }
+
+    h1 {
+      padding-top: 0.2rem;
     }
   }
 
@@ -289,38 +293,35 @@ const Wrapper = styled.div`
     padding-top: 2rem;
     display: flex;
     gap: 2rem;
-    // font-size: 2rem;
   }
 
   .del-icon-container {
     height: 2.6rem;
     p {
       letter-spacing: 0.1rem;
-      font-size: 1.6rem;
+      font-size: 1.4rem;
+      font-weight: 400;
     }
   }
 
   .del-icon {
-    height: 2.6rem;
+    height: 2.8rem;
     padding-right: 0.8rem;
   }
 
   .sections {
     display: flex;
     padding: 1.6rem;
-    margin-left: -35%;
+    margin-left: -6rem;
     text-transform: capitalize;
     color: #00a082;
     font-size: 1.2rem;
-    letter-spacing: 0.05rem;
-    margin-bottom: 0.1rem;
   }
 
   .squares {
     height: 1.2rem;
     width: 1.3rem;
     margin-right: 0.4rem;
-    margin-top: 0.25rem;
   }
 
   .sub-menu {
@@ -338,12 +339,12 @@ const Wrapper = styled.div`
   }
 
   .menu {
-    padding: 1.7rem 0rem 1.7rem 2.3rem;
+    padding: 1.8rem 0rem 1.8rem 2.3rem;
     display: flex;
     text-transform: capitalize;
     font-weight: 400;
     color: #3a3a3a;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
 
   .chevron {
@@ -356,7 +357,6 @@ const Wrapper = styled.div`
     border-radius: 10rem;
     label {
       padding-right: 1rem;
-      margin-left: 0.1rem;
     }
   }
 
@@ -380,13 +380,13 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 1rem;
-    row-gap: 1rem;
+    row-gap: 2rem;
     font-weight: 700;
   }
 
   .product-category {
     background-color: #fff;
-    margin: 0.1rem 0.9rem;
+    margin: 0 0.9rem;
     border-radius: 1rem;
     padding: 3rem 0 1rem 3rem;
     height: 15rem;
@@ -403,23 +403,28 @@ const Wrapper = styled.div`
 
   .product-image-div {
     position: absolute;
-    left: 1rem;
+    left: 0.5rem;
 
     .product-category-image {
       position: absolute;
-      width: 14rem;
-      left: 30rem;
-      top: -5rem;
-      // z-index: 4;
+      width: 12.8rem;
+      height: 14rem;
+      left: 31rem;
+      top: -4.5rem;
       mask-image: url(https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/image_preview_card/blob.svg);
+      // z-index: 4;
+      // mask-position: right-top;
+      // mask-size: contain;
+      // mask-size: 20rem;
+      // mask-clip: border-box;
+      object-fit: cover;
       background-color: #f5f5f5;
     }
 
     .arrow {
-      // background-color: green;
       position: absolute;
       top: 4.4rem;
-      left: 36rem;
+      left: 36.5rem;
       z-index: 5;
     }
   }
@@ -427,6 +432,7 @@ const Wrapper = styled.div`
   .category-name {
     padding-top: 1rem;
     font-size: 1.8rem;
+    text-transform: capitalize;
   }
 
   .single-product {
@@ -480,15 +486,13 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 3.6rem;
-    // padding-top: 4rem;
     padding: 4.4rem 4.5rem 4rem 4.5rem;
     max-height: 43rem;
   }
 
   .empty-chart-paragraph {
-    font-size: 1.75rem;
-    line-height: 1.2;
-    // letter-spacing: 0.03rem;
+    font-size: 1.6rem;
+    line-height: 1.5;
     text-align: center;
     font-weight: 400;
     color: #4d4d4d;
@@ -501,16 +505,17 @@ const Wrapper = styled.div`
   }
 
   .empty-chart-bottom {
-    height: 6.25rem;
-    padding: 0 1rem 2rem 1rem;
-    font-size: 1.35rem;
+    height: 4.75rem;
+    min-width: 20rem;
+    padding: auto 10%;
+    font-size: 1.2rem;
     font-weight: 400;
     border-top: 4px solid #e9f8f5;
-    letter-spacing: 0.05rem;
     color: #4d4d4d;
   }
 
   .chart-bottom-image {
+    margin-bottom: 0.1rem;
     max-height: 1.4rem;
     padding-right: 0.4rem;
   }
