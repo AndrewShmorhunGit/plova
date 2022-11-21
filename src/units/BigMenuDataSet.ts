@@ -1,4 +1,24 @@
+interface product {
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+  bonus: string;
+  modifiers: string;
+}
+
+interface category {
+  category: {
+    categoryName: string;
+    categoryImage: string;
+    bonus: string;
+  };
+  products: Array<product>;
+}
+
 interface menuUnit {
+  id: number;
+  slug: string;
   brandName: string;
   headerBackgroundImage: string;
   deliveryTime1: number;
@@ -6,32 +26,13 @@ interface menuUnit {
   deliveryPrice: number;
   rate: number;
   message: string;
-  menu: [
-    {
-      category: {
-        categoryName: string;
-        categoryImage: string;
-        bonus: string;
-      };
-      products: [
-        {
-          name: string;
-          description: string;
-          price: number;
-          image: string;
-          modifiers: string;
-        }
-      ];
-    }
-  ];
+  menu: Array<category>;
 }
 
-interface menuGlobal {
-  menuUnit: menuUnit;
-}
-
-export const menuGlobal = {
-  chaikhonaBazar: {
+export const menuGlobal: Array<menuUnit> = [
+  {
+    id: 32338,
+    slug: "chaikhona-basar-g",
     brandName: "Chaikhona Bazar",
     headerBackgroundImage:
       "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/umja8kenssym2wouyqoo",
@@ -56,7 +57,7 @@ export const menuGlobal = {
             price: 7.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/3751788970",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -66,7 +67,7 @@ export const menuGlobal = {
             price: 5.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/3751788978",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -76,7 +77,7 @@ export const menuGlobal = {
             price: 5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/3751788979",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -86,7 +87,7 @@ export const menuGlobal = {
             price: 5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/3751788968",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -106,7 +107,7 @@ export const menuGlobal = {
             price: 6,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/e4hqcarhnpalwpzkdbxt",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -116,7 +117,7 @@ export const menuGlobal = {
             price: 5.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/vb6fazidwywjeynqeq3n",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -126,7 +127,7 @@ export const menuGlobal = {
             price: 5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/flf6azmo9m3evc5gxi8k",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -146,7 +147,7 @@ export const menuGlobal = {
             price: 4.25,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/rzajpdqqwhq0eezvjrk8",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -156,7 +157,7 @@ export const menuGlobal = {
             price: 3.75,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/uccrdhwp2vincgrerrgp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -166,7 +167,7 @@ export const menuGlobal = {
             price: 4.25,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/rzajpdqqwhq0eezvjrk8",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -186,7 +187,7 @@ export const menuGlobal = {
             price: 7.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/3751788970",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -196,7 +197,7 @@ export const menuGlobal = {
             price: 7.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/3751788972",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -206,7 +207,7 @@ export const menuGlobal = {
             price: 3.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/3751788963",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -226,7 +227,7 @@ export const menuGlobal = {
             price: 5.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/3751788978",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -236,7 +237,7 @@ export const menuGlobal = {
             price: 5.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/3751788979",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -256,7 +257,7 @@ export const menuGlobal = {
             price: 3,
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/3751788994",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -276,7 +277,7 @@ export const menuGlobal = {
             price: 4.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/3751789001",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -296,7 +297,7 @@ export const menuGlobal = {
             price: 3,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ola2qqcwumwnq2g0zpwi",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -306,7 +307,7 @@ export const menuGlobal = {
             price: 2.75,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/v3el5dt4pbmmmza0lpwv",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -326,7 +327,7 @@ export const menuGlobal = {
             price: 2.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/3751789019",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -336,14 +337,16 @@ export const menuGlobal = {
             price: 2.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/3751789018",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
       },
     ],
   },
-  chornomorkaMenu: {
+  {
+    id: 302106,
+    slug: "chornomorka-kie",
     brandName: "Chornomorka",
     headerBackgroundImage:
       "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/qprs47ketu5mtzh6lrcz",
@@ -369,6 +372,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/bocxzqf3vwbydh9qo2is",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Risotto with seafood (300g)",
@@ -378,6 +382,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/uwdcegnubecatfbu7efr",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Spaghetti with seafood (350g)",
@@ -387,6 +392,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/zfxev34mqwyjmen3zol9g",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Salmon and pike perch puree fish cutlets (130/150 / 75g)",
@@ -396,6 +402,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/dvxbpwsebsngrxmzzwss",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Fish cutlets from perch and shrimp from puree (130/150 / 75g)",
@@ -405,6 +412,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/zqjpio4wls89djfrhewf",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "'Olivier' tiger prawns (250g)",
@@ -414,6 +422,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/djvu6sciheahlz2dbg7e",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Provencal salad with red tuna (350g)",
@@ -423,6 +432,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/iwqh0g3iakvnxojglpks",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -442,6 +452,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/x7u5h6h7l8jk317brqco",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Tuna tartare with avocado puree (190g)",
@@ -451,6 +462,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/uo8qjbsnq4hifkhju5fq",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Assorted bruschettas (with salmon, anchovies, herring, sprats) (350g)",
@@ -460,6 +472,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ud0xvxyss4xbbbihbdjc",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Forshmak Odessa-style herring matias (100/50 / 25g)",
@@ -469,6 +482,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/yralwggk1qdaizf14svg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Weak salt tulle with boiled potatoes (70 / 100g)",
@@ -477,6 +491,8 @@ export const menuGlobal = {
             price: 3,
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/in1e0wqtisiyyuyngh3n",
+            modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -496,6 +512,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/adgcerrypltp39yyxkiv",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "'Olivier' with salmon (250g)",
@@ -505,6 +522,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/yfa9g1wzq0pfxzyo6nj5",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Salad with tomatoes and cheese of our goats (80g / 150g / 30g)",
@@ -514,6 +532,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/npxa0lohcpdf0p6r4edz",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Provencal salad with red tuna (350g)",
@@ -523,6 +542,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/iwqh0g3iakvnxojglpks",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -531,6 +551,7 @@ export const menuGlobal = {
           categoryName: "Hot meals",
           categoryImage:
             "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/qovnpn4x3vpxdxnoelmo",
+          bonus: "",
         },
         products: [
           {
@@ -541,6 +562,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/qovnpn4x3vpxdxnoelmo  ",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Risotto with seafood (300g)",
@@ -550,6 +572,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/uwdcegnubecatfbu7efr",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Spaghetti with seafood (350g)",
@@ -559,6 +582,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/zfxev34mqwyjmen3zol9",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -578,6 +602,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/hjvoq0tlu4hnfe1qrlcg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "A mixture of wild rice and basmati (200g)",
@@ -587,6 +612,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/bbiiidj6aiviyxq3aabn",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Fried potatoes (200g)",
@@ -595,6 +621,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ofkdysncfm9rqucb6mqm",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Puree (200g)",
@@ -604,6 +631,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/hgabblip2ldbedsysrhf",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -623,6 +651,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/n50ifxvcpmrn3mnygquq",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Black Sea soup (350 g)",
@@ -632,6 +661,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/wvhiafzaomxuyigggnlu",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Fried potatoes (200g)",
@@ -640,6 +670,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ofkdysncfm9rqucb6mqm",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Puree (200g)",
@@ -648,6 +679,8 @@ export const menuGlobal = {
             price: 1,
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/hgabblip2ldbedsysrhf",
+            modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -666,6 +699,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/bp7d9a3ktgrlyoydhpcm",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "ketchup sauce",
@@ -674,6 +708,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/8.%20Ketchup.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "mustard sauce",
@@ -682,6 +717,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/qtbp79l7myyxns1circf",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Mango chili sauce",
@@ -690,6 +726,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/czrqs1br9okmmvzngm4b",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Cheese sauce",
@@ -698,6 +735,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/iptg2cgyzkl04gjrszeb",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Barbecue sauce",
@@ -706,6 +744,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/d7n5u91nm4pcb1xr8hgt",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Sweet and sour sauce",
@@ -714,12 +753,15 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/rceplgybxfaybcfyoo95",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
     ],
   },
-  dinnersMenu: {
+  {
+    id: 160608,
+    slug: "dinners-kie-hrinchenka",
     brandName: "Dinner's",
     headerBackgroundImage:
       "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/r2gtlvid07hxkcf9n4mr",
@@ -744,7 +786,7 @@ export const menuGlobal = {
             price: 55,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/wixzwitohm7zjd6rynv2",
-            bonuses: "-20%",
+            bonus: "-20%",
             modifiers: "",
           },
           {
@@ -754,7 +796,7 @@ export const menuGlobal = {
             price: 27.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ynkvxm5za0vvekexhhhv",
-            bonuses: "-20%",
+            bonus: "-20%",
             modifiers: "",
           },
           {
@@ -764,7 +806,7 @@ export const menuGlobal = {
             price: 25,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/enskro6baes50oqpoblr",
-            bonuses: "-10%",
+            bonus: "-10%",
             modifiers: "",
           },
           {
@@ -774,7 +816,7 @@ export const menuGlobal = {
             price: 25,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/igjnyqbucjzykoi1kwas",
-            bonuses: "-10%",
+            bonus: "-10%",
             modifiers: "",
           },
           {
@@ -784,7 +826,7 @@ export const menuGlobal = {
             price: 20,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/gtwgkxchjmbheoilwn66",
-            bonuses: "-10%",
+            bonus: "-10%",
             modifiers: "",
           },
         ],
@@ -804,7 +846,7 @@ export const menuGlobal = {
             price: 55,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/wixzwitohm7zjd6rynv2",
-            bonuses: "-20%",
+            bonus: "-20%",
             modifiers: "",
           },
           {
@@ -814,7 +856,7 @@ export const menuGlobal = {
             price: 25,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/apsb3tvorjwfjbfbidbr",
-            bonuses: "-10%",
+            bonus: "-10%",
             modifiers: "",
           },
           {
@@ -824,7 +866,7 @@ export const menuGlobal = {
             price: 25,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/d5q13kkzfwhq9zpwsctg",
-            bonuses: "-10%",
+            bonus: "-10%",
             modifiers: "",
           },
           {
@@ -834,7 +876,7 @@ export const menuGlobal = {
             price: 22.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/zeytvsvvx6hm5ydcvosg",
-            bonuses: "-10%",
+            bonus: "-10%",
             modifiers: "",
           },
           {
@@ -844,7 +886,7 @@ export const menuGlobal = {
             price: 20,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/hk7or7rpu5zehs3c6gab",
-            bonuses: "-25%",
+            bonus: "-25%",
             modifiers: "",
           },
         ],
@@ -863,7 +905,7 @@ export const menuGlobal = {
             price: 11,
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ayewso8ffolalnlfqik8",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -873,7 +915,7 @@ export const menuGlobal = {
             price: 7.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/m8glwqiz6fptjinwvuys",
-            bonuses: "-20%",
+            bonus: "-20%",
             modifiers: "",
           },
           {
@@ -883,7 +925,7 @@ export const menuGlobal = {
             price: 7.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/gc3n7u166xepl4xkgdeb",
-            bonuses: "-20%",
+            bonus: "-20%",
             modifiers: "",
           },
           {
@@ -892,7 +934,7 @@ export const menuGlobal = {
             price: 7.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/lfzjrfl4veaxqfggigig",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -901,7 +943,7 @@ export const menuGlobal = {
             price: 5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/yl6hbozhvayntmedpi03",
-            bonuses: "-20%",
+            bonus: "-20%",
             modifiers: "",
           },
           {
@@ -911,7 +953,7 @@ export const menuGlobal = {
             price: 6,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/wxmcd9qd1ixsbm186aaa",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -931,7 +973,7 @@ export const menuGlobal = {
             price: 3.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/bznxqaawz0a8ya0ro07p",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -940,7 +982,7 @@ export const menuGlobal = {
             price: 3.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/j52mtl4ksheknwfozzym",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -949,7 +991,7 @@ export const menuGlobal = {
             price: 3.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/iyk23ksl1bpo7pvqdlu4",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -958,7 +1000,7 @@ export const menuGlobal = {
             price: 1.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/j71jrjorzffppwwpnjmf",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -978,7 +1020,7 @@ export const menuGlobal = {
             price: 5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/wixzwitohm7zjd6rynv2",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -988,7 +1030,7 @@ export const menuGlobal = {
             price: 4,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/w0ujtwgkfgefbiqfuuba",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -998,7 +1040,7 @@ export const menuGlobal = {
             price: 2.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/don90hv9r9tuhyag2wpu",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1007,7 +1049,7 @@ export const menuGlobal = {
             price: 1.7,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ttcnkykdmqeb3owovxfg",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -1027,7 +1069,7 @@ export const menuGlobal = {
             price: 55,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/wixzwitohm7zjd6rynv2",
-            bonuses: "-20%",
+            bonus: "-20%",
             modifiers: "",
           },
         ],
@@ -1046,7 +1088,7 @@ export const menuGlobal = {
             price: 2,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/dbzqftoxmuxsvtzxgmkv",
-            bonuses: "-20%",
+            bonus: "-20%",
             modifiers: "",
           },
         ],
@@ -1065,7 +1107,7 @@ export const menuGlobal = {
             price: 0.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/pzvvc3l4xpqqbzq2txpo",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1075,7 +1117,7 @@ export const menuGlobal = {
             price: 0.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/xoulc99n9voavwykr9hu",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1084,7 +1126,7 @@ export const menuGlobal = {
             price: 0.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/p191vlhvs0kwlkgwrgc6",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1093,7 +1135,7 @@ export const menuGlobal = {
             price: 0.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/bjwnjhwh80bkrdycvnwm",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1102,7 +1144,7 @@ export const menuGlobal = {
             price: 0.1,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/m0x5rklavjtmpbg5vy1z",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1111,14 +1153,16 @@ export const menuGlobal = {
             price: 0.05,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/hdelxmtocabjoefpzxhl",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
       },
     ],
   },
-  ilMolinoMenu: {
+  {
+    id: 315185,
+    slug: "il-molino-kie",
     brandName: "Il Molino",
     headerBackgroundImage:
       "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/h7srxokglcv5t6oymyxk",
@@ -1143,7 +1187,7 @@ export const menuGlobal = {
             price: 9,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/drr6ipcfv7dro95vwcek",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1153,7 +1197,7 @@ export const menuGlobal = {
             price: 8,
             image:
               "https://api.getorder.biz/product/12418/image/29/700/700/c26473dc-a6f9-4e80-bfa4-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1163,7 +1207,7 @@ export const menuGlobal = {
             price: 7.75,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/loxeikxxpgkpffm6niok",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1173,7 +1217,7 @@ export const menuGlobal = {
             price: 7.75,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/loxeikxxpgkpffm6niok",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1183,7 +1227,7 @@ export const menuGlobal = {
             price: 7.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/vjcrlcy1necydk0oxtbb",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1193,7 +1237,7 @@ export const menuGlobal = {
             price: 9,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ofmdpceenvtx9t0bgjt2",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -1212,7 +1256,7 @@ export const menuGlobal = {
             price: 10.5,
             image:
               "https://api.getorder.biz/product/12258/image/29/700/700/cbc70c7e-5fa4-4edc-c01d-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1221,7 +1265,7 @@ export const menuGlobal = {
             price: 7.5,
             image:
               "https://api.getorder.biz/product/12260/image/29/700/700/5213afd5-36ac-43ea-c012-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1230,7 +1274,7 @@ export const menuGlobal = {
             price: 7.5,
             image:
               "https://api.getorder.biz/product/12261/image/29/700/700/3781d249-8c4c-4412-c01e-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1239,7 +1283,7 @@ export const menuGlobal = {
             price: 7.5,
             image:
               "https://api.getorder.biz/product/12263/image/29/700/700/8b18b101-0e64-4115-c020-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1248,7 +1292,7 @@ export const menuGlobal = {
             price: 2,
             image:
               "https://api.getorder.biz/product/12267/image/29/700/700/16dfff4b-8399-4471-bfd4-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1257,7 +1301,7 @@ export const menuGlobal = {
             price: 2,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/cygk8lpaibk1wwrzm7q3",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1266,7 +1310,7 @@ export const menuGlobal = {
             price: 1,
             image:
               "https://api.getorder.biz/product/12276/image/29/700/700/90058921-a3f9-430b-c0c8-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -1286,7 +1330,7 @@ export const menuGlobal = {
             price: 9.75,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/oysxnmd1sj5hfieg7fvu",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1296,7 +1340,7 @@ export const menuGlobal = {
             price: 8,
             image:
               "https://api.getorder.biz/product/12418/image/29/700/700/c26473dc-a6f9-4e80-bfa4-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1306,7 +1350,7 @@ export const menuGlobal = {
             price: 8,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/s5blazbtc8xplsyvonzt",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1316,7 +1360,7 @@ export const menuGlobal = {
             price: 7.75,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/mpnvvfyet0omj6dypbci",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1326,7 +1370,7 @@ export const menuGlobal = {
             price: 7.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/t6womz1occsh1oyhmhnf",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1336,7 +1380,7 @@ export const menuGlobal = {
             price: 7.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/s66co6eszzcovajangwr",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -1356,7 +1400,7 @@ export const menuGlobal = {
             price: 15,
             image:
               "https://api.getorder.biz/product/12402/image/29/700/700/750426c6-c73a-4017-c006-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1366,7 +1410,7 @@ export const menuGlobal = {
             price: 14,
             image:
               "https://api.getorder.biz/product/12399/image/29/700/700/c8abe034-e04a-4ccf-c005-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1376,7 +1420,7 @@ export const menuGlobal = {
             price: 14,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/wko3qqmeoezplvacyiii",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -1396,7 +1440,7 @@ export const menuGlobal = {
             price: 9,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/drr6ipcfv7dro95vwcek",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1406,7 +1450,7 @@ export const menuGlobal = {
             price: 6,
             image:
               "https://api.getorder.biz/product/12304/image/29/700/700/ea795e6d-3c7f-4661-bf1e-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1416,7 +1460,7 @@ export const menuGlobal = {
             price: 4.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/jhxctqwn7bviixpkxikp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1426,7 +1470,7 @@ export const menuGlobal = {
             price: 3.5,
             image:
               "https://api.getorder.biz/product/49649/image/29/700/700/da9a94c9-a7d9-4d17-ad08-08daa2b47f55.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1436,7 +1480,7 @@ export const menuGlobal = {
             price: 3.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/iyk4hxpvpnzdlelssm5u",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1446,7 +1490,7 @@ export const menuGlobal = {
             price: 3,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/jta5egh3wjkpoadtnc3q",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -1465,7 +1509,7 @@ export const menuGlobal = {
             price: 2,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/kzi1wgakxybaa9ocrad8",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1474,7 +1518,7 @@ export const menuGlobal = {
             price: 2,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ite8i2rrduyx4dhyydcl",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -1494,7 +1538,7 @@ export const menuGlobal = {
             price: 21,
             image:
               "https://api.getorder.biz/product/12324/image/29/700/700/ccac2cd4-0f79-4892-c0ce-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1504,7 +1548,7 @@ export const menuGlobal = {
             price: 14,
             image:
               "https://api.getorder.biz/product/12319/image/29/700/700/4c7bd1f7-5f7a-4990-bff7-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1514,7 +1558,7 @@ export const menuGlobal = {
             price: 4,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ilytligyik2ikh1wovpd",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1523,7 +1567,7 @@ export const menuGlobal = {
             price: 4,
             image:
               "https://api.getorder.biz/product/49650/image/29/700/700/e9ddd0a1-8f7d-4ed4-ad06-08daa2b47f55.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1533,7 +1577,7 @@ export const menuGlobal = {
             price: 3,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/jkbizmlk2yscwlpegxzk",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1543,7 +1587,7 @@ export const menuGlobal = {
             price: 2.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/axdkhqpm3zvybjnqolfw",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -1563,7 +1607,7 @@ export const menuGlobal = {
             price: 8,
             image:
               "https://api.getorder.biz/product/49986/image/29/700/700/e0ce1532-986d-4eec-99d0-08daa5d5f9e7.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1573,7 +1617,7 @@ export const menuGlobal = {
             price: 5.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ykjfskkh9vecxxsbbwri",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -1593,7 +1637,7 @@ export const menuGlobal = {
             price: 6,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/yo2xweemow8gyucxqqqx",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1603,7 +1647,7 @@ export const menuGlobal = {
             price: 5.75,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/zmva2omwd1d7b3cjhzzb",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1613,7 +1657,7 @@ export const menuGlobal = {
             price: 5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/v9olbhvwovqhsnded4ow",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1623,7 +1667,7 @@ export const menuGlobal = {
             price: 4.5,
             image:
               "https://api.getorder.biz/product/24418/image/29/700/700/7f233cd2-ac4f-4f47-d81f-08da669ebb38.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1633,7 +1677,7 @@ export const menuGlobal = {
             price: 4.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/xkgfsog7rujktx5lutbs",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1643,7 +1687,7 @@ export const menuGlobal = {
             price: 4.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/nrwcsy1g4yj3oaep6ygz",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -1663,7 +1707,7 @@ export const menuGlobal = {
             price: 7.5,
             image:
               "https://api.getorder.biz/product/12341/image/29/700/700/e3f510b5-dab9-45d9-bf29-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1673,7 +1717,7 @@ export const menuGlobal = {
             price: 7.5,
             image:
               "https://api.getorder.biz/product/49983/image/29/700/700/b1c092d2-bc37-48f9-99d4-08daa5d5f9e7.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1683,7 +1727,7 @@ export const menuGlobal = {
             price: 7,
             image:
               "https://api.getorder.biz/product/12340/image/29/700/700/c3920763-94dc-49ac-bff5-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1693,7 +1737,7 @@ export const menuGlobal = {
             price: 7.5,
             image:
               "https://api.getorder.biz/product/12339/image/29/700/700/6e9310b0-cd8a-492a-bff6-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1703,7 +1747,7 @@ export const menuGlobal = {
             price: 4,
             image:
               "https://api.getorder.biz/product/12342/image/29/700/700/91c4f6b5-f1e4-419f-bf28-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -1722,7 +1766,7 @@ export const menuGlobal = {
             price: 1,
             image:
               "https://api.getorder.biz/product/12353/image/29/700/700/4f80788c-7498-4b2c-c09f-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1731,7 +1775,7 @@ export const menuGlobal = {
             price: 0.75,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/vj4mgq95mpepsfvqzzea",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1740,7 +1784,7 @@ export const menuGlobal = {
             price: 0.75,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/el1be8o9oih2muhg0szd",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1750,7 +1794,7 @@ export const menuGlobal = {
             price: 0.75,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/jd9w9yphshxy9jjgcq30",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1759,7 +1803,7 @@ export const menuGlobal = {
             price: 0.75,
             image:
               "https://api.getorder.biz/product/12349/image/29/700/700/8796c96b-3d0d-4361-bf30-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1769,7 +1813,7 @@ export const menuGlobal = {
             price: 1,
             image:
               "https://api.getorder.biz/product/12354/image/29/700/700/1f1e5908-a301-4a98-c0d0-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -1789,7 +1833,7 @@ export const menuGlobal = {
             price: 2.25,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/wxsudz44pekshsdcxssk",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1799,7 +1843,7 @@ export const menuGlobal = {
             price: 2.25,
             image:
               "https://api.getorder.biz/product/12355/image/29/700/700/26e02bbb-5882-439a-c04f-08d95c238f00.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -1809,14 +1853,16 @@ export const menuGlobal = {
             price: 2.25,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/trmtjoqdffa6topkaytz",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
       },
     ],
   },
-  menuKFC: {
+  {
+    id: 24594,
+    slug: "kfc-kiev",
     brandName: "KFC",
     headerBackgroundImage:
       "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/szzdemcat83pqf3hyyrd",
@@ -1824,6 +1870,7 @@ export const menuGlobal = {
     deliveryTime2: 35,
     deliveryPrice: 1.5,
     rate: 92,
+    message: "",
     menu: [
       {
         category: {
@@ -1840,6 +1887,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/L_Bucket_30_HW_out.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Bucket M",
@@ -1848,6 +1896,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/M_Bucket_22_HW_out.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Bucket S",
@@ -1856,6 +1905,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/M_Bucket_22_HW_out.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Bucket S spicy",
@@ -1864,6 +1914,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/M_Bucket_22_HW_out.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Bucket Duet",
@@ -1872,6 +1923,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/5.%20Baket%20Duet.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Bucket Duet spicy",
@@ -1880,6 +1932,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/5.%20Baket%20Duet.png",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -1898,6 +1951,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/L_Bucket_30_HW_out.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Bucket M",
@@ -1906,6 +1960,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/M_Bucket_22_HW_out.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Bucket S",
@@ -1914,6 +1969,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/M_Bucket_22_HW_out.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Bucket S spicy",
@@ -1922,6 +1978,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/M_Bucket_22_HW_out.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Bucket Duet",
@@ -1930,6 +1987,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/5.%20Baket%20Duet.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Bucket Duet spicy",
@@ -1938,6 +1996,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/5.%20Baket%20Duet.png",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -1956,6 +2015,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ibvvwb1fm7ydynosvgto",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "BoxMaster original",
@@ -1964,6 +2024,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ibvvwb1fm7ydynosvgto",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Double chicken",
@@ -1972,6 +2033,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/double_chicken.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Double chicken spicy",
@@ -1980,6 +2042,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/double_chicken.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Roll",
@@ -1988,6 +2051,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/chef_roll.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Roll spicy",
@@ -1996,6 +2060,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/chef_roll.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Chicken Burger",
@@ -2004,6 +2069,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/jkwo6lh2etupwowyifbm",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Chicken Burger spicy",
@@ -2012,6 +2078,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/jkwo6lh2etupwowyifbm",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Cheeseburger",
@@ -2020,6 +2087,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/kgcfpck6pamtepbe4s7d",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Ukrainian toast",
@@ -2028,6 +2096,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/tost_ukr.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Toast 2 cheeses",
@@ -2036,6 +2105,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/1.%20Tost%202%20Sura.png",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -2054,6 +2124,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/bp7d9a3ktgrlyoydhpcm",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "ketchup sauce",
@@ -2062,6 +2133,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/8.%20Ketchup.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "mustard sauce",
@@ -2070,6 +2142,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/qtbp79l7myyxns1circf",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Mango chili sauce",
@@ -2078,6 +2151,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/czrqs1br9okmmvzngm4b",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Cheese sauce",
@@ -2086,6 +2160,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/iptg2cgyzkl04gjrszeb",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Barbecue sauce",
@@ -2094,6 +2169,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/d7n5u91nm4pcb1xr8hgt",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Sweet and sour sauce",
@@ -2102,6 +2178,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/rceplgybxfaybcfyoo95",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -2120,6 +2197,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/512x512_DonatNUT.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Donut strawberry",
@@ -2128,6 +2206,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/512x512_Kiosk_17_12_2019_1.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Donut strawberry",
@@ -2136,6 +2215,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/512x512_Kiosk_17_12_2019_1.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Cherry pie",
@@ -2144,6 +2224,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/e3hktma56r7r8wubtxe2",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Muffin with currants",
@@ -2152,6 +2233,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/9.%20Mafin_Smorodina.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Chocolate muffin",
@@ -2160,6 +2242,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/9.%20Mafin_Shoco.png",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -2178,6 +2261,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ptqmefujc1699ruh0w1a",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Mirinda 0,33 l",
@@ -2186,6 +2270,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/512_Mirinda_0.3.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "7 Up 0,33 l",
@@ -2194,6 +2279,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/512_7up_0.3.png",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -2212,6 +2298,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/11.%20Capuchino%2004.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Latte",
@@ -2220,6 +2307,7 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/11.%20Late%2004.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Raspberry tea",
@@ -2228,12 +2316,15 @@ export const menuGlobal = {
             image:
               "https://kfc-images.s3.eu-west-1.amazonaws.com/img/512x512_KFC_Punch_20201215.png",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
     ],
   },
-  mcMenu: {
+  {
+    id: 32495,
+    slug: "mcdonald-s-kie",
     brandName: "McDonalds",
     headerBackgroundImage:
       "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/u10ljmkdwmemxjfnuh9r",
@@ -2257,7 +2348,7 @@ export const menuGlobal = {
             price: 5.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/culr6ycqhiujdqizqur7",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2266,7 +2357,7 @@ export const menuGlobal = {
             price: 4,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ctbkrla6vr1lpq0axaki",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2275,7 +2366,7 @@ export const menuGlobal = {
             price: 4,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/p30hhrwklbw4q0opvzs8",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2284,7 +2375,7 @@ export const menuGlobal = {
             price: 2,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/poq8z65gfsvnagmtv65n",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -2304,7 +2395,7 @@ export const menuGlobal = {
             image:
               "https://d3tqkqn8yl74v5.cloudfront.net/TPO-cso_ua_2133_nuggets20B.png",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
           {
             name: "MACCHIKEN MENU",
@@ -2313,7 +2404,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/s1h8vsxtwaidni5njpqm",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
           {
             name: "CHICKEN MACNAGETS 9PCS",
@@ -2322,7 +2413,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/lsthk00h9ok7rm5bdlqc",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
           {
             name: "CHICKEN MACNAGETS 6PCS",
@@ -2331,7 +2422,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/wexol5zijsyuu4fpwahp",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
           {
             name: "CHICKEN MACNAGETS 4PCS",
@@ -2340,7 +2431,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/qv6ksaqq3n2yjchndbqq",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
         ],
       },
@@ -2358,7 +2449,7 @@ export const menuGlobal = {
             price: 5.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/culr6ycqhiujdqizqur7",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2367,7 +2458,7 @@ export const menuGlobal = {
             price: 4.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/tudtobdxa9nzbhrq7kby",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2376,7 +2467,7 @@ export const menuGlobal = {
             price: 4,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ctbkrla6vr1lpq0axaki",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2385,7 +2476,7 @@ export const menuGlobal = {
             price: 4,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/s1h8vsxtwaidni5njpqm",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2394,7 +2485,7 @@ export const menuGlobal = {
             price: 4,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/p30hhrwklbw4q0opvzs8",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -2414,6 +2505,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/yox61fkoqeif0lpnkp3k",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "BIG POPPY",
@@ -2422,6 +2514,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/cdy3l6fgeamgmxvsqpt7",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "MACCHIKEN",
@@ -2430,6 +2523,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ulcd5m4z3xy0mchih27b",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "DOUBLE CHEESBURGER",
@@ -2438,6 +2532,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/poq8z65gfsvnagmtv65n",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "CHEESEBURGER",
@@ -2446,6 +2541,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/xw2vyhuganjgz0fy477y",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "HAMBURGER",
@@ -2454,6 +2550,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ibwczijlydjqko4eubb1",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -2472,6 +2569,7 @@ export const menuGlobal = {
             image:
               "https://d3tqkqn8yl74v5.cloudfront.net/TPO-chf_ua_2302_HM_Hamburger.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "HAPPY MEAL CHEESBURGER",
@@ -2480,6 +2578,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/evek9s7bdwp8oc12lhxt",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "HAPPY MEAL CHICKEN MACNAGETS 4PCS",
@@ -2488,6 +2587,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/vqicsj4y2adjwpjwtbuk",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "A TOY OR A BOOK",
@@ -2496,6 +2596,7 @@ export const menuGlobal = {
             image:
               "https://d3tqkqn8yl74v5.cloudfront.net/TPO-cso_ua_8080_ToyBook.png",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -2514,6 +2615,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/qmihdlfhsud7ypt8lfs6",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -2532,6 +2634,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/quqpna5iftzp7aqrgez4",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -2550,6 +2653,7 @@ export const menuGlobal = {
             image:
               "https://d3tqkqn8yl74v5.cloudfront.net/TPO-cso_ua_7622_mocco1.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "CAPPUCCINO CLASSIC",
@@ -2558,6 +2662,7 @@ export const menuGlobal = {
             image:
               "https://d3tqkqn8yl74v5.cloudfront.net/TPO-cso_ua_7605_cappuchino_large.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "LATE CLASSIC",
@@ -2566,6 +2671,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/xtono7p0wcaqjor8micv",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "AMERICANO WITH MILK CLASSIC",
@@ -2574,6 +2680,7 @@ export const menuGlobal = {
             image:
               "https://d3tqkqn8yl74v5.cloudfront.net/TPO-cso_ua_7611_americano_milkL.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "MOCCO",
@@ -2582,6 +2689,7 @@ export const menuGlobal = {
             image:
               "https://d3tqkqn8yl74v5.cloudfront.net/TPO-cso_ua_7622_mocco1.png",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -2600,6 +2708,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/u5uxfgbv1oyh1hcinwec",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "COCA COLA",
@@ -2608,6 +2717,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/vkarb6cwhzf1yvrp56sr",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "FANTA",
@@ -2616,6 +2726,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/cqhvzpdxd6sxjq37bflw",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "SPRITE",
@@ -2624,6 +2735,7 @@ export const menuGlobal = {
             image:
               "https://d3tqkqn8yl74v5.cloudfront.net/TPO-cso_ua_7060_Sprite_025.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "APPLE JUICE",
@@ -2632,6 +2744,7 @@ export const menuGlobal = {
             image:
               "https://d3tqkqn8yl74v5.cloudfront.net/TPO-cso_ua_7097_Juice_Galicia_Apple_Small_packed1.png",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -2650,6 +2763,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/zfhxhqfags2qifk00ixz",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "MACFLEURY CAT CAT CARAMEL",
@@ -2658,6 +2772,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/vlkylbowttgkfxgvn19h",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "MACFLEURY CAT CAT STRAWBERRY",
@@ -2666,6 +2781,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/w16khldbdvolekd4eadz",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "MAXANDI CHOCOLATE IN A PLASTIC CUP",
@@ -2674,6 +2790,7 @@ export const menuGlobal = {
             image:
               "https://d3tqkqn8yl74v5.cloudfront.net/TPO-cso_ua_4010_SundaeChoco.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "MAXANDY CARAMEL IN A PLASTIC CUP",
@@ -2682,6 +2799,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/h3vcko66rjdhfwssfa4h",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "MAXANDY STRAWBERRY IN A PLASTIC CUP",
@@ -2690,6 +2808,7 @@ export const menuGlobal = {
             image:
               "https://d3tqkqn8yl74v5.cloudfront.net/TPO-cso_ua_4030_SundaeStrawberry.png",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -2708,6 +2827,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/r7qtnuvy5hwfvu248ti1",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "BARBECUE SAUCE",
@@ -2716,6 +2836,7 @@ export const menuGlobal = {
             image:
               "https://d3tqkqn8yl74v5.cloudfront.net/TPO-cso_ua_2230_Souce_BBQ.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "KETCHUP SAUCE",
@@ -2724,6 +2845,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/r7qtnuvy5hwfvu248ti1",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "MUSTARD SAUCE",
@@ -2732,6 +2854,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/n3lrpvjmdbohfgzff1og",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "SOUR-SWEET SAUCE",
@@ -2740,6 +2863,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/yi2anbmiwxr1ajans6h4",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "MAYONNAISE SAUCE",
@@ -2748,12 +2872,15 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/mhsygsssca29ramfmuyy",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
     ],
   },
-  murakamiMenu: {
+  {
+    id: 24682,
+    slug: "murakami",
     brandName: "Murakami",
     headerBackgroundImage:
       "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/syqoksxrgus6ixacdxge",
@@ -2778,7 +2905,7 @@ export const menuGlobal = {
             price: 5,
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/hklk7ztlyt6fnl4wixqz",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2788,7 +2915,7 @@ export const menuGlobal = {
             price: 4.75,
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ecofxxwhvcupbx8yzi1x",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2798,7 +2925,7 @@ export const menuGlobal = {
             price: 4.7,
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/tthq6qvujyyqcpqe3h44",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2808,7 +2935,7 @@ export const menuGlobal = {
             price: 4.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/hftegmg2bjmcpmsvneaf",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2818,7 +2945,7 @@ export const menuGlobal = {
             price: 4.25,
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/kwouqm30hmj4o2mah0da",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2828,7 +2955,7 @@ export const menuGlobal = {
             price: 4,
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/g7sb0bjhxkwy6eknvtvx",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2838,7 +2965,7 @@ export const menuGlobal = {
             price: 4,
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ravsbo7ufhw2sszfx8q0",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2848,7 +2975,7 @@ export const menuGlobal = {
             price: 4,
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/qghpao1mpzzmch5r87iq",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2858,7 +2985,7 @@ export const menuGlobal = {
             price: 3.9,
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/sl4qjcnirtspl2dsqopz",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2868,7 +2995,7 @@ export const menuGlobal = {
             price: 3.85,
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/kcc7t4uwicdwblwgyu2w",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2878,7 +3005,7 @@ export const menuGlobal = {
             price: 3.8,
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/jr2ig1dsvxutf6b8tbpr",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2888,7 +3015,7 @@ export const menuGlobal = {
             price: 3.75,
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ccsrrnbmxhufqapdletk",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2898,7 +3025,7 @@ export const menuGlobal = {
             price: 3.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/kd3c6lulipk8jzvxxl6e",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2908,7 +3035,7 @@ export const menuGlobal = {
             price: 3.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/kv5h09ncnwm7nph9eajm",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2917,14 +3044,16 @@ export const menuGlobal = {
             price: 3.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/obvkzh1uqb754qa4qf0e",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
       },
     ],
   },
-  papaJohnMenu: {
+  {
+    id: 49364,
+    slug: "papa-john-kie",
     brandName: "Papa John",
     headerBackgroundImage:
       "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/mc4lxofr66b9ry6wkzn3",
@@ -2949,7 +3078,7 @@ export const menuGlobal = {
             price: 4.75,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/j4l5trpg4d2wn8qpowwz",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2959,7 +3088,7 @@ export const menuGlobal = {
             price: 4.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ww24z86cqeuzoev4vtny",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2969,7 +3098,7 @@ export const menuGlobal = {
             price: 4.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/rl23a4gpxgl3x8xaelyv",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2979,7 +3108,7 @@ export const menuGlobal = {
             price: 4.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/nebjdblb0bjj8czb5pnj",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2989,7 +3118,7 @@ export const menuGlobal = {
             price: 4.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/mebovypqi0efppvmi3nd",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -2999,7 +3128,7 @@ export const menuGlobal = {
             price: 4.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/shepyfxsjqmkvhg3scyn",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -3019,7 +3148,7 @@ export const menuGlobal = {
             price: 4.75,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/j4l5trpg4d2wn8qpowwz",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -3029,7 +3158,7 @@ export const menuGlobal = {
             price: 4.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ww24z86cqeuzoev4vtny",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -3039,7 +3168,7 @@ export const menuGlobal = {
             price: 4.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/rl23a4gpxgl3x8xaelyv",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -3049,7 +3178,7 @@ export const menuGlobal = {
             price: 4.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/nebjdblb0bjj8czb5pnj",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -3059,7 +3188,7 @@ export const menuGlobal = {
             price: 4.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/mebovypqi0efppvmi3nd",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -3069,7 +3198,7 @@ export const menuGlobal = {
             price: 4.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/shepyfxsjqmkvhg3scyn",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -3090,7 +3219,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/u00889w9ae0knrryso3a",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
           {
             name: "Americano pizza and BBQ sauce to the sides (620/50g)",
@@ -3100,7 +3229,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/lfranue3t23vgkoomhzq",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
           {
             name: "Pizza 5 cheeses and Dor Blue sauce to the sides (570/50g)",
@@ -3110,7 +3239,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/hscty21gc2pmsxmjgpcy",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
           {
             name: "Papa John's pizza and honey-mustard sauce for boots (630/50g)",
@@ -3120,7 +3249,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/zw3vbeehh6ooilmostsp",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
         ],
       },
@@ -3139,7 +3268,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ymkigmvfjkksp79n0o4b",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
           {
             name: "Set #2 (820g)",
@@ -3148,7 +3277,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/uqtscapjpdl8klgzzjxo",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
           {
             name: "Set #3 (840g)",
@@ -3157,7 +3286,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ymkigmvfjkksp79n0o4b",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
         ],
       },
@@ -3175,7 +3304,7 @@ export const menuGlobal = {
             price: 5.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/oqp5deeqmkk29cmdoayj",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -3185,7 +3314,7 @@ export const menuGlobal = {
             price: 5.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/dtualbbm3bt48oe48zns",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -3195,7 +3324,7 @@ export const menuGlobal = {
             price: 5.5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/eim0zxmu0qrlb2qprfis",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -3216,6 +3345,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ctxsmri8gut6kdyqkwow",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Cheese pieces with cranberry sauce",
@@ -3224,6 +3354,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/febixg3dfnktqroa3a7o",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Chicken nuggets",
@@ -3233,6 +3364,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/rs1pwezpaykspqa2ebkr",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Hash brown with bacon and sour cream",
@@ -3241,6 +3373,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/gbhde2nl9s2sgnug3uos",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Gedza dumplings with duck",
@@ -3249,6 +3382,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/wwr4ustyqwaa6t1ihhxr",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -3268,6 +3402,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/wbnbhgfvgvqotqpl6yuc",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Chicken broth (250g)",
@@ -3277,6 +3412,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/udyqvtuh34kheaqstfdq",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -3296,6 +3432,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/gvdfdj0imaoxwlsdqzgb",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Greek salad (200/30g)",
@@ -3305,6 +3442,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ltisloux8pcqfboeuqfe",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Seaweed salad (100/40g)",
@@ -3313,6 +3451,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/cpn0lq2fsa6alvm52nwg",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -3332,6 +3471,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/kaz7w5sdw07akttaluyq",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Shawarma is a classic",
@@ -3341,6 +3481,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/kaz7w5sdw07akttaluyq",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -3360,6 +3501,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/yrspxtjdq6lorck6aszo",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Combo set #2 (240/170/30/500g)",
@@ -3369,6 +3511,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/b0kvi4b70ujp72upu0p0",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Combo set #3 (490/190/30/500g)",
@@ -3378,6 +3521,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/yxtu5kang3xu6vmuxvde",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -3397,6 +3541,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/bxu9patnebobfk3yfsj8",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Leffe Brown (330ml)",
@@ -3406,6 +3551,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/jzmscgtgnbqzr5qldgpo",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Corona Extra (330ml)",
@@ -3415,6 +3561,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/fp8ih4y3gs16bk76tuth",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Beer Stella Artois n/a (330ml)",
@@ -3424,6 +3571,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/tj2g5ivlzisamstidhbv",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Stella Artois beer (500ml)",
@@ -3433,6 +3581,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/csb20cnchik0lorxwnnr",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Hoegarden keg (1l)",
@@ -3442,6 +3591,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/pswersyscd63ewhl4swc",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -3460,6 +3610,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/gybbwo5buhjm5kcfvagl",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Cheesecakes with sour cream",
@@ -3468,6 +3619,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ylg7ma3bbsip7k0wkdzr",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Napoleon (150g)",
@@ -3476,6 +3628,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/aefonkeqru8fn7oyfore",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Waffle cake with condensed milk and caramel (120g)",
@@ -3485,6 +3638,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/xuyg3oop0lb0lmmzr6n8",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -3503,6 +3657,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/lqhrsmdl8ol6eqqjr3hn",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Coca-Cola (500ml)",
@@ -3511,6 +3666,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/tanlkwdek9grhxv7awwn",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Coca-Cola Zero (500ml)",
@@ -3519,6 +3675,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/e9ddokurvuxg5zztbsjj",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Schweppes Bitter Lemon (250ml)",
@@ -3527,6 +3684,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ejfkrplflyl8e3qf3bcx",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Schweppes Indian Tonic (250ml)",
@@ -3535,12 +3693,15 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/nmkzqd04awzcomvoenlu",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
     ],
   },
-  puzataHataMenu: {
+  {
+    id: 25693,
+    slug: "puzata-hata-kie",
     brandName: "Puzata Hata",
     headerBackgroundImage:
       "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/krpl5hjzxqiiv7jymyjy",
@@ -3565,7 +3726,7 @@ export const menuGlobal = {
             price: 5,
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/02/25/015d863d-4e24-4a20-a524-5d8d971fe205-thumbnail-400x400-100.jpg",
-            bonuses: "-10%",
+            bonus: "-10%",
             modifiers: "",
           },
           {
@@ -3575,6 +3736,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/11/02/9d26b8e0-3d72-48aa-b1cd-6581f745536c-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Olivie salad",
@@ -3583,6 +3745,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/01/19/8aa67305-d050-4464-9831-1072a616bd89-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Salad with crab sticks",
@@ -3591,6 +3754,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/05/11/8dff9f5d-f185-4f49-b339-68bd0ea71733-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Chicken meatballs in cheese",
@@ -3599,6 +3763,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/05/11/8dff9f5d-f185-4f49-b339-68bd0ea71733-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Sauerkraut salad",
@@ -3607,6 +3772,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/01/19/310e83d1-a277-4774-88a5-5dc9e914fd29-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Salad with feta and beets",
@@ -3615,6 +3781,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/07/a815cbf1-34ca-4ea4-aab0-6569e83cfe2a-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -3633,7 +3800,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/02/25/015d863d-4e24-4a20-a524-5d8d971fe205-thumbnail-400x400-100.jpg",
             modifiers: "",
-            bonuses: "-10%",
+            bonus: "-10%",
           },
         ],
       },
@@ -3652,6 +3819,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/07/989b6d9c-5f21-4d59-9522-bad299b22467-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Homemade borsch with meat",
@@ -3660,6 +3828,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/07/0af2ca6a-431a-4323-99dd-b379dc181daf-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Pea soup with croutons",
@@ -3668,6 +3837,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/07/ebe530a3-0132-4462-b9b2-56600bd593b1-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -3686,6 +3856,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/05/15/c386c550-c0ea-4154-94a9-061827aacf59-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Pasta Carbonara",
@@ -3694,6 +3865,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/11/01/0afddfbb-1e5a-45c7-a974-e6188dc3d333-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Chopped turkey Caprese",
@@ -3702,6 +3874,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/11/02/9d26b8e0-3d72-48aa-b1cd-6581f745536c-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Chicken meatballs in cheese",
@@ -3710,6 +3883,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/07/16f7107e-931d-4501-8d4b-a579614546ad-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Grilled chicken steak",
@@ -3718,6 +3892,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/07/a815cbf1-34ca-4ea4-aab0-6569e83cfe2a-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -3736,6 +3911,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/07/bd0e22e8-6831-4e69-af0a-524111dc6cb0-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Vegetable stew with mushrooms",
@@ -3744,6 +3920,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/01/18/ae1780ff-2ca9-48fa-9dfe-e69163b10875-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Rice with vegetables",
@@ -3752,6 +3929,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/07/bfd1ffe1-024a-4438-a0f9-6d47f746412f-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Buckwheat",
@@ -3760,6 +3938,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/07/50ebf0e8-4bc3-43dd-bf0b-74039e7d679f-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Mashed potatoes at home",
@@ -3768,6 +3947,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/07/de123420-4a58-4c85-95d1-d4801062fc06-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Baked potatoes",
@@ -3776,6 +3956,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/07/72c86a5b-6578-42e3-acb8-657a21762198-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -3794,6 +3975,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/01/19/8aa67305-d050-4464-9831-1072a616bd89-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Salad with crab sticks",
@@ -3802,6 +3984,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/05/11/8dff9f5d-f185-4f49-b339-68bd0ea71733-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Carrot and celery salad",
@@ -3810,6 +3993,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/01/19/e15a53aa-cf71-410e-aad6-c6e6c8dfc211-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Salad with feta and beets",
@@ -3818,6 +4002,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/10/07/5d353f9e-24b0-4236-9cec-a037fabba06b-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Herring under a fur coat",
@@ -3826,6 +4011,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/09/27/f4ffef92-e80d-4e8a-ad47-b254f87d698c-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Lard with garlic",
@@ -3834,6 +4020,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/08/8cd03201-b249-4810-83bb-2050e02654c9-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -3852,6 +4039,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/07/29/a754532e-a086-4303-9b52-d8e306f65336-thumbnail-400x400.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Dumplings with meat",
@@ -3860,6 +4048,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/07/511a12d1-fecf-4b23-9edb-7c6828f92d21-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Dumplings capital with chicken",
@@ -3868,6 +4057,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/07/d76ce14f-1a62-4335-9d96-8be473838854-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Cheesecakes",
@@ -3876,6 +4066,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/07/5e68dcb8-1b37-4bb1-8470-6c155b9bbf74-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Pancakes with plum and apple",
@@ -3884,6 +4075,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/10/11/bcee1437-14bb-4150-b909-879018a419b2-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Pancakes with cherries",
@@ -3892,6 +4084,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/07/4cd9ad2d-861e-47db-acf7-c190ac871d28-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -3910,6 +4103,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/08/5d70f15a-7af3-4267-99cb-8c55e1e89328-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Cilantro sauce",
@@ -3918,6 +4112,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/08/6ae5417b-e1b8-4e6c-a897-9640b11cbdfd-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Sour cream",
@@ -3926,6 +4121,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/08/d08b8fde-fb49-49da-bc14-7666d2d1cbf6-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Tar-tar sauce",
@@ -3934,6 +4130,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/08/d19dcd0e-975f-4180-a0b8-70b2d8a73d89-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Honey",
@@ -3942,6 +4139,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2020/11/16/baa04915-b7c4-4380-baf7-4850c32887ea-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Cutlery is disposable",
@@ -3950,6 +4148,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2020/11/16/f242bb77-2107-475c-b252-639138715e28-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -3968,6 +4167,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/03/25/85f18886-61e2-4016-a366-9c2edb5fe33c-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "The bun is branded",
@@ -3976,6 +4176,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/03/25/85f18886-61e2-4016-a366-9c2edb5fe33c-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Portioned white bread",
@@ -3984,6 +4185,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/02/24/8ed544e8-284c-4481-b464-8b0537376801-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Portioned black bread",
@@ -3992,6 +4194,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/02/24/b1b0873a-36b3-43aa-84d3-79725cf16b12-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -4010,6 +4213,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/06/23/1024ad11-64ac-4ce7-a1c8-afffaa068fc0-thumbnail-400x400.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Compote",
@@ -4018,6 +4222,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2022/07/08/f67fe334-bf1b-4541-abec-64ac7aac5ed5-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Drink Pepsi",
@@ -4026,6 +4231,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/06/23/273bb7f8-e4fd-4a1e-b346-138cd21a500e-thumbnail-400x400.png",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Cold tea Lipton green",
@@ -4034,13 +4240,16 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/06/23/96915d5a-7475-421a-8f7c-64f2bcfa9a3e-thumbnail-400x400.png",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
     ],
   },
-  sushiyaMenu: {
+  {
+    id: 24599,
     brandName: "Sushiya",
+    slug: "sushiya-kiev",
     headerBackgroundImage:
       "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/l4hgrbhxd6ognfnly6ri",
     deliveryTime1: 0,
@@ -4064,7 +4273,7 @@ export const menuGlobal = {
             price: 16,
             image:
               "https://api.getorder.biz/product/44591/image/109/700/700/5424301678778.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -4074,7 +4283,7 @@ export const menuGlobal = {
             price: 15.5,
             image:
               "https://api.getorder.biz/product/45015/image/109/700/700/5356301100389.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -4084,7 +4293,7 @@ export const menuGlobal = {
             price: 10,
             image:
               "https://api.getorder.biz/product/44712/image/109/700/700/5022036723567.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -4094,7 +4303,7 @@ export const menuGlobal = {
             price: 8.5,
             image:
               "https://api.getorder.biz/product/44707/image/109/700/700/5602176697869.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -4115,7 +4324,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/44595/image/109/700/700/5413151442738.webp",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
           {
             name: "Maxi King Lukhuri De Luxe set",
@@ -4125,7 +4334,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/44594/image/109/700/700/5688301974289.webp",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
           {
             name: "Nichosi set",
@@ -4135,7 +4344,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/44598/image/109/700/700/5317301087865.webp",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
           {
             name: "Parti set",
@@ -4145,7 +4354,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/44593/image/109/700/700/5087301094018.webp",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
           {
             name: "Vzumi set",
@@ -4155,7 +4364,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/45015/image/109/700/700/5356301100389.webp",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
         ],
       },
@@ -4173,7 +4382,7 @@ export const menuGlobal = {
             price: 3,
             image:
               "https://api.getorder.biz/product/44654/image/109/700/700/5872317524488.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -4182,7 +4391,7 @@ export const menuGlobal = {
             price: 3,
             image:
               "https://api.getorder.biz/product/44648/image/109/700/700/5323317524249.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -4191,7 +4400,7 @@ export const menuGlobal = {
             price: 2.25,
             image:
               "https://api.getorder.biz/product/45116/image/109/700/700/5319209250945.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -4200,7 +4409,7 @@ export const menuGlobal = {
             price: 1.5,
             image:
               "https://api.getorder.biz/product/44624/image/109/700/700/5847149667078.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -4221,6 +4430,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/44712/image/109/700/700/5022036723567.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Golden Dragon Roll",
@@ -4230,6 +4440,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/44691/image/109/700/700/5712341375413.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Roll Philadelphia De Luxe with salmon and eel",
@@ -4239,6 +4450,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/44707/image/109/700/700/5602176697869.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "oll Philadelphia De Luxe with eel, salmon and smoked cheese",
@@ -4248,6 +4460,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/45123/image/109/700/700/5971216927823.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Roll Philadelphia De Luxe with Ebi shrimp",
@@ -4257,6 +4470,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/45351/image/109/700/700/5605231689571.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Roll Philadelphia De Luxe with fresh salmon",
@@ -4266,6 +4480,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/44701/image/109/700/700/5921898918855.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Roll Philadelphia De Luxe with salmon and mango",
@@ -4275,6 +4490,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/44701/image/109/700/700/5921898918855.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Roll Double Fish",
@@ -4284,6 +4500,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/44689/image/109/700/700/5716335461229.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Philadelphia with aburi salmon and tuna",
@@ -4293,6 +4510,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/44731/image/109/700/700/5173300229053.webp",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -4311,6 +4529,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/45010/image/109/700/700/5725314050040.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Bowl with salmon and rice",
@@ -4319,6 +4538,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/45117/image/109/700/700/5352203405140.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Spring roll with salmon sashimi",
@@ -4327,6 +4547,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/44764/image/109/700/700/5642205021746.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Spring roll with tuna",
@@ -4335,6 +4556,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/44765/image/109/700/700/5820205021861.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Spring roll with crab mix and hiyashi",
@@ -4343,6 +4565,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/44762/image/109/700/700/5815205021362.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Hiyashi seaweed salad with sesame",
@@ -4351,6 +4574,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/44757/image/109/700/700/5112341668339.webp",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -4370,6 +4594,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/44812/image/109/700/700/5521301995529.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Pear cake",
@@ -4378,6 +4603,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/45360/image/109/700/700/5214261854929.webp",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -4396,6 +4622,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/44823/image/109/700/700/5290342556630.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Sushi salmon",
@@ -4404,12 +4631,15 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/44825/image/109/700/700/5231342554820.webp",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
     ],
   },
-  sushiMasterMenu: {
+  {
+    id: 32211,
+    slug: "sushi-master-kie",
     brandName: "Sushi Master",
     headerBackgroundImage:
       "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/r2gtlvid07hxkcf9n4mr",
@@ -4434,8 +4664,8 @@ export const menuGlobal = {
             price: 5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/hkwlvj1but2mwjbink9o",
-            bonuses: "",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Chicken breast su-vid with vegetables",
@@ -4444,7 +4674,7 @@ export const menuGlobal = {
             price: 5,
             image:
               "https://api.getorder.biz/product/44340/image/44/700/700/2000040459.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -4454,7 +4684,7 @@ export const menuGlobal = {
             price: 4,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/jfxxpnxnspq61u27c1ki",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -4464,7 +4694,7 @@ export const menuGlobal = {
             price: 4,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/uxjkyokjtoq8961ty9z2",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -4474,7 +4704,7 @@ export const menuGlobal = {
             price: 4,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/anz7xlfg1tqrberxo2mh",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -4482,7 +4712,8 @@ export const menuGlobal = {
       {
         category: {
           categoryName: "Combo menu",
-          // categoryImage: "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+          categoryImage:
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/uhhepmodv6bmtmegza8t",
           bonus: "-20%",
         },
         products: [
@@ -4494,7 +4725,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/38757/image/44/700/700/2000040324.webp",
             modifiers: "",
-            bonuses: "-20%",
+            bonus: "-20%",
           },
           {
             name: "Pate with caramelized apple",
@@ -4504,7 +4735,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/26216/image/44/700/700/2000040204.webp",
             modifiers: "",
-            bonuses: "-20%",
+            bonus: "-20%",
           },
           {
             name: "Baked vegetables",
@@ -4513,7 +4744,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/38711/image/44/700/700/2000040346.webp",
             modifiers: "",
-            bonuses: "-20%",
+            bonus: "-20%",
           },
         ],
       },
@@ -4532,7 +4763,7 @@ export const menuGlobal = {
             price: 4,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/alvam8bj97alif8gew8v",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -4542,7 +4773,7 @@ export const menuGlobal = {
             price: 3,
             image:
               "https://api.getorder.biz/product/38781/image/44/700/700/2000040339.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -4552,7 +4783,7 @@ export const menuGlobal = {
             price: 3,
             image:
               "https://api.getorder.biz/product/38790/image/44/700/700/2000040336.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -4562,7 +4793,7 @@ export const menuGlobal = {
             price: 2,
             image:
               "https://api.getorder.biz/product/38784/image/44/700/700/2000040335.webp",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -4583,6 +4814,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/38772/image/44/700/700/2000040384.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Set Borscht, Kiev cutlet with mashed potatoes and Olivier salad",
@@ -4592,6 +4824,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/38767/image/44/700/700/2000040370.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Set Fried hake in batter, mashed potatoes and cabbage and cucumber salad",
@@ -4601,6 +4834,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/38774/image/44/700/700/2000040389.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Borscht set, dumplings with potatoes and mushrooms and cabbage salad",
@@ -4610,6 +4844,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/kjxk4dhqw6nt7nvxlkzf",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -4629,6 +4864,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/38736/image/44/700/700/2000040361.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Turkey fricassee with buckwheat and chicken broth",
@@ -4638,6 +4874,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/38738/image/44/700/700/2000040368.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Pea soup and potato dumplings with mushrooms and egg",
@@ -4647,6 +4884,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/oecwt7z2poczgsnmojag",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Turkey fricassee with buckwheat and chicken broth",
@@ -4656,6 +4894,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/38738/image/44/700/700/2000040368.webp",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -4675,6 +4914,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/anz7xlfg1tqrberxo2mh",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Mushroom cream soup",
@@ -4684,6 +4924,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/tgxtcrkomzoroo1jqlwe",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Chicken broth with egg and homemade noodles",
@@ -4693,6 +4934,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ln7npvmvtmrzsuydlbhl",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -4711,6 +4953,7 @@ export const menuGlobal = {
             image:
               "https://media.puzatahata.ua/__sized__/images/productosg/2021/02/25/015d863d-4e24-4a20-a524-5d8d971fe205-thumbnail-400x400-100.jpg",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Pancake with cheese and raisins, 1pc.",
@@ -4720,6 +4963,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ztkigcvechyhgl9pkcny",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Pancake with chicken and mushrooms, 1pc.",
@@ -4729,6 +4973,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/26232/image/44/700/700/2000040207.webp",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -4748,6 +4993,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/26229/image/44/700/700/2000040210.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Dumplings with cherries",
@@ -4757,6 +5003,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/kyonyp896pmj3wjryuzz",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Dumplings with potatoes",
@@ -4766,6 +5013,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/38705/image/44/700/700/2000040289.webp",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -4785,6 +5033,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/18370/image/44/700/700/2000038385.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Napoleon cake",
@@ -4793,6 +5042,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/mfux6nm7g2kzjs4wud4s",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Ant cake",
@@ -4802,6 +5052,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/18369/image/44/700/700/2000039264.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Waffle cake",
@@ -4810,6 +5061,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/18366/image/44/700/700/2000037890.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Mr. cherry cat",
@@ -4818,6 +5070,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/xjjrw9w6z31s8eae98t9",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -4836,6 +5089,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/18418/image/44/700/700/2000038729.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Currant juice",
@@ -4844,6 +5098,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/gfpgd5yfpxgsmvyqc9hs",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Bonaqua water (sparkling)",
@@ -4852,6 +5107,7 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/50408/image/44/700/700/2000040801.webp",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Bonaqua water (still)",
@@ -4860,12 +5116,15 @@ export const menuGlobal = {
             image:
               "https://api.getorder.biz/product/50409/image/44/700/700/2000040804.webp",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
     ],
   },
-  thisIsPivbarMenu: {
+  {
+    id: 35591,
+    slug: "this-is-pivbar-kie",
     brandName: "Sushi Master",
     headerBackgroundImage:
       "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/fii2q2stdieccwgmixaf",
@@ -4890,7 +5149,7 @@ export const menuGlobal = {
             price: 18,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/tbnw8jv6nqhl8lyhk7yo",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -4900,7 +5159,7 @@ export const menuGlobal = {
             price: 9,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/d1yjolvbyjruwlrgjpfw",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -4910,7 +5169,7 @@ export const menuGlobal = {
             price: 8,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/dddjgnfjkf1xzorwxjs9",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -4920,7 +5179,7 @@ export const menuGlobal = {
             price: 7,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/tn07jvne327cbire6vrg",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -4930,7 +5189,7 @@ export const menuGlobal = {
             price: 7,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/jwsgxbxzbf1u3ufzftu4",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -4950,7 +5209,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/p74fyhzr7sftcctqh3nb",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
           {
             name: "Great Rozkovbas (720/235/80g)",
@@ -4960,7 +5219,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/ly1fwtzu8a9rzn8bxlzg",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
           {
             name: "Duck You Very Much (145/70/75/30g)",
@@ -4970,7 +5229,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/gz41hnsm9kbvripmolen",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
           {
             name: "American sausages with two mustards (180/100/50g)",
@@ -4980,7 +5239,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/utr2bmjra8jcr21vgyaq",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
           {
             name: "Frying pan Three meats (300g)",
@@ -4990,7 +5249,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/uyuiqnrvey9friil2csg",
             modifiers: "",
-            bonuses: "",
+            bonus: "",
           },
         ],
       },
@@ -5009,7 +5268,7 @@ export const menuGlobal = {
             price: 8,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/dddjgnfjkf1xzorwxjs9",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -5019,7 +5278,7 @@ export const menuGlobal = {
             price: 7,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/tn07jvne327cbire6vrg",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
           {
@@ -5028,7 +5287,7 @@ export const menuGlobal = {
             price: 5,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/yuvinpxndvlzfe5re8av",
-            bonuses: "",
+            bonus: "",
             modifiers: "",
           },
         ],
@@ -5049,6 +5308,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/jwsgxbxzbf1u3ufzftu4",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Caesar with shrimp (250g)",
@@ -5058,6 +5318,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/yp3u3wzsj7ybyrauiciy",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Caesar with chicken (250g)",
@@ -5067,6 +5328,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/yqxkzjvidqww62b5hzx5",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -5086,6 +5348,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/jgeqrtwq1fvxag8nfneb",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Our dear borscht (250/70/20g)",
@@ -5094,6 +5357,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/qqggvagyuvzyfo8fypov",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "White bread (4pcs/100g)",
@@ -5102,6 +5366,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/2378741704",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Black bread (4pcs/100g)",
@@ -5110,6 +5375,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/2378741731",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -5128,6 +5394,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/jxhiarsoy9carrbcik4b",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Salmon (50g)",
@@ -5135,6 +5402,7 @@ export const menuGlobal = {
             price: 7,
             image: "Self-dried salmon.",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Smoked Bull (50g)",
@@ -5144,12 +5412,14 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/oju4ohlbfakbqy9akrlf",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Catfish (50g)",
             description:
               "Dried catfish fillet with chili flakes, Furikake spice and Molden salt.",
             price: 2.5,
+            bonus: "",
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/m6x8kync9yfwd5kx9cpm",
             modifiers: "",
@@ -5161,6 +5431,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/vppycgrsvrr9otd1ibps",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -5179,6 +5450,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/gj18guv82pxzbzrxxotq",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Buffalo wing (200/80/50g)",
@@ -5188,6 +5460,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/nlmvecjjvjnd75puarp6",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Garlic croutons (100g)",
@@ -5197,6 +5470,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/e3hqacirbsttcmzhhlnh",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -5215,6 +5489,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/wlevfmxy01qtjnmvjmo1",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Waffle cake (110g)",
@@ -5224,6 +5499,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/jx8kow07flgazv9jbxbz",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -5243,6 +5519,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/2378741677",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Varvar Milk stout (1l)",
@@ -5252,6 +5529,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/2378741705",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "This is Lager (1l)",
@@ -5261,6 +5539,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/2378741818",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Lviv Dunkel (1l)",
@@ -5269,6 +5548,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/uydxwampnmi25bcofjfd",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Lviv White Lion (1l)",
@@ -5277,6 +5557,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/kbxwyk9cydi3zzwibicd",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Hoegaarden White (1l)",
@@ -5286,6 +5567,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/tvspyjsxruz0vsirxywd",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
@@ -5304,6 +5586,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/f_auto,q_auto/Products/vw2jbwnuutu0nvwpgcqk",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Mango-Orange Lemonade, 250ml",
@@ -5312,6 +5595,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/y1wxlyfqapdma30dly5z",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Non-carbonated Morshyn (0.5l)",
@@ -5320,6 +5604,7 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/f_auto,q_auto/Products/ustvr3rtfhqbvmzusce1",
             modifiers: "",
+            bonus: "",
           },
           {
             name: "Morshyn low-carbonated (0.5 l)",
@@ -5328,9 +5613,10 @@ export const menuGlobal = {
             image:
               "https://res.cloudinary.com/glovoapp/f_auto,q_auto/Products/gnkcpexjxgh419x4lcmy",
             modifiers: "",
+            bonus: "",
           },
         ],
       },
     ],
   },
-};
+];

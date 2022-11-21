@@ -8,6 +8,7 @@ import ratingExcellentRegular from "../images/common/ratingExcellentRegular.png"
 import ratingGood from "../images/common/ratingGood.png";
 import deliveryImage from "../images/common/storeDeliveryLight.svg";
 import decoImage from "../images/design/decoImageFoodGallery.png";
+// import { bigData } from "../units/BigMenuDataSet";
 
 export const FoodNearGallery = () => {
   const cutName = (name: string) => {
@@ -103,7 +104,7 @@ export const FoodNearGallery = () => {
 
             return (
               <div className="gallery-div">
-                <a href="#" key={store.id} className="gallery-unit-link">
+                <Link to="/brand" key={store.id} className="gallery-unit-link">
                   <div className="div-container ">
                     <div
                       className="gallery-unit"
@@ -145,7 +146,7 @@ export const FoodNearGallery = () => {
                       </p>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
             );
           })}
