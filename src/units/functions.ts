@@ -1,4 +1,4 @@
-export const hrivnaToDollarConverter = (price: number) => {
+export const hryvniaToDollarConverter = (price: number) => {
   const newPrice: number = price / 40;
   return newPrice.toFixed(2);
 };

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { top12Object } from "../units/data/top12Data";
 import { dataDel } from "../units/data/top12DeliveryData";
-import { hrivnaToDollarConverter, cutName } from "../units/functions";
+import { hryvniaToDollarConverter, cutName } from "../units/functions";
 import rateExcellent from "../images/common/ratingExcellent.png";
 import rateExcellentRegular from "../images/common/ratingExcellentRegular.png";
 import rateGood from "../images/common/ratingGood.png";
@@ -72,7 +72,7 @@ export const FoodNearGallery = () => {
             const promo = store.promotions.map((obj) => {
               return obj.title.includes("%") ? obj.title : "";
             });
-            console.log(JSON.stringify(top12Object));
+            // console.log(JSON.stringify(top12Object));
             const delObj =
               dataDel.elements[
                 dataDel.elements.findIndex(
@@ -123,7 +123,7 @@ export const FoodNearGallery = () => {
                             src={deliveryImage}
                             alt=""
                           />
-                          {` ${hrivnaToDollarConverter(store.serviceFee)} $  `}
+                          {` ${hryvniaToDollarConverter(store.serviceFee)} $  `}
                         </span>
 
                         <span className="delivery-span">

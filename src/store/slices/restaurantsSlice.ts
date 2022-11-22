@@ -1,13 +1,13 @@
 import { IRestaurant } from "../../modules/modules";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface Restaurant {
+interface RestaurantState {
   loading: boolean;
   error: string;
   restaurants: IRestaurant[];
 }
 
-const initialState: Restaurant = {
+const initialState: RestaurantState = {
   loading: false,
   error: "",
   restaurants: [],

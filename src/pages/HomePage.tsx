@@ -1,5 +1,6 @@
-// import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useAppDispatch } from "../hooks/redux";
+import { fetchRestaurants } from "../store/actions/restaurantActions";
 import {
   FastServices,
   FoodNearGallery,
@@ -10,7 +11,12 @@ import {
 } from "../components";
 
 export const HomePage = () => {
+  const dispatch = useAppDispatch();
   const [showRegistration, setShowRegistration] = useState(false);
+
+  useEffect(() => {
+    dispatch(fetchRestaurants());
+  }, []);
 
   return (
     <>
