@@ -1,72 +1,49 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { obj } from "../units/data/top12Data";
+import { top12Object } from "../units/data/top12Data";
 import { dataDel } from "../units/data/top12DeliveryData";
-import { hrivnaToDollarConverter } from "../units/data";
-import raitngExcellent from "../images/common/ratingExcellent.png";
-import ratingExcellentRegular from "../images/common/ratingExcellentRegular.png";
-import ratingGood from "../images/common/ratingGood.png";
+import { hrivnaToDollarConverter, cutName } from "../units/functions";
+import rateExcellent from "../images/common/ratingExcellent.png";
+import rateExcellentRegular from "../images/common/ratingExcellentRegular.png";
+import rateGood from "../images/common/ratingGood.png";
 import deliveryImage from "../images/common/storeDeliveryLight.svg";
 import decoImage from "../images/design/decoImageFoodGallery.png";
 import { menuGlobal } from "../units/menu/BigMenuDataSet";
 
 export const FoodNearGallery = () => {
-  const cutName = (name: string) => {
-    if (name.includes("/")) {
-      const newName = name.slice(0, name.indexOf("/") - 1);
-      return newName.toUpperCase();
-    } else {
-      return name.toUpperCase();
-    }
-  };
-
-  const checkRateFunc = (
-    data: string,
-    rate1 = raitngExcellent,
-    rate2 = ratingGood,
-    rate3 = ratingExcellentRegular
-  ) => {
+  const checkRateFunc = (data: string): any => {
     if (Number(data.slice(0, -1)) > 96) {
       return (
-        <span className="rate-span">
-          <img className="rate-image" src={rate1} alt="" /> {data}
-        </span>
+        <>
+          <span className="rate-span">
+            <img className="rate-image" src={rateExcellent} alt="" />
+            {data}
+          </span>
+        </>
       );
     }
     if (Number(data.slice(0, -1)) < 95) {
       return (
-        <span className="rate-span">
-          <img className="rate-image" src={rate3} alt="" />
-          {data}
-        </span>
+        <>
+          <span className="rate-span">
+            <img className="rate-image" src={rateExcellentRegular} alt="" />
+            {data}
+          </span>
+        </>
       );
     }
     if (Number(data.slice(0, -1)) < 97) {
       return (
-        <span className="rate-span">
-          <img className="rate-image" src={rate2} alt="" />
-          {data}
-        </span>
+        <>
+          <span className="rate-span">
+            <img className="rate-image" src={rateGood} alt="" />
+            {data}
+          </span>
+        </>
       );
     }
-
     return "Not a number!";
   };
-
-  // interface promotion {
-  //   id: number;
-  //   title: string;
-  //   type: string;
-  //   isPrime: boolean;
-  //   origin: string;
-  // }
-
-  // const functionTS = (data: Array<promotion>) => {
-  //   const promo = data.map((obj) => {
-  //     return obj.title.includes("%") ? obj.title : "";
-  //   });
-  //   return promo;
-  // };
 
   return (
     <Wrapper>
@@ -89,13 +66,13 @@ export const FoodNearGallery = () => {
         <div className="gallery-container center">
           {/* Will be programmatically from units or server */}
 
-          {obj.elements.map((item, index) => {
+          {top12Object.elements.map((item, index) => {
             const store = item.singleData.storeData.store;
 
             const promo = store.promotions.map((obj) => {
               return obj.title.includes("%") ? obj.title : "";
             });
-
+            console.log(JSON.stringify(top12Object));
             const delObj =
               dataDel.elements[
                 dataDel.elements.findIndex(

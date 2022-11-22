@@ -4,11 +4,6 @@ import {
   TiSocialFacebook,
 } from "react-icons/ti";
 
-export const hrivnaToDollarConverter = (price: number) => {
-  const newPrice = price / 40;
-  return newPrice.toFixed(2);
-};
-
 export const joinLinks = [
   {
     id: 1,

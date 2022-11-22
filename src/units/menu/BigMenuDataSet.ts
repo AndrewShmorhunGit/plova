@@ -1,3 +1,36 @@
+export declare module menuGlobal {
+  export interface menuUnit {
+    id: number;
+    slug: string;
+    brandName: string;
+    headerBackgroundImage: string;
+    deliveryTime1: number;
+    deliveryTime2: number;
+    deliveryPrice: number;
+    rate: number;
+    message: string;
+    menu: Array<category>;
+  }
+
+  export interface category {
+    category: {
+      categoryName: string;
+      categoryImage: string;
+      bonus: string;
+    };
+    products: Array<product>;
+  }
+
+  export interface product {
+    name: string;
+    description: string;
+    price: number;
+    image: string;
+    bonus: string;
+    modifiers: string;
+  }
+}
+
 interface product {
   name: string;
   description: string;

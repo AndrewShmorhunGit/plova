@@ -1,4 +1,4 @@
-export const obj = {
+export const top12Object = {
   title: "Рестораны",
   totalElements: 124,
   offset: 0,
