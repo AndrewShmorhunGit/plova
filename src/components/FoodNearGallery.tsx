@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../hooks/redux";
+import { fetchRestaurants } from "../store/actions/restaurantActions";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { top12Object } from "../units/data/top12Data";
@@ -9,8 +12,21 @@ import rateGood from "../images/common/ratingGood.png";
 import deliveryImage from "../images/common/storeDeliveryLight.svg";
 import decoImage from "../images/design/decoImageFoodGallery.png";
 import { menuGlobal } from "../units/menu/BigMenuDataSet";
+import { GalleryLoader } from "./GalleryLoader";
 
 export const FoodNearGallery = () => {
+  const dispatch = useAppDispatch();
+
+  const { error, loading, restaurants } = useAppSelector(
+    (state) => state.restaurant
+  );
+
+  console.log(error, loading, restaurants);
+
+  useEffect(() => {
+    dispatch(fetchRestaurants());
+  }, []);
+
   const checkRateFunc = (data: string): any => {
     if (Number(data.slice(0, -1)) > 96) {
       return (
@@ -45,107 +61,105 @@ export const FoodNearGallery = () => {
     return "Not a number!";
   };
 
-  return (
-    <Wrapper>
-      <div className="decoration-svg">
-        <img
-          src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/curve--small.svg"
-          alt="deco-curve"
-          className="curve"
-        />
+  <Wrapper>
+    <div className="decoration-svg">
+      <img
+        src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/curve--small.svg"
+        alt="deco-curve"
+        className="curve"
+      />
+    </div>
+    <section className="container gallery">
+      <div className="title">
+        <span className="food-title">
+          <div className="food-deco">Food</div> near you
+          <div className="deco">
+            <img className="deco-image" src={decoImage} alt="" />
+          </div>
+        </span>
       </div>
-      <section className="container gallery">
-        <div className="title">
-          <span className="food-title">
-            <div className="food-deco">Food</div> near you
-            <div className="deco">
-              <img className="deco-image" src={decoImage} alt="" />
+      <div className="gallery-container center">
+        {/* Will be programmatically from units or server */}
+
+        {top12Object.elements.map((item, index) => {
+          const store = item.singleData.storeData.store;
+
+          const promo = store.promotions.map((obj) => {
+            return obj.title.includes("%") ? obj.title : "";
+          });
+          // console.log(JSON.stringify(top12Object));
+          const delObj =
+            dataDel.elements[
+              dataDel.elements.findIndex(
+                (obj, index, array) =>
+                  store.addressId === array[index].storeAddressId
+              )
+            ];
+
+          const currentMenuIndex = menuGlobal.findIndex(
+            (brand) => brand.id === store.id
+          );
+
+          return (
+            <div className="gallery-div" key={store.id}>
+              <Link
+                to={`brand/kiev/${store.slug}`}
+                className="gallery-unit-link"
+                onClick={() => console.log(menuGlobal[currentMenuIndex])}
+              >
+                <div className="div-container ">
+                  <div
+                    className="gallery-unit"
+                    style={{
+                      backgroundImage: `url(https://res.cloudinary.com/glovoapp/w_450,h_250,c_fill,f_auto,q_30/${store.imageId})`,
+                    }}
+                  >
+                    <div className="overlay"></div>
+                  </div>
+                </div>
+                <div className="unit-info">
+                  <div className="rate-container">
+                    <p className="rate-p">
+                      {checkRateFunc(store.ratingInfo.cardLabel)}
+                    </p>
+                    <p className="reviews-numbers-p">
+                      ({store.ratingInfo.totalRatingLabel})
+                    </p>
+                    {store.promotions.length !== 0 && (
+                      <div className="booster center">{promo}</div>
+                    )}
+                    <p className="brand-name">{cutName(store.name)}</p>
+                  </div>
+                  <div className="delivery-container">
+                    <p className="delivery-p">
+                      <span className="price-span">
+                        <img
+                          className="delivery-image"
+                          src={deliveryImage}
+                          alt=""
+                        />
+                        {` ${hryvniaToDollarConverter(store.serviceFee)} $  `}
+                      </span>
+
+                      <span className="delivery-span">
+                        {` ·  ${delObj.etaLowerBound}-${delObj.etaUpperBound} `}
+                        min
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </Link>
             </div>
-          </span>
-        </div>
-        <div className="gallery-container center">
-          {/* Will be programmatically from units or server */}
-
-          {top12Object.elements.map((item, index) => {
-            const store = item.singleData.storeData.store;
-
-            const promo = store.promotions.map((obj) => {
-              return obj.title.includes("%") ? obj.title : "";
-            });
-            // console.log(JSON.stringify(top12Object));
-            const delObj =
-              dataDel.elements[
-                dataDel.elements.findIndex(
-                  (obj, index, array) =>
-                    store.addressId === array[index].storeAddressId
-                )
-              ];
-
-            const currentMenuIndex = menuGlobal.findIndex(
-              (brand) => brand.id === store.id
-            );
-
-            return (
-              <div className="gallery-div" key={store.id}>
-                <Link
-                  to={`brand/kiev/${store.slug}`}
-                  className="gallery-unit-link"
-                  onClick={() => console.log(menuGlobal[currentMenuIndex])}
-                >
-                  <div className="div-container ">
-                    <div
-                      className="gallery-unit"
-                      style={{
-                        backgroundImage: `url(https://res.cloudinary.com/glovoapp/w_450,h_250,c_fill,f_auto,q_30/${store.imageId})`,
-                      }}
-                    >
-                      <div className="overlay"></div>
-                    </div>
-                  </div>
-                  <div className="unit-info">
-                    <div className="rate-container">
-                      <p className="rate-p">
-                        {checkRateFunc(store.ratingInfo.cardLabel)}
-                      </p>
-                      <p className="reviews-numbers-p">
-                        ({store.ratingInfo.totalRatingLabel})
-                      </p>
-                      {store.promotions.length !== 0 && (
-                        <div className="booster center">{promo}</div>
-                      )}
-                      <p className="brand-name">{cutName(store.name)}</p>
-                    </div>
-                    <div className="delivery-container">
-                      <p className="delivery-p">
-                        <span className="price-span">
-                          <img
-                            className="delivery-image"
-                            src={deliveryImage}
-                            alt=""
-                          />
-                          {` ${hryvniaToDollarConverter(store.serviceFee)} $  `}
-                        </span>
-
-                        <span className="delivery-span">
-                          {` ·  ${delObj.etaLowerBound}-${delObj.etaUpperBound} `}
-                          min
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            );
-          })}
-        </div>
-        <div className="center">
-          <Link to="/brand" className="btn-more center">
-            See more restaurants
-          </Link>
-        </div>
-      </section>
-    </Wrapper>
-  );
+          );
+        })}
+      </div>
+      <div className="center">
+        <Link to="/brand" className="btn-more center">
+          See more restaurants
+        </Link>
+      </div>
+    </section>
+  </Wrapper>;
 };
 
 const Wrapper = styled.section`

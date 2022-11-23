@@ -21,8 +21,10 @@ import { MapSearch } from "./MapSearch";
 import { Sections } from "./Sections";
 import { InputHeader } from "./InputHeader";
 import { BrandGrid } from "./BrandGrid";
+import { GalleryLoader } from "./GalleryLoader";
 
 export {
+  GalleryLoader,
   BrandGrid,
   InputHeader,
   Sections,

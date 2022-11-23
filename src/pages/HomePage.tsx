@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../hooks/redux";
-import { fetchRestaurants } from "../store/actions/restaurantActions";
+import { useState } from "react";
+// import { useAppDispatch, useAppSelector } from "../hooks/redux";
+// import { fetchRestaurants } from "../store/actions/restaurantActions";
 import {
   FastServices,
   FoodNearGallery,
@@ -11,18 +11,13 @@ import {
 } from "../components";
 
 export const HomePage = () => {
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
+
+  // const { error, loading, restaurants } = useAppSelector(
+  //   (state) => state.restaurant
+  // );
+
   const [showRegistration, setShowRegistration] = useState(false);
-
-  useEffect(() => {
-    dispatch(fetchRestaurants());
-  }, []);
-
-  const { restaurants, error, loading } = useAppSelector(
-    (state) => state.restaurant
-  );
-
-  console.log(restaurants, error, loading);
 
   return (
     <>

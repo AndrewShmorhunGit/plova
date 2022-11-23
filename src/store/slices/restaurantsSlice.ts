@@ -14,7 +14,7 @@ const initialState: RestaurantState = {
 };
 
 export const restaurantsSlice = createSlice({
-  name: "restaurant",
+  name: "restaurants",
   initialState: initialState,
   reducers: {
     fetching(state) {

@@ -1,10 +1,6 @@
-declare module ResponseTypeModule {
-  export interface Delivery {
-    storeAddressId: number;
-    etaLowerBound: number;
-    etaUpperBound: number;
-  }
+export interface IRestaurants {}
 
+declare module IRestaurants {
   export interface Scheduling {
     enabled: boolean;
     message?: any;
@@ -120,102 +116,136 @@ declare module ResponseTypeModule {
     groupData?: any;
   }
 
-  export interface RootObject {
+  export interface Data {
     title: string;
     totalElements: number;
-    delivery: Delivery[];
+    offset: number;
     elements: Element[];
+  }
+
+  export interface Headers {
+    "content-type": string;
+  }
+
+  export interface Transitional {
+    silentJSONParsing: boolean;
+    forcedJSONParsing: boolean;
+    clarifyTimeoutError: boolean;
+  }
+
+  export interface Env {}
+
+  export interface Headers2 {
+    Accept: string;
+  }
+
+  export interface Config {
+    transitional: Transitional;
+    transformRequest: any[];
+    transformResponse: any[];
+    timeout: number;
+    xsrfCookieName: string;
+    xsrfHeaderName: string;
+    maxContentLength: number;
+    maxBodyLength: number;
+    env: Env;
+    headers: Headers2;
+    baseURL: string;
+    method: string;
+    url: string;
+  }
+
+  export interface Request {}
+
+  export interface RootObject {
+    data: Data;
+    status: number;
+    statusText: string;
+    headers: Headers;
+    config: Config;
+    request: Request;
   }
 }
 
-export interface IRestaurants {
-  title: string;
-  totalElements: number;
-  delivery: {
-    storeAddressId: number;
-    etaLowerBound: number;
-    etaUpperBound: number;
-  };
-  elements: {
-    type: string;
-    singleData: {
-      type: {
-        store: {
-          type: string;
+export interface Restaurant {
+  type: string;
+  singleData: {
+    type: {
+      store: {
+        type: string;
+        id: number;
+        urn: string;
+        name: string;
+        slug: string;
+        fiscalName: string;
+        imageId: string;
+        open: boolean;
+        emulateOpen: boolean;
+        mcdPartner: boolean;
+        food: boolean;
+        cityCode: string;
+        scheduling: { enabled: boolean; message: null };
+        closedStatusMessage?: any;
+        nextOpeningTime?: any;
+        serviceFee: number;
+        categoryId: number;
+        cartUniqueElements?: number;
+        cartTotalElements?: number;
+        note: string;
+        distance: string;
+        addressId: number;
+        location: Location;
+        customDescriptionAllowed: boolean;
+        productsInformationText: string;
+        productsInformationLink: string;
+        deliveryNotAvailable: boolean;
+        deliveryNotAvailableMessage?: any;
+        specialRequirementsAllowed: boolean;
+        etaEnabled: boolean;
+        allergiesInformationAllowed: boolean;
+        legalCheckboxRequired: boolean;
+        dataSharingRequested: boolean;
+        marketplace: boolean;
+        cashSupported: boolean;
+        promotions: Array<{
           id: number;
-          urn: string;
-          name: string;
-          slug: string;
-          fiscalName: string;
-          imageId: string;
-          open: boolean;
-          emulateOpen: boolean;
-          mcdPartner: boolean;
-          food: boolean;
-          cityCode: string;
-          scheduling: { enabled: boolean; message: null };
-          closedStatusMessage?: any;
-          nextOpeningTime?: any;
-          serviceFee: number;
-          categoryId: number;
-          cartUniqueElements?: number;
-          cartTotalElements?: number;
-          note: string;
-          distance: string;
-          addressId: number;
-          location: Location;
-          customDescriptionAllowed: boolean;
-          productsInformationText: string;
-          productsInformationLink: string;
-          deliveryNotAvailable: boolean;
-          deliveryNotAvailableMessage?: any;
-          specialRequirementsAllowed: boolean;
-          etaEnabled: boolean;
-          allergiesInformationAllowed: boolean;
-          legalCheckboxRequired: boolean;
-          dataSharingRequested: boolean;
-          marketplace: boolean;
-          cashSupported: boolean;
-          promotions: {
-            id: number;
-            title: string;
-            type: string;
-            isPrime: boolean;
-            origin: string;
+          title: string;
+          type: string;
+          isPrime: boolean;
+          origin: string;
+        }>;
+        primeAvailable: boolean;
+        cutleryRequestAllowed: boolean;
+        ratingInfo: {
+          cardLabel: string;
+          detailsLabel: string;
+          totalRatingLabel: string;
+          icon: {
+            lightImageId: string;
+            darkImageId: string;
           };
-          primeAvailable: boolean;
-          cutleryRequestAllowed: boolean;
-          ratingInfo: {
-            cardLabel: string;
-            detailsLabel: string;
-            totalRatingLabel: string;
-            icon: {
-              lightImageId: string;
-              darkImageId: string;
-            };
-            color: { lightColorHex: string; darkColorHex: string };
-            backgroundColor: null;
-          };
-          selectedStrategyType: string;
-          supportedStrategies: {
-            type: string;
-          };
-          itemsType: string;
-          suggestionKeywords: string[];
-          phoneNumber: string;
-          address: string;
-          viewType: string;
-          sponsored: boolean;
-          feesPricingCalculationId: string;
-          edenredEnabled: boolean;
+          color: { lightColorHex: string; darkColorHex: string };
+          backgroundColor: null;
         };
-        filters: { name: string };
+        selectedStrategyType: string;
+        supportedStrategies: Array<{
+          type: string;
+        }>;
+        itemsType: string;
+        suggestionKeywords: string[];
+        phoneNumber: string;
+        address: string;
+        viewType: string;
+        sponsored: boolean;
+        feesPricingCalculationId: string;
+        edenredEnabled: boolean;
       };
-      storeProductsData: null;
-      bannerData: null;
+      filters: Array<{ name: string }>;
     };
-    groupData: null;
+    storeProductsData: null;
+    bannerData: null;
   };
+  groupData: null;
 }
 
 export interface ResponseRestaurants {
@@ -241,7 +271,8 @@ export interface ResponseRestaurants {
     method: string;
     url: string;
   };
-  data: IRestaurants;
+
+  data: IRestaurants[];
   headers: {
     "content-type": string;
     "Symbol(defaults)": null;

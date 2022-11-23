@@ -1,6 +1,7 @@
 export const top12Object = {
   title: "Рестораны",
   totalElements: 124,
+  offset: 0,
   delivery: [
     { storeAddressId: 59394, etaLowerBound: 30, etaUpperBound: 40 },
     { storeAddressId: 68869, etaLowerBound: 40, etaUpperBound: 60 },
