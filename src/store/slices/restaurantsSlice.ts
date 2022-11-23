@@ -1,10 +1,10 @@
-import { IRestaurant } from "../../modules/modules";
+import { IRestaurants } from "../../modules/modules";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface RestaurantState {
   loading: boolean;
   error: string;
-  restaurants: IRestaurant[];
+  restaurants: IRestaurants[];
 }
 
 const initialState: RestaurantState = {
@@ -20,7 +20,7 @@ export const restaurantsSlice = createSlice({
     fetching(state) {
       state.loading = true;
     },
-    fetchSuccess(state, action: PayloadAction<IRestaurant[]>) {
+    fetchSuccess(state, action: PayloadAction<IRestaurants[]>) {
       state.loading = false;
       state.restaurants = action.payload;
     },
