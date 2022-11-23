@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useAppDispatch } from "../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { fetchRestaurants } from "../store/actions/restaurantActions";
 import {
   FastServices,
@@ -17,6 +17,12 @@ export const HomePage = () => {
   useEffect(() => {
     dispatch(fetchRestaurants());
   }, []);
+
+  const { restaurants, error, loading } = useAppSelector(
+    (state) => state.restaurant
+  );
+
+  console.log(restaurants, error, loading);
 
   return (
     <>

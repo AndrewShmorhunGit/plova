@@ -1,7 +1,142 @@
+declare module ResponseTypeModule {
+  export interface Delivery {
+    storeAddressId: number;
+    etaLowerBound: number;
+    etaUpperBound: number;
+  }
+
+  export interface Scheduling {
+    enabled: boolean;
+    message?: any;
+  }
+
+  export interface Location {
+    latitude: number;
+    longitude: number;
+  }
+
+  export interface Promotion {
+    id: number;
+    title: string;
+    type: string;
+    isPrime: boolean;
+    origin: string;
+  }
+
+  export interface Icon {
+    lightImageId: string;
+    darkImageId: string;
+  }
+
+  export interface Color {
+    lightColorHex: string;
+    darkColorHex: string;
+  }
+
+  export interface RatingInfo {
+    cardLabel: string;
+    detailsLabel: string;
+    totalRatingLabel: string;
+    icon: Icon;
+    color: Color;
+    backgroundColor?: any;
+  }
+
+  export interface SupportedStrategy {
+    type: string;
+  }
+
+  export interface Store {
+    type: string;
+    id: number;
+    urn: string;
+    name: string;
+    slug: string;
+    fiscalName: string;
+    imageId: string;
+    open: boolean;
+    emulateOpen: boolean;
+    mcdPartner: boolean;
+    food: boolean;
+    cityCode: string;
+    scheduling: Scheduling;
+    closedStatusMessage?: any;
+    nextOpeningTime?: any;
+    serviceFee: number;
+    categoryId: number;
+    cartUniqueElements?: number;
+    cartTotalElements?: number;
+    note: string;
+    distance: string;
+    addressId: number;
+    location: Location;
+    customDescriptionAllowed: boolean;
+    productsInformationText: string;
+    productsInformationLink: string;
+    deliveryNotAvailable: boolean;
+    deliveryNotAvailableMessage?: any;
+    specialRequirementsAllowed: boolean;
+    etaEnabled: boolean;
+    allergiesInformationAllowed: boolean;
+    legalCheckboxRequired: boolean;
+    dataSharingRequested: boolean;
+    marketplace: boolean;
+    cashSupported: boolean;
+    promotions: Promotion[];
+    primeAvailable: boolean;
+    cutleryRequestAllowed: boolean;
+    ratingInfo: RatingInfo;
+    selectedStrategyType: string;
+    supportedStrategies: SupportedStrategy[];
+    itemsType: string;
+    suggestionKeywords: string[];
+    phoneNumber: string;
+    address: string;
+    viewType: string;
+    sponsored: boolean;
+    feesPricingCalculationId: string;
+    edenredEnabled: boolean;
+  }
+
+  export interface Filter {
+    name: string;
+  }
+
+  export interface StoreData {
+    store: Store;
+    filters: Filter[];
+  }
+
+  export interface SingleData {
+    type: string;
+    storeData: StoreData;
+    storeProductsData?: any;
+    bannerData?: any;
+  }
+
+  export interface Element {
+    type: string;
+    singleData: SingleData;
+    groupData?: any;
+  }
+
+  export interface RootObject {
+    title: string;
+    totalElements: number;
+    delivery: Delivery[];
+    elements: Element[];
+  }
+}
+
 export interface IRestaurants {
   title: string;
   totalElements: number;
-  elements: Array<{
+  delivery: {
+    storeAddressId: number;
+    etaLowerBound: number;
+    etaUpperBound: number;
+  };
+  elements: {
     type: string;
     singleData: {
       type: {
@@ -41,13 +176,13 @@ export interface IRestaurants {
           dataSharingRequested: boolean;
           marketplace: boolean;
           cashSupported: boolean;
-          promotions: Array<{
+          promotions: {
             id: number;
             title: string;
             type: string;
             isPrime: boolean;
             origin: string;
-          }>;
+          };
           primeAvailable: boolean;
           cutleryRequestAllowed: boolean;
           ratingInfo: {
@@ -62,9 +197,9 @@ export interface IRestaurants {
             backgroundColor: null;
           };
           selectedStrategyType: string;
-          supportedStrategies: Array<{
+          supportedStrategies: {
             type: string;
-          }>;
+          };
           itemsType: string;
           suggestionKeywords: string[];
           phoneNumber: string;
@@ -74,13 +209,13 @@ export interface IRestaurants {
           feesPricingCalculationId: string;
           edenredEnabled: boolean;
         };
-        filters: Array<{ name: string }>;
+        filters: { name: string };
       };
       storeProductsData: null;
       bannerData: null;
     };
     groupData: null;
-  }>;
+  };
 }
 
 export interface ResponseRestaurants {
