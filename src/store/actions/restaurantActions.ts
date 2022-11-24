@@ -3,8 +3,6 @@ import axios from "../../axios";
 import { ResponseRestaurants } from "../../modules/modules";
 import { restaurantsSlice } from "../slices/restaurantsSlice";
 
-import restaurantsSlice from "../slices/restaurantsSlice";
-
 export const fetchRestaurants = () => {
   return async (dispatch: AppDispatch) => {
     try {

@@ -11,3 +11,11 @@ export const cutName = (name: string) => {
     return name.toUpperCase();
   }
 };
+
+export const showDollarPrice = (price: number): string => {
+  const dollar: string = (price * 100).toString().slice(0, -2);
+  const cents: string = (price * 100).toString().slice(-2);
+  const arrayToJoin: string[] = [dollar, cents];
+  const actualPrice: string = arrayToJoin.join(",");
+  return actualPrice;
+};

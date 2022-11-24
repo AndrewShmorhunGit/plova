@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import ratingExcellent from "../images/common/ratingExcellent.png";
+import { showDollarPrice } from "../units/functions";
 // import { useSearchBrandDataQuery } from "../store/plova/plova.api";
 import { chornomorkaMenu } from "../units/menu/chornomorkaMenu";
 const data = chornomorkaMenu;
@@ -30,7 +31,10 @@ export const BrandGrid = () => {
                     src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/glyphs/store-delivery-light.svg"
                     alt=""
                   />
-                  <p className="icons-p">{data.deliveryPrice} $</p>
+                  <p className="icons-p">
+                    {/* {showDollarPrice(data.deliveryPrice)} $ */}
+                    {showDollarPrice(10.35)} $
+                  </p>
                 </div>
                 <div className="del-icon-container center">
                   <img className="del-icon" src={ratingExcellent} alt="" />

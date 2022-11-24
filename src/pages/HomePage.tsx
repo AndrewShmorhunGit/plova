@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import { useEffect } from "react";
 // import { useAppDispatch, useAppSelector } from "../hooks/redux";
 // import { fetchRestaurants } from "../store/actions/restaurantActions";
 import {
@@ -16,6 +17,10 @@ export const HomePage = () => {
   // const { error, loading, restaurants } = useAppSelector(
   //   (state) => state.restaurant
   // );
+
+  // useEffect(() => {
+  //   dispatch(fetchRestaurants());
+  // }, []);
 
   const [showRegistration, setShowRegistration] = useState(false);
 
