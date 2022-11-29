@@ -34,7 +34,7 @@ export const FastServices = () => {
         )}
         <div className="categories-container">
           {jumbotron.map((item) => {
-            const { id, category, iconUrl } = item;
+            const { id, category, icon } = item;
             return (
               <a key={id} href={`#${category}`} className={`link-bubble`}>
                 <div
@@ -47,7 +47,7 @@ export const FastServices = () => {
                   }}
                 >
                   <div className="category-logo">
-                    <img src={iconUrl} alt="" />
+                    <img src={icon} alt="" />
                   </div>
                   <p className="category-text center">{category}</p>
                 </div>

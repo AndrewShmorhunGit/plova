@@ -24,18 +24,6 @@ export const FoodNearGallery = () => {
 
   return (
     <Wrapper>
-      {/* error ? (
-        <>
-          <div className="decoration-svg">
-            <img
-              src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/curve--small.svg"
-              alt="deco-curve"
-              className="curve"
-            />
-          </div>
-          <main className="center">{error}</main>
-        </>
-      ) */}
       <div className="decoration-svg">
         <img
           src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/curve--small.svg"
@@ -43,52 +31,69 @@ export const FoodNearGallery = () => {
           className="curve"
         />
       </div>
-      <section className="container gallery">
-        <div className="title">
-          <span className="food-title">
-            <div className="food-deco">Food</div> near you
-            <div className="deco">
-              <img className="deco-image" src={decoImage} alt="" />
-            </div>
-          </span>
+      {error ? (
+        <div>
+          <div className="decoration-svg">
+            <img
+              src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/curve--small.svg"
+              alt="deco-curve"
+              className="curve"
+            />
+          </div>
+          <main className="error-message">{error}</main>
         </div>
-
-        <div className="gallery-container center">
-          {restaurants.elements.map((item, index) => {
-            const store = item.singleData.storeData.store;
-            const promo = store.promotions.map((obj) => {
-              return obj.title.includes("%") ? obj.title : "";
-            });
-
-            const delObj =
-              dataDel[
-                dataDel.findIndex(
-                  (obj, index, array) =>
-                    store.addressId === array[index].storeAddressId
-                )
-              ];
-
-            // const currentMenuIndex: number = menus.findIndex(
-            //   (brand) => brand.id === store.id
-            // );
-
-            return (
-              <div className="gallery-div" key={store.id}>
-                {loading ? (
-                  <GalleryLoader />
-                ) : (
-                  <GalleryUnit store={store} delObj={delObj} promo={promo} />
-                )}
+      ) : (
+        <section className="container gallery">
+          <div className="title">
+            <span className="food-title">
+              <div className="food-deco">Food</div> near you
+              <div className="deco">
+                <img className="deco-image" src={decoImage} alt="" />
               </div>
-            );
-          })}
-        </div>
-        <div className="center">
-          <Link to="/brand" className="btn-more center">
-            See more restaurants
-          </Link>
-        </div>
-      </section>
+            </span>
+          </div>
+
+          <div className="gallery-container center">
+            {loading && <GalleryLoader />} {loading && <GalleryLoader />}
+            {loading && <GalleryLoader />} {loading && <GalleryLoader />}
+            {loading && <GalleryLoader />} {loading && <GalleryLoader />}
+            {loading && <GalleryLoader />} {loading && <GalleryLoader />}
+            {loading && <GalleryLoader />} {loading && <GalleryLoader />}
+            {loading && <GalleryLoader />} {loading && <GalleryLoader />}
+            {restaurants.elements.map((item, index) => {
+              const store = item.singleData.storeData.store;
+              const promo = store.promotions.map((obj) => {
+                return obj.title.includes("%") ? obj.title : "";
+              });
+
+              const delObj =
+                dataDel[
+                  dataDel.findIndex(
+                    (obj, index, array) =>
+                      store.addressId === array[index].storeAddressId
+                  )
+                ];
+
+              // const currentMenuIndex: number = menus.findIndex(
+              //   (brand) => brand.id === store.id
+              // );
+
+              return (
+                <div className="gallery-div" key={store.id}>
+                  {!loading && (
+                    <GalleryUnit store={store} delObj={delObj} promo={promo} />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <div className="center">
+            <Link to="/brand" className="btn-more center">
+              See more restaurants
+            </Link>
+          </div>
+        </section>
+      )}
     </Wrapper>
   );
 };

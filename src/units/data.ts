@@ -3,6 +3,18 @@ import {
   TiSocialInstagram,
   TiSocialFacebook,
 } from "react-icons/ti";
+import charity from "../images/jumbotron/charity.png";
+import coffee from "../images/jumbotron/coffee.png";
+import food from "../images/jumbotron/food.png";
+import plovaExpress from "../images/jumbotron/plovaExpress.png";
+import groceries from "../images/jumbotron/groceries.webp";
+import magicStick from "../images/jumbotron/magicStick.webp";
+import pharmacy from "../images/jumbotron/pharmacy.webp";
+import shops from "../images/jumbotron/shops.webp";
+import drinks from "../images/jumbotron/drinks.png";
+import drugs from "../images/jumbotron/drugs.png";
+import tobacco from "../images/jumbotron/tobacco.webp";
+import courier from "../images/jumbotron/courier.png";
 
 export const joinLinks = [
   {
@@ -76,12 +88,6 @@ export const socialLinks = [
 
 export const language: string[] = ["English", "French", "Russian", "Spanish"];
 
-interface jumbotron {
-  id: number;
-  category: string;
-  icon: string;
-}
-
 export const categories = [
   "International",
   "Pizza",
@@ -94,54 +100,78 @@ export const categories = [
   "Beer",
 ];
 
+interface jumbotron {
+  id: number;
+  category: string;
+  icon: HTMLImageElement;
+  subcategory: Subcategory[] | null;
+}
+
+interface Subcategory {
+  category: string;
+  icon: HTMLImageElement;
+}
+
 export const jumbotron = [
   {
     id: 1,
     category: "Charity",
-    iconUrl:
-      "https://res.cloudinary.com/glovoapp/w_60,h_60,c_fit,f_auto,q_auto:best/StoreCategories/jwum2o0vanhq29kmennd",
+    icon: charity,
+    subcategory: null,
   },
   {
     id: 2,
     category: "Food",
-    iconUrl:
-      "https://res.cloudinary.com/glovoapp/w_60,h_60,c_fit,f_auto,q_auto:best/StoreCategories/prj0mlcuvmymzfh8pqjz",
+    icon: food,
+    subcategory: null,
   },
   {
     id: 3,
     category: "Plova Express",
-    iconUrl:
-      "https://res.cloudinary.com/glovoapp/w_60,h_60,c_fit,f_auto,q_auto:best/StoreCategories/hxgpd20fgz7ykr6gnh8x",
+    icon: plovaExpress,
+    subcategory: null,
   },
   {
     id: 4,
     category: "Groceries",
-    iconUrl:
-      "https://res.cloudinary.com/glovoapp/w_60,h_60,c_fit,f_auto,q_auto:best/CategoryGroups/lcmflctz9nuq7odxz0rk",
+    icon: groceries,
+    subcategory: [
+      { category: "Groceries", icon: groceries },
+      { category: "Alcohol & Drinks", icon: drinks },
+    ],
   },
   {
     id: 5,
     category: "Shops & Services",
-    iconUrl:
-      "https://res.cloudinary.com/glovoapp/w_60,h_60,c_fit,f_auto,q_auto:best/CategoryGroups/pltazoi0lkmpwhwb3aom",
+    icon: shops,
+    subcategory: [
+      { category: "Shops & Services", icon: shops },
+      { category: "Tobacco", icon: tobacco },
+    ],
   },
   {
     id: 6,
     category: "Pharmacy & Beauty",
-    iconUrl:
-      "https://res.cloudinary.com/glovoapp/w_60,h_60,c_fit,f_auto,q_auto:best/CategoryGroups/laa5wggggfjirdvhngz5",
+    icon: pharmacy,
+    subcategory: [
+      { category: "Pharmacy & Beauty", icon: shops },
+      { category: "Medical services", icon: drugs },
+    ],
   },
   {
     id: 7,
     category: "Coffee & Desserts",
-    iconUrl:
-      "https://res.cloudinary.com/glovoapp/w_60,h_60,c_fit,f_auto,q_auto:best/StoreCategories/vevdez89piflyonld84d",
+    icon: coffee,
+    subcategory: null,
   },
   {
     id: 8,
     category: "Anything",
-    iconUrl:
-      "https://res.cloudinary.com/glovoapp/w_60,h_60,c_fit,f_auto,q_auto:best/CategoryGroups/favmxfgt35oymbx7wi54",
+    icon: magicStick,
+    subcategory: [
+      { category: "Anything", icon: magicStick },
+      { category: "Courier", icon: courier },
+    ],
   },
 ];
 
