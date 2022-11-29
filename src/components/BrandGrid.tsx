@@ -1,14 +1,10 @@
 import styled from "styled-components";
 import ratingExcellent from "../images/common/ratingExcellent.png";
 import { showDollarPrice } from "../units/functions";
-// import { useSearchBrandDataQuery } from "../store/plova/plova.api";
 import { chornomorkaMenu } from "../units/menu/chornomorkaMenu";
 const data = chornomorkaMenu;
 
 export const BrandGrid = () => {
-  // const { isLoading, isError, storeData } =
-  //   useSearchBrandDataQuery("BigMenuDataSet.ts");
-
   return (
     <Wrapper>
       <div className="container-products">
@@ -32,8 +28,7 @@ export const BrandGrid = () => {
                     alt=""
                   />
                   <p className="icons-p">
-                    {/* {showDollarPrice(data.deliveryPrice)} $ */}
-                    {showDollarPrice(10.35)} $
+                    {showDollarPrice(data.deliveryPrice)} $
                   </p>
                 </div>
                 <div className="del-icon-container center">
@@ -274,7 +269,7 @@ const Wrapper = styled.div`
   .transition {
     display: block;
     width: 110%;
-    height: 15rem;
+    height: 12.5rem;
     background-color: #1d1d1d;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;

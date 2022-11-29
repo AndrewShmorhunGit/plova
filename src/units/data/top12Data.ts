@@ -961,7 +961,3 @@ export const top12Object = {
     },
   ],
 };
-
-// https://res.cloudinary.com/glovoapp/w_450,h_250,c_fill,f_auto,q_30/{info from obj.elements[0].singleData.store}
-
-// console.log(obj.elements[0].singleData);

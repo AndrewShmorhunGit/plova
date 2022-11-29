@@ -7,30 +7,46 @@ import {
 export const joinLinks = [
   {
     id: 1,
-    text: "vacancy",
+    text: "Careers",
   },
   {
     id: 2,
-    text: "partners",
+    text: "Plova for Partners",
   },
   {
     id: 3,
-    text: "couriers",
+    text: "Couriers",
+  },
+  {
+    id: 4,
+    text: "Plova Business",
   },
 ];
 
 export const aboutLinks = [
   {
     id: 1,
-    text: "about",
+    text: "About us",
   },
   {
     id: 2,
-    text: "connection",
+    text: "FAQ",
   },
   {
     id: 3,
-    text: "security",
+    text: "Plova Prime",
+  },
+  {
+    id: 4,
+    text: "Blog",
+  },
+  {
+    id: 5,
+    text: "Contact us",
+  },
+  {
+    id: 6,
+    text: "Security",
   },
 ];
 
@@ -43,41 +59,42 @@ interface socialLinks {
 export const socialLinks = [
   {
     id: 1,
-    text: "facebook",
+    text: "Facebook",
     icon: TiSocialFacebook,
   },
   {
     id: 2,
-    text: "twitter",
+    text: "Twitter",
     icon: TiSocialTwitter,
   },
   {
     id: 3,
-    text: "instagram",
+    text: "Instagram",
     icon: TiSocialInstagram,
   },
 ];
 
-export const language = ["English", "French", "Russian", "Spanish"];
+export const language: string[] = ["English", "French", "Russian", "Spanish"];
 
-export const brands = [
-  "McDonald's",
-  "KFC",
-  "Puzata Hata",
-  "Burger King",
-  "Okko Cafe",
-  "Doner Market",
-  "Chelentano",
-  "Sushi Wok",
-];
-
-interface categories {
+interface jumbotron {
   id: number;
   category: string;
   icon: string;
 }
 
 export const categories = [
+  "International",
+  "Pizza",
+  "Sushi",
+  "Cosmetics",
+  "Flowers",
+  "Desserts",
+  "Burgers",
+  "Alcohol",
+  "Beer",
+];
+
+export const jumbotron = [
   {
     id: 1,
     category: "Charity",

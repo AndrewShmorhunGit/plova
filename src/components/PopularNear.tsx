@@ -15,7 +15,7 @@ export const PopularNear = () => {
         <h1 className="title center">Top Categories in `here`</h1>
         <div className="categories-popular-container center">
           {categories.map((item, index) => {
-            const { category } = item;
+            const category = item;
             return (
               <a key={index} href={`#${category}`} className="link center">
                 <p>{category}</p>

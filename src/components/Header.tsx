@@ -118,7 +118,6 @@ const Wrapper = styled.header`
 
   .image-background {
     padding-top: 2rem;
-    // filter: blur(1rem);
     background: linear-gradient(
       rgba(134, 142, 150, 0.5),
       rgba(241, 243, 245, 0.5)

@@ -1,5 +1,5 @@
 export const dataDel = {
-  elements: [
+  delivery: [
     { storeAddressId: 59394, etaLowerBound: 30, etaUpperBound: 40 },
     { storeAddressId: 68869, etaLowerBound: 40, etaUpperBound: 60 },
     { storeAddressId: 180518, etaLowerBound: 20, etaUpperBound: 30 },

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { categories } from "../units/data";
+import { jumbotron } from "../units/data";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 // import locationLogoYellow from "../logos/locationLogoYellow.png";
@@ -33,7 +33,7 @@ export const FastServices = () => {
           <LocationInput />
         )}
         <div className="categories-container">
-          {categories.map((item) => {
+          {jumbotron.map((item) => {
             const { id, category, iconUrl } = item;
             return (
               <a key={id} href={`#${category}`} className={`link-bubble`}>

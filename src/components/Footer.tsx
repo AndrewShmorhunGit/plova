@@ -1,13 +1,6 @@
 import styled from "styled-components";
 import footerLogo1 from "../logos/footerLogo1.png";
-import {
-  joinLinks,
-  aboutLinks,
-  socialLinks,
-  brands,
-  categories,
-  language,
-} from "../units/data";
+import { joinLinks, aboutLinks, socialLinks, categories } from "../units/data";
 
 export const Footer = () => {
   const country: string = "Ukraine";
@@ -19,7 +12,7 @@ export const Footer = () => {
           <img src={footerLogo1} alt="plova logo" className="footer-logo" />
           <div className="footer-info">
             <div className="links">
-              <h2>Join Us!</h2>
+              <h2>Let’s do it together</h2>
               {joinLinks.map((link) => {
                 return (
                   <div key={link.id} className="social-sub-links">
@@ -31,7 +24,7 @@ export const Footer = () => {
               })}
             </div>
             <div className="links">
-              <h2>About Us</h2>
+              <h2>Links of interest</h2>
               {aboutLinks.map((link) => {
                 return (
                   <div key={link.id} className="social-sub-links">
@@ -43,7 +36,7 @@ export const Footer = () => {
               })}
             </div>
             <div className="links">
-              <h2>Social</h2>
+              <h2>Follow us</h2>
               {socialLinks.map((link) => {
                 return (
                   <div key={link.id} className="social-sub-links">
@@ -55,8 +48,8 @@ export const Footer = () => {
               })}
             </div>
             <div className="links">
-              <h2>Language</h2>
-              {language.map((link, index) => {
+              <h2>Apple store</h2>
+              {/* {language.map((link, index) => {
                 return (
                   <div key={index} className="social-sub-links">
                     <a href="#">
@@ -64,25 +57,14 @@ export const Footer = () => {
                     </a>
                   </div>
                 );
-              })}
+              })} */}
             </div>
-            <div className="popular">
-              <h2>Popular brands: {country}</h2>
-              <div className="country-links center">
-                {brands.map((item, index) => {
-                  return (
-                    <a key={index} href={`#${item}`} className="link">
-                      <p>{item}</p>
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
+
             <div className="categories">
               <h2>Top categories: {country}</h2>
               <div className="country-links center">
                 {categories.map((item, index) => {
-                  const { category } = item;
+                  const category = item;
                   return (
                     <a key={index} href={`#${category}`} className="link">
                       <p>{category}</p>
@@ -90,6 +72,10 @@ export const Footer = () => {
                   );
                 })}
               </div>
+              <p>See all categories</p>
+            </div>
+            <div className="language">
+              <h3> English</h3>
             </div>
           </div>
         </div>
@@ -104,14 +90,20 @@ const Wrapper = styled.main`
     padding-bottom: 4.2rem;
   }
 
+  h3 {
+    font-size: 1.6rem;
+    color: #fff;
+    font-weight: 500;
+  }
+
   h2 {
-    // font-size: 2rem;
+    font-size: 2rem;
     color: #fff;
   }
 
   p {
     font-size: 1.4rem;
-    text-transform: capitalize;
+    // text-transform: capitalize;
     color: #cccccc;
   }
 
@@ -123,49 +115,52 @@ const Wrapper = styled.main`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 2fr 1fr 1fr;
-    // justify-items: center;
-    column-gap: 4.8rem;
-    row-gap: 3.2rem;
+    justify-items: center;
+    row-gap: 5rem;
   }
 
   .links {
     display: flex;
     flex-direction: column;
+    text-align: center;
     gap: 2.2rem;
   }
 
   .social-sub-links {
     display: flex;
-    // justify-content: center;
+    justify-content: center;
   }
 
   .footer-logo {
     width: 12rem;
-    padding-top: 2.4rem;
-    padding-bottom: 4.8rem;
+    padding: 0 0 3.2rem 0;
+    margin-left: 6.2rem;
   }
 
-  .popular {
+  .language {
     grid-column: 1/3;
-    grid-row: 2/3;
+    grid-row: 3/4;
   }
   .categories {
     grid-column: 1/3;
-    grid-row: 3/4;
+    grid-row: 2/3;
+    margin-left: 6.2rem;
   }
 
   .country-links {
     display: flex;
-    padding: 1rem 2rem;
+    padding: 2rem 0rem;
     gap: 1rem;
   }
 
-  .link {
+  .link:link,
+  .link:visited {
     display: inline;
     min-width: auto;
   }
 
-  p {
-    text-align: center;
+  .link:hover,
+  .link:active {
+    color: red;
   }
 `;

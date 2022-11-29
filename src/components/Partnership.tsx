@@ -47,8 +47,8 @@ export const Partnership = () => {
           </div>
         </div>
       </section>
-      <div className="transition">
-        <img src="" alt="" />
+      <div style={{ backgroundColor: "#e9f8f5" }}>
+        <div className="transition"></div>
       </div>
     </Wrapper>
   );
@@ -56,7 +56,7 @@ export const Partnership = () => {
 
 const Wrapper = styled.section`
   .container {
-    padding: 2rem 0 15rem 0;
+    padding: 2rem 0 5rem 0;
   }
 
   .cooperation {
@@ -115,9 +115,13 @@ const Wrapper = styled.section`
   }
 
   .transition {
-    display: flex;
-    height: 16rem;
+    display: block;
+    width: 110%;
+    height: 12.5rem;
     background-color: #1d1d1d;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    margin: 0rem -10rem -5rem -10rem;
   }
 
   h2 {
