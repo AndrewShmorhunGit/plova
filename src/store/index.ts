@@ -1,9 +1,10 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 // import { plovaApi } from "./plova/plova.api";
 import restaurantReducer from "./slices/restaurantsSlice";
-
+import menuReducer from "./slices/menuSlice";
 const rootReducer = combineReducers({
   restaurant: restaurantReducer,
+  menu: menuReducer,
 });
 
 export function setupStore() {

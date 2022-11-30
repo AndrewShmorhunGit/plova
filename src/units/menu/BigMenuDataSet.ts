@@ -1,6 +1,6 @@
 import { IMenu } from "../../modules/modules";
 
-export const allMenu: IMenu[] = [
+export const allMenus: IMenu[] = [
   {
     id: 32338,
     slug: "chaikhona-basar-g",
