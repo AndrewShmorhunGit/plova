@@ -144,57 +144,57 @@ export const BrandGrid = () => {
                 );
               })}
 
-              {/* <div className="single-product">
-              <div className="sp-div1">
-                <div className="single-product-image"></div>
-                <div>
-                  <h4 className="single-product-name">single product</h4>
-                  <p className="single-product-description">
-                    Product description. Lorem ipsum dolor, sit amet consectetur
-                    adipisicing elit. Pariatur, eos.
-                  </p>
+              <div className="single-product">
+                <div className="sp-div1">
+                  <div className="single-product-image"></div>
+                  <div>
+                    <h4 className="single-product-name">single product</h4>
+                    <p className="single-product-description">
+                      Product description. Lorem ipsum dolor, sit amet
+                      consectetur adipisicing elit. Pariatur, eos.
+                    </p>
+                  </div>
+                </div>
+                <div className="sp-div2">
+                  <p className="single-product-price">price</p>
+                  <div className="single-product-add">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="25"
+                      height="24"
+                      fill="none"
+                    >
+                      <circle cx="12.059" cy="12" r="12" fill="#E9F8F5" />
+                      <path
+                        fill="#00A082"
+                        d="M12.059 6.2a1 1 0 01.993.884l.007.116V11h3.8a1 1 0 01.993.884l.007.116a1 1 0 01-.884.993L16.86 13h-3.8v3.8a1 1 0 01-.884.994l-.116.006a1 1 0 01-.993-.883l-.007-.117V13h-3.8a1 1 0 01-.993-.883L6.259 12a1 1 0 01.883-.993L7.26 11h3.8V7.2a1 1 0 01.883-.993l.117-.007z"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </div>
-              <div className="sp-div2">
-                <p className="single-product-price">price</p>
-                <div className="single-product-add">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="25"
-                    height="24"
-                    fill="none"
-                  >
-                    <circle cx="12.059" cy="12" r="12" fill="#E9F8F5" />
-                    <path
-                      fill="#00A082"
-                      d="M12.059 6.2a1 1 0 01.993.884l.007.116V11h3.8a1 1 0 01.993.884l.007.116a1 1 0 01-.884.993L16.86 13h-3.8v3.8a1 1 0 01-.884.994l-.116.006a1 1 0 01-.993-.883l-.007-.117V13h-3.8a1 1 0 01-.993-.883L6.259 12a1 1 0 01.883-.993L7.26 11h3.8V7.2a1 1 0 01.883-.993l.117-.007z"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
 
-            <div className="single-product">
-              <div className="sp-div1">
-                <p className="single-product-image">image</p>
-                <div>
-                  <h4 className="single-product-name">single product</h4>
-                  <p className="single-product-description">
-                    Product description. Lorem ipsum dolor, sit amet consectetur
-                    adipisicing elit. Pariatur, eos.
-                  </p>
+              <div className="single-product">
+                <div className="sp-div1">
+                  <p className="single-product-image">image</p>
+                  <div>
+                    <h4 className="single-product-name">single product</h4>
+                    <p className="single-product-description">
+                      Product description. Lorem ipsum dolor, sit amet
+                      consectetur adipisicing elit. Pariatur, eos.
+                    </p>
+                  </div>
+                </div>
+                <div className="sp-div2">
+                  <p className="single-product-price">price</p>
+                  <p className="single-product-add">➕</p>
                 </div>
               </div>
-              <div className="sp-div2">
-                <p className="single-product-price">price</p>
-                <p className="single-product-add">➕</p>
-              </div>
-            </div> */}
             </div>
           </div>
         </div>
       </div>
-      <div className="transition"></div>
+      <footer className="transition"></footer>
     </Wrapper>
   );
 };

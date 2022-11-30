@@ -15,6 +15,9 @@ import drinks from "../images/jumbotron/drinks.png";
 import drugs from "../images/jumbotron/drugs.png";
 import tobacco from "../images/jumbotron/tobacco.webp";
 import courier from "../images/jumbotron/courier.png";
+import riderImage from "../images/cooperation/riderImage.avif";
+import partnersImage from "../images/cooperation/partnersImage.avif";
+import careersImage from "../images/cooperation/careersImage.avif";
 
 export const joinLinks = [
   {
@@ -60,6 +63,12 @@ export const aboutLinks = [
     id: 6,
     text: "Security",
   },
+];
+
+export const footerStore: string[] = [
+  "TERMS & CONDITIONS",
+  "PRIVACY POLICY",
+  "COOKIES POLICY",
 ];
 
 interface socialLinks {
@@ -186,24 +195,21 @@ interface cooperationData {
 export const cooperationData = [
   {
     id: 1,
-    image:
-      "https://res.cloudinary.com/glovoapp/image/fetch/w_254,h_220,c_lpad,b_transparent,f_auto,q_auto:low,dpr_3.0/https://glovoapp.com/images/corporate-container/rider-image.png",
+    image: riderImage,
     theme: "Become a rider",
     text: "Be your own boss! Enjoy flexibility, freedom and competitive earnings by delivering with Plova.",
     linkTo: "https://couriers.glovoapp.com/ua/",
   },
   {
     id: 2,
-    image:
-      "https://res.cloudinary.com/glovoapp/image/fetch/w_254,h_220,c_lpad,b_transparent,f_auto,q_auto:low,dpr_3.0/https://glovoapp.com/images/corporate-container/partners-image.png",
+    image: partnersImage,
     theme: "Become a partner",
     text: "Grow with Plova! Our technology and user base can help you boost sales and unlock new opportunities!",
     linkTo: "https://sell.glovoapp.com/",
   },
   {
     id: 3,
-    image:
-      "https://res.cloudinary.com/glovoapp/image/fetch/w_254,h_220,c_lpad,b_transparent,f_auto,q_auto:low,dpr_2.0/https://glovoapp.com/images/corporate-container/careers-image.png",
+    image: careersImage,
     theme: "Careers",
     text: "Ready for an exciting new challenge? If you’re ambitious, humble, and love working with others, then we want to hear from you!",
     linkTo: "https://jobs.glovoapp.com/",

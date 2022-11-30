@@ -1,3 +1,5 @@
+import { Location } from "react-router-dom";
+
 export const hryvniaToDollarConverter = (price: number) => {
   const newPrice: number = price / 40;
   return newPrice.toFixed(2);
@@ -18,4 +20,12 @@ export const showDollarPrice = (price: number): string => {
   const arrayToJoin: string[] = [dollar, cents];
   const actualPrice: string = arrayToJoin.join(",");
   return actualPrice;
+};
+
+export const getSlugFromLocation = (data: Location) => {
+  const name = data.pathname.split("/").pop();
+  if (name === undefined) {
+    throw new Error("Opps, name is undefined!");
+  }
+  return name;
 };

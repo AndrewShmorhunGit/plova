@@ -1,35 +1,6 @@
-export interface Menus {
-  id: number;
-  slug: string;
-  brandName: string;
-  headerBackgroundImage: string;
-  deliveryTime1: number;
-  deliveryTime2: number;
-  deliveryPrice: number;
-  rate: number;
-  message: string;
-  menu: Menu[];
-}
+import { IMenu } from "../../modules/modules";
 
-export interface Menu {
-  category: {
-    categoryName: string;
-    categoryImage: string;
-    bonus: string;
-  };
-  products: Products[];
-}
-
-export interface Products {
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-  bonus: string;
-  modifiers: string;
-}
-
-export const menus: Array<Menus> = [
+export const allMenu: IMenu[] = [
   {
     id: 32338,
     slug: "chaikhona-basar-g",

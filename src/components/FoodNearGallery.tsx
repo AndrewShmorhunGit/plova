@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import decoImage from "../images/design/decoImageFoodGallery.png";
 import { GalleryLoader } from "./GalleryLoader";
 import { GalleryUnit } from "./GalleryUnit";
+import errorImage from "../images/error/sad_glopi.svg";
 
 export const FoodNearGallery = () => {
   const dispatch = useAppDispatch();
@@ -40,7 +41,11 @@ export const FoodNearGallery = () => {
               className="curve"
             />
           </div>
-          <main className="error-message">{error}</main>
+          <div className="error-message">
+            <p>Ooops, something went wrong!</p>
+            <img src={errorImage} alt="sad ploppy" className="error-image" />
+            <div> {error}!</div>
+          </div>
         </div>
       ) : (
         <section className="container gallery">
@@ -100,10 +105,16 @@ export const FoodNearGallery = () => {
 
 const Wrapper = styled.section`
   overflow-x: hide;
-  main {
+  .error-image {
+    max-width: 20rem;
+    padding: 4rem 0;
+  }
+
+  .error-message {
     overflow-x: hide;
     padding: 10rem;
     font-size: 4rem;
+    text-align: center;
   }
   .gallery {
     color: #212529;

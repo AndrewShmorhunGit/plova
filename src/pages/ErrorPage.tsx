@@ -1,38 +1,48 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import errorImage from "../images/error/sad_glopi.svg";
 
 export const ErrorPage = () => {
   return (
     <Wrapper className="full-page">
-      <div>
-        <h3>Ohh! Page not found!</h3>
-        <p>We can't seem to find the page you're looking for</p>
-        <Link to="/">back home</Link>
-      </div>
-      <div>
-        <img
-          src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/error/sad_glopi.svg"
-          alt="not found"
-          className="center"
-        />
-      </div>
+      <main>
+        <div className="container">
+          <div>
+            <h3>Ohh! Page not found!</h3>
+            <p>We can't seem to find the page you're looking for</p>
+          </div>
+          <div className="center">
+            <img src={errorImage} alt="not found" />
+          </div>
+          <Link to="/">back home</Link>
+        </div>
+        <footer className="transition"></footer>
+      </main>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.header`
   text-align: center;
-  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 6rem 0;
+  padding: 6rem 0 0 0;
+
+  .transition {
+    display: block;
+    width: 130%;
+    height: 12.5rem;
+    background-color: #1d1d1d;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    margin: 5rem -10rem -5rem -10rem;
+  }
 
   img {
-    width: 12vw;
     max-width: 600px;
     display: block;
-    margin-bottom: 2rem;
-    padding-left: 4rem;
+    margin: 2rem 0;
   }
 
   h3 {

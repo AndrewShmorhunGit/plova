@@ -1,6 +1,13 @@
 import styled from "styled-components";
 import footerLogo1 from "../logos/footerLogo1.png";
-import { joinLinks, aboutLinks, socialLinks, categories } from "../units/data";
+import {
+  joinLinks,
+  aboutLinks,
+  socialLinks,
+  categories,
+  footerStore,
+} from "../units/data";
+import { appleStoreSVG, googleStoreSVG } from "../images/footer/SVG";
 
 export const Footer = () => {
   const country: string = "Ukraine";
@@ -8,7 +15,7 @@ export const Footer = () => {
   return (
     <Wrapper>
       <footer className="app-footer">
-        <div className="container">
+        <div className="footer-container">
           <img src={footerLogo1} alt="plova logo" className="footer-logo" />
           <div className="footer-info">
             <div className="links">
@@ -48,8 +55,10 @@ export const Footer = () => {
               })}
             </div>
             <div className="links">
-              <h2>Apple store</h2>
-              {/* {language.map((link, index) => {
+              <div>{appleStoreSVG}</div>
+              <div>{googleStoreSVG}</div>
+
+              {footerStore.map((link, index) => {
                 return (
                   <div key={index} className="social-sub-links">
                     <a href="#">
@@ -57,9 +66,8 @@ export const Footer = () => {
                     </a>
                   </div>
                 );
-              })} */}
+              })}
             </div>
-
             <div className="categories">
               <h2>Top categories: {country}</h2>
               <div className="country-links center">
@@ -74,8 +82,11 @@ export const Footer = () => {
               </div>
               <p>See all categories</p>
             </div>
-            <div className="language">
-              <h3> English</h3>
+
+            <div className="language-picker">
+              <div className="picker-trigger">
+                <h3> English</h3>
+              </div>
             </div>
           </div>
         </div>
@@ -85,9 +96,14 @@ export const Footer = () => {
 };
 
 const Wrapper = styled.main`
+  .footer-container {
+    width: 110rem;
+    margin: 0 auto;
+  }
+
   .app-footer {
     background-color: #1d1d1dff;
-    padding-bottom: 4.2rem;
+    padding-bottom: 2rem;
   }
 
   h3 {
@@ -116,6 +132,7 @@ const Wrapper = styled.main`
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 2fr 1fr 1fr;
     justify-items: center;
+    column-gap: 10rem;
     row-gap: 5rem;
   }
 
@@ -127,24 +144,30 @@ const Wrapper = styled.main`
   }
 
   .social-sub-links {
+    font-size: 1.2rem;
     display: flex;
     justify-content: center;
+  }
+
+  .sub-link {
+    font-size: inherit;
   }
 
   .footer-logo {
     width: 12rem;
     padding: 0 0 3.2rem 0;
-    margin-left: 6.2rem;
   }
 
-  .language {
+  .language-picker {
     grid-column: 1/3;
     grid-row: 3/4;
   }
+
   .categories {
+    padding-left: 8rem;
+    text-align: left;
     grid-column: 1/3;
     grid-row: 2/3;
-    margin-left: 6.2rem;
   }
 
   .country-links {

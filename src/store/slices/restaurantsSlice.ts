@@ -7,19 +7,6 @@ interface RestaurantState {
   restaurants: IRestaurants;
 }
 
-// const emptyElement = {
-//   type: "",
-//   singleData: {
-//     type: "",
-//     storeData: {
-//       store: "",
-//       filters: [],
-//     },
-//     storeProductsData: null,
-//     bannerData: null,
-//   },
-// };
-
 const initialState: RestaurantState = {
   loading: false,
   error: "",
