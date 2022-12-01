@@ -14,14 +14,13 @@ export function BrandPage() {
   const { loading, error, menu } = useAppSelector((state) => state.menu);
 
   // console.log(loading, error, menu);
+  useEffect(() => {
+    dispatch(fetchMenu(slug));
+  }, []);
 
   if (menu === null) {
     return <p className="center">Ooops, jou menu is not exist 😕</p>;
   }
-
-  useEffect(() => {
-    dispatch(fetchMenu(slug));
-  }, []);
 
   return (
     <>

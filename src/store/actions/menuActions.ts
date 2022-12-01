@@ -1,3 +1,4 @@
+import { wait } from "../../units/functions";
 import { allMenus } from "../../units/menu/BigMenuDataSet";
 import { AppDispatch } from "../index";
 // import axios from "../../axios";
@@ -12,10 +13,10 @@ const mockFetchMenusRequest = (slug: string) => {
 };
 
 export const fetchMenu = (slug: string) => {
-  return (dispatch: AppDispatch) => {
+  return async (dispatch: AppDispatch) => {
     try {
       dispatch(menusSlice.actions.fetching());
-      const response = mockFetchMenusRequest(slug);
+      const response = await wait(() => mockFetchMenusRequest(slug), 1500);
       dispatch(menusSlice.actions.fetchSuccess(response));
     } catch (error) {
       dispatch(menusSlice.actions.fetchError(error as Error));

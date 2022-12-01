@@ -29,3 +29,11 @@ export const getSlugFromLocation = (data: Location) => {
   }
   return name;
 };
+
+export const wait = <T>(func: () => T, time: number): Promise<T> => {
+  return new Promise((resolve) =>
+    setTimeout(() => {
+      resolve(func());
+    }, time)
+  );
+};

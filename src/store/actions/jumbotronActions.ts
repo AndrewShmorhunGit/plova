@@ -1,5 +1,6 @@
 import { IJumbotron } from "../../modules/modules";
 import { jumbotron } from "../../units/data";
+import { wait } from "../../units/functions";
 import { AppDispatch } from "../index";
 // import axios from "../../axios";
 import { jumbotronSlice } from "../slices/jumbotronSlice";
@@ -11,10 +12,10 @@ const mockFetchJumbotronRequest = () => {
 };
 
 export const fetchJumbotron = () => {
-  return (dispatch: AppDispatch) => {
+  return async (dispatch: AppDispatch) => {
     try {
       dispatch(jumbotronSlice.actions.fetching());
-      const response = mockFetchJumbotronRequest();
+      const response = await wait(mockFetchJumbotronRequest, 2000);
       dispatch(jumbotronSlice.actions.fetchSuccess(response));
     } catch (error) {
       dispatch(jumbotronSlice.actions.fetchError(error as Error));
