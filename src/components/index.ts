@@ -1,5 +1,5 @@
 import { Cart } from "./Cart";
-import { FastServices } from "./FastServices";
+import { Jumbotron } from "./Jumbotron";
 import { FoodNearGallery } from "./FoodNearGallery";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
@@ -30,7 +30,7 @@ export {
   Sections,
   Footer,
   Cart,
-  FastServices,
+  Jumbotron as FastServices,
   FoodNearGallery,
   Header,
   LocalSearch,

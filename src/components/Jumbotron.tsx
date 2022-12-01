@@ -1,15 +1,33 @@
 import styled from "styled-components";
-import { jumbotron } from "../units/data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 // import locationLogoYellow from "../logos/locationLogoYellow.png";
 import { LocationInput } from "./index";
-// Времеенно убираем поиск локации... чтобы сделать пиксельперфект HomePage
+import { useAppDispatch, useAppSelector } from "../hooks/redux";
+import { fetchJumbotron } from "../store/actions/jumbotronActions";
+import { ErrorPage } from "../pages";
 const address: string = "136 Pym St, Nottingham";
 
-export const FastServices = () => {
+export const Jumbotron = () => {
   const [showLocation, setShowLocation] = useState(false);
   const location: boolean = false;
+  const dispatch = useAppDispatch();
+
+  const { loading, error, jumbotron } = useAppSelector(
+    (state) => state.jumbotron
+  );
+
+  useEffect(() => {
+    dispatch(fetchJumbotron());
+  }, []);
+
+  if (error) {
+    return <ErrorPage />;
+  }
+
+  if (loading) {
+    return <p className="center">Loading...</p>;
+  }
 
   return (
     <Wrapper>
@@ -32,7 +50,7 @@ export const FastServices = () => {
         ) : (
           <LocationInput />
         )}
-        <div className="categories-container">
+        <div className="jumbotron-container">
           {jumbotron.map((item) => {
             const { id, category, icon } = item;
             return (
@@ -40,7 +58,7 @@ export const FastServices = () => {
                 <div
                   className="category"
                   style={{
-                    animationName: `categories-appear`,
+                    animationName: `jumbotron-appear`,
                     animationDuration: `${id * 0.1}s`,
                     animationDelay: `${id * 0.2}s`,
                     animationFillMode: "backwards",
@@ -97,7 +115,7 @@ const Wrapper = styled.section`
     cursor: pointer;
   }
 
-  .categories-container {
+  .jumbotron-container {
     max-width: 70rem;
     min-height: 30rem;
     justify-content: center;
@@ -127,7 +145,7 @@ const Wrapper = styled.section`
     background: #fff;
     cursor: pointer;
     transition: all 0.5s;
-    // animation-name: categories-appear;
+    // animation-name: jumbotron-appear;
     // animation-duration: 0.5s;
   }
 
@@ -159,7 +177,7 @@ const Wrapper = styled.section`
     display: none;
   }
 
-  @keyframes categories-appear {
+  @keyframes jumbotron-appear {
     0% {
       transform: translateZ(-1rem);
       opacity: 0;

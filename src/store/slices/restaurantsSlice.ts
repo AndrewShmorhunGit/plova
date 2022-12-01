@@ -12,7 +12,7 @@ const initialState: RestaurantState = {
   error: "",
   restaurants: {
     title: "",
-    totalElements: 0,
+    totalElements: 9,
     delivery: [],
     elements: [],
   },

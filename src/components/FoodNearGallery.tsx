@@ -15,8 +15,6 @@ export const FoodNearGallery = () => {
     (state) => state.restaurant
   );
 
-  console.log(restaurants, error);
-
   useEffect(() => {
     dispatch(fetchRestaurants());
   }, []);
@@ -62,15 +60,11 @@ export const FoodNearGallery = () => {
             {loading && <GalleryLoader />} {loading && <GalleryLoader />}
             {loading && <GalleryLoader />} {loading && <GalleryLoader />}
             {loading && <GalleryLoader />} {loading && <GalleryLoader />}
-            {loading && <GalleryLoader />} {loading && <GalleryLoader />}
-            {loading && <GalleryLoader />} {loading && <GalleryLoader />}
-            {loading && <GalleryLoader />} {loading && <GalleryLoader />}
-            {restaurants.elements.map((item, index) => {
+            {restaurants.elements.map((item) => {
               const store = item.singleData.storeData.store;
               const promo = store.promotions.map((obj) => {
                 return obj.title.includes("%") ? obj.title : "";
               });
-
               const delObj =
                 dataDel[
                   dataDel.findIndex(
@@ -78,11 +72,6 @@ export const FoodNearGallery = () => {
                       store.addressId === array[index].storeAddressId
                   )
                 ];
-
-              // const currentMenuIndex: number = menus.findIndex(
-              //   (brand) => brand.id === store.id
-              // );
-
               return (
                 <div className="gallery-div" key={store.id}>
                   {!loading && (

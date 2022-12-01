@@ -235,6 +235,18 @@ export interface ResponseRestaurants {
   statusText: string;
 }
 
+export interface IJumbotron {
+  id: number;
+  category: string;
+  icon: string;
+  subcategory: Subcategory[] | null;
+}
+
+export interface Subcategory {
+  category: string;
+  icon: string;
+}
+
 export interface IMenu {
   id: number;
   slug: string;

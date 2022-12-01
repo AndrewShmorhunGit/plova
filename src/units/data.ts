@@ -18,6 +18,7 @@ import courier from "../images/jumbotron/courier.png";
 import riderImage from "../images/cooperation/riderImage.avif";
 import partnersImage from "../images/cooperation/partnersImage.avif";
 import careersImage from "../images/cooperation/careersImage.avif";
+import { IJumbotron } from "../modules/modules";
 
 export const joinLinks = [
   {
@@ -109,19 +110,19 @@ export const categories = [
   "Beer",
 ];
 
-interface jumbotron {
-  id: number;
-  category: string;
-  icon: HTMLImageElement;
-  subcategory: Subcategory[] | null;
-}
+// interface jumbotron {
+//   id: number;
+//   category: string;
+//   icon: File;
+//   subcategory: Subcategory[] | null;
+// }
 
-interface Subcategory {
-  category: string;
-  icon: HTMLImageElement;
-}
+// interface Subcategory {
+//   category: string;
+//   icon: File;
+// }
 
-export const jumbotron = [
+export const jumbotron: IJumbotron[] = [
   {
     id: 1,
     category: "Charity",
