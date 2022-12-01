@@ -1,17 +1,20 @@
 import styled from "styled-components";
 import ratingExcellent from "../images/common/ratingExcellent.png";
+import { IMenu } from "../modules/modules";
 import { showDollarPrice } from "../units/functions";
-import { chornomorkaMenu } from "../units/menu/chornomorkaMenu";
-const data = chornomorkaMenu;
 
-export const BrandGrid = () => {
+export const BrandGrid: React.FC<{
+  menu: IMenu;
+  loading: boolean;
+  error: string;
+}> = ({ menu, loading, error }) => {
   return (
     <Wrapper>
       <div className="container-products">
         <div className="product-body">
           <div className="grid-title">
             <div className="brand-title">
-              <h1>{data.brandName}</h1>
+              <h1>{menu.brandName}</h1>
               <div className="icons">
                 <div className="del-icon-container center">
                   <img
@@ -19,7 +22,7 @@ export const BrandGrid = () => {
                     src="https://res.cloudinary.com/glovoapp/w_22,h_22,c_pad,b_transparent,f_auto,q_auto:low,dpr_2.0/filters/sorting/near_me_light"
                     alt=""
                   />
-                  <p className="icons-p">{`${data.deliveryTime1}-${data.deliveryTime2}'`}</p>
+                  <p className="icons-p">{`${menu.deliveryTime1}-${menu.deliveryTime2}'`}</p>
                 </div>
                 <div className="del-icon-container center">
                   <img
@@ -28,15 +31,15 @@ export const BrandGrid = () => {
                     alt=""
                   />
                   <p className="icons-p">
-                    {showDollarPrice(data.deliveryPrice)} $
+                    {showDollarPrice(menu.deliveryPrice)} $
                   </p>
                 </div>
                 <div className="del-icon-container center">
                   <img className="del-icon" src={ratingExcellent} alt="" />
-                  <p className="icons-p"> {data.rate}%</p>
+                  <p className="icons-p"> {menu.rate}%</p>
                 </div>
               </div>
-              <p className="message">{data.message}</p>
+              <p className="message">{menu.message}</p>
             </div>
           </div>
           <div className="grid-chart">
@@ -72,7 +75,7 @@ export const BrandGrid = () => {
               />
               <h3 className="sections-title">sections</h3>
             </div>
-            {data.menu.map((item, index) => {
+            {menu.menu.map((item, index) => {
               return (
                 <div
                   className="menu-container"
@@ -117,7 +120,7 @@ export const BrandGrid = () => {
               />
             </form>
             <div className="products">
-              {data.menu.map((item, index) => {
+              {menu.menu.map((item, index) => {
                 return (
                   <div
                     className="product-category"

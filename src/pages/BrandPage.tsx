@@ -13,7 +13,11 @@ export function BrandPage() {
 
   const { loading, error, menu } = useAppSelector((state) => state.menu);
 
-  console.log(loading, error, menu);
+  // console.log(loading, error, menu);
+
+  if (menu === null) {
+    return <p className="center">Ooops, jou menu is not exist 😕</p>;
+  }
 
   useEffect(() => {
     dispatch(fetchMenu(slug));
@@ -22,7 +26,7 @@ export function BrandPage() {
   return (
     <>
       <Header />
-      <BrandGrid />
+      <BrandGrid menu={menu} loading={loading} error={error} />
     </>
   );
 }
