@@ -1,14 +1,32 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import footerLogo1 from "../logos/footerLogo1.png";
+import { IMenu } from "../modules/modules";
 import { SideBar } from "./index";
 
-export const Header = () => {
+export const Header = ({
+  menu,
+  loading,
+}: {
+  menu: IMenu;
+  loading: boolean;
+}) => {
   const address: string = "136 Pym St, Nottingham";
+  const backgroundImage: string = menu.headerBackgroundImage;
   return (
     <Wrapper>
       <header className="header">
-        <div className="image-background">
+        <div
+          className="image-background"
+          style={{
+            backgroundImage: `linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url(${backgroundImage})`,
+          }}
+        >
           <div className="container-products">
             <div className="header-top">
               <Link to="/">
@@ -22,12 +40,12 @@ export const Header = () => {
                 <img
                   src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/location2-white.svg"
                   alt="location marker"
-                  className="header-user-address-content-location-icon"
+                  className="header-location-icon"
                 />
                 <div
                   data-v-7ff8f296=""
                   data-test-id="user-address-text"
-                  className="header-user-address-content-text"
+                  className="header-text"
                 >
                   <span className="address-content-text">
                     {`${
@@ -42,7 +60,7 @@ export const Header = () => {
                   src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/landing/dropdown-white.svg"
                   alt=""
                   role="presentation"
-                  className="header-user-address__content__arrow"
+                  className="header__content__arrow"
                 />
                 <div className="center">
                   <div className="menu-icon-user">
@@ -122,12 +140,7 @@ const Wrapper = styled.header`
       rgba(134, 142, 150, 0.5),
       rgba(241, 243, 245, 0.5)
     );
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0.5)
-      ),
-      url(https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/szzdemcat83pqf3hyyrd);
+
     background-size: cover;
     background-position: center;
     overflow: hide;
@@ -144,13 +157,13 @@ const Wrapper = styled.header`
     font-weight: 600;
     display: flex;
   }
-  .header-user-address-content-location-icon {
+  .header-location-icon {
     height: 1.6rem;
     padding-right: 0.5rem;
     stretch: white;
   }
 
-  .header-user-address__content__arrow {
+  .header__content__arrow {
     height: 2rem;
     color: white;
     padding-left: 0.15rem;

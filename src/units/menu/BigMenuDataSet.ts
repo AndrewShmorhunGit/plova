@@ -735,7 +735,7 @@ export const allMenus: IMenu[] = [
     slug: "dinners-kie-hrinchenka",
     brandName: "Dinner's",
     headerBackgroundImage:
-      "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/r2gtlvid07hxkcf9n4mr",
+      "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/jygn2rd6hek5qlvybw3n",
     deliveryTime1: 25,
     deliveryTime2: 35,
     deliveryPrice: 1,
@@ -746,7 +746,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Top sellers",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/jfxxpnxnspq61u27c1ki",
+            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/nyvceydvdyvnzp7dcgmr",
           bonus: "Deals",
         },
         products: [
@@ -3028,8 +3028,8 @@ export const allMenus: IMenu[] = [
     brandName: "Papa John",
     headerBackgroundImage:
       "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/mc4lxofr66b9ry6wkzn3",
-    deliveryTime1: 0,
-    deliveryTime2: 0,
+    deliveryTime1: 35,
+    deliveryTime2: 55,
     deliveryPrice: 1.5,
     rate: 95,
     message: ``,
@@ -3538,7 +3538,7 @@ export const allMenus: IMenu[] = [
             name: "Beer Stella Artois n/a (330ml)",
             description:
               "Color: Light. Filtration: Filter pasteurized. Country Ukraine. Strength: 0.5%",
-            price: 2.3,
+            price: 2.2,
             image:
               "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/tj2g5ivlzisamstidhbv",
             modifiers: "",
@@ -4223,8 +4223,8 @@ export const allMenus: IMenu[] = [
     slug: "sushiya-kiev",
     headerBackgroundImage:
       "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/l4hgrbhxd6ognfnly6ri",
-    deliveryTime1: 0,
-    deliveryTime2: 0,
+    deliveryTime1: 20,
+    deliveryTime2: 30,
     deliveryPrice: 1,
     rate: 97,
     message: `Each roll comes with one free set of ginger, wasabi and soy sauce`,
@@ -4554,7 +4554,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Desserts",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/image_preview_card/arrow.svg",
+            "https://x100-venus-hub.gumlet.io/SKU/SUSHI-MASTER/%D0%94%D0%B5%D1%81%D0%B5%D1%80%D1%82%D0%B8/46BB22B1-0A64-11ED-A793-1739108D572E-1969%D1%851100%208372.png?w=1000&format=jpeg&mode=fit",
           bonus: "",
         },
         products: [
@@ -5352,7 +5352,7 @@ export const allMenus: IMenu[] = [
       },
       {
         category: {
-          categoryName: "This is deied meat/diried fish",
+          categoryName: "This is deied meat",
           categoryImage:
             "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Collections/x8cbunznhdt4da4txtqy",
           bonus: "",

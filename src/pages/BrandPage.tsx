@@ -11,7 +11,9 @@ export function BrandPage() {
   const slug = getSlugFromLocation(location);
   const dispatch = useAppDispatch();
 
-  const { loading, error, menu } = useAppSelector((state) => state.menu);
+  const { selectedCategory, loading, error, menu } = useAppSelector(
+    (state) => state.menu
+  );
 
   // console.log(loading, error, menu);
   useEffect(() => {
@@ -24,8 +26,13 @@ export function BrandPage() {
 
   return (
     <>
-      <Header />
-      <BrandGrid menu={menu} loading={loading} error={error} />
+      <Header menu={menu} loading={loading} />
+      <BrandGrid
+        menu={menu}
+        loading={loading}
+        error={error}
+        selectedCategory={selectedCategory}
+      />
     </>
   );
 }

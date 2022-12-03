@@ -26,7 +26,13 @@ export const Jumbotron = () => {
   }
 
   if (loading) {
-    return <p className="center">Loading...</p>;
+    return (
+      <Wrapper>
+        <section className="landing-jumbotron-loading">
+          <p className="center">Loading...</p>
+        </section>
+      </Wrapper>
+    );
   }
 
   return (
@@ -89,6 +95,14 @@ const Wrapper = styled.section`
     padding-bottom: 6.4rem;
     padding-top: 4.8rem;
   }
+
+  .landing-jumbotron-loading {
+  background-color: #ffc244ff;
+  padding-bottom: 6.4rem;
+  padding-top: 4.8rem;
+  height: 51rem;
+  font-size: 5rem;
+  } 
 
   .user-address-content {
     font-size: 2.4rem;

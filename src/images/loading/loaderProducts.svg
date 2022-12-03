@@ -1,0 +1,102 @@
+<svg
+  data-v-9e47b39e=""
+  viewBox="0 0 302 130"
+  version="1.1"
+  preserveAspectRatio="xMidYMid meet"
+  class="tile loader-placeholder loader-placeholder--listViewCard"
+  speed="2"
+>
+  <rect
+    data-v-9e47b39e=""
+    clip-path="url(#ijes10wk3el)"
+    x="0"
+    y="0"
+    width="302"
+    height="130"
+    style='fill: url("#k54t00qc3fa");'
+  ></rect>
+  <defs data-v-9e47b39e="">
+    <clipPath data-v-9e47b39e="" id="ijes10wk3el">
+      <rect
+        data-v-9e47b39e=""
+        y="0.00195312"
+        width="60"
+        height="60"
+        rx="8"
+        fill="#F5F5F5"
+      ></rect>{" "}
+      <rect
+        data-v-9e47b39e=""
+        y="0"
+        x="92"
+        width="210"
+        height="14"
+        rx="8"
+        fill="#F5F5F5"
+      ></rect>{" "}
+      <rect
+        data-v-9e47b39e=""
+        y="28"
+        x="92"
+        width="176"
+        height="13"
+        rx="8"
+        fill="#F5F5F5"
+      ></rect>{" "}
+      <rect
+        data-v-9e47b39e=""
+        y="106"
+        x="0"
+        width="48"
+        height="14"
+        rx="8"
+        fill="#F5F5F5"
+        class="price"
+      ></rect>
+    </clipPath>
+    <linearGradient data-v-9e47b39e="" id="k54t00qc3fa">
+      <stop
+        data-v-9e47b39e=""
+        offset="0%"
+        stop-color="#f9f9f9"
+        stop-opacity="1"
+      >
+        <animate
+          data-v-9e47b39e=""
+          attributeName="offset"
+          values="-2; 1"
+          dur="2s"
+          repeatCount="indefinite"
+        ></animate>
+      </stop>
+      <stop
+        data-v-9e47b39e=""
+        offset="50%"
+        stop-color="#ecebeb"
+        stop-opacity="1"
+      >
+        <animate
+          data-v-9e47b39e=""
+          attributeName="offset"
+          values="-1.5; 1.5"
+          dur="2s"
+          repeatCount="indefinite"
+        ></animate>
+      </stop>
+      <stop
+        data-v-9e47b39e=""
+        offset="100%"
+        stop-color="#f9f9f9"
+        stop-opacity="1"
+      >
+        <animate
+          data-v-9e47b39e=""
+          attributeName="offset"
+          values="-1; 2"
+          dur="2s"
+          repeatCount="indefinite"
+        ></animate>
+      </stop>
+    </linearGradient>
+  </defs>
+</svg>;
