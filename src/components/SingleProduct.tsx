@@ -21,9 +21,7 @@ export const SingleProduct: React.FC<{
           <div
             className="single-product-image"
             style={{ backgroundImage: `url(${product.image})` }}
-          >
-            {/* <img src={product.image} alt={`image of ${product.name}`} /> */}
-          </div>
+          ></div>
           <div>
             <h4 className="single-product-name">{product.name}</h4>
             <p className="single-product-description">
@@ -91,7 +89,7 @@ const Wrapper = styled.main`
 
   .single-product-image {
     display: block;
-    // background-color: red;
+    background-position: center;
     background-size: cover;
     border-radius: 1rem;
     min-height: 9rem;
@@ -106,6 +104,7 @@ const Wrapper = styled.main`
 
   .single-product-description {
     font-size: 1.4rem;
+    font-weight: 400;
   }
 
   .single-product-plus {

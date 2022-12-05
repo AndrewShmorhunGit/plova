@@ -83,11 +83,11 @@ export const Footer = () => {
               <p>See all categories</p>
             </div>
 
-            <div className="language-picker">
+            {/* <div className="language-picker">
               <div className="picker-trigger">
                 <h3> English</h3>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </footer>
@@ -130,7 +130,7 @@ const Wrapper = styled.main`
   .footer-info {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 2fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
     justify-items: center;
     column-gap: 10rem;
     row-gap: 5rem;

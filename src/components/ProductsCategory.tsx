@@ -69,7 +69,7 @@ const Wrapper = styled.main`
       width: 12.8rem;
       height: 14rem;
       left: 31rem;
-      top: -4.5rem;
+      top: -4rem;
       mask-image: url(https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/image_preview_card/blob.svg);
       object-fit: cover;
       background-color: #f5f5f5;
@@ -77,8 +77,8 @@ const Wrapper = styled.main`
 
     .arrow {
       position: absolute;
-      top: 4.4rem;
-      left: 36.5rem;
+      top: 5.2rem;
+      left: 37rem;
       z-index: 5;
     }
   }

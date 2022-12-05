@@ -17,7 +17,8 @@ export const cutName = (name: string) => {
 export const showDollarPrice = (price: number): string => {
   const dollar: string = (price * 100).toFixed().slice(0, -2);
   const cents: string = (price * 100).toFixed().slice(-2);
-  const arrayToJoin: string[] = [dollar, cents];
+
+  const arrayToJoin: string[] = [dollar === "" ? "0" : dollar, cents];
   const actualPrice: string = arrayToJoin.join(",");
   return actualPrice;
 };

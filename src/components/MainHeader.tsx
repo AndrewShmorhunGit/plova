@@ -4,7 +4,7 @@ import headerLogo from "../logos/headerLogo.png";
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
-export const NavBar = ({
+export const MainHeader = ({
   showRegistration,
   setShowRegistration,
 }: {
@@ -105,10 +105,9 @@ export const NavBar = ({
 };
 
 const Wrapper = styled.header`
-  // .nav-sticky {
-  //   position: sticky;
-  //   top: 0;
-  // }
+  position: sticky;
+  top: 0;
+  z-index: 100;
 
   .header-for-city-page {
     background-color: #ffc244ff;

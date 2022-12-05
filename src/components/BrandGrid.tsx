@@ -153,6 +153,7 @@ export const BrandGrid: React.FC<{
                     ? "5.4rem 0 0 -0rem"
                     : "2rem 0 0 -0rem"
                 }`,
+                rowGap: `${selectedCategory === null ? "1rem" : "0rem "}`,
               }}
             >
               {selectedCategory === null
@@ -195,7 +196,6 @@ const Wrapper = styled.div`
   strong {
     padding-right: 0.5rem;
     font-family: "Gotham Office";
-    // font-weight: 800;
     color: black;
   }
 
@@ -222,6 +222,8 @@ const Wrapper = styled.div`
   }
 
   .grid-chart {
+    position: sticky;
+    top: 1rem;
     background-color: blue;
     grid-row: 1/-1;
     grid-column: 3/4;
@@ -232,10 +234,12 @@ const Wrapper = styled.div`
     border-radius: 1rem;
   }
   .grid-sections {
+    position: sticky;
+    top: 1rem;
     background-color: #fff;
     text-transform: uppercase;
     width: 17.5rem;
-    height: 80rem;
+    max-height: 50rem;
     overflow-y: scroll;
     padding-bottom: 5rem;
   }
@@ -243,7 +247,7 @@ const Wrapper = styled.div`
   .grid-products {
     background-color: #fff;
     padding: 1rem 0rem 0rem 0rem;
-    min-height: 90rem;
+    min-height: auto;
     max-width: 120rem;
     overflow-y: scroll;
   }
@@ -306,20 +310,13 @@ const Wrapper = styled.div`
     text-transform: capitalize;
     color: #00a082;
     font-size: 1.2rem;
+    cursor: pointer;
   }
 
   .squares {
     height: 1.2rem;
     width: 1.3rem;
     margin-right: 0.4rem;
-  }
-
-  .sub-menu {
-    background-color: #f5f5f5;
-    height: auto;
-    padding: 2rem 2rem;
-    display: flex;
-    cursor: pointer;
   }
 
   .menu-container {
@@ -335,10 +332,6 @@ const Wrapper = styled.div`
     font-weight: 400;
     color: #3a3a3a;
     font-size: 1.4rem;
-  }
-
-  .chevron {
-    padding-left: 3rem;
   }
 
   .search-form {
@@ -366,16 +359,16 @@ const Wrapper = styled.div`
   }
 
   .products {
-    max-width: 100rem;
+    max-width: 95rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 1rem;
     row-gap: 2rem;
     font-weight: 700;
   }
 
   .category-title__name {
-    transform: translateY(1rem);
+    transform: translate(1rem, 1rem);
+    font-size: 2rem;
   }
   .chart {
     display: flex;

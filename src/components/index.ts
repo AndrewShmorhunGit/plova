@@ -4,7 +4,7 @@ import { FoodNearGallery } from "./FoodNearGallery";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { LocalSearch } from "./LocalSearch";
-import { NavBar } from "./MainHeader";
+import { MainHeader } from "./MainHeader";
 import { SideBar } from "./SideBar";
 import { PopularNear } from "./PopularNear";
 import { Products } from "./Products";
@@ -34,7 +34,7 @@ export {
   FoodNearGallery,
   Header,
   LocalSearch,
-  NavBar,
+  MainHeader as NavBar,
   SideBar,
   PopularNear,
   Products,
