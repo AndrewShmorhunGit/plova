@@ -1,4 +1,4 @@
-import { Cart } from "./Cart";
+import { Chart } from "./Chart";
 import { Jumbotron } from "./Jumbotron";
 import { FoodNearGallery } from "./FoodNearGallery";
 import { Footer } from "./Footer";
@@ -29,12 +29,12 @@ export {
   InputHeader,
   Sections,
   Footer,
-  Cart,
-  Jumbotron as FastServices,
+  Chart,
+  Jumbotron,
   FoodNearGallery,
   Header,
   LocalSearch,
-  MainHeader as NavBar,
+  MainHeader,
   SideBar,
   PopularNear,
   Products,

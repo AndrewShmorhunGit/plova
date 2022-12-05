@@ -266,10 +266,10 @@ export interface Menu {
     categoryImage: string;
     bonus: string;
   };
-  products: Products[];
+  products: IProducts[];
 }
 
-export interface Products {
+export interface IProducts {
   name: string;
   description: string;
   price: number;

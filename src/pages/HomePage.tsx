@@ -3,12 +3,12 @@ import { useState } from "react";
 // import { useAppDispatch, useAppSelector } from "../hooks/redux";
 // import { fetchRestaurants } from "../store/actions/restaurantActions";
 import {
-  FastServices,
   FoodNearGallery,
   Partnership,
   PopularNear,
   Registration,
-  NavBar,
+  Jumbotron,
+  MainHeader,
 } from "../components";
 
 export const HomePage = () => {
@@ -26,7 +26,7 @@ export const HomePage = () => {
 
   return (
     <>
-      <NavBar
+      <MainHeader
         setShowRegistration={setShowRegistration}
         showRegistration={showRegistration}
       />
@@ -36,7 +36,7 @@ export const HomePage = () => {
           // showRegistration={showRegistration}
         />
       )}
-      <FastServices />
+      <Jumbotron />
       <FoodNearGallery />
       <PopularNear />
       <Partnership />

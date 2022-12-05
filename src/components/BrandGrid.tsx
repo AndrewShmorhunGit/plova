@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import { useAppDispatch } from "../hooks/redux";
 import ratingExcellent from "../images/common/ratingExcellent.png";
 import { IMenu } from "../modules/modules";
-import { menusSlice } from "../store/slices/menuSlice";
 import { showDollarPrice } from "../units/functions";
-import { ProductsCategory } from "./ProductsCategory";
-import { SingleProduct } from "./SingleProduct";
+import { Chart } from "./Chart";
+import { Products } from "./Products";
+import { Sections } from "./Sections";
 
 export const BrandGrid: React.FC<{
   menu: IMenu;
@@ -13,7 +12,6 @@ export const BrandGrid: React.FC<{
   error: string;
   selectedCategory: string | null;
 }> = ({ menu, loading, error, selectedCategory }) => {
-  const dispatch = useAppDispatch();
   const getCurrentSubMenu = (categoryName: string | undefined) => {
     const currentMenu = menu.menu.find(
       (item) => item.category.categoryName === categoryName
@@ -59,57 +57,10 @@ export const BrandGrid: React.FC<{
             </div>
           </div>
           <div className="grid-chart">
-            <div className="chart">
-              <h2 className="empty-chart-title center">Your plova</h2>
-              <img
-                className="empty-chart-image"
-                src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/astronaut-grey-scale.svg"
-                alt="spaceman around the food"
-              />
-              <p className="empty-chart-paragraph center">
-                You've not added any products yet. When you do, you'll see them
-                here!
-              </p>
-            </div>
-            <div className="empty-chart-bottom center">
-              <img
-                className="chart-bottom-image"
-                src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/feedback/info.svg"
-                alt=""
-              />
-              <p>
-                Reach <span>5,00 $</span> to save <span>1,00 $</span> in fees!
-              </p>
-            </div>
+            <Chart />
           </div>
           <div className="grid-sections">
-            <div
-              className="sections center"
-              onClick={() => dispatch(menusSlice.actions.unselectCategory())}
-            >
-              <img
-                className="squares"
-                src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/sections-square.svg"
-                alt="squares"
-              />
-              <h3 className="sections-title">sections</h3>
-            </div>
-            {menu.menu.map((item, index) => {
-              return (
-                <div
-                  className="menu-container"
-                  onClick={() =>
-                    dispatch(
-                      menusSlice.actions.selectCategory(
-                        item.category.categoryName
-                      )
-                    )
-                  }
-                >
-                  <p className="menu">{item.category.categoryName}</p>
-                </div>
-              );
-            })}
+            <Sections menu={menu} />
           </div>
           <div className="grid-products">
             <form action="onSubmit" className="search-form">
@@ -142,46 +93,13 @@ export const BrandGrid: React.FC<{
                 className="search-input"
               />
             </form>
-            {selectedCategory !== null && (
-              <h3 className="category-title__name">{selectedCategory}</h3>
-            )}
-            <div
-              className="products"
-              style={{
-                margin: `${
-                  selectedCategory === null
-                    ? "5.4rem 0 0 -0rem"
-                    : "2rem 0 0 -0rem"
-                }`,
-                rowGap: `${selectedCategory === null ? "1rem" : "0rem "}`,
-              }}
-            >
-              {selectedCategory === null
-                ? menu.menu.map((item, index) => {
-                    return (
-                      <div
-                        onClick={() =>
-                          dispatch(
-                            menusSlice.actions.selectCategory(
-                              item.category.categoryName
-                            )
-                          )
-                        }
-                      >
-                        <ProductsCategory
-                          key={index}
-                          item={item}
-                          loading={loading}
-                        />
-                      </div>
-                    );
-                  })
-                : getCurrentSubMenu(selectedCategory).map((product, index) => {
-                    return (
-                      <SingleProduct product={product} loading={loading} />
-                    );
-                  })}
-            </div>
+
+            <Products
+              selectedCategory={selectedCategory}
+              menu={menu}
+              loading={false}
+              getCurrentSubMenu={getCurrentSubMenu}
+            />
           </div>
         </div>
       </div>
@@ -239,14 +157,14 @@ const Wrapper = styled.div`
     background-color: #fff;
     text-transform: uppercase;
     width: 17.5rem;
-    max-height: 50rem;
+    min-height: 50rem;
     overflow-y: scroll;
     padding-bottom: 5rem;
   }
 
   .grid-products {
     background-color: #fff;
-    padding: 1rem 0rem 0rem 0rem;
+    padding: 1rem 0rem 1rem 0rem;
     min-height: auto;
     max-width: 120rem;
     overflow-y: scroll;
@@ -303,37 +221,6 @@ const Wrapper = styled.div`
     padding-right: 0.8rem;
   }
 
-  .sections {
-    display: flex;
-    padding: 1.6rem;
-    margin-left: -6rem;
-    text-transform: capitalize;
-    color: #00a082;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-
-  .squares {
-    height: 1.2rem;
-    width: 1.3rem;
-    margin-right: 0.4rem;
-  }
-
-  .menu-container {
-    display: flex;
-    border-bottom: solid 1px #e7e7e7;
-    cursor: pointer;
-  }
-
-  .menu {
-    padding: 1.8rem 0rem 1.8rem 2.3rem;
-    display: flex;
-    text-transform: capitalize;
-    font-weight: 400;
-    color: #3a3a3a;
-    font-size: 1.4rem;
-  }
-
   .search-form {
     background-color: #f5f5f5;
     padding: 1.25rem 1rem 1.2rem 1.8rem;
@@ -356,56 +243,6 @@ const Wrapper = styled.div`
   .sub-title {
     padding: 2rem 0 0 3rem;
     text-transform: uppercase;
-  }
-
-  .products {
-    max-width: 95rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    row-gap: 2rem;
-    font-weight: 700;
-  }
-
-  .category-title__name {
-    transform: translate(1rem, 1rem);
-    font-size: 2rem;
-  }
-  .chart {
-    display: flex;
-    flex-direction: column;
-    gap: 3.6rem;
-    padding: 4.4rem 4.5rem 4rem 4.5rem;
-    max-height: 43rem;
-  }
-
-  .empty-chart-paragraph {
-    font-size: 1.6rem;
-    line-height: 1.5;
-    text-align: center;
-    font-weight: 400;
-    color: #4d4d4d;
-  }
-
-  .empty-chart-image {
-    display: flex;
-    height: 18rem;
-    width: 100%;
-  }
-
-  .empty-chart-bottom {
-    height: 4.75rem;
-    min-width: 20rem;
-    padding: auto 10%;
-    font-size: 1.2rem;
-    font-weight: 400;
-    border-top: 4px solid #e9f8f5;
-    color: #4d4d4d;
-  }
-
-  .chart-bottom-image {
-    margin-bottom: 0.1rem;
-    max-height: 1.4rem;
-    padding-right: 0.4rem;
   }
 
   h1 {

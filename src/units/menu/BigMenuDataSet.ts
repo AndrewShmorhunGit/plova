@@ -2863,9 +2863,9 @@ export const allMenus: IMenu[] = [
     menu: [
       {
         category: {
-          categoryName: "Menu",
+          categoryName: "Set's cart",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/jfxxpnxnspq61u27c1ki",
+            "https://i.postimg.cc/LstyRdR4/cushi-gunkanlosos-770x480.jpg",
           bonus: "",
         },
         products: [
