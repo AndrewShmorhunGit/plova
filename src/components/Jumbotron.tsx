@@ -5,6 +5,7 @@ import { LocationInput } from "./index";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { fetchJumbotron } from "../store/actions/jumbotronActions";
 import { ErrorPage } from "../pages";
+import { Map } from "./index";
 import useGeolocation from "react-hook-geolocation";
 
 const currentLocation: string = "136 Pym St, Nottingham";
@@ -14,6 +15,9 @@ export const Jumbotron = () => {
   const location: boolean = false;
   const dispatch = useAppDispatch();
   const geolocation = useGeolocation();
+
+  // f8eb33e3d4aa046b; - map ID
+  // process.env.REACT_APP_MAP_API_KEY
 
   const { loading, error, jumbotron } = useAppSelector(
     (state) => state.jumbotron
@@ -48,9 +52,12 @@ export const Jumbotron = () => {
         ) : (
           <>
             {!loading && (
-              <h2>
-                lat {geolocation.latitude}, lng {geolocation.longitude},
-              </h2>
+              <>
+                <h2>
+                  lat {geolocation.latitude}, lng {geolocation.longitude},
+                </h2>
+                <Map />
+              </>
             )}
             <LocationInput />
           </>

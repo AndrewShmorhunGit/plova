@@ -22,8 +22,9 @@ import { Sections } from "./Sections";
 import { InputHeader } from "./InputHeader";
 import { BrandGrid } from "./BrandGrid";
 import { GalleryLoader } from "./GalleryLoader";
-
+import { Map } from "./Map";
 export {
+  Map,
   GalleryLoader,
   BrandGrid,
   InputHeader,

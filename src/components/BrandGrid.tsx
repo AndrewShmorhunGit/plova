@@ -2,9 +2,7 @@ import styled from "styled-components";
 import ratingExcellent from "../images/common/ratingExcellent.png";
 import { IMenu } from "../modules/modules";
 import { showDollarPrice } from "../units/functions";
-import { Chart } from "./Chart";
-import { Products } from "./Products";
-import { Sections } from "./Sections";
+import { Chart, Products, Sections } from "./index";
 
 export const BrandGrid: React.FC<{
   menu: IMenu;

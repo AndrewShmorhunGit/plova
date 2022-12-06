@@ -38,3 +38,19 @@ export const wait = <T>(func: () => T, time: number): Promise<T> => {
     }, time)
   );
 };
+
+export const getMAP_API_KEY = (): string => {
+  const KEY = process.env.REACT_APP_MAP_API_KEY;
+  if (KEY === undefined) {
+    throw new Error("Sorry, Map API key is undefined");
+  }
+  return KEY;
+};
+
+export const getAPI_ID_KEY = (): string => {
+  const KEY = process.env.REACT_APP_MAP_API_ID_KEY;
+  if (KEY === undefined) {
+    throw new Error("Sorry, Map API ID key is undefined");
+  }
+  return KEY;
+};
