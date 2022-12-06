@@ -1,17 +1,19 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
-// import locationLogoYellow from "../logos/locationLogoYellow.png";
 import { LocationInput } from "./index";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { fetchJumbotron } from "../store/actions/jumbotronActions";
 import { ErrorPage } from "../pages";
-const address: string = "136 Pym St, Nottingham";
+import useGeolocation from "react-hook-geolocation";
+
+const currentLocation: string = "136 Pym St, Nottingham";
 
 export const Jumbotron = () => {
-  const [showLocation, setShowLocation] = useState(false);
+  const [showAddressInput, setShowAddressInput] = useState(false);
   const location: boolean = false;
   const dispatch = useAppDispatch();
+  const geolocation = useGeolocation();
 
   const { loading, error, jumbotron } = useAppSelector(
     (state) => state.jumbotron
@@ -25,28 +27,18 @@ export const Jumbotron = () => {
     return <ErrorPage />;
   }
 
-  if (loading) {
-    return (
-      <Wrapper>
-        <section className="landing-jumbotron-loading">
-          <p className="center">Loading...</p>
-        </section>
-      </Wrapper>
-    );
-  }
-
   return (
     <Wrapper>
       <section className="landing-jumbotron">
         {location ? (
           <div
             className="user-address-content"
-            onClick={() => setShowLocation(!showLocation)}
+            onClick={() => setShowAddressInput(!showAddressInput)}
           >
             <div className="user-address-content-text">
               <p>
-                Delivery to the address:
-                <span className="address-content-text">{` ${address}`}</span>
+                Delivery to
+                <span className="address-content-text">{` ${currentLocation}`}</span>
               </p>
               <div className="chevron">
                 <FaChevronDown />
@@ -54,8 +46,16 @@ export const Jumbotron = () => {
             </div>
           </div>
         ) : (
-          <LocationInput />
+          <>
+            {!loading && (
+              <h2>
+                lat {geolocation.latitude}, lng {geolocation.longitude},
+              </h2>
+            )}
+            <LocationInput />
+          </>
         )}
+
         <div className="jumbotron-container">
           {jumbotron.map((item) => {
             const { id, category, icon } = item;
@@ -97,11 +97,10 @@ const Wrapper = styled.section`
   }
 
   .landing-jumbotron-loading {
+  display: flex;
   background-color: #ffc244ff;
-  padding-bottom: 6.4rem;
-  padding-top: 4.8rem;
-  height: 51rem;
-  font-size: 5rem;
+  min-height: 30rem;
+  
   } 
 
   .user-address-content {
