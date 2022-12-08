@@ -145,6 +145,7 @@ export const Registration = ({
 };
 
 const Wrapper = styled.aside`
+  // z-index: 100;
   .registration-container {
     position: fixed;
     inset: 0;
@@ -213,8 +214,7 @@ const Wrapper = styled.aside`
     margin-top: 2rem;
     width: 33.8rem;
     height: 4.8rem;
-    color: white;
-    // text-transform: uppercase;
+    color: white
     padding: 0;
     letter-spacing: 0.05rem;
     font-size: 1.7rem;

@@ -1,5 +1,7 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { showDollarPrice } from "../units/functions";
+import { SingleProductModal } from "./SingleProductModal";
 
 export interface Product {
   name: string;
@@ -14,9 +16,14 @@ export const SingleProduct: React.FC<{
   product: Product;
   loading: boolean;
 }> = ({ product, loading }) => {
+  const [showModalProduct, setShowModalProduct] = useState(false);
+
   return (
     <Wrapper>
-      <main className="single-product">
+      <main
+        className="single-product"
+        onClick={() => setShowModalProduct(!showModalProduct)}
+      >
         <div className="sp-div1">
           <div
             className="single-product-image"
@@ -53,6 +60,12 @@ export const SingleProduct: React.FC<{
           </div>
         </div>
       </main>
+      {showModalProduct && (
+        <SingleProductModal
+          setShowModalProduct={setShowModalProduct}
+          product={product}
+        />
+      )}
     </Wrapper>
   );
 };

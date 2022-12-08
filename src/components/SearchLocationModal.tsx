@@ -1,11 +1,8 @@
-// import { FaTimes } from "react-icons/fa";
 import styled from "styled-components";
 
-export const SearchLocationModal = ({
-  setShowLocationModal,
-}: {
+export const SearchLocationModal: React.FC<{
   setShowLocationModal: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+}> = ({ setShowLocationModal }) => {
   return (
     <Wrapper>
       <div className="location-container show-location">
@@ -75,7 +72,7 @@ const Wrapper = styled.div`
     overflow: auto;
   }
 
-  .location--container::-webkit-scrollbar {
+  .location-container::-webkit-scrollbar {
     width: 0;
   }
 

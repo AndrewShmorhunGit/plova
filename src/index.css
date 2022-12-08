@@ -89,13 +89,13 @@ body {
 
 .btn {
   background-color: #00a082;
-  color: #cccccc;
+  color: #f1f3f5;
   text-align: center;
   text-decoration: none;
   padding-left: 1.6rem;
   padding-right: 1.6rem;
   height: 3.6rem;
-  width: auto;
+  max-width: auto;
   border-radius: 2.4rem;
   font-size: 2rem;
   font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
@@ -107,8 +107,8 @@ body {
 }
 
 .btn:hover {
-  background-color: #cccccc;
-  color: #008068;
+  background-color: #008068;
+  color: white;
   cursor: pointer;
 }
 
