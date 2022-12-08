@@ -10,7 +10,7 @@ import {
 import { appleStoreSVG, googleStoreSVG } from "../images/footer/SVG";
 
 export const Footer = () => {
-  const country: string = "Ukraine";
+  const country: string = "Country";
 
   return (
     <Wrapper>
@@ -82,13 +82,14 @@ export const Footer = () => {
               </div>
               <p>See all categories</p>
             </div>
-
-            {/* <div className="language-picker">
-              <div className="picker-trigger">
-                <h3> English</h3>
-              </div>
-            </div> */}
           </div>
+        </div>
+        <div className="footer-bottom center">
+          <h6>
+            &copy; {`${new Date().getFullYear()} `}
+            <strong>Plova</strong> All rights reserved. This application is
+            portfolio project created by Andrew Shmorhun.
+          </h6>
         </div>
       </footer>
     </Wrapper>
@@ -104,6 +105,11 @@ const Wrapper = styled.main`
   .app-footer {
     background-color: #1d1d1dff;
     padding-bottom: 2rem;
+  }
+
+  strong {
+    color: #00a082;
+    color: #ffc244;
   }
 
   h3 {
@@ -136,6 +142,13 @@ const Wrapper = styled.main`
     row-gap: 5rem;
   }
 
+  .footer-bottom {
+    padding-top: 2rem;
+    color: #fff;
+    flex-direction: column;
+    gap: 1rem;
+    font-weight: 200;
+  }
   .links {
     display: flex;
     flex-direction: column;

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import headerLogo from "../logos/headerLogo.png";
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import useGeolocation from "react-hook-geolocation";
 
 export const MainHeader = ({
   showRegistration,
@@ -12,13 +13,8 @@ export const MainHeader = ({
   setShowRegistration: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const [showLocation, setShowLocation] = useState(false);
-
-  console.log(
-    `выбор локации: ${showLocation} |`
-    // `окно регистрации: ${showSignUpForm}`
-  );
-
-  const address: string = "136 Pym St, Nottingham";
+  const location = useGeolocation();
+  const address: string = `lat: ${location.latitude}, lng: ${location.longitude}`;
   // const formActive: boolean = false;
   // const changeFormState = (): void => {
   //   return formActive;

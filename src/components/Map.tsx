@@ -3,7 +3,7 @@ import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import styled from "styled-components";
 import { getAPI_ID_KEY, getMAP_API_KEY } from "../units/functions";
 import useGeolocation from "react-hook-geolocation";
-import { defaultTheme } from "../units/data/theme";
+import { defaultTheme } from "../units/data/mapTheme";
 
 const API_KEY = getMAP_API_KEY();
 const API_ID_KEY = getAPI_ID_KEY();
@@ -30,6 +30,7 @@ const defaultOptions = {
 
 export const Map = () => {
   const geolocation = useGeolocation();
+
   const { isLoaded } = useJsApiLoader({
     googleMapsClientId: API_ID_KEY,
     googleMapsApiKey: API_KEY,

@@ -23,7 +23,7 @@ export const BrandGrid: React.FC<{
   return (
     <Wrapper>
       <div className="container-products">
-        <div className="product-body">
+        <div className="grid-body">
           <div className="grid-title">
             <div className="brand-title">
               <h1>{menu.brandName}</h1>
@@ -58,7 +58,7 @@ export const BrandGrid: React.FC<{
             <Chart />
           </div>
           <div className="grid-sections">
-            <Sections menu={menu} />
+            <Sections menu={menu} selectedCategory={selectedCategory} />
           </div>
           <div className="grid-products">
             <form action="onSubmit" className="search-form">
@@ -74,13 +74,13 @@ export const BrandGrid: React.FC<{
                     cy="6.721"
                     r="5"
                     stroke="#9B9B9B"
-                    stroke-width="1.6"
+                    strokeWidth="1.6"
                   />
                   <path
                     stroke="#9B9B9B"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.6"
                     d="M9.396 10.723L12 13.72"
                   />
                 </svg>
@@ -115,7 +115,7 @@ const Wrapper = styled.div`
     color: black;
   }
 
-  .product-body {
+  .grid-body {
     max-width: 156rem;
     height: auto;
     display: grid;
@@ -128,7 +128,7 @@ const Wrapper = styled.div`
 
   .grid-title {
     max-width: 109rem;
-    max-height: 20.7rem;
+    max-height: 40rem;
     grid-column: 1/3;
     grid-row: 1/2;
     box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
@@ -140,7 +140,7 @@ const Wrapper = styled.div`
   .grid-chart {
     position: sticky;
     top: 1rem;
-    background-color: blue;
+
     grid-row: 1/-1;
     grid-column: 3/4;
     background-color: #fff;
@@ -149,6 +149,7 @@ const Wrapper = styled.div`
     width: 32rem;
     border-radius: 1rem;
   }
+
   .grid-sections {
     position: sticky;
     top: 1rem;

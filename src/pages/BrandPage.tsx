@@ -1,6 +1,11 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { Header, BrandGrid } from "../components/index";
+import {
+  Header,
+  BrandGrid,
+  LoadingHeader,
+  LoadingBrandGrid,
+} from "../components/index";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { fetchMenu } from "../store/actions/menuActions";
 import { getSlugFromLocation } from "../units/functions";
@@ -15,13 +20,18 @@ export function BrandPage() {
     (state) => state.menu
   );
 
-  // console.log(loading, error, menu);
   useEffect(() => {
     dispatch(fetchMenu(slug));
   }, []);
 
   if (menu === null) {
-    return <p className="center">Ooops, jou menu is not exist 😕</p>;
+    return (
+      <>
+        <LoadingHeader />
+        <h3 className="center">Menu is loading..🙂 or just not exist..😕 </h3>
+        <LoadingBrandGrid />
+      </>
+    );
   }
 
   return (

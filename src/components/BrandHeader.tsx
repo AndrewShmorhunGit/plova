@@ -1,17 +1,19 @@
+import useGeolocation from "react-hook-geolocation";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import footerLogo1 from "../logos/footerLogo1.png";
 import { IMenu } from "../modules/modules";
-import { SideBar } from "./index";
+import { Path } from "./index";
 
-export const Header = ({
+export const BrandHeader = ({
   menu,
   loading,
 }: {
   menu: IMenu;
   loading: boolean;
 }) => {
-  const address: string = "136 Pym St, Nottingham";
+  const location = useGeolocation();
+  const address: string = `lat: ${location.latitude}, lng: ${location.longitude}`;
   const backgroundImage: string = menu.headerBackgroundImage;
   return (
     <Wrapper>
@@ -42,11 +44,7 @@ export const Header = ({
                   alt="location marker"
                   className="header-location-icon"
                 />
-                <div
-                  data-v-7ff8f296=""
-                  data-test-id="user-address-text"
-                  className="header-text"
-                >
+                <div className="header-text">
                   <span className="address-content-text">
                     {`${
                       address.length < 30
@@ -56,7 +54,6 @@ export const Header = ({
                   </span>
                 </div>
                 <img
-                  data-v-7ff8f296=""
                   src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/landing/dropdown-white.svg"
                   alt=""
                   role="presentation"
@@ -70,16 +67,14 @@ export const Header = ({
                       width="34"
                       height="34"
                       viewBox="0 0 32 32"
-                      data-e2e-id="user-profile-trigger"
                       className="profile-icon header-action"
-                      data-v-26383afe=""
                     >
                       <g
                         fill="none"
                         stroke="#FFFFFF"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         className="profile-icon__paths"
                       >
                         <path d="M25.0801 24.1107c-2.2971-3.0455-5.4822-5.5086-9.0186-5.5086-3.7536 0-7.12573 2.128-9.44431 5.5086"></path>{" "}
@@ -94,21 +89,19 @@ export const Header = ({
                       width="34"
                       height="34"
                       fill="none"
-                      data-e2e-id="user-orders-trigger"
                       className="orders-icon header-action"
-                      data-v-26383afe=""
                     >
                       <g
                         stroke="#FFFFFF"
-                        stroke-width="2"
+                        strokeWidth="2"
                         className="orders-icon__paths"
                       >
                         <circle cx="5.5" cy="6.66815" r="3"></circle>{" "}
                         <circle cx="5.5" cy="16.66815" r="3"></circle>{" "}
                         <circle cx="5.5" cy="26.66815" r="3"></circle>{" "}
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M13.5 6.66815h16m-16 10h16m-16 10h16"
                         ></path>
                       </g>
@@ -118,8 +111,8 @@ export const Header = ({
               </div>
               {/* <div className="header-address">{address}</div> */}
             </div>
-            <div className="side-bar">
-              <SideBar />
+            <div className="path">
+              <Path name={menu.brandName} />
             </div>
           </div>
         </div>
@@ -192,7 +185,7 @@ const Wrapper = styled.header`
     width: 13rem;
   }
 
-  .side-bar {
+  .path {
     font-weight: 200;
     font-size: 2.4rem;
     color: white;

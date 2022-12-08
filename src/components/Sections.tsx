@@ -3,21 +3,54 @@ import { useAppDispatch } from "../hooks/redux";
 import { IMenu } from "../modules/modules";
 import { menusSlice } from "../store/slices/menuSlice";
 
-export const Sections = ({ menu }: { menu: IMenu }) => {
+export const Sections = ({
+  menu,
+  selectedCategory,
+}: {
+  menu: IMenu;
+  selectedCategory: string | null;
+}) => {
   const dispatch = useAppDispatch();
 
   return (
     <Wrapper>
-      <main>
+      <main className="main-container">
         <div
           className="sections center"
           onClick={() => dispatch(menusSlice.actions.unselectCategory())}
         >
-          <img
+          <svg
             className="squares"
-            src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/sections-square.svg"
-            alt="squares"
-          />
+            xmlns="http://www.w3.org/2000/svg"
+            width="13"
+            height="12"
+            fill="none"
+          >
+            <rect
+              width="5.143"
+              height="5.143"
+              x="7.074"
+              fill="#00A082"
+              rx="1"
+            />
+            <rect
+              width="5.143"
+              height="5.143"
+              x="7.074"
+              y="6.857"
+              fill="#00A082"
+              rx="1"
+            />
+            <rect width="5.143" height="5.143" x=".219" fill="#00A082" rx="1" />
+            <rect
+              width="5.143"
+              height="5.143"
+              x=".219"
+              y="6.857"
+              fill="#00A082"
+              rx="1"
+            />
+          </svg>
           <h3 className="sections-title">sections</h3>
         </div>
         {menu.menu.map((item, index) => {
@@ -30,7 +63,13 @@ export const Sections = ({ menu }: { menu: IMenu }) => {
                 )
               }
             >
-              <p className="menu">{item.category.categoryName}</p>
+              <p className="menu">
+                {selectedCategory === item.category.categoryName ? (
+                  <span>{item.category.categoryName}</span>
+                ) : (
+                  item.category.categoryName
+                )}
+              </p>
             </div>
           );
         })}
@@ -40,15 +79,18 @@ export const Sections = ({ menu }: { menu: IMenu }) => {
 };
 
 const Wrapper = styled.main`
+  .main-container {
+    height: auto;
+  }
+
   .sections {
-    display: flex;
     padding: 1.6rem;
     margin-left: -6rem;
     text-transform: capitalize;
     color: #00a082;
     font-size: 1.2rem;
     cursor: pointer;
-    height: auto;
+    max-height: 4rem;
   }
 
   .squares {

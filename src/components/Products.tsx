@@ -61,18 +61,7 @@ export const Products = ({
   );
 };
 
-const Wrapper = styled.div`
-  .product-body {
-    max-width: 156rem;
-    height: auto;
-    display: grid;
-    grid-template-columns: 0.5fr 4.25fr 1.5fr;
-    grid-template-rows: auto 1fr;
-    column-gap: 1rem;
-    row-gap: 1.6rem;
-    height: auto;
-  }
-
+const Wrapper = styled.main`
   .products {
     max-width: 95rem;
     display: grid;

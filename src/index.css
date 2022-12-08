@@ -74,7 +74,11 @@ body {
 .container-products {
   width: 142.5rem;
   margin: 0 auto;
-  /* max-width: var(--max-width); */
+}
+
+.container-loader {
+  width: 142.5rem;
+  margin: 0 auto;
 }
 
 .center {

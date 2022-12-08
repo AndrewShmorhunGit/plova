@@ -2,10 +2,10 @@ import { Chart } from "./Chart";
 import { Jumbotron } from "./Jumbotron";
 import { FoodNearGallery } from "./FoodNearGallery";
 import { Footer } from "./Footer";
-import { Header } from "./Header";
+import { BrandHeader } from "./BrandHeader";
 import { LocalSearch } from "./LocalSearch";
 import { MainHeader } from "./MainHeader";
-import { SideBar } from "./SideBar";
+import { Path } from "./Path";
 import { PopularNear } from "./PopularNear";
 import { Products } from "./Products";
 import { SearchInput } from "./SearchInput";
@@ -23,7 +23,14 @@ import { InputHeader } from "./InputHeader";
 import { BrandGrid } from "./BrandGrid";
 import { GalleryLoader } from "./GalleryLoader";
 import { Map } from "./Map";
+import { LoadingHeader } from "./LoadingHeader";
+import { LoadingBrandGrid } from "./LoadingBrandGrid";
+import { LoadingProducts } from "./LoadingProducts";
 export {
+  LoadingProducts,
+  LoadingBrandGrid,
+  LoadingHeader,
+  BrandHeader,
   Map,
   GalleryLoader,
   BrandGrid,
@@ -33,10 +40,10 @@ export {
   Chart,
   Jumbotron,
   FoodNearGallery,
-  Header,
+  BrandHeader as Header,
   LocalSearch,
   MainHeader,
-  SideBar,
+  Path,
   PopularNear,
   Products,
   SearchInput,

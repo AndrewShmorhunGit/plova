@@ -30,9 +30,9 @@ export const ProductsCategory: React.FC<{
               />
               <path
                 fill="#292929"
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M42.463 25.216a1.02 1.02 0 011.471 0l4.384 4.513c.63.648.63 1.698 0 2.347l-4.383 4.512a1.02 1.02 0 01-1.472 0 1.094 1.094 0 010-1.514l3.004-3.093H38.12c-.578 0-1.047-.483-1.047-1.079s.469-1.079 1.047-1.079h7.346l-3.004-3.092a1.094 1.094 0 010-1.515z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               />
             </svg>
           </div>
@@ -77,7 +77,7 @@ const Wrapper = styled.main`
 
     .arrow {
       position: absolute;
-      top: 5.2rem;
+      top: 5.4rem;
       left: 37rem;
       z-index: 5;
     }
