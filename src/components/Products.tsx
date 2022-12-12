@@ -36,6 +36,7 @@ export const Products = ({
             ? menu.menu.map((item, index) => {
                 return (
                   <div
+                    key={index}
                     onClick={() =>
                       dispatch(
                         menusSlice.actions.selectCategory(
@@ -53,7 +54,13 @@ export const Products = ({
                 );
               })
             : getCurrentSubMenu(selectedCategory).map((product, index) => {
-                return <SingleProduct product={product} loading={loading} />;
+                return (
+                  <SingleProduct
+                    key={index}
+                    product={product}
+                    loading={loading}
+                  />
+                );
               })}
         </div>
       </main>

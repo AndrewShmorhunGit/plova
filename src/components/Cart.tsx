@@ -1,18 +1,35 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { addToCart, getCartBySlug } from "../units/cartsManager";
+import { getSlugFromLocation } from "../units/functions";
 
-export const Chart = () => {
+export const Cart = () => {
+  const location = useLocation();
+  const cart = getCartBySlug(getSlugFromLocation(location));
+  // console.log(cart);
+
+  useEffect(() => {
+    console.log(getCartBySlug(getSlugFromLocation(location)));
+  }, [addToCart]);
+
   return (
     <Wrapper>
       <div className="chart">
         <h2 className="empty-chart-title center">Your plova</h2>
-        <img
-          className="empty-chart-image"
-          src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/astronaut-grey-scale.svg"
-          alt="spaceman around the food"
-        />
-        <p className="empty-chart-paragraph center">
-          You've not added any products yet. When you do, you'll see them here!
-        </p>
+        {!cart && (
+          <>
+            <img
+              className="empty-chart-image"
+              src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/astronaut-grey-scale.svg"
+              alt="spaceman around the food"
+            />
+            <p className="empty-chart-paragraph center">
+              You've not added any products yet. When you do, you'll see them
+              here!
+            </p>
+          </>
+        )}
       </div>
       <div className="empty-chart-bottom center">
         <img

@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import {
-  Header,
   BrandGrid,
   LoadingHeader,
   LoadingBrandGrid,
+  BrandHeader,
 } from "../components/index";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { fetchMenu } from "../store/actions/menuActions";
@@ -36,7 +36,7 @@ export function BrandPage() {
 
   return (
     <>
-      <Header menu={menu} loading={loading} />
+      <BrandHeader menu={menu} loading={loading} />
       <BrandGrid
         menu={menu}
         loading={loading}

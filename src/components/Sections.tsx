@@ -56,6 +56,7 @@ export const Sections = ({
         {menu.menu.map((item, index) => {
           return (
             <div
+              key={index}
               className="menu-container"
               onClick={() =>
                 dispatch(

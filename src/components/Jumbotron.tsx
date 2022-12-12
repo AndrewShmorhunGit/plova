@@ -7,16 +7,13 @@ import { fetchJumbotron } from "../store/actions/jumbotronActions";
 import { ErrorPage } from "../pages";
 import useGeolocation from "react-hook-geolocation";
 
-const currentLocation: string = "136 Pym St, Nottingham";
+// const currentLocation: string = "136 Pym St, Nottingham";
 
 export const Jumbotron = () => {
   const [showAddressInput, setShowAddressInput] = useState(false);
   const location: boolean = false;
   const dispatch = useAppDispatch();
   const geolocation = useGeolocation();
-
-  // f8eb33e3d4aa046b; - map ID
-  // process.env.REACT_APP_MAP_API_KEY
 
   const { loading, error, jumbotron } = useAppSelector(
     (state) => state.jumbotron
@@ -33,7 +30,7 @@ export const Jumbotron = () => {
   return (
     <Wrapper>
       <section className="landing-jumbotron">
-        {location ? (
+        {location && (
           <div
             className="user-address-content"
             onClick={() => setShowAddressInput(!showAddressInput)}
@@ -41,23 +38,22 @@ export const Jumbotron = () => {
             <div className="user-address-content-text">
               <p>
                 Delivery to
-                <span className="address-content-text">{` ${currentLocation}`}</span>
+                <span className="address-content-text">{` lat ${geolocation.latitude}, lng ${geolocation.longitude}`}</span>
               </p>
               <div className="chevron">
                 <FaChevronDown />
               </div>
             </div>
           </div>
-        ) : (
+        )}
+
+        {!loading && (
           <>
-            {!loading && (
-              <>
-                <h2>
-                  lat {geolocation.latitude}, lng {geolocation.longitude},
-                </h2>
-                <LocationInput />
-              </>
-            )}
+            <h2>
+              Delivery to lat {geolocation.latitude}, lng{" "}
+              {geolocation.longitude},
+            </h2>
+            <LocationInput />
           </>
         )}
 
@@ -93,8 +89,7 @@ export const Jumbotron = () => {
 };
 
 const Wrapper = styled.section`
-
-.landing-jumbotron {
+  .landing-jumbotron {
     display: flex;
     flex-direction: column;
     gap: 3rem;
@@ -145,7 +140,6 @@ const Wrapper = styled.section`
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    
   }
 
   .category-text {
@@ -166,7 +160,8 @@ const Wrapper = styled.section`
     width: 11.5rem;
     background: #ffc244;
     cursor: pointer;
-    transition: all .5s;
+    transition: all 0.5s;
+    // overflow: visible;
   }
 
   .category:hover {
@@ -187,18 +182,19 @@ const Wrapper = styled.section`
   }
 
   .absolute {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  // transform:scale(0.1);
-}
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    // transform:scale(0.1);
+  }
 
   .link-bubble {
     text-decoration: none;
     color: #343a40;
     margin: 1rem;
     border-radius: 50%;
+    overflow: visible;
   }
 
   .link3 {
@@ -211,36 +207,33 @@ const Wrapper = styled.section`
 
   @keyframes jumbotron-appear {
     0% {
-      // transform: translateZ(-1rem);
-      transform: scale(0)
-      display: none;
       opacity: 0;
       height: 1rem;
       width: 1rem;
     }
     ,
     25% {
-      height: 3rem;
-      width: 3rem;
-    }
+    //   height: 3rem;
+    //   width: 3rem;
+    // }
     ,
     50% {
-      height: 6rem;
-      width: 6rem;
+      // height: 6rem;
+      // width: 6rem;
     }
 
     ,
     75% {
       opacity: 20%;
-      height: 9rem;
-      width: 9rem;
+      height: 13rem;
+      width: 13rem;
     }
 
     ,
     100% {
       opacity: 100%;
-      height: 11.5rem;
-      width: 11.5rem;
+      // height: 11.5rem;
+      // width: 11.5rem;
     }
   }
 `;

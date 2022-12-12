@@ -88,7 +88,7 @@ export const Footer = () => {
           <h6>
             &copy; {`${new Date().getFullYear()} `}
             <strong>Plova</strong> All rights reserved. This application is
-            portfolio project created by Andrew Shmorhun.
+            portfolio project created by Andrew Shmorhun. Design by Glovo.
           </h6>
         </div>
       </footer>

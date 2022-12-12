@@ -1,4 +1,4 @@
-import { Chart } from "./Chart";
+import { Cart } from "./Cart";
 import { Jumbotron } from "./Jumbotron";
 import { FoodNearGallery } from "./FoodNearGallery";
 import { Footer } from "./Footer";
@@ -30,17 +30,16 @@ export {
   LoadingProducts,
   LoadingBrandGrid,
   LoadingHeader,
-  BrandHeader,
   Map,
   GalleryLoader,
   BrandGrid,
   InputHeader,
   Sections,
   Footer,
-  Chart,
+  Cart,
   Jumbotron,
   FoodNearGallery,
-  BrandHeader as Header,
+  BrandHeader,
   LocalSearch,
   MainHeader,
   Path,

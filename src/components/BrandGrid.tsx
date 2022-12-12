@@ -2,14 +2,14 @@ import styled from "styled-components";
 import ratingExcellent from "../images/common/ratingExcellent.png";
 import { IMenu } from "../modules/modules";
 import { showDollarPrice } from "../units/functions";
-import { Chart, Products, Sections } from "./index";
+import { Cart, Products, Sections } from "./index";
 
 export const BrandGrid: React.FC<{
   menu: IMenu;
   loading: boolean;
   error: string;
   selectedCategory: string | null;
-}> = ({ menu, loading, error, selectedCategory }) => {
+}> = ({ menu, selectedCategory }) => {
   const getCurrentSubMenu = (categoryName: string | undefined) => {
     const currentMenu = menu.menu.find(
       (item) => item.category.categoryName === categoryName
@@ -55,7 +55,7 @@ export const BrandGrid: React.FC<{
             </div>
           </div>
           <div className="grid-chart">
-            <Chart />
+            <Cart />
           </div>
           <div className="grid-sections">
             <Sections menu={menu} selectedCategory={selectedCategory} />

@@ -1,4 +1,4 @@
-import { IMenu } from "../../modules/modules";
+import { ICart, IMenu } from "../../modules/modules";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface MenuState {
@@ -6,6 +6,7 @@ interface MenuState {
   loading: boolean;
   error: string;
   menu: IMenu | null;
+  cart: ICart[];
 }
 
 const initialState: MenuState = {
@@ -13,6 +14,7 @@ const initialState: MenuState = {
   loading: false,
   error: "",
   menu: null,
+  cart: [],
 };
 
 export const menusSlice = createSlice({
@@ -35,6 +37,9 @@ export const menusSlice = createSlice({
     },
     unselectCategory(state) {
       state.selectedCategory = null;
+    },
+    addToCart(state, action: PayloadAction<ICart[]>) {
+      state.cart = action.payload;
     },
   },
 });

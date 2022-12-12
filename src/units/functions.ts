@@ -1,4 +1,5 @@
 import { Location } from "react-router-dom";
+import { ICart } from "../modules/modules";
 
 export const hryvniaToDollarConverter = (price: number) => {
   const newPrice: number = price / 40;
@@ -53,4 +54,16 @@ export const getAPI_ID_KEY = (): string => {
     throw new Error("Sorry, Map API ID key is undefined");
   }
   return KEY;
+};
+
+export const getLocalStorageCart = (storeName: string): ICart[] | [] => {
+  let cart: string | null | [] = localStorage.getItem(`PlovaCart${storeName}`);
+  if (cart === null || []) {
+    return [];
+  }
+  if (cart !== null || []) {
+    return JSON.parse(cart);
+  } else {
+    return [];
+  }
 };

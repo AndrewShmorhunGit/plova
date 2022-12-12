@@ -277,3 +277,13 @@ export interface IProducts {
   bonus: string;
   modifiers: string;
 }
+
+export interface Order {
+  amount: number;
+  name: string;
+  price: number;
+}
+
+export interface ICart {
+  order: Order[];
+}

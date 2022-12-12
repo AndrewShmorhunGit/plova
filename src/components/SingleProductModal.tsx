@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
-import { showDollarPrice } from "../units/functions";
+import { addToCart, getCartBySlug } from "../units/cartsManager";
+
+import { getSlugFromLocation, showDollarPrice } from "../units/functions";
 import { Product } from "./SingleProduct";
 
 export const SingleProductModal = ({
@@ -10,7 +13,15 @@ export const SingleProductModal = ({
   setShowModalProduct: React.Dispatch<React.SetStateAction<boolean>>;
   product: Product;
 }) => {
+  const location = useLocation();
+
+  const slug = getSlugFromLocation(location);
+
   const [counter, setCounter] = useState(1);
+
+  useEffect(() => {
+    console.log(getCartBySlug(getSlugFromLocation(location)));
+  }, [addToCart]);
 
   const inc = () => {
     let newCounter = setCounter(counter + 1);
@@ -24,6 +35,12 @@ export const SingleProductModal = ({
       let newCounter = setCounter(counter - 1);
       return newCounter;
     }
+  };
+
+  const newOrder = {
+    amount: counter,
+    name: product.name,
+    price: product.price,
   };
 
   return (
@@ -69,7 +86,12 @@ export const SingleProductModal = ({
               />
             </div>
             <div className="center">
-              <button className="add-btn btn center">
+              <button
+                className="add-btn btn center"
+                onClick={() =>
+                  addToCart(slug, newOrder) && setShowModalProduct(false)
+                }
+              >
                 Add {counter} for {showDollarPrice(counter * product.price)} $
               </button>
             </div>
