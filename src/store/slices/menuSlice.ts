@@ -1,12 +1,13 @@
 import { ICart, IMenu } from "../../modules/modules";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+// import { carts } from "../../units/cartsManager";
 
 interface MenuState {
   selectedCategory: string | null;
   loading: boolean;
   error: string;
   menu: IMenu | null;
-  cart: ICart[];
+  cart: Map<string, ICart> | null;
 }
 
 const initialState: MenuState = {
@@ -14,7 +15,7 @@ const initialState: MenuState = {
   loading: false,
   error: "",
   menu: null,
-  cart: [],
+  cart: null,
 };
 
 export const menusSlice = createSlice({
@@ -38,7 +39,7 @@ export const menusSlice = createSlice({
     unselectCategory(state) {
       state.selectedCategory = null;
     },
-    addToCart(state, action: PayloadAction<ICart[]>) {
+    addToCarts(state, action: PayloadAction<Map<string, ICart>>) {
       state.cart = action.payload;
     },
   },

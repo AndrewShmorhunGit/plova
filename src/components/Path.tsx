@@ -13,7 +13,7 @@ export const Path = ({ name }: { name: string }) => {
 };
 
 const Wrapper = styled.main`
-  padding-top: 3rem;
+  padding-top: 2.4rem;
 
   .path {
     font-weight: 300;

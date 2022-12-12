@@ -26,7 +26,9 @@ import { Map } from "./Map";
 import { LoadingHeader } from "./LoadingHeader";
 import { LoadingBrandGrid } from "./LoadingBrandGrid";
 import { LoadingProducts } from "./LoadingProducts";
+import { CartUnit } from "./CartUnit";
 export {
+  CartUnit,
   LoadingProducts,
   LoadingBrandGrid,
   LoadingHeader,

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { useAppDispatch } from "../hooks/redux";
+import { menusSlice } from "../store/slices/menuSlice";
 import { addToCart, getCartBySlug } from "../units/cartsManager";
 
 import { getSlugFromLocation, showDollarPrice } from "../units/functions";
@@ -13,6 +15,7 @@ export const SingleProductModal = ({
   setShowModalProduct: React.Dispatch<React.SetStateAction<boolean>>;
   product: Product;
 }) => {
+  const dispatch = useAppDispatch();
   const location = useLocation();
 
   const slug = getSlugFromLocation(location);
@@ -47,6 +50,7 @@ export const SingleProductModal = ({
     <Wrapper>
       <main className="modal-container show-modal">
         <div className="content center">
+          <div className="margin"></div>
           <button
             className="close-btn"
             onClick={() => setShowModalProduct(false)}
@@ -56,6 +60,7 @@ export const SingleProductModal = ({
               alt=""
             />
           </button>
+
           <div className="data-div">
             <div className="center">
               <img className="product-image" src={product.image} alt="" />
@@ -85,16 +90,18 @@ export const SingleProductModal = ({
                 onClick={() => inc()}
               />
             </div>
-            <div className="center">
-              <button
-                className="add-btn btn center"
-                onClick={() =>
-                  addToCart(slug, newOrder) && setShowModalProduct(false)
-                }
-              >
-                Add {counter} for {showDollarPrice(counter * product.price)} $
-              </button>
-            </div>
+          </div>
+          <div className="center">
+            <button
+              className="add-btn btn center"
+              onClick={() =>
+                dispatch(
+                  menusSlice.actions.addToCarts(addToCart(slug, newOrder))
+                ) && setShowModalProduct(false)
+              }
+            >
+              Add {counter} for {showDollarPrice(counter * product.price)} $
+            </button>
           </div>
         </div>
       </main>
@@ -122,25 +129,31 @@ const Wrapper = styled.main`
   }
 
   .product-image {
+    margin: 2rem;
     height: 30rem;
     width: 30rem;
+    border-radius: 2rem;
   }
 
   .content {
     background: #fff;
     position: relative;
     min-width: 60rem;
-    min-height: 60rem;
+    // min-height: 60rem;
     border-radius: 1rem;
     flex-direction: column;
     margin: 10vh auto;
     gap: 1rem;
   }
 
+  .margin {
+    margin-top: 3rem;
+  }
+
   .close-btn {
     position: absolute;
-    top: 3rem;
-    right: 3rem;
+    top: 1.5rem;
+    right: 1.5rem;
     background: transparent;
     border-color: transparent;
     font-size: 2rem;
@@ -158,6 +171,22 @@ const Wrapper = styled.main`
     flex-direction: column;
     gap: 1rem;
     max-width: 45rem;
+    overflow-y: scroll;
+  }
+
+  .data-div::-webkit-scrollbar {
+    width: 1rem;
+  }
+
+  .data-div::-webkit-scrollbar-track {
+    background: #e9f8f5;
+    border-radius: 1rem;
+  }
+
+  .data-div::-webkit-scrollbar-thumb {
+    background: #00a082;
+    opacity: 50%;
+    border-radius: 1rem;
   }
 
   .description {
@@ -180,5 +209,6 @@ const Wrapper = styled.main`
     border-radius: 10rem;
     font-size: 1.8rem;
     max-width: auto;
+    margin-bottom: 5rem;
   }
 `;

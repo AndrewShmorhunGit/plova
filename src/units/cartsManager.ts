@@ -5,16 +5,20 @@ const carts = new Map<string, ICart>();
 export const getCartBySlug = (slug: string): ICart | null =>
   carts.get(slug) ?? null;
 
-export const addToCart = (slug: string, order: Order): ICart => {
+export const addToCart = (
+  slug: string,
+  newOrder: Order
+): Map<string, ICart> => {
   const currentCart = getCartBySlug(slug);
 
   if (!currentCart) {
-    const newCart = { order: [order] };
-    carts.set(slug, newCart);
-    return newCart;
+    const newCart = { order: [newOrder] };
+
+    return carts.set(slug, newCart);
   }
-  currentCart.order.push(order);
-  return currentCart;
+  const newCart = { order: [...currentCart.order, newOrder] };
+
+  return carts.set(slug, newCart);
 };
 
 // export const deleteFromCart = (slug: string, order: Order): ICart => {
