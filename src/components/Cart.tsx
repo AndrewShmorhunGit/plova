@@ -1,16 +1,17 @@
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useAppSelector } from "../hooks/redux";
-import { getCartBySlug } from "../units/cartsManager";
+import { getCurrentCard } from "../store/actions/cartActions";
 import { getSlugFromLocation } from "../units/functions";
 import { CartUnit } from "./index";
 
 export const Cart = () => {
   const location = useLocation();
   const slug = getSlugFromLocation(location);
-  const { cart } = useAppSelector((state) => state.menu);
-  console.log(cart);
-  const currentCart = getCartBySlug(slug);
+  const { carts } = useAppSelector((state) => state.carts);
+
+  const currentCart = getCurrentCard(slug, carts);
+
   return (
     <Wrapper>
       <div className="chart">
@@ -18,19 +19,23 @@ export const Cart = () => {
           {currentCart === null ? "Your plova" : "Your order"}
         </h2>
         {currentCart === null ? (
-          <div>
-            <img
-              className="empty-chart-image"
-              src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/astronaut-grey-scale.svg"
-              alt="spaceman around the food"
-            />
-            <p className="empty-chart-paragraph center">
-              You've not added any products yet. When you do, you'll see them
-              here!
-            </p>
+          <div className="cart-inits-container">
+            <div>
+              <img
+                className="empty-chart-image"
+                src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/astronaut-grey-scale.svg"
+                alt="spaceman around the food"
+              />
+            </div>
+            <div>
+              <p className="empty-chart-paragraph center">
+                You've not added any products yet. When you do, you'll see them
+                here!
+              </p>
+            </div>
           </div>
         ) : (
-          <div>
+          <div className="cart-units-container">
             {currentCart &&
               currentCart.order.map((singleOrder, index) => {
                 return (
@@ -72,9 +77,8 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 3.6rem;
-    padding: 4.4rem 2rem 7rem 2rem;
-    min-height: 33rem;
-    max-height: 80wh;
+    padding: 4.4rem 2rem 4rem 2rem;
+    min-height: 30rem;
   }
 
   .empty-chart-paragraph {
@@ -91,10 +95,32 @@ const Wrapper = styled.div`
     width: 100%;
   }
 
+  .cart-units-container {
+    overflow-y: scroll;
+    max-height: 30rem;
+    min-height: 20rem;
+
+    ::-webkit-scrollbar {
+      width: 1rem;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #e9f8f5;
+      border-radius: 1rem;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #00a082;
+      opacity: 50%;
+      border-radius: 1rem;
+    }
+  }
+
   .chart-bottom {
+    position: sticky;
+    top: 2rem;
     flex-direction: column;
     gap: 2rem;
-    min-width: 20rem;
     padding: 1rem 0rem;
     font-size: 1.2rem;
     font-weight: 400;

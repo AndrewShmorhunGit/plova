@@ -3,10 +3,12 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import restaurantReducer from "./slices/restaurantsSlice";
 import menuReducer from "./slices/menuSlice";
 import jumbotronReducer from "./slices/jumbotronSlice";
+import cartReducer from "./slices/cartSlice";
 const rootReducer = combineReducers({
   restaurant: restaurantReducer,
   menu: menuReducer,
   jumbotron: jumbotronReducer,
+  carts: cartReducer,
 });
 
 export function setupStore() {

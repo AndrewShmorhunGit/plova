@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Order } from "../modules/modules";
+import { showDollarPrice } from "../units/functions";
 
 export const CartUnit = ({
   singleOrder,
@@ -20,7 +21,7 @@ export const CartUnit = ({
           </div>
           <div>
             <p className="total-price">
-              {singleOrder.price * singleOrder.amount}$
+              {showDollarPrice(singleOrder.price * singleOrder.amount)}$
             </p>
           </div>
           <img
@@ -48,6 +49,7 @@ const Wrapper = styled.main`
     grid-template-columns: 0.5fr 4fr 1fr;
     column-gap: 2rem;
     font-weight: 500;
+    padding: 1rem 1rem 0 1rem;
   }
 
   .amount {

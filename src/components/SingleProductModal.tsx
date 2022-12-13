@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
-import { useAppDispatch } from "../hooks/redux";
-import { menusSlice } from "../store/slices/menuSlice";
-import { addToCart, getCartBySlug } from "../units/cartsManager";
-
+import { useAppDispatch, useAppSelector } from "../hooks/redux";
+import { cartSlice } from "../store/slices/cartSlice";
 import { getSlugFromLocation, showDollarPrice } from "../units/functions";
 import { Product } from "./SingleProduct";
 
@@ -15,16 +13,16 @@ export const SingleProductModal = ({
   setShowModalProduct: React.Dispatch<React.SetStateAction<boolean>>;
   product: Product;
 }) => {
-  const dispatch = useAppDispatch();
   const location = useLocation();
-
+  const dispatch = useAppDispatch();
+  const { carts } = useAppSelector((state) => state.carts);
   const slug = getSlugFromLocation(location);
 
   const [counter, setCounter] = useState(1);
 
   useEffect(() => {
-    console.log(getCartBySlug(getSlugFromLocation(location)));
-  }, [addToCart]);
+    console.log(carts);
+  }, [setShowModalProduct]);
 
   const inc = () => {
     let newCounter = setCounter(counter + 1);
@@ -95,9 +93,8 @@ export const SingleProductModal = ({
             <button
               className="add-btn btn center"
               onClick={() =>
-                dispatch(
-                  menusSlice.actions.addToCarts(addToCart(slug, newOrder))
-                ) && setShowModalProduct(false)
+                dispatch(cartSlice.actions.addToCart({ slug, newOrder })) &&
+                setShowModalProduct(false)
               }
             >
               Add {counter} for {showDollarPrice(counter * product.price)} $
@@ -130,8 +127,8 @@ const Wrapper = styled.main`
 
   .product-image {
     margin: 2rem;
-    height: 30rem;
-    width: 30rem;
+    min-height: 30rem;
+    min-width: 30rem;
     border-radius: 2rem;
   }
 

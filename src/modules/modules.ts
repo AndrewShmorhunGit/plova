@@ -285,5 +285,12 @@ export interface Order {
 }
 
 export interface ICart {
+  slugName: string;
   order: Order[];
+}
+
+export interface newOrder {
+  amount: number;
+  name: string;
+  price: number;
 }

@@ -138,16 +138,15 @@ const Wrapper = styled.div`
   }
 
   .grid-chart {
-    position: sticky;
-    top: 1rem;
-
     grid-row: 1/-1;
     grid-column: 3/4;
     background-color: #fff;
     box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
-    height: 48rem;
+    max-height: 50rem;
+    // max-height: 7rem;
     width: 32rem;
     border-radius: 1rem;
+    overflow: hidden;
   }
 
   .grid-sections {
