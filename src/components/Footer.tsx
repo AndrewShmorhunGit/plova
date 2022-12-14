@@ -4,22 +4,22 @@ import {
   joinLinks,
   aboutLinks,
   socialLinks,
-  brands,
   categories,
-  language,
+  footerStore,
 } from "../units/data";
+import { appleStoreSVG, googleStoreSVG } from "../images/footer/SVG";
 
 export const Footer = () => {
-  const country: string = "Ukraine";
+  const country: string = "Country";
 
   return (
     <Wrapper>
       <footer className="app-footer">
-        <div className="container">
+        <div className="footer-container">
           <img src={footerLogo1} alt="plova logo" className="footer-logo" />
           <div className="footer-info">
             <div className="links">
-              <h2>Join Us!</h2>
+              <h2>Let’s do it together</h2>
               {joinLinks.map((link) => {
                 return (
                   <div key={link.id} className="social-sub-links">
@@ -31,7 +31,7 @@ export const Footer = () => {
               })}
             </div>
             <div className="links">
-              <h2>About Us</h2>
+              <h2>Links of interest</h2>
               {aboutLinks.map((link) => {
                 return (
                   <div key={link.id} className="social-sub-links">
@@ -43,7 +43,7 @@ export const Footer = () => {
               })}
             </div>
             <div className="links">
-              <h2>Social</h2>
+              <h2>Follow us</h2>
               {socialLinks.map((link) => {
                 return (
                   <div key={link.id} className="social-sub-links">
@@ -55,8 +55,10 @@ export const Footer = () => {
               })}
             </div>
             <div className="links">
-              <h2>Language</h2>
-              {language.map((link, index) => {
+              <div>{appleStoreSVG}</div>
+              <div>{googleStoreSVG}</div>
+
+              {footerStore.map((link, index) => {
                 return (
                   <div key={index} className="social-sub-links">
                     <a href="#">
@@ -66,23 +68,11 @@ export const Footer = () => {
                 );
               })}
             </div>
-            <div className="popular">
-              <h2>Popular brands: {country}</h2>
-              <div className="country-links center">
-                {brands.map((item, index) => {
-                  return (
-                    <a key={index} href={`#${item}`} className="link">
-                      <p>{item}</p>
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
             <div className="categories">
               <h2>Top categories: {country}</h2>
               <div className="country-links center">
                 {categories.map((item, index) => {
-                  const { category } = item;
+                  const category = item;
                   return (
                     <a key={index} href={`#${category}`} className="link">
                       <p>{category}</p>
@@ -90,8 +80,16 @@ export const Footer = () => {
                   );
                 })}
               </div>
+              <p>See all categories</p>
             </div>
           </div>
+        </div>
+        <div className="footer-bottom center">
+          <h6>
+            &copy; {`${new Date().getFullYear()} `}
+            <strong>Plova</strong> All rights reserved. This application is
+            portfolio project created by Andrew Shmorhun. Design by Glovo.
+          </h6>
         </div>
       </footer>
     </Wrapper>
@@ -99,33 +97,35 @@ export const Footer = () => {
 };
 
 const Wrapper = styled.main`
-  position: relative;
-  .transition {
-    width: 120%;
-    height: 16rem;
-    background-color: #1d1d1d;
-    background-color: red;
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
-    position: absolute;
-    top: -5.5rem;
-    left: -10%;
-    z-index: -1;
+  .footer-container {
+    width: 110rem;
+    margin: 0 auto;
   }
 
   .app-footer {
     background-color: #1d1d1dff;
-    padding-bottom: 4.2rem;
+    padding-bottom: 2rem;
+  }
+
+  strong {
+    color: #00a082;
+    color: #ffc244;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+    color: #fff;
+    font-weight: 500;
   }
 
   h2 {
-    // font-size: 2rem;
+    font-size: 2rem;
     color: #fff;
   }
 
   p {
     font-size: 1.4rem;
-    text-transform: capitalize;
+    // text-transform: capitalize;
     color: #cccccc;
   }
 
@@ -136,50 +136,67 @@ const Wrapper = styled.main`
   .footer-info {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 2fr 1fr 1fr;
-    // justify-items: center;
-    column-gap: 4.8rem;
-    row-gap: 3.2rem;
+    grid-template-rows: 2fr 1fr;
+    justify-items: center;
+    column-gap: 10rem;
+    row-gap: 5rem;
   }
 
+  .footer-bottom {
+    padding-top: 2rem;
+    color: #fff;
+    flex-direction: column;
+    gap: 1rem;
+    font-weight: 200;
+  }
   .links {
     display: flex;
     flex-direction: column;
+    text-align: center;
     gap: 2.2rem;
   }
 
   .social-sub-links {
+    font-size: 1.2rem;
     display: flex;
-    // justify-content: center;
+    justify-content: center;
+  }
+
+  .sub-link {
+    font-size: inherit;
   }
 
   .footer-logo {
     width: 12rem;
-    padding-top: 2.4rem;
-    padding-bottom: 4.8rem;
+    padding: 0 0 3.2rem 0;
   }
 
-  .popular {
-    grid-column: 1/3;
-    grid-row: 2/3;
-  }
-  .categories {
+  .language-picker {
     grid-column: 1/3;
     grid-row: 3/4;
   }
 
+  .categories {
+    padding-left: 8rem;
+    text-align: left;
+    grid-column: 1/3;
+    grid-row: 2/3;
+  }
+
   .country-links {
     display: flex;
-    padding: 1rem 2rem;
+    padding: 2rem 0rem;
     gap: 1rem;
   }
 
-  .link {
+  .link:link,
+  .link:visited {
     display: inline;
     min-width: auto;
   }
 
-  p {
-    text-align: center;
+  .link:hover,
+  .link:active {
+    color: red;
   }
 `;

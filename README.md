@@ -19,18 +19,26 @@ Libraries are used in app:
 
 - React router
 - Redux toolkit
-- Auth0
 - Axios
 - Stripe
 - Normalize.css
 - Styled-components
 - React Icons
 
+- use-places-autocomplete
+- react-use-geolocation
+
 Design tools:
 
 - Figma
-- Eye Dropper
 - Favicon
+- Snazzy Maps
+
+API's
+
+- Mock API server
+- Google Maps Platform:
+  Geocoding API | Maps JavaScript API |Places API
 
 ---
 

@@ -1,3 +1,39 @@
+@font-face {
+  font-family: "Gotham";
+  src: url(../src/fonts/gotham/Gotham-Light.woff2),
+    url(../src/fonts/gotham/Gotham-Light.woff);
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url(../src/fonts/gotham/Gotham-Book.woff2),
+    url(../src/fonts/gotham/Gotham-Book.woff);
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url(../src/fonts/gotham/Gotham-Medium.woff2),
+    url(../src/fonts/gotham/Gotham-Medium.woff2);
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url(../src/fonts/gotham/Gotham-Bold.woff2),
+    url(../src/fonts/gotham/Gotham-Bold.woff);
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,17 +46,32 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  font-family: "Segoe UI", "Helvetica Neue", "Helvetica", sans-serif, "Gotham",
-    "Arial";
-  font-weight: 300;
+  font-family: "Gotham", sans-serif, "Arial";
+  font-weight: 500;
   font-size: 14px;
   color: var(--helio-color-primaryText);
-  /* -webkit-font-smoothing: antialiased;
-  -webkit-overflow-scrolling: touch;
-  -webkit-tap-highlight-color: transparent;
-  */
   overflow-x: hidden;
 }
+
+body::-webkit-scrollbar {
+  width: 1rem;
+}
+
+body::-webkit-scrollbar-track {
+  border-radius: 1rem;
+  margin-block: 1.5rem;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #4a4a4aff;
+  border-radius: 1rem;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #9b9b9bff;
+  border-radius: 1rem;
+}
+
 .app-wrapper {
   height: auto;
   display: flex;
@@ -31,15 +82,19 @@ body {
 }
 
 .container {
-  width: 70vw;
+  width: 126.75rem;
   margin: 0 auto;
   max-width: var(--max-width);
 }
 
 .container-products {
-  width: 80vw;
+  width: 142.5rem;
   margin: 0 auto;
-  max-width: var(--max-width);
+}
+
+.container-loader {
+  width: 142.5rem;
+  margin: 0 auto;
 }
 
 .center {
@@ -50,13 +105,13 @@ body {
 
 .btn {
   background-color: #00a082;
-  color: #cccccc;
+  color: #f1f3f5;
   text-align: center;
   text-decoration: none;
   padding-left: 1.6rem;
   padding-right: 1.6rem;
   height: 3.6rem;
-  width: auto;
+  max-width: auto;
   border-radius: 2.4rem;
   font-size: 2rem;
   font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
@@ -68,8 +123,8 @@ body {
 }
 
 .btn:hover {
-  background-color: #cccccc;
-  color: #008068;
+  background-color: #008068;
+  color: white;
   cursor: pointer;
 }
 
@@ -83,7 +138,6 @@ body {
   display: grid;
   column-gap: 9.6rem;
   row-gap: 9.6rem;
-  /* margin-bottom: 9.6rem; */
 }
 
 /* .grid:not(:last-child) {

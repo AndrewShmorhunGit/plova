@@ -12,10 +12,12 @@ export const PopularNear = () => {
             className="image"
           />
         </div>
-        <h1 className="title center">Top Categories in `here`</h1>
+        <h1 className="title center">
+          Top Categories in <span>{` City`}</span>
+        </h1>
         <div className="categories-popular-container center">
           {categories.map((item, index) => {
-            const { category } = item;
+            const category = item;
             return (
               <a key={index} href={`#${category}`} className="link center">
                 <p>{category}</p>
@@ -33,7 +35,14 @@ const Wrapper = styled.section`
     min-hight: 20rem;
     padding: 4rem 8rem;
   }
+
+  span {
+    color: red;
+  }
+
   .title {
+    text-align: center;
+    display: block;
     font-size: 4.4rem;
   }
   .link {

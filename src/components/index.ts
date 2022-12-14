@@ -1,11 +1,11 @@
 import { Cart } from "./Cart";
-import { FastServices } from "./FastServices";
+import { Jumbotron } from "./Jumbotron";
 import { FoodNearGallery } from "./FoodNearGallery";
 import { Footer } from "./Footer";
-import { Header } from "./Header";
+import { BrandHeader } from "./BrandHeader";
 import { LocalSearch } from "./LocalSearch";
-import { NavBar } from "./NavBar";
-import { SideBar } from "./SideBar";
+import { MainHeader } from "./MainHeader";
+import { Path } from "./Path";
 import { PopularNear } from "./PopularNear";
 import { Products } from "./Products";
 import { SearchInput } from "./SearchInput";
@@ -21,19 +21,30 @@ import { MapSearch } from "./MapSearch";
 import { Sections } from "./Sections";
 import { InputHeader } from "./InputHeader";
 import { BrandGrid } from "./BrandGrid";
-
+import { GalleryLoader } from "./GalleryLoader";
+import { Map } from "./Map";
+import { LoadingHeader } from "./LoadingHeader";
+import { LoadingBrandGrid } from "./LoadingBrandGrid";
+import { LoadingProducts } from "./LoadingProducts";
+import { CartUnit } from "./CartUnit";
 export {
+  CartUnit,
+  LoadingProducts,
+  LoadingBrandGrid,
+  LoadingHeader,
+  Map,
+  GalleryLoader,
   BrandGrid,
   InputHeader,
   Sections,
   Footer,
   Cart,
-  FastServices,
+  Jumbotron,
   FoodNearGallery,
-  Header,
+  BrandHeader,
   LocalSearch,
-  NavBar,
-  SideBar,
+  MainHeader,
+  Path,
   PopularNear,
   Products,
   SearchInput,

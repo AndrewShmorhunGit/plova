@@ -3,40 +3,73 @@ import {
   TiSocialInstagram,
   TiSocialFacebook,
 } from "react-icons/ti";
-
-export const hrivnaToDollarConverter = (price: number) => {
-  const newPrice = price / 40;
-  return newPrice.toFixed(2);
-};
+import charity from "../images/jumbotron/charity.png";
+import coffee from "../images/jumbotron/coffee.png";
+import food from "../images/jumbotron/food.png";
+import plovaExpress from "../images/jumbotron/plovaExpress.png";
+import groceries from "../images/jumbotron/groceries.webp";
+import magicStick from "../images/jumbotron/magicStick.webp";
+import pharmacy from "../images/jumbotron/pharmacy.webp";
+import shops from "../images/jumbotron/shops.webp";
+import drinks from "../images/jumbotron/drinks.png";
+import drugs from "../images/jumbotron/drugs.png";
+import tobacco from "../images/jumbotron/tobacco.webp";
+import courier from "../images/jumbotron/courier.png";
+import riderImage from "../images/cooperation/riderImage.avif";
+import partnersImage from "../images/cooperation/partnersImage.avif";
+import careersImage from "../images/cooperation/careersImage.avif";
+import { IJumbotron } from "../modules/modules";
 
 export const joinLinks = [
   {
     id: 1,
-    text: "vacancy",
+    text: "Careers",
   },
   {
     id: 2,
-    text: "partners",
+    text: "Plova for Partners",
   },
   {
     id: 3,
-    text: "couriers",
+    text: "Couriers",
+  },
+  {
+    id: 4,
+    text: "Plova Business",
   },
 ];
 
 export const aboutLinks = [
   {
     id: 1,
-    text: "about",
+    text: "About us",
   },
   {
     id: 2,
-    text: "connection",
+    text: "FAQ",
   },
   {
     id: 3,
-    text: "security",
+    text: "Plova Prime",
   },
+  {
+    id: 4,
+    text: "Blog",
+  },
+  {
+    id: 5,
+    text: "Contact us",
+  },
+  {
+    id: 6,
+    text: "Security",
+  },
+];
+
+export const footerStore: string[] = [
+  "TERMS & CONDITIONS",
+  "PRIVACY POLICY",
+  "COOKIES POLICY",
 ];
 
 interface socialLinks {
@@ -48,50 +81,108 @@ interface socialLinks {
 export const socialLinks = [
   {
     id: 1,
-    text: "facebook",
+    text: "Facebook",
     icon: TiSocialFacebook,
   },
   {
     id: 2,
-    text: "twitter",
+    text: "Twitter",
     icon: TiSocialTwitter,
   },
   {
     id: 3,
-    text: "instagram",
+    text: "Instagram",
     icon: TiSocialInstagram,
   },
 ];
 
-export const language = ["English", "French", "Russian", "Spanish"];
-
-export const brands = [
-  "McDonald's",
-  "KFC",
-  "Puzata Hata",
-  "Burger King",
-  "Okko Cafe",
-  "Doner Market",
-  "Chelentano",
-  "Sushi Wok",
-];
-
-interface categories {
-  id: number;
-  category: string;
-  icon: string;
-}
+export const language: string[] = ["English", "French", "Russian", "Spanish"];
 
 export const categories = [
-  { id: 1, category: "Pizza", icon: "🍕" },
-  { id: 2, category: "Ice Cream", icon: "🍦" },
-  { id: 3, category: "Burgers", icon: "🍔" },
-  { id: 4, category: "Vegetarian", icon: "🥗" },
-  { id: 5, category: "Grill", icon: "🥓" },
-  { id: 6, category: "Seafood", icon: "🐟" },
-  { id: 7, category: "Sushi", icon: "🍣" },
-  { id: 8, category: "Tea & coffee", icon: "☕" },
-  { id: 9, category: "Fast Food", icon: "🍟" },
+  "International",
+  "Pizza",
+  "Sushi",
+  "Cosmetics",
+  "Flowers",
+  "Desserts",
+  "Burgers",
+  "Alcohol",
+  "Beer",
+];
+
+// interface jumbotron {
+//   id: number;
+//   category: string;
+//   icon: File;
+//   subcategory: Subcategory[] | null;
+// }
+
+// interface Subcategory {
+//   category: string;
+//   icon: File;
+// }
+
+export const jumbotron: IJumbotron[] = [
+  {
+    id: 1,
+    category: "Charity",
+    icon: charity,
+    subcategory: null,
+  },
+  {
+    id: 2,
+    category: "Food",
+    icon: food,
+    subcategory: null,
+  },
+  {
+    id: 3,
+    category: "Plova Express",
+    icon: plovaExpress,
+    subcategory: null,
+  },
+  {
+    id: 4,
+    category: "Groceries",
+    icon: groceries,
+    subcategory: [
+      { category: "Groceries", icon: groceries },
+      { category: "Alcohol & Drinks", icon: drinks },
+    ],
+  },
+  {
+    id: 5,
+    category: "Shops & Services",
+    icon: shops,
+    subcategory: [
+      { category: "Shops & Services", icon: shops },
+      { category: "Tobacco", icon: tobacco },
+    ],
+  },
+  {
+    id: 6,
+    category: "Pharmacy & Beauty",
+    icon: pharmacy,
+    subcategory: [
+      { category: "Pharmacy & Beauty", icon: shops },
+      { category: "Medical services", icon: drugs },
+    ],
+  },
+  {
+    id: 7,
+    category: "Coffee & Desserts",
+    icon: coffee,
+    subcategory: null,
+  },
+  {
+    id: 8,
+    category: "Anything",
+    icon: magicStick,
+    subcategory: [
+      { category: "Anything", icon: magicStick },
+      { category: "Courier", icon: courier },
+    ],
+  },
 ];
 
 interface cooperationData {
@@ -105,24 +196,21 @@ interface cooperationData {
 export const cooperationData = [
   {
     id: 1,
-    image:
-      "https://res.cloudinary.com/glovoapp/image/fetch/w_254,h_220,c_lpad,b_transparent,f_auto,q_auto:low,dpr_3.0/https://glovoapp.com/images/corporate-container/rider-image.png",
+    image: riderImage,
     theme: "Become a rider",
     text: "Be your own boss! Enjoy flexibility, freedom and competitive earnings by delivering with Plova.",
     linkTo: "https://couriers.glovoapp.com/ua/",
   },
   {
     id: 2,
-    image:
-      "https://res.cloudinary.com/glovoapp/image/fetch/w_254,h_220,c_lpad,b_transparent,f_auto,q_auto:low,dpr_3.0/https://glovoapp.com/images/corporate-container/partners-image.png",
+    image: partnersImage,
     theme: "Become a partner",
     text: "Grow with Plova! Our technology and user base can help you boost sales and unlock new opportunities!",
     linkTo: "https://sell.glovoapp.com/",
   },
   {
     id: 3,
-    image:
-      "https://res.cloudinary.com/glovoapp/image/fetch/w_254,h_220,c_lpad,b_transparent,f_auto,q_auto:low,dpr_2.0/https://glovoapp.com/images/corporate-container/careers-image.png",
+    image: careersImage,
     theme: "Careers",
     text: "Ready for an exciting new challenge? If you’re ambitious, humble, and love working with others, then we want to hear from you!",
     linkTo: "https://jobs.glovoapp.com/",

@@ -3,8 +3,9 @@ import styled from "styled-components";
 import headerLogo from "../logos/headerLogo.png";
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import useGeolocation from "react-hook-geolocation";
 
-export const NavBar = ({
+export const MainHeader = ({
   showRegistration,
   setShowRegistration,
 }: {
@@ -12,14 +13,19 @@ export const NavBar = ({
   setShowRegistration: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const [showLocation, setShowLocation] = useState(false);
+  const location = useGeolocation();
+  const address: string = `lat: ${location.latitude}, lng: ${location.longitude}`;
+  // const formActive: boolean = false;
+  // const changeFormState = (): void => {
+  //   return formActive;
+  // };
+  // const showTarget = (event: Event): void => {
+  //   event.preventDefault();
+  //   return console.log(event.target);
+  // };
 
-  console.log(
-    `выбор локации: ${showLocation} |`
-    // `окно регистрации: ${showSignUpForm}`
-  );
+  // const event: Event = showTarget(Event);
 
-  const address: string = "136 Pym St, Nottingham";
-  const search: string = "Search";
   return (
     <Wrapper>
       <header className="nav-sticky">
@@ -28,19 +34,23 @@ export const NavBar = ({
             <Link to="/">
               <img src={headerLogo} alt="plova logo" className="logo" />
             </Link>
+
             <div className="header-center">
+              {/* {event.target === `<input type="text" class="search-input">` && ( */}
               <label className="search-label">
                 <FiSearch />
               </label>
+              {/* )} */}
               <form
                 className="form-input"
                 onSubmit={() => console.log("onSubmit!")}
+                onClick={() => {}}
               >
                 <input
                   type="text"
                   className="search-input"
-                  placeholder={search}
-                  value=""
+                  // placeholder={search}
+                  // value=""
                   onChange={() => console.log("onChange!")}
                 />
               </form>
@@ -80,7 +90,7 @@ export const NavBar = ({
                 className="btn-start"
                 onClick={() => setShowRegistration(!showRegistration)}
               >
-                Start!
+                Get started
               </button>
             </div>
           </div>
@@ -91,10 +101,9 @@ export const NavBar = ({
 };
 
 const Wrapper = styled.header`
-  // .nav-sticky {
-  //   position: sticky;
-  //   top: 0;
-  // }
+  position: sticky;
+  top: 0;
+  z-index: 10;
 
   .header-for-city-page {
     background-color: #ffc244ff;
@@ -135,6 +144,10 @@ const Wrapper = styled.header`
     max-width: 46rem;
   }
 
+  .form-input:focus {
+    label: none;
+  }
+
   .search-label {
     padding-top: 0.2rem;
     padding-right: 0.5rem;
@@ -164,15 +177,15 @@ const Wrapper = styled.header`
     text-align: center;
     padding-left: 1.6rem;
     padding-right: 1.6rem;
-    height: 4.8rem;
-    width: 12.6rem;
+    height: 4.2rem;
+    width: 13.6rem;
     border-radius: 2.4rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
     font-weight: 700;
     box-shadow: 0 3px 5px 0 #0000001a;
     border: none;
-    letter-spacing: 0.2rem;
+    // letter-spacing: 0.2rem;
   }
 
   .btn-start:hover {

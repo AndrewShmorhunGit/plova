@@ -8,7 +8,7 @@ export const LocationInput = () => {
   return (
     <Wrapper>
       <section>
-        <h1 className="title center">Explore delivery in Kyiv, Right Bank</h1>
+        {/* <h1 className="title center">Explore delivery in Kyiv, Right Bank</h1> */}
         {!showLocationModal ? (
           <div className="center">
             <div className="location-setup center">
@@ -17,7 +17,12 @@ export const LocationInput = () => {
                 className="location-form center"
                 onClick={() => setShowLocationModal(!showLocationModal)}
               >
-                <label className="form-label">🚩</label>
+                <label className="form-label">
+                  <img
+                    src="https://res.cloudinary.com/glovoapp/image/fetch///https://glovoapp.com/images/icons/flag--white.svg"
+                    alt=""
+                  />
+                </label>
                 <input
                   type="text"
                   className="location-input"
@@ -25,7 +30,12 @@ export const LocationInput = () => {
                 />
               </form>
               <div className="current-location">
-                <div className="icon">✔</div>
+                <div className="icon">
+                  <img
+                    src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/location.svg"
+                    alt=""
+                  />
+                </div>
                 <h3 className="use-current">Use current location</h3>
               </div>
             </div>
@@ -43,6 +53,7 @@ const Wrapper = styled.div`
     font-size: 3.6rem;
     padding-bottom: 2rem;
   }
+
   .location-setup {
     display: flex;
     justify-content: space-between;
@@ -55,8 +66,11 @@ const Wrapper = styled.div`
   }
 
   .location-input {
-    padding-left: 1rem;
+    padding-left: 1.4rem;
     border: none;
+    font-size: 1.7rem;
+    color: #c1c1c1;
+    opacity: 0.5;
   }
 
   .location-input:focus {
@@ -64,7 +78,7 @@ const Wrapper = styled.div`
   }
 
   .form-label {
-    padding: 1.6rem 1.2rem;
+    padding: 1.2rem 1.2rem 0.8rem 1.2rem;
     align-items: center;
     background: #1aa98f;
     border-top-left-radius: 0.9rem;
@@ -78,16 +92,10 @@ const Wrapper = styled.div`
     cursor: pointer;
   }
 
-  .icon {
-    color: #1aa98f;
-    padding: 1rem 1rem;
-    background: #d1eee9;
-    border-radius: 50%;
-  }
-
   .use-current {
     padding: 0 2rem 0 1rem;
     font-size: 1.6rem;
+    font-weight: 600;
     color: #1aa98f;
   }
 `;
