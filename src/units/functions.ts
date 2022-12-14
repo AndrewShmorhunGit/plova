@@ -56,14 +56,20 @@ export const getAPI_ID_KEY = (): string => {
   return KEY;
 };
 
-export const getLocalStorageCart = (storeName: string): ICart[] | [] => {
-  let cart: string | null | [] = localStorage.getItem(`PlovaCart${storeName}`);
-  if (cart === null || []) {
-    return [];
-  }
-  if (cart !== null || []) {
+export const getLocalStorageCart = ():
+  | {
+      [slug: string]: ICart;
+    }
+  | {} => {
+  let cart: string | null = localStorage.getItem(`cart`);
+
+  if (cart !== null) {
     return JSON.parse(cart);
-  } else {
-    return [];
   }
+  return {};
 };
+
+export const getCurrentCard = (
+  slug: string,
+  carts: { [slug: string]: ICart | undefined }
+): ICart | null => carts[slug] ?? null;

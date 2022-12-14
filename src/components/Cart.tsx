@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useAppSelector } from "../hooks/redux";
-import { getCurrentCard } from "../store/actions/cartActions";
-import { getSlugFromLocation } from "../units/functions";
+import { ICart } from "../modules/modules";
+import {
+  getCurrentCard,
+  getSlugFromLocation,
+  showDollarPrice,
+} from "../units/functions";
 import { CartUnit } from "./index";
 
 export const Cart = () => {
@@ -10,15 +15,54 @@ export const Cart = () => {
   const slug = getSlugFromLocation(location);
   const { carts } = useAppSelector((state) => state.carts);
 
-  const currentCart = getCurrentCard(slug, carts);
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(carts));
+  }, [carts]);
 
+  const currentCart = getCurrentCard(slug, carts);
+  const getTotalCardAmount = (
+    slug: string,
+    carts: {
+      [slug: string]: ICart | undefined;
+    }
+  ): number => {
+    if (carts !== undefined) {
+      const currentCart = carts[slug];
+      let ordersTotalAmount = 0;
+      currentCart?.order.map((order, index) => {
+        ordersTotalAmount += order.amount;
+        return ordersTotalAmount;
+      });
+      return ordersTotalAmount;
+    }
+    return 0;
+  };
+  const getTotalCardPrice = (
+    slug: string,
+    carts: {
+      [slug: string]: ICart | undefined;
+    }
+  ): number => {
+    if (carts !== undefined) {
+      const currentCart = carts[slug];
+      let ordersTotalPrice = 0;
+      currentCart?.order.map((order, index) => {
+        ordersTotalPrice += order.price * order.amount;
+        return ordersTotalPrice;
+      });
+      return ordersTotalPrice;
+    }
+    return 0;
+  };
   return (
     <Wrapper>
       <div className="chart">
         <h2 className="empty-chart-title center">
-          {currentCart === null ? "Your plova" : "Your order"}
+          {currentCart === null || currentCart.order.length === 0
+            ? "Your plova"
+            : "Your order"}
         </h2>
-        {currentCart === null ? (
+        {currentCart === null || currentCart.order.length === 0 ? (
           <div className="cart-inits-container">
             <div>
               <img
@@ -56,10 +100,11 @@ export const Cart = () => {
             Reach <span>5,00 $</span> to save <span>1,00 $</span> in fees!
           </p>
         </div>
-        {currentCart !== null && (
+        {currentCart !== null && currentCart.order.length > 0 && (
           <div className="center">
             <button className="order-btn btn">
-              Make an Order (`1`) <br /> for (totalPrice)
+              Make an Order ({getTotalCardAmount(slug, carts)}) <br />
+              for {showDollarPrice(getTotalCardPrice(slug, carts))}$
             </button>
           </div>
         )}

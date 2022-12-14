@@ -1,5 +1,7 @@
 import styled from "styled-components";
+import { useAppDispatch } from "../hooks/redux";
 import { Order } from "../modules/modules";
+import { cartSlice } from "../store/slices/cartSlice";
 import { showDollarPrice } from "../units/functions";
 
 export const CartUnit = ({
@@ -9,6 +11,26 @@ export const CartUnit = ({
   singleOrder: Order;
   slug: string;
 }) => {
+  const dispatch = useAppDispatch();
+  const increase = () => {
+    dispatch(
+      cartSlice.actions.toggleCartAmount({
+        slug,
+        name: singleOrder.name,
+        operation: "inc",
+      })
+    );
+  };
+
+  const decrease = () => {
+    dispatch(
+      cartSlice.actions.toggleCartAmount({
+        slug,
+        name: singleOrder.name,
+        operation: "dec",
+      })
+    );
+  };
   return (
     <Wrapper>
       <div className="center">
@@ -25,6 +47,7 @@ export const CartUnit = ({
             </p>
           </div>
           <img
+            onClick={() => decrease()}
             className="dec-btn"
             src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/minus-new.svg"
             alt=""
@@ -33,6 +56,7 @@ export const CartUnit = ({
           <button className="edit-btn">Edit</button>
 
           <img
+            onClick={() => increase()}
             className="inc-btn"
             src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/plus-new.svg"
             alt=""
