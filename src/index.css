@@ -10,14 +10,16 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
+  font-family: "Segoe UI", "Helvetica Neue", "Helvetica", sans-serif, "Gotham",
+    "Arial";
   font-weight: 300;
   font-size: 14px;
   color: var(--helio-color-primaryText);
   /* -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
   -webkit-tap-highlight-color: transparent;
-  overflow-x: hidden; */
+  */
+  overflow-x: hidden;
 }
 .app-wrapper {
   height: auto;
@@ -34,6 +36,12 @@ body {
   max-width: var(--max-width);
 }
 
+.container-products {
+  width: 80vw;
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+
 .center {
   display: flex;
   align-items: center;
@@ -41,8 +49,8 @@ body {
 }
 
 .btn {
-  background-color: #cccccc;
-  color: #00a082;
+  background-color: #00a082;
+  color: #cccccc;
   text-align: center;
   text-decoration: none;
   padding-left: 1.6rem;
@@ -56,11 +64,12 @@ body {
   box-shadow: 0 3px 5px 0 #0000001a;
   border: none;
   letter-spacing: 0.2rem;
+  transition: all 1s ease;
 }
 
 .btn:hover {
-  background-color: #008068;
-  color: #cccccc;
+  background-color: #cccccc;
+  color: #008068;
   cursor: pointer;
 }
 
@@ -77,9 +86,9 @@ body {
   /* margin-bottom: 9.6rem; */
 }
 
-.grid:not(:last-child) {
+/* .grid:not(:last-child) {
   margin-bottom: 9.6rem;
-}
+} */
 
 .grid--2-cols {
   grid-template-columns: repeat(2, 1fr);
@@ -95,6 +104,10 @@ body {
 
 .grid--5-cols {
   grid-template-columns: repeat(5, 1fr);
+}
+
+span {
+  font-weight: 600;
 }
 
 style {

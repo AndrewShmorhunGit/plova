@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { categories } from "../units/data";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
-import locationLogoYellow from "../logos/locationLogoYellow.png";
+// import locationLogoYellow from "../logos/locationLogoYellow.png"
 import { LocationInput } from "./index";
 
 const address: string = "136 Pym St, Nottingham";
@@ -34,7 +34,7 @@ export const FastServices = () => {
         )}
         <div className="categories-container">
           {categories.map((item) => {
-            const { id, category } = item;
+            const { id, category, icon } = item;
             return (
               <a key={id} href={`#${category}`} className={`link-bubble`}>
                 <div
@@ -46,11 +46,12 @@ export const FastServices = () => {
                     animationFillMode: "backwards",
                   }}
                 >
-                  <img
+                  <div className="category-logo">{icon}</div>
+                  {/* <img
                     className="category-logo"
                     src={locationLogoYellow}
                     alt={`${category} logo`}
-                  />
+                  /> */}
                   <p className="category-text">{category}</p>
                 </div>
               </a>
@@ -138,7 +139,9 @@ const Wrapper = styled.section`
   }
 
   .category-logo {
-    max-width: 70%;
+    padding-top: 1.6rem;
+    padding-bottom: 1rem;
+    font-size: 5rem;
   }
 
   .link-bubble {

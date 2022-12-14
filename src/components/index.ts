@@ -18,8 +18,14 @@ import { Partnership } from "./Partnership";
 import { LocationInput } from "./LocationInput";
 import { SearchLocationModal } from "./SearchLocationModal";
 import { MapSearch } from "./MapSearch";
+import { Sections } from "./Sections";
+import { InputHeader } from "./InputHeader";
+import { BrandGrid } from "./BrandGrid";
 
 export {
+  BrandGrid,
+  InputHeader,
+  Sections,
   Footer,
   Cart,
   FastServices,

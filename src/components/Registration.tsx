@@ -24,20 +24,24 @@ export const Registration = ({
           <p className="center">or</p>
           <form action="" className="form">
             <div className="input-line">
-              <p style={{ paddingRight: "1rem" }}>icon</p>
+              <p style={{ paddingRight: "1rem" }}>🙂</p>
+              <input type="text" className="form-input" placeholder="name" />
+            </div>
+            <div className="input-line">
+              <p style={{ paddingRight: "1rem" }}>📧</p>
               <input
-                type="text"
+                type="e-mail"
                 className="form-input"
-                placeholder="first name"
+                placeholder="e-mail"
               />
             </div>
             <div className="input-line">
-              <p style={{ paddingRight: "1rem" }}>icon</p>
-              <input type="text" className="form-input" placeholder="e-mail" />
-            </div>
-            <div className="input-line">
-              <p style={{ paddingRight: "1rem" }}>icon</p>
-              <input type="text" className="form-input" />
+              <p style={{ paddingRight: "1rem" }}>🔐</p>
+              <input
+                type="password"
+                className="form-input"
+                placeholder="password"
+              />
             </div>
           </form>
           <button className="btn-fb btn center">Sign up with e-mail</button>
@@ -160,7 +164,11 @@ const Wrapper = styled.aside`
     color: var(--grey-900);
   }
 
-  .active .icon {
+  .icon {
     color: var(--primary-500);
+  }
+
+  p {
+    font-size: 2rem;
   }
 `;

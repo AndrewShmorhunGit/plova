@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
+import { Header, BrandGrid, InputHeader } from "../components/index";
 
 export function BrandPage() {
+  // const val: boolean = true;
+
   return (
-    <main>
-      <h1>BrandPage</h1>
+    <>
+      <Header />
+      <InputHeader />
       <Link to="/">Back Home</Link>
-    </main>
+      <BrandGrid />
+    </>
   );
 }

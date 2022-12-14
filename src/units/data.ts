@@ -4,17 +4,10 @@ import {
   TiSocialFacebook,
 } from "react-icons/ti";
 
-import {
-  GiFullPizza,
-  GiIceCreamCone,
-  GiHamburger,
-  GiFallingLeaf,
-  GiFishingBoat,
-  GiCoffeeCup,
-} from "react-icons/gi";
-
-import { TbGrill } from "react-icons/tb";
-// import { BiDish } from "react-icons/bi";
+export const hrivnaToDollarConverter = (price: number) => {
+  const newPrice = price / 40;
+  return newPrice.toFixed(2);
+};
 
 export const joinLinks = [
   {
@@ -86,19 +79,19 @@ export const brands = [
 interface categories {
   id: number;
   category: string;
-  icon?: JSX.Element;
+  icon: string;
 }
 
 export const categories = [
-  { id: 1, category: "Pizza", icon: GiFullPizza },
-  { id: 2, category: "Ice Cream", icon: GiIceCreamCone },
-  { id: 3, category: "Burgers", icon: GiHamburger },
-  { id: 4, category: "Vegetarian", icon: GiFallingLeaf },
-  { id: 5, category: "Grill", icon: TbGrill },
-  { id: 6, category: "Seafood", icon: GiFishingBoat },
-  { id: 7, category: "Sushi" },
-  { id: 8, category: "Tea & coffee", icon: GiCoffeeCup },
-  { id: 9, category: "Fast Food" },
+  { id: 1, category: "Pizza", icon: "🍕" },
+  { id: 2, category: "Ice Cream", icon: "🍦" },
+  { id: 3, category: "Burgers", icon: "🍔" },
+  { id: 4, category: "Vegetarian", icon: "🥗" },
+  { id: 5, category: "Grill", icon: "🥓" },
+  { id: 6, category: "Seafood", icon: "🐟" },
+  { id: 7, category: "Sushi", icon: "🍣" },
+  { id: 8, category: "Tea & coffee", icon: "☕" },
+  { id: 9, category: "Fast Food", icon: "🍟" },
 ];
 
 interface cooperationData {

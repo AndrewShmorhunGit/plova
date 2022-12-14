@@ -17,7 +17,7 @@ export const LocationInput = () => {
                 className="location-form center"
                 onClick={() => setShowLocationModal(!showLocationModal)}
               >
-                <label className="form-label">Flag</label>
+                <label className="form-label">🚩</label>
                 <input
                   type="text"
                   className="location-input"
@@ -25,7 +25,7 @@ export const LocationInput = () => {
                 />
               </form>
               <div className="current-location">
-                <div className="icon">&</div>
+                <div className="icon">✔</div>
                 <h3 className="use-current">Use current location</h3>
               </div>
             </div>

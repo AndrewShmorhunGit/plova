@@ -9,9 +9,10 @@ export const PopularNear = () => {
           <img
             src="https://res.cloudinary.com/glovoapp/image/fetch//w_140,h_140,q_auto/https://glovoapp.com/images/landing/cities.svg"
             alt="building pictures"
+            className="image"
           />
         </div>
-        <h1 className="title center">Top categories in `here`</h1>
+        <h1 className="title center">Top Categories in `here`</h1>
         <div className="categories-popular-container center">
           {categories.map((item, index) => {
             const { category } = item;
@@ -36,8 +37,8 @@ const Wrapper = styled.section`
     font-size: 4.4rem;
   }
   .link {
-    background-color: #cccccc;
-    color: #00a082;
+    background-color: #fff3da;
+    color: #343434;
     text-align: center;
     text-decoration: none;
     margin: 4rem 1rem;
@@ -49,14 +50,19 @@ const Wrapper = styled.section`
     font-size: 1.6rem;
     font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
     font-weight: 700;
-    box-shadow: 0 3px 5px 0 #0000001a;
     border: none;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.1rem;
+    transition: all 0.5s;
+  }
+
+  .image {
+    height: 15rem;
+    margin-bottom: 2rem;
   }
 
   .link:hover {
-    background-color: #008068;
-    color: #cccccc;
+    background-color: #ffd47c;
+    color: #343434;
     cursor: pointer;
   }
 `;
