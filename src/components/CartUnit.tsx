@@ -14,7 +14,7 @@ export const CartUnit = ({
   const dispatch = useAppDispatch();
   const increase = () => {
     dispatch(
-      cartSlice.actions.toggleCartAmount({
+      cartSlice.actions.changeCartAmount({
         slug,
         name: singleOrder.name,
         operation: "inc",
@@ -24,7 +24,7 @@ export const CartUnit = ({
 
   const decrease = () => {
     dispatch(
-      cartSlice.actions.toggleCartAmount({
+      cartSlice.actions.changeCartAmount({
         slug,
         name: singleOrder.name,
         operation: "dec",
@@ -46,21 +46,23 @@ export const CartUnit = ({
               {showDollarPrice(singleOrder.price * singleOrder.amount)}$
             </p>
           </div>
-          <img
-            onClick={() => decrease()}
-            className="dec-btn"
-            src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/minus-new.svg"
-            alt=""
-          />
+          <div className="buttons">
+            <img
+              onClick={() => decrease()}
+              className="dec-btn"
+              src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/minus-new.svg"
+              alt=""
+            />
 
-          <button className="edit-btn">Edit</button>
+            {/* <button className="edit-btn">Edit</button> */}
 
-          <img
-            onClick={() => increase()}
-            className="inc-btn"
-            src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/plus-new.svg"
-            alt=""
-          />
+            <img
+              onClick={() => increase()}
+              className="inc-btn"
+              src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/plus-new.svg"
+              alt=""
+            />
+          </div>
         </div>
       </div>
     </Wrapper>
@@ -73,7 +75,9 @@ const Wrapper = styled.main`
     grid-template-columns: 0.5fr 4fr 1fr;
     column-gap: 2rem;
     font-weight: 500;
-    padding: 1rem 1rem 0 1rem;
+    padding: 1rem 1rem 0.5rem 1rem;
+    border-bottom: 1px solid #e9f8f5;
+    margin-right: 0.5rem;
   }
 
   .amount {
@@ -95,6 +99,14 @@ const Wrapper = styled.main`
   .dec-btn,
   .inc-btn {
     cursor: pointer;
+  }
+
+  .buttons {
+    grid-column: 1/-1;
+    // grid-row: 1/;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .edit-btn {

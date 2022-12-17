@@ -2089,7 +2089,7 @@ export const allMenus: IMenu[] = [
         },
         products: [
           {
-            name: "mayonnaise sauce",
+            name: "Mayonnaise sauce",
             description: "",
             price: 0.4,
             image:
@@ -2098,7 +2098,7 @@ export const allMenus: IMenu[] = [
             bonus: "",
           },
           {
-            name: "ketchup sauce",
+            name: "Ketchup sauce",
             description: "",
             price: 0.4,
             image:
@@ -2107,7 +2107,7 @@ export const allMenus: IMenu[] = [
             bonus: "",
           },
           {
-            name: "mustard sauce",
+            name: "Mustard sauce",
             description: "",
             price: 0.4,
             image:
@@ -4819,56 +4819,7 @@ export const allMenus: IMenu[] = [
           },
         ],
       },
-      {
-        category: {
-          categoryName: "Combo menu",
-          categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Collections/gnucnonxotk6znqzbwhe",
-          bonus: "",
-        },
-        products: [
-          {
-            name: "Duck leg with couscous and Caesar salad",
-            description:
-              "Duck leg with pineapple, 200g & Couscous with butter, 180g & Caesar salad with chicken, 180g. Total: 560g",
-            price: 10,
-            image:
-              "https://api.getorder.biz/product/38736/image/44/700/700/2000040361.webp",
-            modifiers: "",
-            bonus: "",
-          },
-          {
-            name: "Turkey fricassee with buckwheat and chicken broth",
-            description:
-              "Turkey fricassee in cream sauce, 160g & Buckwheat porridge, 180g & Chicken broth with egg and homemade noodles, 300/30/10g. Total: 680g",
-            price: 5,
-            image:
-              "https://api.getorder.biz/product/38738/image/44/700/700/2000040368.webp",
-            modifiers: "",
-            bonus: "",
-          },
-          {
-            name: "Pea soup and potato dumplings with mushrooms and egg",
-            description:
-              "Pea soup with smoked meats and crackers, 300/30g & Potato dumplings with mushrooms and egg, 200/30g. Total: 560g",
-            price: 5,
-            image:
-              "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/oecwt7z2poczgsnmojag",
-            modifiers: "",
-            bonus: "",
-          },
-          {
-            name: "Turkey fricassee with buckwheat and chicken broth",
-            description:
-              "Turkey fricassee in cream sauce, 160g & Buckwheat porridge, 180g & Chicken broth with egg and homemade noodles, 300/30/10g. Total: 680g",
-            price: 5,
-            image:
-              "https://api.getorder.biz/product/38738/image/44/700/700/2000040368.webp",
-            modifiers: "",
-            bonus: "",
-          },
-        ],
-      },
+
       {
         category: {
           categoryName: "First courses",
@@ -4912,8 +4863,7 @@ export const allMenus: IMenu[] = [
       {
         category: {
           categoryName: "Pancakes and cheesecakes",
-          categoryImage:
-            "https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/image_preview_card/arrow.svg",
+          categoryImage: "",
           bonus: "-20%",
         },
         products: [
@@ -5096,7 +5046,7 @@ export const allMenus: IMenu[] = [
   {
     id: 35591,
     slug: "this-is-pivbar-kie",
-    brandName: "Sushi Master",
+    brandName: "This Is PivBar",
     headerBackgroundImage:
       "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/fii2q2stdieccwgmixaf",
     deliveryTime1: 35,
@@ -5168,7 +5118,8 @@ export const allMenus: IMenu[] = [
       {
         category: {
           categoryName: "Main dishes",
-          categoryImage: "",
+          categoryImage:
+            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/uyuiqnrvey9friil2csg",
           bonus: "",
         },
         products: [
@@ -5228,7 +5179,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "This is a burger",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Collections/pgp02jcatqufodyin0en",
+            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/tn07jvne327cbire6vrg",
           bonus: "-20%",
         },
         products: [
@@ -5267,7 +5218,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "This is a salad",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Collections/fodcdgpzox0pitfosxqn",
+            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/yqxkzjvidqww62b5hzx5",
           bonus: "",
         },
         products: [
@@ -5307,7 +5258,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "This is soup",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Collections/gnucnonxotk6znqzbwhe",
+            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Collections/tc5qhl6z0zrtcvknhlqi",
           bonus: "",
         },
         products: [
@@ -5354,7 +5305,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "This is deied meat",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Collections/x8cbunznhdt4da4txtqy",
+            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/hu47f1jhbkjmuvgzddsh",
           bonus: "",
         },
         products: [
@@ -5408,7 +5359,7 @@ export const allMenus: IMenu[] = [
       },
       {
         category: {
-          categoryName: "This is for beer ",
+          categoryName: "This is for beer",
           categoryImage:
             "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/nlmvecjjvjnd75puarp6",
           bonus: "",
@@ -5449,7 +5400,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "This is a taste",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/kyonyp896pmj3wjryuzz",
+            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Collections/dq6jzvuz67nhjiuzgwvu",
           bonus: "",
         },
         products: [
@@ -5478,7 +5429,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Bottle beer",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Collections/dq6jzvuz67nhjiuzgwvu",
+            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/2378741818",
           bonus: "",
         },
         products: [

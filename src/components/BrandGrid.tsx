@@ -55,10 +55,14 @@ export const BrandGrid: React.FC<{
             </div>
           </div>
           <div className="grid-chart">
-            <Cart />
+            <div className="sticky-container">
+              <Cart />
+            </div>
           </div>
           <div className="grid-sections">
-            <Sections menu={menu} selectedCategory={selectedCategory} />
+            <div className="sticky-container">
+              <Sections menu={menu} selectedCategory={selectedCategory} />
+            </div>
           </div>
           <div className="grid-products">
             <form action="onSubmit" className="search-form">
@@ -140,23 +144,18 @@ const Wrapper = styled.div`
   .grid-chart {
     grid-row: 1/-1;
     grid-column: 3/4;
-    background-color: #fff;
-    box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
-    max-height: 50rem;
-    // max-height: 7rem;
-    width: 32rem;
-    border-radius: 1rem;
-    overflow: hidden;
+  }
+
+  .sticky-container {
+    position: sticky;
+    top: 1rem;
   }
 
   .grid-sections {
-    position: sticky;
-    top: 1rem;
     background-color: #fff;
     text-transform: uppercase;
     width: 17.5rem;
-    min-height: 50rem;
-    overflow-y: scroll;
+    height: auto;
     padding-bottom: 5rem;
   }
 

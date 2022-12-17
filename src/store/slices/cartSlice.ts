@@ -64,7 +64,7 @@ export const cartSlice = createSlice({
       };
       return { carts: newCarts };
     },
-    toggleCartAmount: (
+    changeCartAmount: (
       state,
       action: PayloadAction<{
         slug: string;

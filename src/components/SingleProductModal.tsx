@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
-import { useAppDispatch, useAppSelector } from "../hooks/redux";
+import { useAppDispatch } from "../hooks/redux";
 import { cartSlice } from "../store/slices/cartSlice";
 import { getSlugFromLocation, showDollarPrice } from "../units/functions";
 import { Product } from "./SingleProduct";
@@ -15,14 +15,9 @@ export const SingleProductModal = ({
 }) => {
   const location = useLocation();
   const dispatch = useAppDispatch();
-  const { carts } = useAppSelector((state) => state.carts);
   const slug = getSlugFromLocation(location);
 
   const [counter, setCounter] = useState(1);
-
-  useEffect(() => {
-    console.log(carts);
-  }, [setShowModalProduct]);
 
   const inc = () => {
     let newCounter = setCounter(counter + 1);

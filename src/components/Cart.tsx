@@ -56,74 +56,86 @@ export const Cart = () => {
   };
   return (
     <Wrapper>
-      <div className="chart">
-        <h2 className="empty-chart-title center">
-          {currentCart === null || currentCart.order.length === 0
-            ? "Your plova"
-            : "Your order"}
-        </h2>
-        {currentCart === null || currentCart.order.length === 0 ? (
-          <div className="cart-inits-container">
-            <div>
-              <img
-                className="empty-chart-image"
-                src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/astronaut-grey-scale.svg"
-                alt="spaceman around the food"
-              />
+      <main className="cart">
+        <div className="chart-top">
+          <h2 className="empty-chart-title center">
+            {currentCart === null || currentCart.order.length === 0
+              ? "Your plova"
+              : "Your order"}
+          </h2>
+          {currentCart === null || currentCart.order.length === 0 ? (
+            <div className="cart-units-container">
+              <div className="center">
+                <img
+                  className="empty-chart-image"
+                  src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/astronaut-grey-scale.svg"
+                  alt="spaceman around the food"
+                />
+              </div>
+              <div>
+                <p className="empty-chart-paragraph center">
+                  You've not added any products yet. When you do, you'll see
+                  them here!
+                </p>
+              </div>
             </div>
-            <div>
-              <p className="empty-chart-paragraph center">
-                You've not added any products yet. When you do, you'll see them
-                here!
-              </p>
+          ) : (
+            <div
+              className="cart-units-container"
+              style={{ overflowY: "scroll" }}
+            >
+              {currentCart &&
+                currentCart.order.map((singleOrder, index) => {
+                  return (
+                    <CartUnit
+                      key={index}
+                      singleOrder={singleOrder}
+                      slug={slug}
+                    />
+                  );
+                })}
             </div>
-          </div>
-        ) : (
-          <div className="cart-units-container">
-            {currentCart &&
-              currentCart.order.map((singleOrder, index) => {
-                return (
-                  <CartUnit key={index} singleOrder={singleOrder} slug={slug} />
-                );
-              })}
-          </div>
-        )}
-      </div>
-      <div className="chart-bottom center">
-        <div className="center">
-          <img
-            className="chart-bottom-image"
-            src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/feedback/info.svg"
-            alt=""
-          />
-          <p>
-            Reach <span>5,00 $</span> to save <span>1,00 $</span> in fees!
-          </p>
+          )}
         </div>
-        {currentCart !== null && currentCart.order.length > 0 && (
-          <div className="center">
-            <button className="order-btn btn">
-              Make an Order ({getTotalCardAmount(slug, carts)}) <br />
-              for {showDollarPrice(getTotalCardPrice(slug, carts))}$
-            </button>
+        <div className="chart-bottom center">
+          <div style={{ display: "flex" }}>
+            <img
+              className="chart-bottom-image"
+              src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/feedback/info.svg"
+              alt=""
+            />
+            <p>
+              Reach <span>5,00 $</span> to save <span>1,00 $</span> in fees!
+            </p>
           </div>
-        )}
-      </div>
+          {currentCart !== null && currentCart.order.length > 0 && (
+            <div className="center">
+              <button className="order-btn btn">
+                Make an Order ({getTotalCardAmount(slug, carts)}) <br />
+                for {showDollarPrice(getTotalCardPrice(slug, carts))}$
+              </button>
+            </div>
+          )}
+        </div>
+      </main>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  .margin-bottom {
-    margin-bottom: -10rem;
+  .cart {
+    background-color: #fff;
+    box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
+    height: auto;
+    width: 32rem;
+    border-radius: 1rem;
   }
 
-  .chart {
+  .chart-top {
     display: flex;
     flex-direction: column;
     gap: 3.6rem;
-    padding: 4.4rem 2rem 4rem 2rem;
-    min-height: 30rem;
+    padding: 4.4rem 0.5rem 0rem 2rem;
   }
 
   .empty-chart-paragraph {
@@ -132,18 +144,21 @@ const Wrapper = styled.div`
     text-align: center;
     font-weight: 400;
     color: #4d4d4d;
+    padding: 0 3rem;
   }
 
   .empty-chart-image {
-    display: flex;
-    height: 18rem;
-    width: 100%;
+    width: 85%;
+    margin-bottom: 3rem;
   }
 
   .cart-units-container {
-    overflow-y: scroll;
-    max-height: 30rem;
-    min-height: 20rem;
+    display: flex;
+    flex-direction: column;
+    gar: 5rem;
+    max-height: 40rem;
+    min-height: 28.5rem;
+    margin: 0rem 0rem 2rem 0rem;
 
     ::-webkit-scrollbar {
       width: 1rem;
@@ -162,8 +177,6 @@ const Wrapper = styled.div`
   }
 
   .chart-bottom {
-    position: sticky;
-    top: 2rem;
     flex-direction: column;
     gap: 2rem;
     padding: 1rem 0rem;
@@ -171,6 +184,7 @@ const Wrapper = styled.div`
     font-weight: 400;
     border-top: 4px solid #e9f8f5;
     color: #4d4d4d;
+    height: auto;
   }
 
   .chart-bottom-image {
