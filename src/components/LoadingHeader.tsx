@@ -156,7 +156,7 @@ const Wrapper = styled.header`
   }
 
   .loader-placeholder--path {
-    margin-top: 5rem;
+    margin-top: 4rem;
     height: 1.6rem;
     width: 10rem;
     border-radius: 1rem;

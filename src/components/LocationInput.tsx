@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export const LocationInput = () => {
   const [showLocationModal, setShowLocationModal] = useState(false);
-  console.log(showLocationModal);
+  // console.log(showLocationModal);
   return (
     <Wrapper>
       <section>

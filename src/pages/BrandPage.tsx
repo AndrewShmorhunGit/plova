@@ -9,10 +9,10 @@ import {
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { fetchMenu } from "../store/actions/menuActions";
 import { getSlugFromLocation } from "../units/functions";
+import { ErrorPage } from "./ErrorPage";
 
-export function BrandPage() {
+export const BrandPage = () => {
   const location = useLocation();
-
   const slug = getSlugFromLocation(location);
   const dispatch = useAppDispatch();
 
@@ -24,11 +24,14 @@ export function BrandPage() {
     dispatch(fetchMenu(slug));
   }, []);
 
-  if (menu === null) {
+  if (error) {
+    <ErrorPage />;
+  }
+
+  if (loading || menu === null) {
     return (
       <>
         <LoadingHeader />
-        <h3 className="center">Menu is loading..🙂 or just not exist..😕 </h3>
         <LoadingBrandGrid />
       </>
     );
@@ -45,4 +48,4 @@ export function BrandPage() {
       />
     </>
   );
-}
+};

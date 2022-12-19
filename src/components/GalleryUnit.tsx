@@ -60,7 +60,7 @@ export const GalleryUnit: React.FC<GalleryProps> = ({
     <Wrapper>
       <div className="gallery-div">
         <Link
-          to={`brand/kiev/${store.slug}`}
+          to={`brand/${store.slug}`}
           className="gallery-unit-link"
           // onClick={() => console.log(menuGlobal[currentMenuIndex])}
         >

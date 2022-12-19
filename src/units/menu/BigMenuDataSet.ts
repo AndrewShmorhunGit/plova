@@ -227,7 +227,7 @@ export const allMenus: IMenu[] = [
               "To make Hiyashi Wakame seaweed even tastier, add sesame seeds and nut sauce.",
             price: 3,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/3751788994",
+              "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/3751788994",
             bonus: "",
             modifiers: "",
           },
@@ -341,7 +341,7 @@ export const allMenus: IMenu[] = [
               "Fried tiger prawn tails in butter with the addition of fragrant herbs and spices, prepared in a sauce of your choice",
             price: 12,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/bocxzqf3vwbydh9qo2is",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/bocxzqf3vwbydh9qo2is",
             modifiers: "",
             bonus: "",
           },
@@ -351,7 +351,7 @@ export const allMenus: IMenu[] = [
               "Arborio rice with the addition of Atlantic squid fried in butter with thyme, garlic and rosemary, mussel meat and baby octopus. Garnish with fried tiger prawns and grated Parmesan cheese.",
             price: 6.5,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/uwdcegnubecatfbu7efr",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/uwdcegnubecatfbu7efr",
             modifiers: "",
             bonus: "",
           },
@@ -361,7 +361,7 @@ export const allMenus: IMenu[] = [
               "Spaghetti al dente, stewed in butter and wine sauce, with chopped onions, garlic, chili peppers, capers and seafood: mussels, Atlantic squid, baby octopus and shrimp. Sprinkle with grated Parmesan cheese.",
             price: 6,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/zfxev34mqwyjmen3zol9g",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/zfxev34mqwyjmen3zol9",
             modifiers: "",
             bonus: "",
           },
@@ -371,7 +371,7 @@ export const allMenus: IMenu[] = [
               "Two fried minced meatballs based on salmon and pike perch fillets. Served with mashed potatoes and barrel tomatoes.",
             price: 6,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/dvxbpwsebsngrxmzzwss",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/dvxbpwsebsngrxmzzwss",
             modifiers: "",
             bonus: "",
           },
@@ -381,7 +381,7 @@ export const allMenus: IMenu[] = [
               "Two fried minced meatballs based on shrimp fillet and minced krill. Served with mashed potatoes and barrel tomatoes.",
             price: 6,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/zqjpio4wls89djfrhewf",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/zqjpio4wls89djfrhewf",
             modifiers: "",
             bonus: "",
           },
@@ -391,7 +391,7 @@ export const allMenus: IMenu[] = [
               "Boiled potatoes, egg, carrot, add green apple, peas and base - tiger prawn. Season with homemade mayonnaise.",
             price: 6,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/djvu6sciheahlz2dbg7e",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/djvu6sciheahlz2dbg7e",
             modifiers: "",
             bonus: "",
           },
@@ -401,7 +401,7 @@ export const allMenus: IMenu[] = [
               "The salad mix with cherry tomatoes, fried potato pieces, boiled egg, olives and lightly fried tuna slices is topped with Nisuaz sauce (anchovies, oil, soy sauce).",
             price: 6,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/iwqh0g3iakvnxojglpks",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/iwqh0g3iakvnxojglpks",
             modifiers: "",
             bonus: "",
           },
@@ -421,7 +421,7 @@ export const allMenus: IMenu[] = [
               "Fresh salmon fillet with branded sauce (wasabi, mayonnaise, soy sauce) with the addition of pike caviar. Served with arugula leaves, balsamic cream and croutons.",
             price: 8,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/x7u5h6h7l8jk317brqco",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/x7u5h6h7l8jk317brqco",
             modifiers: "",
             bonus: "",
           },
@@ -431,7 +431,7 @@ export const allMenus: IMenu[] = [
               "Fresh tuna fillet with olive oil sauce. Served with avocado puree, arugula leaves, balsamic sauce and croutons.",
             price: 8,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/uo8qjbsnq4hifkhju5fq",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/uo8qjbsnq4hifkhju5fq",
             modifiers: "",
             bonus: "",
           },
@@ -441,7 +441,7 @@ export const allMenus: IMenu[] = [
               "Lightly salted herring with mustard sauce and onions & Slightly salted anchovies with mustard sauce and green onions & Sprats (herring) with spicy tomato sauce, pickle and boiled egg & Gravlax salmon with Caesar sauce, arugula and capers",
             price: 6,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ud0xvxyss4xbbbihbdjc",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ud0xvxyss4xbbbihbdjc",
             modifiers: "",
             bonus: "",
           },
@@ -451,7 +451,7 @@ export const allMenus: IMenu[] = [
               "Matthias herring fillet, with the addition of green apple and butter. Served with green onions, butter, lemon and light baguette croutons.",
             price: 3,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/yralwggk1qdaizf14svg",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/yralwggk1qdaizf14svg",
             modifiers: "",
             bonus: "",
           },
@@ -461,7 +461,7 @@ export const allMenus: IMenu[] = [
               "Low-salt tulle is served with boiled potatoes, seasoned with butter, and sprinkled with green onions.",
             price: 3,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/in1e0wqtisiyyuyngh3n",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/in1e0wqtisiyyuyngh3n",
             modifiers: "",
             bonus: "",
           },
@@ -471,7 +471,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Salads",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/eumv73yfvp5slp63hjp7",
+            "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/eumv73yfvp5slp63hjp7",
           bonus: "",
         },
         products: [
@@ -481,7 +481,7 @@ export const allMenus: IMenu[] = [
               "Fried in butter tails of tiger prawns, Atlantic squid and Black Sea mussels with garlic, thyme and rosemary, Served with mixed salad, cherry tomatoes, avocado and Parmesan cheese. Season with Dijon sauce.",
             price: 7,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/adgcerrypltp39yyxkiv",
+              "https://res.cloudinary.com/glovoapp/w_600,c_thumb,f_auto,q_auto:best/dpr_auto/Products/adgcerrypltp39yyxkiv",
             modifiers: "",
             bonus: "",
           },
@@ -491,7 +491,7 @@ export const allMenus: IMenu[] = [
               "Boiled potatoes, egg, carrots, add green apple, peas and base - lightly salted salmon. Season with homemade mayonnaise.",
             price: 5,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/yfa9g1wzq0pfxzyo6nj5",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/yfa9g1wzq0pfxzyo6nj5",
             modifiers: "",
             bonus: "",
           },
@@ -501,7 +501,7 @@ export const allMenus: IMenu[] = [
               "Goat cheese is placed on tomato pieces, seasoned with olive oil and basil sauce. Decorated with fresh basil leaves.",
             price: 4,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/npxa0lohcpdf0p6r4edz",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/npxa0lohcpdf0p6r4edz",
             modifiers: "",
             bonus: "",
           },
@@ -511,7 +511,7 @@ export const allMenus: IMenu[] = [
               "The salad mix with cherry tomatoes, fried potato pieces, boiled egg, olives and lightly fried tuna slices is topped with Nisuaz sauce (anchovies, oil, soy sauce).",
             price: 5,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/iwqh0g3iakvnxojglpks",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/iwqh0g3iakvnxojglpks",
             modifiers: "",
             bonus: "",
           },
@@ -521,7 +521,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Hot meals",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/qovnpn4x3vpxdxnoelmo",
+            "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/qovnpn4x3vpxdxnoelmo",
           bonus: "",
         },
         products: [
@@ -531,7 +531,7 @@ export const allMenus: IMenu[] = [
               "Rapan meat, fried with mushrooms, onions, cherry tomatoes, and stewed in a gentle creamy sauce.",
             price: 6.5,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/qovnpn4x3vpxdxnoelmo  ",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/qovnpn4x3vpxdxnoelmo  ",
             modifiers: "",
             bonus: "",
           },
@@ -541,7 +541,7 @@ export const allMenus: IMenu[] = [
               "Arborio rice with the addition of Atlantic squid fried in butter with thyme, garlic and rosemary, mussel meat and baby octopus. Garnish with fried tiger prawns and grated Parmesan cheese.",
             price: 6,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/uwdcegnubecatfbu7efr",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/uwdcegnubecatfbu7efr",
             modifiers: "",
             bonus: "",
           },
@@ -551,7 +551,7 @@ export const allMenus: IMenu[] = [
               "Spaghetti al dente, stewed in butter and wine sauce, with chopped onions, garlic, chili peppers, capers and seafood: mussels, Atlantic squid, baby octopus and shrimp. Sprinkle with grated Parmesan cheese.",
             price: 0.4,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/zfxev34mqwyjmen3zol9",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/zfxev34mqwyjmen3zol9",
             modifiers: "",
             bonus: "",
           },
@@ -559,9 +559,9 @@ export const allMenus: IMenu[] = [
       },
       {
         category: {
-          categoryName: "courses",
+          categoryName: "Courses",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/bbiiidj6aiviyxq3aabn",
+            "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/bbiiidj6aiviyxq3aabn",
           bonus: "",
         },
         products: [
@@ -571,7 +571,7 @@ export const allMenus: IMenu[] = [
               "Grilled vegetables in garlic marinade, namely zucchini, eggplant, bell peppers, tomatoes, mushrooms, onions.",
             price: 2,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/hjvoq0tlu4hnfe1qrlcg",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/hjvoq0tlu4hnfe1qrlcg",
             modifiers: "",
             bonus: "",
           },
@@ -581,7 +581,7 @@ export const allMenus: IMenu[] = [
               "Boiled wild rice and basmati with spices, garlic and greens.",
             price: 1.2,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/bbiiidj6aiviyxq3aabn",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/bbiiidj6aiviyxq3aabn",
             modifiers: "",
             bonus: "",
           },
@@ -590,7 +590,7 @@ export const allMenus: IMenu[] = [
             description: "Fried potatoes with garlic and greens.",
             price: 1.2,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ofkdysncfm9rqucb6mqm",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ofkdysncfm9rqucb6mqm",
             modifiers: "",
             bonus: "",
           },
@@ -600,7 +600,7 @@ export const allMenus: IMenu[] = [
               "Boiled potatoes with butter are mashed to a puree with herbs.",
             price: 1,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/hgabblip2ldbedsysrhf",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/hgabblip2ldbedsysrhf",
             modifiers: "",
             bonus: "",
           },
@@ -608,9 +608,9 @@ export const allMenus: IMenu[] = [
       },
       {
         category: {
-          categoryName: "first courses",
+          categoryName: "First courses",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/wvhiafzaomxuyigggnlu",
+            "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/wvhiafzaomxuyigggnlu",
           bonus: "",
         },
         products: [
@@ -620,7 +620,7 @@ export const allMenus: IMenu[] = [
               "Solyanka based on tomato fish broth, with the addition of tomatoes, pickles, onions, capers, lemon and olives from assorted fish fillets: hot smoked salmon, pike perch and sturgeon. Served with sour cream.",
             price: 7,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/n50ifxvcpmrn3mnygquq",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/n50ifxvcpmrn3mnygquq",
             modifiers: "",
             bonus: "",
           },
@@ -630,7 +630,7 @@ export const allMenus: IMenu[] = [
               "Soup based on fish broth, with the addition of vegetables (potatoes, carrots, onions) and assorted fish fillets. The soup is topped with garlic, fresh herbs and butter.",
             price: 2,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/wvhiafzaomxuyigggnlu",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/wvhiafzaomxuyigggnlu",
             modifiers: "",
             bonus: "",
           },
@@ -639,7 +639,7 @@ export const allMenus: IMenu[] = [
             description: "Fried potatoes with garlic and greens.",
             price: 1.2,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ofkdysncfm9rqucb6mqm",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ofkdysncfm9rqucb6mqm",
             modifiers: "",
             bonus: "",
           },
@@ -649,7 +649,7 @@ export const allMenus: IMenu[] = [
               "Boiled potatoes with butter are mashed to a puree with herbs.",
             price: 1,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/hgabblip2ldbedsysrhf",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/hgabblip2ldbedsysrhf",
             modifiers: "",
             bonus: "",
           },
@@ -659,21 +659,21 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Sauces",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ykwwqockkqrrhksxdazd",
+            "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ykwwqockkqrrhksxdazd",
           bonus: "",
         },
         products: [
           {
-            name: "mayonnaise sauce",
+            name: "Mayonnaise sauce",
             description: "",
             price: 0.4,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/bp7d9a3ktgrlyoydhpcm",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/bp7d9a3ktgrlyoydhpcm",
             modifiers: "",
             bonus: "",
           },
           {
-            name: "ketchup sauce",
+            name: "Ketchup sauce",
             description: "",
             price: 0.4,
             image:
@@ -682,11 +682,11 @@ export const allMenus: IMenu[] = [
             bonus: "",
           },
           {
-            name: "mustard sauce",
+            name: "Mustard sauce",
             description: "",
             price: 0.4,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/qtbp79l7myyxns1circf",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/qtbp79l7myyxns1circf",
             modifiers: "",
             bonus: "",
           },
@@ -695,7 +695,7 @@ export const allMenus: IMenu[] = [
             description: "",
             price: 0.4,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/czrqs1br9okmmvzngm4b",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/czrqs1br9okmmvzngm4b",
             modifiers: "",
             bonus: "",
           },
@@ -704,7 +704,7 @@ export const allMenus: IMenu[] = [
             description: "",
             price: 0.4,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/iptg2cgyzkl04gjrszeb",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/iptg2cgyzkl04gjrszeb",
             modifiers: "",
             bonus: "",
           },
@@ -713,7 +713,7 @@ export const allMenus: IMenu[] = [
             description: "",
             price: 0.4,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/d7n5u91nm4pcb1xr8hgt",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/d7n5u91nm4pcb1xr8hgt",
             modifiers: "",
             bonus: "",
           },
@@ -722,7 +722,7 @@ export const allMenus: IMenu[] = [
             description: "",
             price: 0.4,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/rceplgybxfaybcfyoo95",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/rceplgybxfaybcfyoo95",
             modifiers: "",
             bonus: "",
           },
@@ -731,22 +731,23 @@ export const allMenus: IMenu[] = [
     ],
   },
   {
-    id: 160608,
-    slug: "dinners-kie-hrinchenka",
-    brandName: "Dinner's",
+    id: 32211,
+    slug: "sushi-master-kie",
+    brandName: "Sushi Master",
     headerBackgroundImage:
-      "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/jygn2rd6hek5qlvybw3n",
+      "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/r2gtlvid07hxkcf9n4mr",
     deliveryTime1: 25,
     deliveryTime2: 35,
     deliveryPrice: 1,
-    rate: 96,
+    rate: 97,
     message: "",
+
     menu: [
       {
         category: {
           categoryName: "Top sellers",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/nyvceydvdyvnzp7dcgmr",
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/wixzwitohm7zjd6rynv2",
           bonus: "Deals",
         },
         products: [
@@ -806,7 +807,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Networks",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/wzmzy5os4hbnz0phoahz",
+            "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/wzmzy5os4hbnz0phoahz",
           bonus: "-20%",
         },
         products: [
@@ -866,7 +867,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Roles",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/yl6hbozhvayntmedpi03",
+            "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/yl6hbozhvayntmedpi03",
           bonus: "-20%",
         },
         products: [
@@ -875,7 +876,7 @@ export const allMenus: IMenu[] = [
             description: "Rice, salmon, eel, tobiko caviar, cream cheese, nori",
             price: 11,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ayewso8ffolalnlfqik8",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ayewso8ffolalnlfqik8",
             bonus: "",
             modifiers: "",
           },
@@ -933,7 +934,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Appetizer",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/j52mtl4ksheknwfozzym",
+            "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/j52mtl4ksheknwfozzym",
           bonus: "",
         },
         products: [
@@ -961,7 +962,7 @@ export const allMenus: IMenu[] = [
             description: "Chicken strips",
             price: 3.5,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/iyk23ksl1bpo7pvqdlu4",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/iyk23ksl1bpo7pvqdlu4",
             bonus: "",
             modifiers: "",
           },
@@ -980,20 +981,10 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Soups and Udons",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ttcnkykdmqeb3owovxfg",
+            "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ttcnkykdmqeb3owovxfg",
           bonus: "",
         },
         products: [
-          {
-            name: "Udon noodles with shrimp",
-            description:
-              "Udon noodles, broccoli, carrots, beans, shrimp, mussels, squid, green onions, oyster sauce, tonkatsu sauce",
-            price: 5,
-            image:
-              "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/wixzwitohm7zjd6rynv2",
-            bonus: "",
-            modifiers: "",
-          },
           {
             name: "Udon noodles with chicken",
             description:
@@ -1025,31 +1016,12 @@ export const allMenus: IMenu[] = [
           },
         ],
       },
-      {
-        category: {
-          categoryName: "Top sellers",
-          categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/jfxxpnxnspq61u27c1ki",
-          bonus: "Deals",
-        },
-        products: [
-          {
-            name: "Set Imperial",
-            description:
-              "Philadelphia with salmon, Philadelphia with eel, Philadelphia with shrimp, Philadelphia with tuna in sesame, California with crab mix in caviar, California with eel in sesame, California tempura, roll with salmon and cucumber, crunch with shrimp, tender with salmon...",
-            price: 55,
-            image:
-              "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/wixzwitohm7zjd6rynv2",
-            bonus: "-20%",
-            modifiers: "",
-          },
-        ],
-      },
+
       {
         category: {
           categoryName: "Desserts",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/dbzqftoxmuxsvtzxgmkv",
+            "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/dbzqftoxmuxsvtzxgmkv",
           bonus: "-20%",
         },
         products: [
@@ -1068,7 +1040,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Addition",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/df48wzjtigugjn6sylul",
+            "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/df48wzjtigugjn6sylul",
           bonus: "",
         },
         products: [
@@ -1147,7 +1119,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Top sellers",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/jfxxpnxnspq61u27c1ki",
+            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/wfx638pjwd0yxdrfbayc",
           bonus: "Deals",
         },
         products: [
@@ -1400,7 +1372,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Appetizer",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/yfluqfr1k8rjiqdmb6wr",
+            "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/yfluqfr1k8rjiqdmb6wr",
           bonus: "",
         },
         products: [
@@ -1470,7 +1442,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Side dishes",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/kzi1wgakxybaa9ocrad8",
+            "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/kzi1wgakxybaa9ocrad8",
           bonus: "Deals",
         },
         products: [
@@ -1498,7 +1470,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Desserts",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/axdkhqpm3zvybjnqolfw",
+            "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/axdkhqpm3zvybjnqolfw",
           bonus: "",
         },
         products: [
@@ -1567,7 +1539,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Main dishes",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ykjfskkh9vecxxsbbwri",
+            "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ykjfskkh9vecxxsbbwri",
           bonus: "",
         },
         products: [
@@ -1597,7 +1569,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Paste",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/zmva2omwd1d7b3cjhzzb",
+            "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/zmva2omwd1d7b3cjhzzb",
           bonus: "",
         },
         products: [
@@ -1667,7 +1639,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Salads",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/evetm7r6o6titfvqyjir",
+            "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/evetm7r6o6titfvqyjir",
           bonus: "Deals",
         },
         products: [
@@ -1727,7 +1699,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Sauces",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/vj4mgq95mpepsfvqzzea",
+            "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/vj4mgq95mpepsfvqzzea",
           bonus: "",
         },
         products: [
@@ -1847,7 +1819,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Buckets",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Collections/rv34joejo6tqueqkjcdp",
+            "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Collections/rv34joejo6tqueqkjcdp",
           bonus: "",
         },
         products: [
@@ -1984,7 +1956,7 @@ export const allMenus: IMenu[] = [
             description: "",
             price: 3,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ibvvwb1fm7ydynosvgto",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ibvvwb1fm7ydynosvgto",
             modifiers: "",
             bonus: "",
           },
@@ -1993,7 +1965,7 @@ export const allMenus: IMenu[] = [
             description: "",
             price: 3,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ibvvwb1fm7ydynosvgto",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/ibvvwb1fm7ydynosvgto",
             modifiers: "",
             bonus: "",
           },
@@ -2038,7 +2010,7 @@ export const allMenus: IMenu[] = [
             description: "",
             price: 2,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/jkwo6lh2etupwowyifbm",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/jkwo6lh2etupwowyifbm",
             modifiers: "",
             bonus: "",
           },
@@ -2047,7 +2019,7 @@ export const allMenus: IMenu[] = [
             description: "",
             price: 2,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/jkwo6lh2etupwowyifbm",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/jkwo6lh2etupwowyifbm",
             modifiers: "",
             bonus: "",
           },
@@ -2056,7 +2028,7 @@ export const allMenus: IMenu[] = [
             description: "",
             price: 1.5,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/kgcfpck6pamtepbe4s7d",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/kgcfpck6pamtepbe4s7d",
             modifiers: "",
             bonus: "",
           },
@@ -2093,7 +2065,7 @@ export const allMenus: IMenu[] = [
             description: "",
             price: 0.4,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/bp7d9a3ktgrlyoydhpcm",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/bp7d9a3ktgrlyoydhpcm",
             modifiers: "",
             bonus: "",
           },
@@ -2111,7 +2083,7 @@ export const allMenus: IMenu[] = [
             description: "",
             price: 0.4,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/qtbp79l7myyxns1circf",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/qtbp79l7myyxns1circf",
             modifiers: "",
             bonus: "",
           },
@@ -2120,7 +2092,7 @@ export const allMenus: IMenu[] = [
             description: "",
             price: 0.4,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/czrqs1br9okmmvzngm4b",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/czrqs1br9okmmvzngm4b",
             modifiers: "",
             bonus: "",
           },
@@ -2129,7 +2101,7 @@ export const allMenus: IMenu[] = [
             description: "",
             price: 0.4,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/iptg2cgyzkl04gjrszeb",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/iptg2cgyzkl04gjrszeb",
             modifiers: "",
             bonus: "",
           },
@@ -2138,7 +2110,7 @@ export const allMenus: IMenu[] = [
             description: "",
             price: 0.4,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/d7n5u91nm4pcb1xr8hgt",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/d7n5u91nm4pcb1xr8hgt",
             modifiers: "",
             bonus: "",
           },
@@ -2147,7 +2119,7 @@ export const allMenus: IMenu[] = [
             description: "",
             price: 0.4,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/rceplgybxfaybcfyoo95",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/rceplgybxfaybcfyoo95",
             modifiers: "",
             bonus: "",
           },
@@ -2193,7 +2165,7 @@ export const allMenus: IMenu[] = [
             description: "",
             price: 1,
             image:
-              "https://res.cloudinary.com/glovoapp/w_96,h_96,c_thumb,f_auto,q_auto:best/dpr_auto/Products/e3hktma56r7r8wubtxe2",
+              "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/e3hktma56r7r8wubtxe2",
             modifiers: "",
             bonus: "",
           },
@@ -4609,22 +4581,22 @@ export const allMenus: IMenu[] = [
     ],
   },
   {
-    id: 32211,
-    slug: "sushi-master-kie",
-    brandName: "Sushi Master",
+    id: 160608,
+    slug: "dinners-kie-hrinchenka",
+    brandName: "Dinner's",
     headerBackgroundImage:
-      "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/r2gtlvid07hxkcf9n4mr",
+      "https://res.cloudinary.com/glovoapp/h_225,f_auto,q_auto/e_blur:400/Stores/jygn2rd6hek5qlvybw3n",
     deliveryTime1: 25,
     deliveryTime2: 35,
     deliveryPrice: 1,
-    rate: 97,
+    rate: 96,
     message: "",
     menu: [
       {
         category: {
           categoryName: "Top sellers",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_150,c_thumb,f_auto,q_auto:best/dpr_auto/Products/mmp6jrwkwvpmhaaqrj5f",
+            "https://res.cloudinary.com/glovoapp/w_300,c_thumb,f_auto,q_auto:best/dpr_auto/Products/nyvceydvdyvnzp7dcgmr",
           bonus: "",
         },
         products: [
@@ -4684,7 +4656,7 @@ export const allMenus: IMenu[] = [
         category: {
           categoryName: "Combo menu",
           categoryImage:
-            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/uhhepmodv6bmtmegza8t",
+            "https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/hkwlvj1but2mwjbink9o",
           bonus: "-20%",
         },
         products: [
@@ -4863,7 +4835,8 @@ export const allMenus: IMenu[] = [
       {
         category: {
           categoryName: "Pancakes and cheesecakes",
-          categoryImage: "",
+          categoryImage:
+            "https://media.puzatahata.ua/__sized__/images/productosg/2021/02/25/015d863d-4e24-4a20-a524-5d8d971fe205-thumbnail-400x400-100.jpg",
           bonus: "-20%",
         },
         products: [

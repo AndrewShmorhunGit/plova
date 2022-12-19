@@ -32,7 +32,6 @@ export const cartSlice = createSlice({
           const newCarts = {
             ...state.carts,
             [action.payload.slug]: {
-              slugName: action.payload.slug,
               order: [
                 ...currentCard.order.filter(
                   (order) => order.name !== currentOrder.name
@@ -48,7 +47,6 @@ export const cartSlice = createSlice({
         const newCarts = {
           ...state.carts,
           [action.payload.slug]: {
-            slugName: action.payload.slug,
             order: [...currentCard.order, action.payload.newOrder],
           },
         };
@@ -58,7 +56,6 @@ export const cartSlice = createSlice({
       const newCarts = {
         ...state.carts,
         [action.payload.slug]: {
-          slugName: action.payload.slug,
           order: [action.payload.newOrder],
         },
       };
@@ -85,7 +82,6 @@ export const cartSlice = createSlice({
           const newCarts = {
             ...state.carts,
             [action.payload.slug]: {
-              slugName: action.payload.slug,
               order: [
                 ...currentCard.order.map((order) => {
                   if (order.name === currentOrder.name) {
@@ -103,7 +99,6 @@ export const cartSlice = createSlice({
             const newCarts = {
               ...state.carts,
               [action.payload.slug]: {
-                slugName: action.payload.slug,
                 order: [
                   ...currentCard.order.filter(
                     (order) => order.name !== currentOrder.name
@@ -118,7 +113,6 @@ export const cartSlice = createSlice({
           const newCarts = {
             ...state.carts,
             [action.payload.slug]: {
-              slugName: action.payload.slug,
               order: [
                 ...currentCard.order.map((order) => {
                   if (order.name === currentOrder.name) {

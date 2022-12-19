@@ -72,3 +72,39 @@ export const getCurrentCard = (
   slug: string,
   carts: { [slug: string]: ICart | undefined }
 ): ICart | null => carts[slug] ?? null;
+
+export const getTotalCardAmount = (
+  slug: string,
+  carts: {
+    [slug: string]: ICart | undefined;
+  }
+): number => {
+  if (carts !== undefined) {
+    const currentCart = carts[slug];
+    let ordersTotalAmount = 0;
+    currentCart?.order.map((order, index) => {
+      ordersTotalAmount += order.amount;
+      return ordersTotalAmount;
+    });
+    return ordersTotalAmount;
+  }
+  return 0;
+};
+
+export const getTotalCardPrice = (
+  slug: string,
+  carts: {
+    [slug: string]: ICart | undefined;
+  }
+): number => {
+  if (carts !== undefined) {
+    const currentCart = carts[slug];
+    let ordersTotalPrice = 0;
+    currentCart?.order.map((order, index) => {
+      ordersTotalPrice += order.price * order.amount;
+      return ordersTotalPrice;
+    });
+    return ordersTotalPrice;
+  }
+  return 0;
+};

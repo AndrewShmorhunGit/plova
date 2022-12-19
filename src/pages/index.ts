@@ -5,8 +5,10 @@ import { CreditCardPage } from "./CreditCardPage";
 import { ErrorPage } from "./ErrorPage";
 import { HomePage } from "./HomePage";
 import { SearchPage } from "./SearchPage";
+import { OrderPage } from "./OrderPage";
 
 export {
+  OrderPage,
   BrandPage,
   CategoryPage,
   CooperationPage,

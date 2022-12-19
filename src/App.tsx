@@ -8,6 +8,7 @@ import {
   SearchPage,
   CreditCardPage,
   CooperationPage,
+  OrderPage,
 } from "./pages";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/path-to-direction" element={<SearchPage />} />
         <Route path="/card" element={<CreditCardPage />} />
         <Route path="/join" element={<CooperationPage />} />
+        <Route path="/order/*" element={<OrderPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />

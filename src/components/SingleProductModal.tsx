@@ -131,7 +131,6 @@ const Wrapper = styled.main`
     background: #fff;
     position: relative;
     min-width: 60rem;
-    // min-height: 60rem;
     border-radius: 1rem;
     flex-direction: column;
     margin: 10vh auto;
@@ -164,6 +163,8 @@ const Wrapper = styled.main`
     gap: 1rem;
     max-width: 45rem;
     overflow-y: scroll;
+    margin-right: -6rem;
+    padding-right: 3rem;
   }
 
   .data-div::-webkit-scrollbar {

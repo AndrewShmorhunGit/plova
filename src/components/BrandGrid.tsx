@@ -105,6 +105,7 @@ export const BrandGrid: React.FC<{
           </div>
         </div>
       </div>
+      <div className="white-space"></div>
       <footer className="transition"></footer>
     </Wrapper>
   );
@@ -121,13 +122,12 @@ const Wrapper = styled.div`
 
   .grid-body {
     max-width: 156rem;
-    height: auto;
+
     display: grid;
     grid-template-columns: 0.5fr 4.25fr 1.5fr;
     grid-template-rows: auto 1fr;
     column-gap: 1rem;
     row-gap: 1.6rem;
-    height: auto;
   }
 
   .grid-title {
@@ -162,9 +162,8 @@ const Wrapper = styled.div`
   .grid-products {
     background-color: #fff;
     padding: 1rem 0rem 1rem 0rem;
-    min-height: auto;
+    height: auto;
     max-width: 120rem;
-    overflow-y: scroll;
   }
 
   .grid-sections::-webkit-scrollbar {
@@ -173,6 +172,10 @@ const Wrapper = styled.div`
 
   .grid-products::-webkit-scrollbar {
     width: 0;
+  }
+
+  .white-space {
+    min-height: 2rem;
   }
 
   .transition {
@@ -219,6 +222,7 @@ const Wrapper = styled.div`
   }
 
   .search-form {
+    width: 99%;
     background-color: #f5f5f5;
     padding: 1.25rem 1rem 1.2rem 1.8rem;
     border-radius: 10rem;
@@ -246,7 +250,6 @@ const Wrapper = styled.div`
     font-size: 4.8rem;
     font-family: "Gotham", "Arial", sans-serif;
     font-weight: bold;
-    // letter-spacing: 1rem;
   }
 
   h2 {

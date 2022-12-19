@@ -2,10 +2,13 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useAppSelector } from "../hooks/redux";
-import { ICart } from "../modules/modules";
+
+import { Link } from "react-router-dom";
 import {
   getCurrentCard,
   getSlugFromLocation,
+  getTotalCardAmount,
+  getTotalCardPrice,
   showDollarPrice,
 } from "../units/functions";
 import { CartUnit } from "./index";
@@ -20,40 +23,7 @@ export const Cart = () => {
   }, [carts]);
 
   const currentCart = getCurrentCard(slug, carts);
-  const getTotalCardAmount = (
-    slug: string,
-    carts: {
-      [slug: string]: ICart | undefined;
-    }
-  ): number => {
-    if (carts !== undefined) {
-      const currentCart = carts[slug];
-      let ordersTotalAmount = 0;
-      currentCart?.order.map((order, index) => {
-        ordersTotalAmount += order.amount;
-        return ordersTotalAmount;
-      });
-      return ordersTotalAmount;
-    }
-    return 0;
-  };
-  const getTotalCardPrice = (
-    slug: string,
-    carts: {
-      [slug: string]: ICart | undefined;
-    }
-  ): number => {
-    if (carts !== undefined) {
-      const currentCart = carts[slug];
-      let ordersTotalPrice = 0;
-      currentCart?.order.map((order, index) => {
-        ordersTotalPrice += order.price * order.amount;
-        return ordersTotalPrice;
-      });
-      return ordersTotalPrice;
-    }
-    return 0;
-  };
+
   return (
     <Wrapper>
       <main className="cart">
@@ -110,10 +80,10 @@ export const Cart = () => {
           </div>
           {currentCart !== null && currentCart.order.length > 0 && (
             <div className="center">
-              <button className="order-btn btn">
+              <Link to={`/order/${slug}`} className="order-btn btn">
                 Make an Order ({getTotalCardAmount(slug, carts)}) <br />
                 for {showDollarPrice(getTotalCardPrice(slug, carts))}$
-              </button>
+              </Link>
             </div>
           )}
         </div>
@@ -184,7 +154,7 @@ const Wrapper = styled.div`
     font-weight: 400;
     border-top: 4px solid #e9f8f5;
     color: #4d4d4d;
-    height: auto;
+    min-height: 5rem;
   }
 
   .chart-bottom-image {

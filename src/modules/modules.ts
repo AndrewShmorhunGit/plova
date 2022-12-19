@@ -285,7 +285,6 @@ export interface Order {
 }
 
 export interface ICart {
-  slugName: string;
   order: Order[];
 }
 
