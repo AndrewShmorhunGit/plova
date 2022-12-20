@@ -34,6 +34,7 @@ export const BrandGrid: React.FC<{
                     src="https://res.cloudinary.com/glovoapp/w_22,h_22,c_pad,b_transparent,f_auto,q_auto:low,dpr_2.0/filters/sorting/near_me_light"
                     alt=""
                   />
+
                   <p className="icons-p">{`${menu.deliveryTime1}-${menu.deliveryTime2}'`}</p>
                 </div>
                 <div className="del-icon-container center">

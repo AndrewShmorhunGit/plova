@@ -5,6 +5,9 @@ import { useAppDispatch } from "../hooks/redux";
 import { cartSlice } from "../store/slices/cartSlice";
 import { getSlugFromLocation, showDollarPrice } from "../units/functions";
 import { Product } from "./SingleProduct";
+import plus from "../images/menu/plusNew.svg";
+import minus from "../images/menu/minusNew.svg";
+import minusDisabled from "../images/menu/minusNewDisabled.svg";
 
 export const SingleProductModal = ({
   setShowModalProduct,
@@ -64,11 +67,7 @@ export const SingleProductModal = ({
             <div className="counter center">
               <img
                 className="dec-btn"
-                src={
-                  counter !== 1
-                    ? `https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/minus-new.svg`
-                    : "https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/minus-new-disabled.svg"
-                }
+                src={counter !== 1 ? minus : minusDisabled}
                 alt="minus-button"
                 style={{
                   cursor: `${counter !== 1 ? "pointer" : "not-allowed"}`,
@@ -78,7 +77,7 @@ export const SingleProductModal = ({
               <p>{counter}</p>
               <img
                 className="inc-btn"
-                src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/plus-new.svg"
+                src={plus}
                 alt="plus-button"
                 onClick={() => inc()}
               />

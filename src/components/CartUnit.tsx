@@ -3,6 +3,8 @@ import { useAppDispatch } from "../hooks/redux";
 import { Order } from "../modules/modules";
 import { cartSlice } from "../store/slices/cartSlice";
 import { showDollarPrice } from "../units/functions";
+import plus from "../images/menu/plusNew.svg";
+import minus from "../images/menu/minusNew.svg";
 
 export const CartUnit = ({
   singleOrder,
@@ -50,7 +52,7 @@ export const CartUnit = ({
             <img
               onClick={() => decrease()}
               className="dec-btn"
-              src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/minus-new.svg"
+              src={minus}
               alt=""
             />
 
@@ -59,7 +61,7 @@ export const CartUnit = ({
             <img
               onClick={() => increase()}
               className="inc-btn"
-              src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/plus-new.svg"
+              src={plus}
               alt=""
             />
           </div>
