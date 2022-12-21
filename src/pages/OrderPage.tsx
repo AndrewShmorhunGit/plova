@@ -13,6 +13,8 @@ import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import plus from "../images/menu/plusNew.svg";
 import minus from "../images/menu/minusNew.svg";
 import food from "../images/order/food.svg";
+import hardcodedLocation from "../images/order/hardcodedLocation.png";
+import flag from "../images/order/addressInputFlag.png";
 import { cartSlice } from "../store/slices/cartSlice";
 
 export const OrderPage = () => {
@@ -61,7 +63,7 @@ export const OrderPage = () => {
           <div className="info-header">
             <div className="order-header-summary">
               <img src={arrowBack} alt="arrow left" />
-              <h3>Order summary</h3>
+              <h2>Order summary</h2>
             </div>
             <h1>{brandName}</h1>
           </div>
@@ -126,21 +128,72 @@ export const OrderPage = () => {
                   />
                   <div className="cutlery-container">
                     <div>
-                      <h3>Need any cutlery?</h3>
+                      <h4>Need any cutlery?</h4>
                       <p>
                         Help us minimize waste. Only ask for cutlery when you
                         need it.
                       </p>
                     </div>
-                    <button>button</button>
+                    <button>Add</button>
                   </div>
                 </div>
               </div>
             </div>
             <div className="delivery-details">
-              <h3> Delivery details</h3>
+              <h3>Delivery details</h3>
+              <img
+                className="location-image"
+                src={hardcodedLocation}
+                alt="current location on the map"
+              />
+              <div className="delivery-info margin-top">
+                <img src={flag} alt="flag image" />
+                <div className="delivery-container">
+                  <p>Antonovicha str. 74</p>
+                  <img
+                    src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/thin-arrow--right.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div className="delivery-terms">
+                <p>
+                  <span>
+                    {menu && `${menu.deliveryTime1}-${menu.deliveryTime2} min`}
+                  </span>
+                </p>
+                <p> As soon as possible</p>
+              </div>
+              <div className="delivery-info margin-top">
+                <img
+                  src="https://res.cloudinary.com/glovoapp//CX/backendCheckout/light/phone-input"
+                  alt="flag image"
+                />
+                <div className="delivery-container">
+                  <p className="phone-number">Add your phone number</p>
+                  <img
+                    src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/thin-arrow--right.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
             </div>
-            <div className="payment-method">Payment method</div>
+            <div className="payment-method margin-top">
+              <h3>Payment method</h3>
+              <div className="payment-info margin-top">
+                <img
+                  src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/payment-methods-icons/cash.svg"
+                  alt="flag image"
+                />
+                <div className="payment-container">
+                  <p>Pay with cash</p>
+                  <img
+                    src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/thin-arrow--right.svg"
+                    alt="cash"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
           <div className="order-summary">
             <div className="sticky-container">
@@ -183,7 +236,7 @@ export const OrderPage = () => {
                 </p>
               </div>
               <div className="btn-container center">
-                <button className="btn center"> Confirm Order</button>
+                <button className="btn center">Confirm Order</button>
               </div>
             </div>
           </div>
@@ -196,7 +249,7 @@ export const OrderPage = () => {
 
 const Wrapper = styled.main`
   .margin-top {
-    margin-top: 2rem;
+    margin-top: 3rem;
   }
 
   .container {
@@ -241,7 +294,7 @@ const Wrapper = styled.main`
       cursor: pointer;
     }
 
-    h3 {
+    h2 {
       font-size: 3rem;
       font-weight: 500;
     }
@@ -260,6 +313,18 @@ const Wrapper = styled.main`
 
   .order-info {
     grid-column: 1/2;
+  }
+
+  .order-details {
+    padding: 1rem;
+    border-inline-start: 0.3rem solid;
+    border-block-start: 0.3rem solid;
+    border-image-source: radial-gradient(
+      circle at top left,
+      lightgrey,
+      transparent 30%
+    );
+    border-image-slice: 1;
   }
 
   .cart-info {
@@ -300,13 +365,23 @@ const Wrapper = styled.main`
     cursor: pointer;
   }
 
+  .location-image {
+    width: 100%;
+  }
+
   .sticky-container {
     position: sticky;
     top: 2rem;
-    border-radius: 2rem;
-    border: solid red 1px;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
     height: auto;
     padding: 3rem 3rem;
+    border-block-end: 1rem solid;
+    padding-block-end: 3rem;
+
+    border-image-source: linear-gradient(110deg, #00a082, #ffc244);
+    border-image-slice: 1;
   }
 
   .order-summary {
@@ -320,7 +395,7 @@ const Wrapper = styled.main`
     padding-bottom: 1rem;
     border-bottom: solid 1px lightgrey;
 
-    h2 {
+    h4 {
       font-size: 3rem;
       font-weight: 500;
     }
@@ -344,14 +419,18 @@ const Wrapper = styled.main`
     font-weight: 500;
   }
 
-  .allergy-info {
+  .allergy-info,
+  .delivery-info,
+  .payment-info {
     height: 3.2rem;
     cursor: pointer;
     display: flex;
     gap: 1.6rem;
   }
 
-  .allergy-container {
+  .allergy-container,
+  .delivery-container,
+  .payment-container {
     width: 90%;
     display: flex;
     justify-content: space-between;
@@ -383,11 +462,6 @@ const Wrapper = styled.main`
     padding: 1rem 1rem 3rem 0;
     border-bottom: solid 1px lightgrey;
 
-    h3 {
-      font-size: 1.8rem;
-      font-weight: 500;
-    }
-
     p {
       padding: 0.5rem 0;
       font-size: 1.2rem;
@@ -412,10 +486,18 @@ const Wrapper = styled.main`
 
   .delivery-details {
     margin-top: 8rem;
-    h3 {
-      font-size: 3rem;
-      font-weight: 500;
-    }
+  }
+  .delivery-terms {
+    margin: 2rem 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    border: solid 1px red;
+    background-color: #fff3da;
+  }
+  .payment-method {
+    margin-top: 8rem;
   }
 
   .transition {
@@ -426,5 +508,16 @@ const Wrapper = styled.main`
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
     margin: 2rem -10rem -5rem -10rem;
+  }
+
+  h3 {
+    padding-bottom: 2rem;
+    font-size: 3rem;
+    font-weight: 500;
+  }
+
+  h4 {
+    font-size: 1.8rem;
+    font-weight: 500;
   }
 `;
