@@ -4,6 +4,7 @@ import arrowBack from "../images/design/arrowBack.svg";
 import { Link, useLocation } from "react-router-dom";
 import {
   getCurrentCard,
+  getLocalStorageMenu,
   getSlugFromLocation,
   getTotalCardAmount,
   getTotalCardPrice,
@@ -22,7 +23,7 @@ export const OrderPage = () => {
   const location = useLocation();
   const slug = getSlugFromLocation(location);
   const { carts } = useAppSelector((state) => state.carts);
-  const { menu } = useAppSelector((state) => state.menu);
+  let menu = getLocalStorageMenu();
   const currentCart = getCurrentCard(slug, carts);
 
   const brandName = menu?.brandName;

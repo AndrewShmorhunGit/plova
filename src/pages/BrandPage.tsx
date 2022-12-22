@@ -24,6 +24,10 @@ export const BrandPage = () => {
     dispatch(fetchMenu(slug));
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("menu", JSON.stringify(menu));
+  }, [menu]);
+
   if (error) {
     <ErrorPage />;
   }
