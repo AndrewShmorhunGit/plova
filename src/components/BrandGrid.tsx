@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import ratingExcellent from "../images/common/ratingExcellent.png";
+import magnifyingGlass from "../images/design/magnifyingGlass.svg";
+import storeDelivery from "../images/common/storeDelivery.svg";
+import clocks from "../images/common/clocks.avif";
 import { IMenu } from "../modules/modules";
 import { showDollarPrice } from "../units/functions";
 import { Cart, Products, Sections } from "./index";
@@ -29,19 +32,15 @@ export const BrandGrid: React.FC<{
               <h1>{menu.brandName}</h1>
               <div className="icons">
                 <div className="del-icon-container center">
-                  <img
-                    className="del-icon"
-                    src="https://res.cloudinary.com/glovoapp/w_22,h_22,c_pad,b_transparent,f_auto,q_auto:low,dpr_2.0/filters/sorting/near_me_light"
-                    alt=""
-                  />
+                  <img className="del-icon" src={clocks} alt="" />
 
                   <p className="icons-p">{`${menu.deliveryTime1}-${menu.deliveryTime2}'`}</p>
                 </div>
                 <div className="del-icon-container center">
                   <img
                     className="del-icon"
-                    src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/glyphs/store-delivery-light.svg"
-                    alt=""
+                    src={storeDelivery}
+                    alt="delivery moped"
                   />
                   <p className="icons-p">
                     {showDollarPrice(menu.deliveryPrice)} $
@@ -68,27 +67,7 @@ export const BrandGrid: React.FC<{
           <div className="grid-products">
             <form action="onSubmit" className="search-form">
               <label>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="13"
-                  height="15"
-                  fill="none"
-                >
-                  <circle
-                    cx="6"
-                    cy="6.721"
-                    r="5"
-                    stroke="#9B9B9B"
-                    strokeWidth="1.6"
-                  />
-                  <path
-                    stroke="#9B9B9B"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.6"
-                    d="M9.396 10.723L12 13.72"
-                  />
-                </svg>
+                <img src={magnifyingGlass} alt="" />
               </label>
               <input
                 type="text"
@@ -107,7 +86,9 @@ export const BrandGrid: React.FC<{
         </div>
       </div>
       <div className="white-space"></div>
-      <footer className="transition"></footer>
+      <div className="hidden">
+        <footer className="transition"></footer>
+      </div>
     </Wrapper>
   );
 };
@@ -177,6 +158,10 @@ const Wrapper = styled.div`
 
   .white-space {
     min-height: 2rem;
+  }
+
+  .hidden {
+    overflow: hidden;
   }
 
   .transition {

@@ -165,6 +165,54 @@ span {
   font-weight: 600;
 }
 
+/* SWITCH */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 7rem;
+  height: 4rem;
+  margin: 0 1rem;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 2px solid lightgrey;
+  transition: 0.5s;
+  border-radius: 4rem;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 2.8rem;
+  width: 2.8rem;
+  left: 0.5rem;
+  bottom: 0.2rem;
+  background: white;
+  border: 2px solid grey;
+  border-radius: 5rem;
+  transition: 0.5s;
+}
+
+input:checked + .slider {
+  background-color: #2abb98ff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(2.4rem);
+}
+
+/* ************* */
+
 style {
   --helio-primitive-color-aqua50: #e5f4fcff;
   --helio-primitive-color-aqua800: #05202eff;

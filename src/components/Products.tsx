@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useAppDispatch } from "../hooks/redux";
 import { IMenu, IProducts } from "../modules/modules";
 import { menusSlice } from "../store/slices/menuSlice";
+import { goToMenuStart } from "../units/functions";
 import { ProductsCategory } from "./ProductsCategory";
 import { SingleProduct } from "./SingleProduct";
 
@@ -17,6 +18,7 @@ export const Products = ({
   getCurrentSubMenu: (categoryName: string | undefined) => IProducts[];
 }) => {
   const dispatch = useAppDispatch();
+
   return (
     <Wrapper>
       <main>
@@ -42,7 +44,7 @@ export const Products = ({
                         menusSlice.actions.selectCategory(
                           item.category.categoryName
                         )
-                      )
+                      ) && goToMenuStart()
                     }
                   >
                     <ProductsCategory

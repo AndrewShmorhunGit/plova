@@ -1,0 +1,32 @@
+<svg
+            className="squares"
+            xmlns="http://www.w3.org/2000/svg"
+            width="13"
+            height="12"
+            fill="none"
+          >
+            <rect
+              width="5.143"
+              height="5.143"
+              x="7.074"
+              fill="#00A082"
+              rx="1"
+            />
+            <rect
+              width="5.143"
+              height="5.143"
+              x="7.074"
+              y="6.857"
+              fill="#00A082"
+              rx="1"
+            />
+            <rect width="5.143" height="5.143" x=".219" fill="#00A082" rx="1" />
+            <rect
+              width="5.143"
+              height="5.143"
+              x=".219"
+              y="6.857"
+              fill="#00A082"
+              rx="1"
+            />
+          </svg>

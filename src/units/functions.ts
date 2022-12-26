@@ -117,3 +117,17 @@ export const getTotalCardPrice = (
   }
   return 0;
 };
+
+export function goToMenuStart() {
+  if (window.pageYOffset > 350) {
+    window.scrollBy(350, -50);
+    setTimeout(goToMenuStart, 0);
+  }
+}
+
+export function goToTop() {
+  if (window.pageYOffset > 0) {
+    window.scrollBy(0, -75);
+    setTimeout(goToTop, 0);
+  }
+}

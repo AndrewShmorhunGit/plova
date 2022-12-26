@@ -23,6 +23,17 @@ export const Cart = () => {
   }, [carts]);
 
   const currentCart = getCurrentCard(slug, carts);
+  const totalPrice = getTotalCardPrice(slug, carts);
+  const withoutFeePrice = 5;
+
+  const getGradientRatio = (): number => {
+    if (totalPrice < 5) {
+      return (totalPrice / withoutFeePrice) * 100;
+    }
+    return 100;
+  };
+
+  const gradientRatio = getGradientRatio();
 
   return (
     <Wrapper>
@@ -67,22 +78,44 @@ export const Cart = () => {
             </div>
           )}
         </div>
-        <div className="chart-bottom center">
-          <div style={{ display: "flex" }}>
-            <img
-              className="chart-bottom-image"
-              src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/feedback/info.svg"
-              alt=""
-            />
-            <p>
-              Reach <span>5,00 $</span> to save <span>1,00 $</span> in fees!
-            </p>
-          </div>
+        <div
+          className={
+            totalPrice === 0
+              ? `chart-bottom center`
+              : `chart-bottom center gradient-border`
+          }
+          style={
+            totalPrice
+              ? {
+                  borderImageSource: `${`linear-gradient(90deg,#00a082 ${gradientRatio}%, #e9f8f5 0%)`}`,
+                }
+              : { borderImageSource: "" }
+          }
+        >
+          {totalPrice >= 5 ? (
+            <div className={`fee-info margin-top`}>
+              <p>
+                🎉 Hooray! You are saving <span>1.00$!</span> in fees
+              </p>
+            </div>
+          ) : (
+            <div className={`fee-info`}>
+              <img
+                className="chart-bottom-image"
+                src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/feedback/info.svg"
+                alt=""
+              />
+              <p>
+                Reach <span>5,00 $</span> to save <span>1,00 $</span> in fees!
+              </p>
+            </div>
+          )}
+
           {currentCart !== null && currentCart.order.length > 0 && (
             <div className="center">
               <Link to={`/order/${slug}`} className="order-btn btn">
                 Make an Order ({getTotalCardAmount(slug, carts)}) <br />
-                for {showDollarPrice(getTotalCardPrice(slug, carts))}$
+                for {showDollarPrice(totalPrice)}$
               </Link>
             </div>
           )}
@@ -147,14 +180,28 @@ const Wrapper = styled.div`
   }
 
   .chart-bottom {
+    display: flex;
     flex-direction: column;
     gap: 2rem;
     padding: 1rem 0rem;
     font-size: 1.2rem;
     font-weight: 400;
-    border-top: 4px solid #e9f8f5;
     color: #4d4d4d;
     min-height: 5rem;
+    border-block-start: 0.4rem solid;
+    padding-block-start: 0.4rem;
+    border-block-start: 0.4rem solid #e9f8f5;
+    transition: border 2s;
+  }
+
+  .gradient-border {
+    border-image-source: linear-gradient(110deg, #00a082, #e9f8f5);
+    border-image-slice: 1;
+  }
+
+  .fee-info {
+    display: flex;
+    margin: 1rem;
   }
 
   .chart-bottom-image {

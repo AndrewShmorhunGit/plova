@@ -67,8 +67,8 @@ export const Jumbotron = () => {
                     className="category-logo"
                     style={{
                       animationName: `jumbotron-appear`,
-                      animationDuration: `${id * 0.1}s`,
-                      animationDelay: `${id * 0.35}s`,
+                      animationDuration: `${id / 15}s`,
+                      animationDelay: `${id / 15}s`,
                       animationFillMode: "backwards",
                       backgroundImage: "radial-gradient(white,#f1f3f5 )",
                     }}

@@ -50,6 +50,7 @@ export const OrderPage = () => {
 
   const productsPrice = getTotalCardPrice(slug, carts);
   const smallOrderFeePrice = 1;
+
   return (
     <Wrapper>
       <main className="container">
@@ -135,7 +136,13 @@ export const OrderPage = () => {
                         need it.
                       </p>
                     </div>
-                    <button>Add</button>
+
+                    <div>
+                      <label className="switch">
+                        <input type="checkbox" />
+                        <span className="slider"></span>
+                      </label>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -494,7 +501,7 @@ const Wrapper = styled.main`
     display: flex;
     flex-direction: column;
     border-radius: 1rem;
-    border: solid 1px red;
+    border: solid 1px orange;
     background-color: #fff3da;
   }
   .payment-method {

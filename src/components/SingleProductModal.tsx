@@ -5,6 +5,7 @@ import { useAppDispatch } from "../hooks/redux";
 import { cartSlice } from "../store/slices/cartSlice";
 import { getSlugFromLocation, showDollarPrice } from "../units/functions";
 import { Product } from "./SingleProduct";
+import closeIcon from "../images/common/closeIcon.svg";
 import plus from "../images/menu/plusNew.svg";
 import minus from "../images/menu/minusNew.svg";
 import minusDisabled from "../images/menu/minusNewDisabled.svg";
@@ -16,9 +17,8 @@ export const SingleProductModal = ({
   setShowModalProduct: React.Dispatch<React.SetStateAction<boolean>>;
   product: Product;
 }) => {
-  const location = useLocation();
   const dispatch = useAppDispatch();
-  const slug = getSlugFromLocation(location);
+  const slug = getSlugFromLocation(useLocation());
 
   const [counter, setCounter] = useState(1);
 
@@ -51,15 +51,16 @@ export const SingleProductModal = ({
             className="close-btn"
             onClick={() => setShowModalProduct(false)}
           >
-            <img
-              src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/close-icon.svg"
-              alt=""
-            />
+            <img src={closeIcon} alt="close X" />
           </button>
 
           <div className="data-div">
             <div className="center">
-              <img className="product-image" src={product.image} alt="" />
+              <img
+                className="product-image"
+                src={product.image}
+                alt="product image"
+              />
             </div>
             <h2 className="product-name">{product.name}</h2>
             <p className="price">{showDollarPrice(product.price)} $</p>
@@ -121,7 +122,7 @@ const Wrapper = styled.main`
 
   .product-image {
     margin: 2rem;
-    min-height: 30rem;
+    // min-height: 30rem;
     min-width: 30rem;
     border-radius: 2rem;
   }

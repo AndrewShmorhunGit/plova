@@ -8,7 +8,7 @@ import {
 } from "../components/index";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { fetchMenu } from "../store/actions/menuActions";
-import { getSlugFromLocation } from "../units/functions";
+import { getSlugFromLocation, goToTop } from "../units/functions";
 import { ErrorPage } from "./ErrorPage";
 
 export const BrandPage = () => {
@@ -22,6 +22,7 @@ export const BrandPage = () => {
 
   useEffect(() => {
     dispatch(fetchMenu(slug));
+    goToTop();
   }, []);
 
   useEffect(() => {
@@ -32,24 +33,26 @@ export const BrandPage = () => {
     <ErrorPage />;
   }
 
-  if (loading || menu === null) {
+  if (loading) {
     return (
       <>
         <LoadingHeader />
         <LoadingBrandGrid />
       </>
     );
+  } else if (menu === null) {
+    <ErrorPage />;
+  } else {
+    return (
+      <>
+        <BrandHeader menu={menu} loading={loading} />
+        <BrandGrid
+          menu={menu}
+          loading={loading}
+          error={error}
+          selectedCategory={selectedCategory}
+        />
+      </>
+    );
   }
-
-  return (
-    <>
-      <BrandHeader menu={menu} loading={loading} />
-      <BrandGrid
-        menu={menu}
-        loading={loading}
-        error={error}
-        selectedCategory={selectedCategory}
-      />
-    </>
-  );
 };

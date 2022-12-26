@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { useAppDispatch } from "../hooks/redux";
 import { IMenu } from "../modules/modules";
 import { menusSlice } from "../store/slices/menuSlice";
+import { goToMenuStart } from "../units/functions";
+import squares from "../images/menu/squares.svg";
 
 export const Sections = ({
   menu,
@@ -19,38 +21,7 @@ export const Sections = ({
           className="sections center"
           onClick={() => dispatch(menusSlice.actions.unselectCategory())}
         >
-          <svg
-            className="squares"
-            xmlns="http://www.w3.org/2000/svg"
-            width="13"
-            height="12"
-            fill="none"
-          >
-            <rect
-              width="5.143"
-              height="5.143"
-              x="7.074"
-              fill="#00A082"
-              rx="1"
-            />
-            <rect
-              width="5.143"
-              height="5.143"
-              x="7.074"
-              y="6.857"
-              fill="#00A082"
-              rx="1"
-            />
-            <rect width="5.143" height="5.143" x=".219" fill="#00A082" rx="1" />
-            <rect
-              width="5.143"
-              height="5.143"
-              x=".219"
-              y="6.857"
-              fill="#00A082"
-              rx="1"
-            />
-          </svg>
+          <img src={squares} alt="" />
           <h3 className="sections-title">sections</h3>
         </div>
         {menu.menu.map((item, index) => {
@@ -61,7 +32,7 @@ export const Sections = ({
               onClick={() =>
                 dispatch(
                   menusSlice.actions.selectCategory(item.category.categoryName)
-                )
+                ) && goToMenuStart()
               }
             >
               <p className="menu">
