@@ -27,7 +27,11 @@ import { LoadingHeader } from "./LoadingHeader";
 import { LoadingBrandGrid } from "./LoadingBrandGrid";
 import { LoadingProducts } from "./LoadingProducts";
 import { CartUnit } from "./CartUnit";
+import { ExitFromOrderModal } from "./ExitFromOrderModal";
+import { AllergyModal } from "./AllergyModal";
 export {
+  AllergyModal,
+  ExitFromOrderModal,
   CartUnit,
   LoadingProducts,
   LoadingBrandGrid,

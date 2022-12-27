@@ -40,19 +40,23 @@ export const BrandPage = () => {
         <LoadingBrandGrid />
       </>
     );
-  } else if (menu === null) {
-    <ErrorPage />;
-  } else {
-    return (
-      <>
-        <BrandHeader menu={menu} loading={loading} />
-        <BrandGrid
-          menu={menu}
-          loading={loading}
-          error={error}
-          selectedCategory={selectedCategory}
-        />
-      </>
-    );
   }
+
+  return (
+    <>
+      {menu ? (
+        <>
+          <BrandHeader menu={menu} loading={loading} />
+          <BrandGrid
+            menu={menu}
+            loading={loading}
+            error={error}
+            selectedCategory={selectedCategory}
+          />
+        </>
+      ) : (
+        <ErrorPage />
+      )}
+    </>
+  );
 };

@@ -1,6 +1,13 @@
 import styled from "styled-components";
 import logo from "../logos/logo.png";
 import arrowBack from "../images/design/arrowBack.svg";
+import plus from "../images/menu/plusNew.svg";
+import minus from "../images/menu/minusNew.svg";
+import food from "../images/order/food.svg";
+import hardcodedLocation from "../images/order/hardcodedLocation.png";
+import flag from "../images/order/addressInputFlag.png";
+import general from "../images/order/general.svg";
+import { TbCash } from "react-icons/tb";
 import { Link, useLocation } from "react-router-dom";
 import {
   getCurrentCard,
@@ -11,20 +18,20 @@ import {
   showDollarPrice,
 } from "../units/functions";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
-import plus from "../images/menu/plusNew.svg";
-import minus from "../images/menu/minusNew.svg";
-import food from "../images/order/food.svg";
-import hardcodedLocation from "../images/order/hardcodedLocation.png";
-import flag from "../images/order/addressInputFlag.png";
 import { cartSlice } from "../store/slices/cartSlice";
+import { useState } from "react";
+import { AllergyModal, ExitFromOrderModal } from "../components/index";
 
 export const OrderPage = () => {
   const dispatch = useAppDispatch();
   const location = useLocation();
   const slug = getSlugFromLocation(location);
   const { carts } = useAppSelector((state) => state.carts);
-  let menu = getLocalStorageMenu();
+  const menu = getLocalStorageMenu();
   const currentCart = getCurrentCard(slug, carts);
+
+  const [allergyModal, setAllergyModal] = useState(false);
+  const [confirmExitModal, setConfirmExitModal] = useState(false);
 
   const brandName = menu?.brandName;
 
@@ -36,6 +43,22 @@ export const OrderPage = () => {
         operation: "inc",
       })
     );
+  };
+
+  const properDecrease = (productName: string): void => {
+    if (currentCart?.order.length === 1 && currentCart?.order[0].amount === 1) {
+      setConfirmExitModal(!confirmExitModal);
+
+      return;
+    } else {
+      dispatch(
+        cartSlice.actions.changeCartAmount({
+          slug,
+          name: productName,
+          operation: "dec",
+        })
+      );
+    }
   };
 
   const decrease = (productName: string) => {
@@ -53,6 +76,19 @@ export const OrderPage = () => {
 
   return (
     <Wrapper>
+      {/* ALLERGY MODAL */}
+      {allergyModal && <AllergyModal setAllergyModal={setAllergyModal} />}
+
+      {/* CONFIRM EXIT MODAL */}
+      {confirmExitModal && (
+        <ExitFromOrderModal
+          setConfirmExitModal={setConfirmExitModal}
+          currentCart={currentCart}
+          slug={slug}
+          decrease={decrease}
+        />
+      )}
+
       <main className="container">
         <div className="order-header">
           <div className="logo-container">
@@ -64,7 +100,9 @@ export const OrderPage = () => {
         <div className="order-grid">
           <div className="info-header">
             <div className="order-header-summary">
-              <img src={arrowBack} alt="arrow left" />
+              <Link to={`/brand/${slug}`}>
+                <img src={arrowBack} alt="arrow left" />
+              </Link>
               <h2>Order summary</h2>
             </div>
             <h1>{brandName}</h1>
@@ -89,7 +127,7 @@ export const OrderPage = () => {
                           <img
                             src={minus}
                             alt="minus in circle"
-                            onClick={() => decrease(order.name)}
+                            onClick={() => properDecrease(order.name)}
                           />
                         </div>
 
@@ -110,7 +148,11 @@ export const OrderPage = () => {
                     </div>
                   );
                 })}
-                <div className="allergy-info margin-top">
+
+                <div
+                  className="allergy-info margin-top"
+                  onClick={() => setAllergyModal(!allergyModal)}
+                >
                   <img
                     src="https://res.cloudinary.com/glovoapp//CX/backendCheckout/light/allergies-active"
                     alt="pill image"
@@ -201,6 +243,43 @@ export const OrderPage = () => {
                   />
                 </div>
               </div>
+              <div className="payment-info margin-top">
+                <label htmlFor="payment-selector">
+                  <img src={general} alt="flag image" />
+                </label>
+
+                <select name="method" id="payment-selector" required>
+                  <option value="cash">
+                    <div className="center">
+                      <img
+                        src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/payment-methods-icons/cash.svg"
+                        alt="flag image"
+                      />
+                      <div className="payment-container">
+                        <TbCash />
+                        <p>Pay with cash</p>
+                        <img
+                          src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/thin-arrow--right.svg"
+                          alt="cash"
+                        />
+                      </div>
+                    </div>
+                  </option>
+                  <option value="google-pay">google pay</option>
+                  <option value="add-new-cart">add a cart</option>
+                </select>
+                {/* <img
+                  src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/payment-methods-icons/cash.svg"
+                  alt="flag image"
+                />
+                <div className="payment-container">
+                  <p>Pay with cash</p>
+                  <img
+                    src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/thin-arrow--right.svg"
+                    alt="cash"
+                  />
+                </div> */}
+              </div>
             </div>
           </div>
           <div className="order-summary">
@@ -250,7 +329,9 @@ export const OrderPage = () => {
           </div>
         </div>
       </main>
-      <footer className="transition"></footer>
+      <div className="transition-container">
+        <footer className="transition"></footer>
+      </div>
     </Wrapper>
   );
 };
@@ -324,7 +405,8 @@ const Wrapper = styled.main`
   }
 
   .order-details {
-    padding: 1rem;
+    padding: 2rem 1rem;
+    border-radius: 100vh;
     border-inline-start: 0.3rem solid;
     border-block-start: 0.3rem solid;
     border-image-source: radial-gradient(
@@ -495,6 +577,7 @@ const Wrapper = styled.main`
   .delivery-details {
     margin-top: 8rem;
   }
+
   .delivery-terms {
     margin: 2rem 0;
     padding: 2rem;
@@ -504,8 +587,25 @@ const Wrapper = styled.main`
     border: solid 1px orange;
     background-color: #fff3da;
   }
+
   .payment-method {
     margin-top: 8rem;
+
+    select {
+      font-size: 1.8rem;
+      width: 90%;
+      border: 0;
+      border-bottom: 1px solid lightgrey;
+      appearance: none;
+    }
+
+    option {
+      padding: 1rem;
+    }
+  }
+
+  .transition-container {
+    overflow: hidden;
   }
 
   .transition {

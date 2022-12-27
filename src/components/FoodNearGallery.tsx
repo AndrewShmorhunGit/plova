@@ -7,6 +7,7 @@ import decoImage from "../images/design/decoImageFoodGallery.png";
 import { GalleryLoader } from "./GalleryLoader";
 import { GalleryUnit } from "./GalleryUnit";
 import errorImage from "../images/error/sad_glopi.svg";
+import decorationCurve from "../images/design/curve_small.svg";
 
 export const FoodNearGallery = () => {
   const dispatch = useAppDispatch();
@@ -24,20 +25,12 @@ export const FoodNearGallery = () => {
   return (
     <Wrapper>
       <div className="decoration-svg">
-        <img
-          src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/curve--small.svg"
-          alt="deco-curve"
-          className="curve"
-        />
+        <img src={decorationCurve} alt="deco-curve" className="curve" />
       </div>
       {error ? (
         <div>
           <div className="decoration-svg">
-            <img
-              src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/curve--small.svg"
-              alt="deco-curve"
-              className="curve"
-            />
+            <img src={decorationCurve} alt="deco-curve" className="curve" />
           </div>
           <div className="error-message">
             <p>Ooops, something went wrong!</p>
@@ -225,6 +218,7 @@ const Wrapper = styled.section`
 
   .title {
     padding: 7.8rem 0 4.8rem 8rem;
+    position: relative;
   }
 
   .food-title {
@@ -232,7 +226,6 @@ const Wrapper = styled.section`
     gap: 1rem;
     font-size: 3rem;
     font-weight: 500;
-    position: relative;
   }
 
   .deco {
@@ -240,6 +233,8 @@ const Wrapper = styled.section`
   }
 
   .deco-image {
+    position: absolute;
+    // right: 0.5rem;
     width: 1rem;
   }
 
