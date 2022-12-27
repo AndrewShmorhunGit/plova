@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import closeIcon from "../images/common/closeIcon.svg";
 
@@ -6,7 +7,7 @@ export const AllergyModal = ({
 }: {
   setAllergyModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const changeHandler = () => {};
+  const [allergyInfo, setAllergyInfo] = useState("");
 
   return (
     <Wrapper>
@@ -19,15 +20,16 @@ export const AllergyModal = ({
           <h1>Your order</h1>
           <p>Add your allergies</p>
 
-          <form className="form" action="#" onChange={changeHandler}>
+          <form className="form" action="#">
             <textarea
               className="text-content"
               name="Allergy area"
-              value=""
+              value={allergyInfo}
               placeholder="Let the restaurant know what they should take into account"
               maxLength={255}
+              onChange={(event) => setAllergyInfo(event.target.value)}
             />
-            <p className="characters-left">{255}</p>
+            <p className="characters-left">{255 - allergyInfo.length}</p>
           </form>
 
           <button className="btn center" onClick={() => setAllergyModal(false)}>
@@ -89,15 +91,16 @@ const Wrapper = styled.main`
     height: 18rem;
     border-radius: 2rem;
     padding 1rem;
-    color: darkgrey;
+    color: #343a40  ;
     border: none;
     resize: none;
   }
 
   .characters-left {
-    color: grey;
+    color: black ;
+    font-weight: 700;
     position: absolute;
-    bottom: 0.5rem;
+    bottom: 0.75rem;
     right: 1rem;
   }
 

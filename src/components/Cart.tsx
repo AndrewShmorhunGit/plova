@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useAppSelector } from "../hooks/redux";
-
 import { Link } from "react-router-dom";
 import {
   getCurrentCard,
@@ -95,7 +94,7 @@ export const Cart = () => {
           {totalPrice >= 5 ? (
             <div className={`fee-info margin-top`}>
               <p>
-                🎉 Hooray! You are saving <span>1.00$!</span> in fees
+                🎉 Hooray! You are saving <span>1.00$</span> in fees!
               </p>
             </div>
           ) : (
@@ -191,7 +190,7 @@ const Wrapper = styled.div`
     border-block-start: 0.4rem solid;
     padding-block-start: 0.4rem;
     border-block-start: 0.4rem solid #e9f8f5;
-    transition: border 2s;
+    transition: border 0.2s;
   }
 
   .gradient-border {

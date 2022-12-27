@@ -6,8 +6,8 @@ import minus from "../images/menu/minusNew.svg";
 import food from "../images/order/food.svg";
 import hardcodedLocation from "../images/order/hardcodedLocation.png";
 import flag from "../images/order/addressInputFlag.png";
-import general from "../images/order/general.svg";
-import { TbCash } from "react-icons/tb";
+// import general from "../images/order/general.svg";
+// import { TbCash } from "react-icons/tb";
 import { Link, useLocation } from "react-router-dom";
 import {
   getCurrentCard,
@@ -15,25 +15,33 @@ import {
   getSlugFromLocation,
   getTotalCardAmount,
   getTotalCardPrice,
+  goToTop,
   showDollarPrice,
 } from "../units/functions";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { cartSlice } from "../store/slices/cartSlice";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AllergyModal, ExitFromOrderModal } from "../components/index";
 
 export const OrderPage = () => {
   const dispatch = useAppDispatch();
-  const location = useLocation();
-  const slug = getSlugFromLocation(location);
   const { carts } = useAppSelector((state) => state.carts);
-  const menu = getLocalStorageMenu();
-  const currentCart = getCurrentCard(slug, carts);
+
+  const location = useLocation();
+  const menu = useMemo(() => getLocalStorageMenu(), []);
+  const slug = useMemo(() => getSlugFromLocation(location), [location]);
+  const currentCart = useMemo(() => getCurrentCard(slug, carts), [carts]);
 
   const [allergyModal, setAllergyModal] = useState(false);
   const [confirmExitModal, setConfirmExitModal] = useState(false);
 
+  useEffect(() => {
+    goToTop();
+  }, []);
+
+  const productsPrice = getTotalCardPrice(slug, carts);
   const brandName = menu?.brandName;
+  const smallOrderFeePrice = 1;
 
   const increase = (productName: string) => {
     dispatch(
@@ -70,9 +78,6 @@ export const OrderPage = () => {
       })
     );
   };
-
-  const productsPrice = getTotalCardPrice(slug, carts);
-  const smallOrderFeePrice = 1;
 
   return (
     <Wrapper>
@@ -161,7 +166,7 @@ export const OrderPage = () => {
                     <p>Any allergies?</p>
                     <img
                       src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/thin-arrow--right.svg"
-                      alt=""
+                      alt="thin arrow right"
                     />
                   </div>
                 </div>
@@ -202,7 +207,7 @@ export const OrderPage = () => {
                   <p>Antonovicha str. 74</p>
                   <img
                     src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/thin-arrow--right.svg"
-                    alt=""
+                    alt="thin arrow right"
                   />
                 </div>
               </div>
@@ -243,7 +248,7 @@ export const OrderPage = () => {
                   />
                 </div>
               </div>
-              <div className="payment-info margin-top">
+              {/* <div className="payment-info margin-top">
                 <label htmlFor="payment-selector">
                   <img src={general} alt="flag image" />
                 </label>
@@ -268,18 +273,7 @@ export const OrderPage = () => {
                   <option value="google-pay">google pay</option>
                   <option value="add-new-cart">add a cart</option>
                 </select>
-                {/* <img
-                  src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/payment-methods-icons/cash.svg"
-                  alt="flag image"
-                />
-                <div className="payment-container">
-                  <p>Pay with cash</p>
-                  <img
-                    src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/thin-arrow--right.svg"
-                    alt="cash"
-                  />
-                </div> */}
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="order-summary">
@@ -352,6 +346,7 @@ const Wrapper = styled.main`
     top: 0;
     background: transparent;
     height: 10rem;
+    z-index: -1;
   }
 
   .logo-container {

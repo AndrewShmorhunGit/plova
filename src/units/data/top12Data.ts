@@ -776,7 +776,7 @@ export const top12Object = {
             type: "web",
             id: 35591,
             urn: "glv:store:3e0a4bb9-91a2-43e6-92d6-8fe21234270a",
-            name: "THIS IS ПИВБАР",
+            name: "THIS IS PIVBAR",
             slug: "this-is-pivbar-kie",
             fiscalName: "THIS IS ПИВБАР (BEERBAR)",
             imageId: "Stores/omqrjrhhvhu4rcrmsm7c",

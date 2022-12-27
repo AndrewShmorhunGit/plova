@@ -22,7 +22,7 @@ export const GalleryUnit: React.FC<GalleryProps> = ({
   delObj,
   promo,
 }) => {
-  const checkRateFunc = (data: any) => {
+  const checkRateFunc = (data: string): JSX.Element | string => {
     if (Number(data.slice(0, -1)) > 96) {
       return (
         <>
@@ -59,11 +59,7 @@ export const GalleryUnit: React.FC<GalleryProps> = ({
   return (
     <Wrapper>
       <div className="gallery-div">
-        <Link
-          to={`brand/${store.slug}`}
-          className="gallery-unit-link"
-          // onClick={() => console.log(menuGlobal[currentMenuIndex])}
-        >
+        <Link to={`brand/${store.slug}`} className="gallery-unit-link">
           <div className="div-container ">
             <div
               className="gallery-unit"
