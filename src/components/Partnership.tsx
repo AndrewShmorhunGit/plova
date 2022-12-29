@@ -47,8 +47,11 @@ export const Partnership = () => {
           </div>
         </div>
       </section>
-      <div style={{ backgroundColor: "#e9f8f5" }}>
-        <div className="transition"></div>
+      <div
+        style={{ backgroundColor: "#e9f8f5" }}
+        className="transition-container"
+      >
+        <div className="transition" />
       </div>
     </Wrapper>
   );
@@ -114,6 +117,11 @@ const Wrapper = styled.section`
     max-width: 200%;
   }
 
+  .transition-container {
+    overflow: hidden;
+    width: 105vw;
+  }
+
   .transition {
     display: block;
     width: 110%;
@@ -121,7 +129,7 @@ const Wrapper = styled.section`
     background-color: #1d1d1d;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
-    margin: 0rem -10rem -5rem -10rem;
+    margin: 0rem -5rem -5rem -5rem;
   }
 
   h2 {

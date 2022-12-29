@@ -86,8 +86,8 @@ export const BrandGrid: React.FC<{
         </div>
       </div>
       <div className="white-space"></div>
-      <div className="hidden">
-        <footer className="transition"></footer>
+      <div className="transition-container">
+        <footer className="transition" />
       </div>
     </Wrapper>
   );
@@ -160,8 +160,9 @@ const Wrapper = styled.div`
     min-height: 2rem;
   }
 
-  .hidden {
+  .transition-container {
     overflow: hidden;
+    width: 100vw;
   }
 
   .transition {
@@ -171,7 +172,7 @@ const Wrapper = styled.div`
     background-color: #1d1d1d;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
-    margin: 2rem -10rem -5rem -10rem;
+    margin: 0rem -5rem -5rem -5rem;
   }
 
   .brand-title {

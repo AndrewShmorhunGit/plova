@@ -324,7 +324,7 @@ export const OrderPage = () => {
         </div>
       </main>
       <div className="transition-container">
-        <footer className="transition"></footer>
+        <footer className="transition" />
       </div>
     </Wrapper>
   );
@@ -601,6 +601,7 @@ const Wrapper = styled.main`
 
   .transition-container {
     overflow: hidden;
+    width: 100vw;
   }
 
   .transition {
@@ -610,7 +611,7 @@ const Wrapper = styled.main`
     background-color: #1d1d1d;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
-    margin: 2rem -10rem -5rem -10rem;
+    margin: 0rem -5rem -5rem -5rem;
   }
 
   h3 {

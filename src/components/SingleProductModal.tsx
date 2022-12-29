@@ -122,7 +122,6 @@ const Wrapper = styled.main`
 
   .product-image {
     margin: 2rem;
-    // min-height: 30rem;
     min-width: 30rem;
     border-radius: 2rem;
   }
