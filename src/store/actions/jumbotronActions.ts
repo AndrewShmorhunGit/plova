@@ -15,7 +15,7 @@ export const fetchJumbotron = () => {
   return (dispatch: AppDispatch) => {
     dispatch(jumbotronSlice.actions.fetching());
 
-    wait(mockFetchJumbotronRequest, 2000)
+    wait(mockFetchJumbotronRequest, 1000)
       .then(function (value) {
         dispatch(jumbotronSlice.actions.fetchSuccess(value));
       })

@@ -1,49 +1,51 @@
-# 🚴‍♀️ Plova 🚴‍♂️
+![Markdown Logo](./src/logos/logo.png)
 
-[> Plova web site](http://nodeca.github.io/pica/demo/ "title text!")
+`Demo version of famous delivery application 'Glovo'`
 
-```
-Demo version of famous delivery application 'Glovo'
-```
+####[Glovo](https://glovoapp.com/)
 
-App presentation using development best practices like:
+> **App presentation using development best practices like:**
 
-1. React & TypeScript
-2. Redux, redux-tool-kit
-3. Git and Github
-4. And more, and more.. to be continue..
+1. JavaScript
+2. React
+3. Type Script
+4. React Testing Library
+5. Git and Github
 
 ---
 
-Libraries are used in app:
+**Libraries**
 
-- React router
-- Redux toolkit
-- Axios
-- Stripe
-- Normalize.css
-- Styled-components
-- React Icons
+- [React Router](https://reactrouter.com/en/main)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Axios](https://axios-http.com/)
+- [Normalize.css](https://github.com/necolas/normalize.css/)
+- [Styled Components](https://styled-components.com/)
+- [React Hook Form](https://legacy.react-hook-form.com/)
+<!-- - [Use Places Autocomplete](https://developers.google.com/maps/documentation/javascript/place-autocomplete) -->
+- [React Use Geolocation](https://www.npmjs.com/package/react-hook-geolocation)
+<!-- - [Geocoding](https://developers.google.com/maps/documentation/geocoding/overview) -->
 
-- use-places-autocomplete
-- react-use-geolocation
+**Design tools**
 
-Design tools:
+- [Figma](https://www.figma.com/)
+- [Favicon](https://favicon.io/)
+- [Snazzy Maps](https://favicon.io/)
 
-- Figma
-- Favicon
-- Snazzy Maps
+**API's**
 
-API's
-
-- Mock API server
+- Mock API Server(Temporary)
 - Google Maps Platform:
-  Geocoding API | Maps JavaScript API |Places API
+  Geocoding API, Maps JavaScript API, Places API
+
+**Collaboration**
+
+- Cooperation with back-end developer to operate with server
 
 ---
 
-_Special thanks for the development of the back-end for the application and mentoring in the project to my mentor, senior back-end developer Danko Andrey_
+Special thanks for the development of the back-end for the application and mentoring in the project to my mentor, senior software developer Andrew Danko
 
 ## How to start app?
 
-- Maybe this section is not needed.
+- In progress..
