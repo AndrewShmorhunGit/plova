@@ -211,8 +211,6 @@ input:checked + .slider:before {
   transform: translateX(2.4rem);
 }
 
-/* ************* */
-
 style {
   --helio-primitive-color-aqua50: #e5f4fcff;
   --helio-primitive-color-aqua800: #05202eff;

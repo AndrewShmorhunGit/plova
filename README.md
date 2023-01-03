@@ -25,8 +25,8 @@
 <!-- - [Use Places Autocomplete](https://developers.google.com/maps/documentation/javascript/place-autocomplete) -->
 - [React Use Geolocation](https://www.npmjs.com/package/react-hook-geolocation)
 <!-- - [Geocoding](https://developers.google.com/maps/documentation/geocoding/overview) -->
-
-**Design tools**
+- [Web Vitals](https://www.npmjs.com/package/web-vitals)
+  **Design tools**
 
 - [Figma](https://www.figma.com/)
 - [Favicon](https://favicon.io/)
@@ -34,9 +34,14 @@
 
 **API's**
 
+- [Sentry](https://sentry.io/for/web-vitals/?platform=sentry.javascript.react)
 - Mock API Server(Temporary)
 - Google Maps Platform:
   Geocoding API, Maps JavaScript API, Places API
+
+**Else**
+
+- No else yet..)
 
 **Collaboration**
 

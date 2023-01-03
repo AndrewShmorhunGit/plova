@@ -1,62 +1,51 @@
 import styled from "styled-components";
+import letter from "../images/registration/letter.svg";
+import person from "../images/registration/person.svg";
+import lock from "../images/registration/lock.svg";
+import closeIcon from "../images/common/closeIcon.svg";
 import { GrFacebook } from "react-icons/gr";
 import { useState } from "react";
-
-// const InitialState = {
-//   name: "",
-//   password: "",
-//   email: "",
-//   isMember: false,
-// };
+import { useForm } from "react-hook-form";
 
 export const Registration = ({
   setShowRegistration,
 }: {
   setShowRegistration: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  // const [values, setValues] = useState(InitialState);
-
   const [login, setIsLogin] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm<IData>({
+    mode: "onBlur",
+    defaultValues: {
+      name: "",
+      email: "",
+      password: "",
+      // name: "Shmorgy",
+      // email: "shmorgy@gmail.com",
+      // password: "shorgyshmorg",
+    },
+  });
 
-  // const handleChange = (e) => {
-  //   e.preventDefault();
-  //   const name = e.target.name;
-  //   const value = e.target.value;
-  //   setValues({ ...values, [name]: value });
-  // };
+  interface IData {
+    name: string;
+    email: string;
+    password: string;
+  }
 
-  // const onSubmit = (e) => {
-  //   e.preventDefault();
-  //   const { name, email, password, isMember } = values;
-  //   if (!email || !password || (!isMember && !name)) {
-  //     toast.error("Please Fill Out All Fields");
-  //     return;
-  //   }
-  //   if (isMember) {
-  //     dispatch(loginUser({ email: email, password: password }));
-  //     return;
-  //   }
-  //   dispatch(registerUser({ email, password, name }));
-  // };
-
-  // const toggleMember = () => {
-  //   setValues({ ...values, isMember: !values.isMember });
-  // };
+  const onSubmit = (data: IData) => data;
 
   return (
     <Wrapper>
       <div className="registration-container show-registration">
-        <div className="content" style={{ height: login ? "80rem" : "65rem" }}>
-          <header>
-            {/* <img src={logo} alt="Plovo logo" className="logo" /> */}
-          </header>
-          <h1>{login ? "Sign up to Plova" : "Login to Plova"}</h1>
-          <button
-            className="close-btn"
-            // onClick={toggle}
-          >
+        <div className="content" style={{ height: login ? "75rem" : "65rem" }}>
+          <header></header>
+          <h1>{login ? "Sign up to Plova" : "Log in to Plova"}</h1>
+          <button className="close-btn">
             <img
-              src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/close-icon.svg"
+              src={closeIcon}
               alt="close x"
               onClick={() => setShowRegistration(false)}
             />
@@ -67,59 +56,96 @@ export const Registration = ({
               <p>Facebook</p>
             </div>
           </button>
-          <p className="center" style={{ fontSize: "2rem" }}>
+          <div className="or center" style={{ fontSize: "2rem" }}>
+            <div className="deco-line"></div>
             or
-          </p>
-          <form action="" className="form">
+            <div className="deco-line"></div>
+          </div>
+          <form
+            // action={`http://plova-backend.fly.dev/users`}
+            action="#"
+            className="form"
+            onSubmit={handleSubmit(onSubmit)}
+          >
             {login && (
               <div className="input-line center">
-                <div style={{ paddingRight: "1rem" }}>
+                <label className="label center">
                   <img
                     className="form-icon"
-                    src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/glyphs/person.svg"
-                    alt=""
+                    src={person}
+                    alt="person abstraction"
                   />
-                </div>
-                <input
-                  type="text"
-                  className="form-input"
-                  required
-                  placeholder="First name"
-                />
+                  <div className="input-box">
+                    <input
+                      {...register("name", { required: "Name is required" })}
+                      type="text"
+                      className="form-input"
+                      required
+                    />
+                    <span className="placeholder">First name</span>
+                  </div>
+                </label>
+                <p className="form-error-message">{errors.name?.message}</p>
               </div>
             )}
+
             <div className="input-line center">
-              <div style={{ paddingRight: "1rem" }}>
-                <img
-                  className="form-icon"
-                  src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/glyphs/letter.svg"
-                  alt=""
-                />
-              </div>
-              <input type="e-mail" className="form-input" placeholder="Email" />
+              <label className="label center">
+                <img className="form-icon" src={letter} alt="letter" />
+                <div className="input-box">
+                  <input
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value:
+                          /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
+                        message: "Email address is not valid",
+                      },
+                    })}
+                    className="form-input"
+                    required
+                  />
+                  <span className="placeholder">Email</span>
+                </div>
+              </label>
+              <p className="form-error-message">{errors.email?.message}</p>
             </div>
+
             <div className="input-line center">
-              <div style={{ paddingRight: "1rem" }}>
-                <img
-                  className="form-icon"
-                  src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/glyphs/lock.svg"
-                  alt=""
-                />
-              </div>
+              <label className="label center">
+                <img className="form-icon" src={lock} alt="lock" />
+                <div className="input-box">
+                  <input
+                    {...register("password", {
+                      required: "Password is required",
+                      minLength: {
+                        value: 5,
+                        message: "Password must contain at least 5 characters",
+                      },
+                    })}
+                    type="password"
+                    className="form-input"
+                    required
+                  />
+                  <span className="placeholder">Password</span>
+                </div>
+              </label>
+              <p className="form-error-message">{errors.password?.message}</p>
+            </div>
+
+            <div className="center">
               <input
-                type="password"
-                className="form-input"
-                placeholder="Password"
+                type="submit"
+                value={login ? "Sign up with email" : "Log in with email"}
+                disabled={!isValid}
+                className={
+                  isValid
+                    ? `btn-email_active btn `
+                    : "btn-email_not-allowed btn center"
+                }
               />
             </div>
           </form>
-          <button
-            className={
-              login ? `btn-email btn center` : "btn-email_active btn center"
-            }
-          >
-            <p>Sign up with email</p>
-          </button>
           <p>
             {login ? "Get an account already?" : "New in Plova?"}
             <button className="login-button" onClick={() => setIsLogin(!login)}>
@@ -145,14 +171,16 @@ export const Registration = ({
 };
 
 const Wrapper = styled.aside`
-  // z-index: 100;
+
+  
+
   .registration-container {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
-    padding: 8.5rem 0;
+    padding: 4rem 0;
     z-index: -1;
     opacity: 0;
     overflow: auto;
@@ -171,12 +199,12 @@ const Wrapper = styled.aside`
     background: #fff;
     width: 60rem;
     border-radius: 1rem;
-    padding: 1rem 2rem;
+    padding: 2rem 2rem 3rem 2rem;
     position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 3.8rem;
+    gap: 3.2rem;
   }
 
   .close-btn {
@@ -191,7 +219,7 @@ const Wrapper = styled.aside`
 
   .btn-fb {
     width: 33.8rem;
-    height: 4.8rem;
+    min-height: 4.8rem;
     background-color: #3c539a;
     color: white;
     text-transform: uppercase;
@@ -210,7 +238,7 @@ const Wrapper = styled.aside`
     background-color: #30427b;
   }
 
-  .btn-email {
+  .btn-email_not-allowed {
     margin-top: 2rem;
     width: 33.8rem;
     height: 4.8rem;
@@ -226,6 +254,7 @@ const Wrapper = styled.aside`
       font-size: 1.8rem;
     }
   }
+
   .btn-email:hover {
     cursor: not-allowed;
   }
@@ -236,7 +265,6 @@ const Wrapper = styled.aside`
     height: 4.8rem;
     background-color: #00a082ff;
     color: white;
-    // text-transform: uppercase;
     padding: 0;
     letter-spacing: 0.05rem;
     font-size: 1.7rem;
@@ -261,30 +289,74 @@ const Wrapper = styled.aside`
   .form {
     display: flex;
     flex-direction: column;
-    width: 40rem;
-    gap: 4rem;
+    width: auto;
     color: #838383;
+    gap: 3rem;
+
+    label {
+      gap: 1rem;
+    }
   }
 
   .input-line {
-    height: 5rem;
+    height: 6rem;
     display: flex;
-  }
-
-  .form-input {
-    height: 4rem;
-    width: 35rem;
-    border: none;
-    border-bottom: solid 2px grey;
-    font-size: 1.8rem;
-  }
-
-  .form-input:focus {
-    outline: none;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: start;
   }
 
   .form-icon {
     width: 2.6rem;
+  }
+
+  .form-error-message {
+
+    font-size: 1.2rem;
+    color: #DB4437;
+    margin-top: 0rem;  
+    margin-left: 0rem;
+  }
+
+  .input-box {
+    position: relative;
+  }
+
+  .input-box input {
+    height: 4rem;
+    min-width: 35rem;
+    padding: 0rem 0rem;
+    border: none;
+    border-bottom: solid 1px grey;
+    font-weight: 300;
+    font-size: 1.8rem;
+  }
+
+  .input-box input:focus {
+    outline: none;
+    border-bottom: solid 2px grey;
+  }
+
+  .input-box span {
+    position:absolute;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #343a40;
+    left: 0rem;
+    top: 1rem;
+    pointer-events: none;
+    transition: all 0.5s;
+    // opacity: 0;
+  }
+
+  .input-box input:focus ~ span,
+  .input-box input:valid ~ span
+  {
+    color: #343a40;
+    font-weight: 500;
+    font-size: 1.2rem;
+    transform: translateY(-2.2rem);
+    // opacity: 1;
   }
 
   .login-button {
@@ -301,29 +373,6 @@ const Wrapper = styled.aside`
     width: 12rem;
   }
 
-  .nav-links {
-    padding-top: 2rem;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .nav-link {
-    display: flex;
-    align-items: center;
-    color: var(--grey-500);
-    padding: 1rem 0;
-    text-transform: capitalize;
-    transition: var(--transition);
-  }
-
-  .nav-link:hover {
-    color: var(--grey-900);
-  }
-
-  .nav-link:hover .icon {
-    color: var(--primary-500);
-  }
-
   .icon {
     font-size: 1.5rem;
     margin-right: 1rem;
@@ -333,9 +382,31 @@ const Wrapper = styled.aside`
   }
 
   .footer {
+    display: block;
     width: 40rem;
     flex-direction: column;
+    font-weight: 300;
+    margin-bottom: 5rem;
   }
+
+  .or {
+    max-width: 40rem;
+    margin: 0rem auto;
+    font-size: 1.8rem;
+    line-height: 1.4;
+    font-weight: 300;
+    color: inherit;
+    gap: 1rem;
+  }
+
+  .deco-line {
+    display: block;
+    min-height: 0.5px;
+    min-width: 15rem;
+    background: #d3d3d3;
+    opacity: 0.7;
+  }
+
 
   h1 {
     font-size: 3rem;
@@ -344,7 +415,7 @@ const Wrapper = styled.aside`
   a {
     color: #838383;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
   }
 
   a:hover {
