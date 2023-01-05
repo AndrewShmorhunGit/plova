@@ -7,10 +7,12 @@ import { GrFacebook } from "react-icons/gr";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-export const Registration = ({
+export const RegistrationModal = ({
   setShowRegistration,
+  showRegistration,
 }: {
   setShowRegistration: React.Dispatch<React.SetStateAction<boolean>>;
+  showRegistration: boolean;
 }) => {
   const [login, setIsLogin] = useState(false);
   const {
@@ -39,9 +41,14 @@ export const Registration = ({
 
   return (
     <Wrapper>
-      <div className="registration-container show-registration">
+      <main
+        className={
+          showRegistration
+            ? "registration-container show-registration"
+            : "registration-container"
+        }
+      >
         <div className="content" style={{ height: login ? "75rem" : "65rem" }}>
-          <header></header>
           <h1>{login ? "Sign up to Plova" : "Log in to Plova"}</h1>
           <button className="close-btn">
             <img
@@ -165,15 +172,12 @@ export const Registration = ({
             ""
           )}
         </div>
-      </div>
+      </main>
     </Wrapper>
   );
 };
 
-const Wrapper = styled.aside`
-
-  
-
+const Wrapper = styled.main`
   .registration-container {
     position: fixed;
     inset: 0;
@@ -181,9 +185,10 @@ const Wrapper = styled.aside`
     display: flex;
     justify-content: center;
     padding: 4rem 0;
-    z-index: -1;
+    z-index: 0;
     opacity: 0;
     overflow: auto;
+    transition: all 0.5s ease;
   }
 
   .registration-container::-webkit-scrollbar {
@@ -192,7 +197,8 @@ const Wrapper = styled.aside`
 
   .show-registration {
     z-index: 99;
-    opacity: 1;
+    opacity: 1; 
+
   }
 
   .content {
@@ -311,7 +317,6 @@ const Wrapper = styled.aside`
   }
 
   .form-error-message {
-
     font-size: 1.2rem;
     color: #DB4437;
     margin-top: 0rem;  
@@ -346,7 +351,6 @@ const Wrapper = styled.aside`
     top: 1rem;
     pointer-events: none;
     transition: all 0.5s;
-    // opacity: 0;
   }
 
   .input-box input:focus ~ span,
@@ -356,7 +360,6 @@ const Wrapper = styled.aside`
     font-weight: 500;
     font-size: 1.2rem;
     transform: translateY(-2.2rem);
-    // opacity: 1;
   }
 
   .login-button {
@@ -378,7 +381,6 @@ const Wrapper = styled.aside`
     margin-right: 1rem;
     display: grid;
     place-items: center;
-    transition: var(--transition);
   }
 
   .footer {
@@ -407,7 +409,6 @@ const Wrapper = styled.aside`
     opacity: 0.7;
   }
 
-
   h1 {
     font-size: 3rem;
   }
@@ -427,4 +428,7 @@ const Wrapper = styled.aside`
     color: #838383;
     font-weight: 400;
   }
+
+}
+
 `;

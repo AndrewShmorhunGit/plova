@@ -6,8 +6,7 @@ import minus from "../images/menu/minusNew.svg";
 import food from "../images/order/food.svg";
 import hardcodedLocation from "../images/order/hardcodedLocation.png";
 import flag from "../images/order/addressInputFlag.png";
-// import general from "../images/order/general.svg";
-// import { TbCash } from "react-icons/tb";
+
 import { Link, useLocation } from "react-router-dom";
 import {
   getCurrentCard,
@@ -22,6 +21,8 @@ import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { cartSlice } from "../store/slices/cartSlice";
 import { useEffect, useMemo, useState } from "react";
 import { AllergyModal, ExitFromOrderModal } from "../components/index";
+import { Dropdown } from "../components/Dropdown";
+import { paymentDropdownOptions } from "../units/data";
 
 export const OrderPage = () => {
   const dispatch = useAppDispatch();
@@ -56,7 +57,6 @@ export const OrderPage = () => {
   const properDecrease = (productName: string): void => {
     if (currentCart?.order.length === 1 && currentCart?.order[0].amount === 1) {
       setConfirmExitModal(!confirmExitModal);
-
       return;
     } else {
       dispatch(
@@ -126,7 +126,7 @@ export const OrderPage = () => {
               <div className="cart-info">
                 {currentCart?.order.map((order) => {
                   return (
-                    <div className="single-position" key={order.name}>
+                    <div key={order.name} className="single-position">
                       <div className="single-product-info">
                         <div className="dec-btn">
                           <img
@@ -235,46 +235,8 @@ export const OrderPage = () => {
             </div>
             <div className="payment-method margin-top">
               <h3>Payment method</h3>
-              <div className="payment-info margin-top">
-                <img
-                  src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/payment-methods-icons/cash.svg"
-                  alt="flag image"
-                />
-                <div className="payment-container">
-                  <p>Pay with cash</p>
-                  <img
-                    src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/thin-arrow--right.svg"
-                    alt="cash"
-                  />
-                </div>
-              </div>
-              {/* <div className="payment-info margin-top">
-                <label htmlFor="payment-selector">
-                  <img src={general} alt="flag image" />
-                </label>
-
-                <select name="method" id="payment-selector" required>
-                  <option value="cash">
-                    <div className="center">
-                      <img
-                        src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/payment-methods-icons/cash.svg"
-                        alt="flag image"
-                      />
-                      <div className="payment-container">
-                        <TbCash />
-                        <p>Pay with cash</p>
-                        <img
-                          src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/thin-arrow--right.svg"
-                          alt="cash"
-                        />
-                      </div>
-                    </div>
-                  </option>
-                  <option value="google-pay">google pay</option>
-                  <option value="add-new-cart">add a cart</option>
-                </select>
-              </div> */}
             </div>
+            <Dropdown options={paymentDropdownOptions} />
           </div>
           <div className="order-summary">
             <div className="sticky-container">
@@ -331,6 +293,9 @@ export const OrderPage = () => {
 };
 
 const Wrapper = styled.main`
+  main {
+    padding-bottom: 10rem;
+  }
   .margin-top {
     margin-top: 3rem;
   }
@@ -401,13 +366,13 @@ const Wrapper = styled.main`
 
   .order-details {
     padding: 2rem 1rem;
-    border-radius: 100vh;
-    border-inline-start: 0.3rem solid;
+    border-inline: 0.3rem solid;
     border-block-start: 0.3rem solid;
+
     border-image-source: radial-gradient(
-      circle at top left,
+      circle at 50%,
       lightgrey,
-      transparent 30%
+      transparent 85%
     );
     border-image-slice: 1;
   }
@@ -464,7 +429,6 @@ const Wrapper = styled.main`
     padding: 3rem 3rem;
     border-block-end: 1rem solid;
     padding-block-end: 3rem;
-
     border-image-source: linear-gradient(110deg, #00a082, #ffc244);
     border-image-slice: 1;
   }
@@ -505,8 +469,7 @@ const Wrapper = styled.main`
   }
 
   .allergy-info,
-  .delivery-info,
-  .payment-info {
+  .delivery-info {
     height: 3.2rem;
     cursor: pointer;
     display: flex;
@@ -520,10 +483,11 @@ const Wrapper = styled.main`
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    padding-right: 1rem;
     border-bottom: solid 1px lightgrey;
 
     p {
+      font-weight: 400;
       font-size: 1.8rem;
     }
 
@@ -550,6 +514,10 @@ const Wrapper = styled.main`
     p {
       padding: 0.5rem 0;
       font-size: 1.2rem;
+      font-weight: 300;
+    }
+
+    h4 {
       font-weight: 400;
     }
 
@@ -623,5 +591,23 @@ const Wrapper = styled.main`
   h4 {
     font-size: 1.8rem;
     font-weight: 500;
+  }
+
+  .single-position-exit-active {
+    animation: appear 500ms inverts;
+  }
+
+  .single-position-enter-active {
+    animation: appear 500ms forwards;
+  }
+
+  @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+    ,
+    100% {
+      opacity: 1;
+    }
   }
 `;

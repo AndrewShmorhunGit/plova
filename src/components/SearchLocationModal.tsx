@@ -2,10 +2,17 @@ import styled from "styled-components";
 
 export const SearchLocationModal: React.FC<{
   setShowLocationModal: React.Dispatch<React.SetStateAction<boolean>>;
-}> = ({ setShowLocationModal }) => {
+  showLocationModal: boolean;
+}> = ({ setShowLocationModal, showLocationModal }) => {
   return (
     <Wrapper>
-      <div className="location-container show-location">
+      <div
+        className={
+          showLocationModal
+            ? "location-container show-location"
+            : "location-container"
+        }
+      >
         <div className="content center">
           <h1 className="title">Add a delivery address</h1>
           <button
@@ -70,6 +77,8 @@ const Wrapper = styled.div`
     padding: 0rem 0 0 2rem;
     z-index: -1;
     overflow: auto;
+    opacity: 0;
+    transition: all 0.5s ease;
   }
 
   .location-container::-webkit-scrollbar {
@@ -93,7 +102,6 @@ const Wrapper = styled.div`
     height: 59rem;
     border-radius: 1rem;
     flex-direction: column;
-
     margin: 10vh auto;
     gap: 1rem;
   }
@@ -155,8 +163,14 @@ const Wrapper = styled.div`
     width: 30rem;
   }
 
+  .use-current {
+    padding: 1rem;
+    color: #1aa98f;
+    font-size: 1.6rem;
+    cursor: pointer;
+  }
+
   .title {
-    // padding-top: 1rem;
     font-size: 3rem;
   }
 `;

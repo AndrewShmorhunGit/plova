@@ -9,7 +9,10 @@ import useGeolocation from "react-hook-geolocation";
 
 // const currentLocation: string = "136 Pym St, Nottingham";
 
-export const Jumbotron = () => {
+export const Jumbotron: React.FC<{
+  setShowLocationModal: React.Dispatch<React.SetStateAction<boolean>>;
+  showLocationModal: boolean;
+}> = ({ setShowLocationModal, showLocationModal }) => {
   const [showAddressInput, setShowAddressInput] = useState(false);
   const location: boolean = false;
   const dispatch = useAppDispatch();
@@ -53,7 +56,7 @@ export const Jumbotron = () => {
               Delivery to lat {geolocation.latitude}, lng{" "}
               {geolocation.longitude},
             </h2>
-            <LocationInput />
+            <LocationInput setShowLocationModal={setShowLocationModal} />
           </>
         )}
 

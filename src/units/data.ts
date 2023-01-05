@@ -3,6 +3,7 @@ import {
   TiSocialInstagram,
   TiSocialFacebook,
 } from "react-icons/ti";
+import general from "../images/order/general.svg";
 import charity from "../images/jumbotron/charity.png";
 import coffee from "../images/jumbotron/coffee.png";
 import food from "../images/jumbotron/food.png";
@@ -18,7 +19,7 @@ import courier from "../images/jumbotron/courier.png";
 import riderImage from "../images/cooperation/riderImage.avif";
 import partnersImage from "../images/cooperation/partnersImage.avif";
 import careersImage from "../images/cooperation/careersImage.avif";
-import { IJumbotron } from "../modules/modules";
+import { IDropdownOptions, IJumbotron } from "../modules/modules";
 
 export const joinLinks = [
   {
@@ -216,3 +217,21 @@ export const cooperationData = [
     linkTo: "https://jobs.glovoapp.com/",
   },
 ];
+
+export const paymentDropdownOptions: IDropdownOptions = {
+  default: { img: general, text: "Add payment method" },
+  options: [
+    {
+      img: "https://s3-eu-west-1.amazonaws.com/glovo-emails/static/dist/img/cards/google-pay.png",
+      text: "Google Pay",
+    },
+    {
+      img: "https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/payment-methods-icons/cash.svg",
+      text: "Pay with cash",
+    },
+    {
+      img: "https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/payment-methods-icons/add-card.svg",
+      text: "Add a new card",
+    },
+  ],
+};

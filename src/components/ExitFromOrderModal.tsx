@@ -69,10 +69,10 @@ const Wrapper = styled.main`
     background: #fff;
     position: relative;
     min-width: 80rem;
-    max-height: 50rem;
+    height: 50rem;
     border-radius: 1rem;
 
-    margin: 10vh auto;
+    margin: 5rem auto;
     padding: 0;
 
     h1 {

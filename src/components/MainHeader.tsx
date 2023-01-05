@@ -1,30 +1,70 @@
-import { useState } from "react";
 import styled from "styled-components";
 import headerLogo from "../logos/headerLogo.png";
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import useGeolocation from "react-hook-geolocation";
+import locationMarker from "../images/common/location2.svg";
+import arrowDown from "../images/common/dropdownBlack.svg";
+import React, { useEffect, useState } from "react";
 
 export const MainHeader = ({
   showRegistration,
   setShowRegistration,
+  changeLocationModal,
+  setChangeLocationModal,
 }: {
   showRegistration: boolean;
   setShowRegistration: React.Dispatch<React.SetStateAction<boolean>>;
+  changeLocationModal: boolean;
+  setChangeLocationModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const [showLocation, setShowLocation] = useState(false);
   const location = useGeolocation();
   const address: string = `lat: ${location.latitude}, lng: ${location.longitude}`;
-  // const formActive: boolean = false;
-  // const changeFormState = (): void => {
-  //   return formActive;
-  // };
-  // const showTarget = (event: Event): void => {
-  //   event.preventDefault();
-  //   return console.log(event.target);
-  // };
 
-  // const event: Event = showTarget(Event);
+  const MainHeaderLocation = (): JSX.Element => {
+    const [scroll, setScroll] = useState(true);
+
+    useEffect(() => {
+      const handleScroll = () => {
+        const scroll = window.scrollY < 50 && true;
+        return setScroll(scroll);
+      };
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }, []);
+
+    return (
+      <div
+        id="#scroll"
+        className={!scroll ? "header-user-address-content" : "hide"}
+        onClick={() => setChangeLocationModal(true)}
+      >
+        <img
+          src={locationMarker}
+          alt="location marker"
+          className="header-user-address-content-location-icon"
+        />
+        <div
+          data-v-7ff8f296=""
+          data-test-id="user-address-text"
+          className="header-user-address-content-text"
+        >
+          <span className="address-content-text">
+            {`${address.length < 20 ? address : address.slice(0, 20) + "..."}`}
+          </span>
+        </div>
+        <img
+          data-v-7ff8f296=""
+          src={arrowDown}
+          alt="arrow down"
+          role="presentation"
+          className="header-user-address__content__arrow"
+        />
+      </div>
+    );
+  };
 
   return (
     <Wrapper>
@@ -36,11 +76,10 @@ export const MainHeader = ({
             </Link>
 
             <div className="header-center">
-              {/* {event.target === `<input type="text" class="search-input">` && ( */}
               <label className="search-label">
                 <FiSearch />
               </label>
-              {/* )} */}
+
               <form
                 className="form-input"
                 onSubmit={() => console.log("onSubmit!")}
@@ -49,43 +88,13 @@ export const MainHeader = ({
                 <input
                   type="text"
                   className="search-input"
-                  // placeholder={search}
-                  // value=""
                   onChange={() => console.log("onChange!")}
                 />
               </form>
             </div>
             <div className="header-right">
-              <div
-                className="header-user-address-content"
-                onClick={() => setShowLocation(!showLocation)}
-              >
-                <img
-                  src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/location2.svg"
-                  alt="location marker"
-                  className="header-user-address-content-location-icon"
-                />
-                <div
-                  data-v-7ff8f296=""
-                  data-test-id="user-address-text"
-                  className="header-user-address-content-text"
-                >
-                  <span className="address-content-text">
-                    {`${
-                      address.length < 20
-                        ? address
-                        : address.slice(0, 20) + "..."
-                    }`}
-                  </span>
-                </div>
-                <img
-                  data-v-7ff8f296=""
-                  src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/landing/dropdown-black.svg"
-                  alt=""
-                  role="presentation"
-                  className="header-user-address__content__arrow"
-                />
-              </div>
+              <MainHeaderLocation />
+
               <button
                 className="btn-start"
                 onClick={() => setShowRegistration(!showRegistration)}
@@ -104,6 +113,12 @@ const Wrapper = styled.header`
   position: sticky;
   top: 0;
   z-index: 10;
+
+  .hide {
+    opacity: 0;
+    display: none;
+    cursor: none;
+  }
 
   .header-for-city-page {
     background-color: #ffc244ff;

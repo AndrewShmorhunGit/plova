@@ -293,3 +293,13 @@ export interface newOrder {
   name: string;
   price: number;
 }
+
+export interface Options {
+  img: string | undefined;
+  text: string;
+}
+
+export interface IDropdownOptions {
+  default: { img: string | undefined; text: string };
+  options: Options[];
+}

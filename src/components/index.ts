@@ -8,12 +8,12 @@ import { MainHeader } from "./MainHeader";
 import { Path } from "./Path";
 import { PopularNear } from "./PopularNear";
 import { Products } from "./Products";
-import { SearchInput } from "./SearchInput";
+import { ChangeLocationModal } from "./ChangeLocationModal";
 import { SingleProduct } from "./SingleProduct";
 import { StartOrderWindow } from "./StartOrderWindow";
 import { UserComponent } from "./UserComponent";
 import { ChooseLocation } from "./ChooseLocation";
-import { Registration } from "./Registration";
+import { RegistrationModal } from "./RegistrationModal";
 import { Partnership } from "./Partnership";
 import { LocationInput } from "./LocationInput";
 import { SearchLocationModal } from "./SearchLocationModal";
@@ -51,12 +51,12 @@ export {
   Path,
   PopularNear,
   Products,
-  SearchInput,
+  ChangeLocationModal,
   SingleProduct,
   StartOrderWindow,
   UserComponent,
   ChooseLocation,
-  Registration,
+  RegistrationModal,
   Partnership,
   LocationInput,
   SearchLocationModal,

@@ -22,19 +22,24 @@
 - [Normalize.css](https://github.com/necolas/normalize.css/)
 - [Styled Components](https://styled-components.com/)
 - [React Hook Form](https://legacy.react-hook-form.com/)
-<!-- - [Use Places Autocomplete](https://developers.google.com/maps/documentation/javascript/place-autocomplete) -->
+- [CSS Transition](https://reactcommunity.org/react-transition-group/)
 - [React Use Geolocation](https://www.npmjs.com/package/react-hook-geolocation)
-<!-- - [Geocoding](https://developers.google.com/maps/documentation/geocoding/overview) -->
 - [Web Vitals](https://www.npmjs.com/package/web-vitals)
+
   **Design tools**
 
 - [Figma](https://www.figma.com/)
 - [Favicon](https://favicon.io/)
-- [Snazzy Maps](https://favicon.io/)
+- [Snazzy Maps](https://snazzymaps.com/)
+- [Perfect Pixel](https://www.welldonecode.com/perfectpixel/)
+
+<!-- - [Use Places Autocomplete](https://developers.google.com/maps/documentation/javascript/place-autocomplete) -->
+<!-- - [Geocoding](https://developers.google.com/maps/documentation/geocoding/overview) -->
 
 **API's**
 
-- [Sentry](https://sentry.io/for/web-vitals/?platform=sentry.javascript.react)
+<!-- - [Sentry](https://sentry.io/for/web-vitals/?platform=sentry.javascript.react) -->
+
 - Mock API Server(Temporary)
 - Google Maps Platform:
   Geocoding API, Maps JavaScript API, Places API

@@ -1,33 +1,47 @@
-import { useState } from "react";
+import React, { useState } from "react";
+
+// import { Transition } from "react-transition-group";
 import {
   FoodNearGallery,
   Partnership,
   PopularNear,
-  Registration,
-  Jumbotron,
+  RegistrationModal,
   MainHeader,
+  Jumbotron,
+  SearchLocationModal,
 } from "../components";
 
-export const HomePage = () => { 
-
+export const HomePage = () => {
   const [showRegistration, setShowRegistration] = useState(false);
+  const [showLocationModal, setShowLocationModal] = useState(false);
+  const [changeLocationModal, setChangeLocationModal] = useState(false);
 
   return (
-    <>
+    <React.Fragment>
       <MainHeader
         setShowRegistration={setShowRegistration}
         showRegistration={showRegistration}
+        setChangeLocationModal={setChangeLocationModal}
+        changeLocationModal={changeLocationModal}
       />
-      {showRegistration && (
-        <Registration
-          setShowRegistration={setShowRegistration}
-          // showRegistration={showRegistration}
-        />
-      )}
-      <Jumbotron />
+
+      <SearchLocationModal
+        setShowLocationModal={setShowLocationModal}
+        showLocationModal={showLocationModal}
+      />
+
+      <RegistrationModal
+        setShowRegistration={setShowRegistration}
+        showRegistration={showRegistration}
+      />
+
+      <Jumbotron
+        setShowLocationModal={setShowLocationModal}
+        showLocationModal={showLocationModal}
+      />
       <FoodNearGallery />
       <PopularNear />
       <Partnership />
-    </>
+    </React.Fragment>
   );
 };

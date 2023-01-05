@@ -1,48 +1,44 @@
-import { useState } from "react";
-import { SearchLocationModal } from "./index";
 import styled from "styled-components";
 
-export const LocationInput = () => {
-  const [showLocationModal, setShowLocationModal] = useState(false);
+export const LocationInput: React.FC<{
+  setShowLocationModal: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ setShowLocationModal }) => {
   // console.log(showLocationModal);
   return (
     <Wrapper>
       <section>
         {/* <h1 className="title center">Explore delivery in Kyiv, Right Bank</h1> */}
-        {!showLocationModal ? (
-          <div className="center">
-            <div className="location-setup center">
-              <form
-                action=""
-                className="location-form center"
-                onClick={() => setShowLocationModal(!showLocationModal)}
-              >
-                <label className="form-label">
-                  <img
-                    src="https://res.cloudinary.com/glovoapp/image/fetch///https://glovoapp.com/images/icons/flag--white.svg"
-                    alt=""
-                  />
-                </label>
-                <input
-                  type="text"
-                  className="location-input"
-                  placeholder="What's your address?"
+
+        <div className="center">
+          <div className="location-setup center">
+            <form
+              action=""
+              className="location-form center"
+              onClick={() => setShowLocationModal(true)}
+            >
+              <label className="form-label">
+                <img
+                  src="https://res.cloudinary.com/glovoapp/image/fetch///https://glovoapp.com/images/icons/flag--white.svg"
+                  alt=""
                 />
-              </form>
-              <div className="current-location">
-                <div className="icon">
-                  <img
-                    src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/location.svg"
-                    alt=""
-                  />
-                </div>
-                <h3 className="use-current">Use current location</h3>
+              </label>
+              <input
+                type="text"
+                className="location-input"
+                placeholder="What's your address?"
+              />
+            </form>
+            <div className="current-location">
+              <div className="icon">
+                <img
+                  src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/location.svg"
+                  alt=""
+                />
               </div>
+              <h3 className="use-current">Use current location</h3>
             </div>
           </div>
-        ) : (
-          <SearchLocationModal setShowLocationModal={setShowLocationModal} />
-        )}
+        </div>
       </section>
     </Wrapper>
   );

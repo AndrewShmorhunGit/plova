@@ -163,7 +163,6 @@ const Wrapper = styled.section`
     text-transform: capitalize;
     font-size: 2.6rem;
     font-weight: 600;
-    z-index: 3;
   }
 
   .booster {
@@ -179,7 +178,6 @@ const Wrapper = styled.section`
     font-size: 1.6rem;
     font-weight: 700;
     background-color: #ffc244;
-    z-index: 3;
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     // overflow: visible;
@@ -189,7 +187,6 @@ const Wrapper = styled.section`
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
-    z-index: 3;
   }
 
   .div-container {
@@ -213,7 +210,6 @@ const Wrapper = styled.section`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 2;
   }
 
   .title {
