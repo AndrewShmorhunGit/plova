@@ -6,7 +6,6 @@ import minus from "../images/menu/minusNew.svg";
 import food from "../images/order/food.svg";
 import hardcodedLocation from "../images/order/hardcodedLocation.png";
 import flag from "../images/order/addressInputFlag.png";
-
 import { Link, useLocation } from "react-router-dom";
 import {
   getCurrentCard,
@@ -20,9 +19,14 @@ import {
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { cartSlice } from "../store/slices/cartSlice";
 import { useEffect, useMemo, useState } from "react";
-import { AllergyModal, ExitFromOrderModal } from "../components/index";
-import { Dropdown } from "../components/Dropdown";
+import {
+  AllergyModal,
+  DeliveryTermsModal,
+  ExitFromOrderModal,
+} from "../components/index";
+import { PaymentDropdown } from "../components/DropdownPayment";
 import { paymentDropdownOptions } from "../units/data";
+import { IModalState, IOrderState } from "../modules/modules";
 
 export const OrderPage = () => {
   const dispatch = useAppDispatch();
@@ -33,8 +37,22 @@ export const OrderPage = () => {
   const slug = useMemo(() => getSlugFromLocation(location), [location]);
   const currentCart = useMemo(() => getCurrentCard(slug, carts), [carts]);
 
-  const [allergyModal, setAllergyModal] = useState(false);
-  const [confirmExitModal, setConfirmExitModal] = useState(false);
+  const [modalState, setModalState] = useState<IModalState>({
+    allergy: false,
+    confirmExit: false,
+    deliveryTerms: false,
+  });
+
+  const [orderState, setOrderState] = useState<IOrderState>({
+    delAddress: null,
+    delTerms: null,
+    paymentMethod: null,
+    allergyInfo: "",
+    cutlery: false,
+    totalPrice: "0",
+    promoCode: false,
+    orderList: currentCart,
+  });
 
   useEffect(() => {
     goToTop();
@@ -56,7 +74,7 @@ export const OrderPage = () => {
 
   const properDecrease = (productName: string): void => {
     if (currentCart?.order.length === 1 && currentCart?.order[0].amount === 1) {
-      setConfirmExitModal(!confirmExitModal);
+      setModalState({ ...modalState, confirmExit: true });
       return;
     } else {
       dispatch(
@@ -80,215 +98,239 @@ export const OrderPage = () => {
   };
 
   return (
-    <Wrapper>
+    <>
       {/* ALLERGY MODAL */}
-      {allergyModal && <AllergyModal setAllergyModal={setAllergyModal} />}
-
+      <AllergyModal
+        modalState={modalState}
+        setModalState={setModalState}
+        orderState={orderState}
+        setOrderState={setOrderState}
+      />
       {/* CONFIRM EXIT MODAL */}
-      {confirmExitModal && (
-        <ExitFromOrderModal
-          setConfirmExitModal={setConfirmExitModal}
-          currentCart={currentCart}
-          slug={slug}
-          decrease={decrease}
-        />
-      )}
-
-      <main className="container">
-        <div className="order-header">
-          <div className="logo-container">
-            <Link to="/">
-              <img className="logo" src={logo} alt="Plova logo" />
-            </Link>
-          </div>
-        </div>
-        <div className="order-grid">
-          <div className="info-header">
-            <div className="order-header-summary">
-              <Link to={`/brand/${slug}`}>
-                <img src={arrowBack} alt="arrow left" />
+      <ExitFromOrderModal
+        setModalState={setModalState}
+        modalState={modalState}
+        currentCart={currentCart}
+        slug={slug}
+        decrease={decrease}
+      />
+      {/* DELIVERY TERMS MODAL */}
+      <DeliveryTermsModal
+        setModalState={setModalState}
+        modalState={modalState}
+      />
+      <Wrapper>
+        <main className="container">
+          <div className="order-header">
+            <div className="logo-container">
+              <Link to="/">
+                <img className="logo" src={logo} alt="Plova logo" />
               </Link>
-              <h2>Order summary</h2>
             </div>
-            <h1>{brandName}</h1>
           </div>
+          <div className="order-grid">
+            <div className="info-header">
+              <div className="order-header-summary">
+                <Link to={`/brand/${slug}`}>
+                  <img src={arrowBack} alt="arrow left" />
+                </Link>
+                <h2>Order summary</h2>
+              </div>
+              <h1>{brandName}</h1>
+            </div>
 
-          <div className="order-info">
-            <div className="order-details">
-              <p className="total-amount">
-                {getTotalCardAmount(slug, carts)}
-                {getTotalCardAmount(slug, carts) > 1
-                  ? " products "
-                  : " product "}
-                from
-                <span>{` ${brandName}`}</span>
-              </p>
-              <div className="cart-info">
-                {currentCart?.order.map((order) => {
-                  return (
-                    <div key={order.name} className="single-position">
-                      <div className="single-product-info">
-                        <div className="dec-btn">
-                          <img
-                            src={minus}
-                            alt="minus in circle"
-                            onClick={() => properDecrease(order.name)}
-                          />
+            <div className="order-info">
+              <div className="order-details">
+                <p className="total-amount">
+                  {getTotalCardAmount(slug, carts)}
+                  {getTotalCardAmount(slug, carts) > 1
+                    ? " products "
+                    : " product "}
+                  from
+                  <span>{` ${brandName}`}</span>
+                </p>
+                <div className="cart-info">
+                  {currentCart?.order.map((order) => {
+                    return (
+                      <div key={order.name} className="single-position">
+                        <div className="single-product-info">
+                          <div className="dec-btn">
+                            <img
+                              src={minus}
+                              alt="minus in circle"
+                              onClick={() => properDecrease(order.name)}
+                            />
+                          </div>
+
+                          <p className="amount">{order.amount}</p>
+
+                          <div className="inc-btn">
+                            <img
+                              src={plus}
+                              alt="plus on circle"
+                              onClick={() => increase(order.name)}
+                            />
+                          </div>
+                          <p className="name">{order.name}</p>
                         </div>
-
-                        <p className="amount">{order.amount}</p>
-
-                        <div className="inc-btn">
-                          <img
-                            src={plus}
-                            alt="plus on circle"
-                            onClick={() => increase(order.name)}
-                          />
-                        </div>
-                        <p className="name">{order.name}</p>
+                        <p className="price">
+                          {showDollarPrice(order.price * order.amount)} $
+                        </p>
                       </div>
-                      <p className="price">
-                        {showDollarPrice(order.price * order.amount)} $
-                      </p>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
 
-                <div
-                  className="allergy-info margin-top"
-                  onClick={() => setAllergyModal(!allergyModal)}
-                >
-                  <img
-                    src="https://res.cloudinary.com/glovoapp//CX/backendCheckout/light/allergies-active"
-                    alt="pill image"
-                  />
-                  <div className="allergy-container">
-                    <p>Any allergies?</p>
+                  <div
+                    className="allergy-info margin-top"
+                    onClick={() =>
+                      setModalState({
+                        ...modalState,
+                        allergy: !modalState.allergy,
+                      })
+                    }
+                  >
+                    <img
+                      src={
+                        orderState.allergyInfo === ""
+                          ? "https://res.cloudinary.com/glovoapp//CX/backendCheckout/light/allergies-active"
+                          : "https://res.cloudinary.com/glovoapp//CX/backendCheckout/light/allergies-checked"
+                      }
+                      alt="pill image"
+                    />
+                    <div className="allergy-container">
+                      <p>Any allergies?</p>
+                      <img
+                        src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/thin-arrow--right.svg"
+                        alt="thin arrow right"
+                      />
+                    </div>
+                  </div>
+                  <div className="cutlery-info">
+                    <img
+                      src="https://res.cloudinary.com/glovoapp//CX/backendCheckout/light/cutlery"
+                      alt="fork and spoon"
+                    />
+                    <div className="cutlery-container">
+                      <div>
+                        <h4>Need any cutlery?</h4>
+                        <p>
+                          Help us minimize waste. Only ask for cutlery when you
+                          need it.
+                        </p>
+                      </div>
+
+                      <div>
+                        <label className="switch">
+                          <input type="checkbox" />
+                          <span className="slider"></span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="delivery-details">
+                <h3>Delivery details</h3>
+                <img
+                  className="location-image"
+                  src={hardcodedLocation}
+                  alt="current location on the map"
+                />
+                <div className="delivery-info margin-top">
+                  <img src={flag} alt="flag image" />
+                  <div className="delivery-container">
+                    <p>Antonovicha str. 74</p>
                     <img
                       src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/thin-arrow--right.svg"
                       alt="thin arrow right"
                     />
                   </div>
                 </div>
-                <div className="cutlery-info">
+                <div className="delivery-terms">
+                  <p>
+                    <span>
+                      {menu &&
+                        `${menu.deliveryTime1}-${menu.deliveryTime2} min`}
+                    </span>
+                  </p>
+                  <p> As soon as possible</p>
+                </div>
+                <div className="delivery-info margin-top">
                   <img
-                    src="https://res.cloudinary.com/glovoapp//CX/backendCheckout/light/cutlery"
-                    alt="fork and spoon"
+                    src="https://res.cloudinary.com/glovoapp//CX/backendCheckout/light/phone-input"
+                    alt="flag image"
                   />
-                  <div className="cutlery-container">
-                    <div>
-                      <h4>Need any cutlery?</h4>
-                      <p>
-                        Help us minimize waste. Only ask for cutlery when you
-                        need it.
-                      </p>
-                    </div>
-
-                    <div>
-                      <label className="switch">
-                        <input type="checkbox" />
-                        <span className="slider"></span>
-                      </label>
-                    </div>
+                  <div className="delivery-container">
+                    <p className="phone-number">Add your phone number</p>
+                    <img
+                      src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/thin-arrow--right.svg"
+                      alt=""
+                    />
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="delivery-details">
-              <h3>Delivery details</h3>
-              <img
-                className="location-image"
-                src={hardcodedLocation}
-                alt="current location on the map"
+              <div className="payment-method margin-top">
+                <h3>Payment method</h3>
+              </div>
+              <PaymentDropdown
+                options={paymentDropdownOptions}
+                orderState={orderState}
+                setOrderState={setOrderState}
               />
-              <div className="delivery-info margin-top">
-                <img src={flag} alt="flag image" />
-                <div className="delivery-container">
-                  <p>Antonovicha str. 74</p>
+            </div>
+            <div className="order-summary">
+              <div className="sticky-container">
+                <div className="summary-title">
+                  <h2>Summary</h2>
                   <img
-                    src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/thin-arrow--right.svg"
-                    alt="thin arrow right"
+                    src={food}
+                    alt="salad and burger with bottle of beverage"
                   />
                 </div>
-              </div>
-              <div className="delivery-terms">
-                <p>
-                  <span>
-                    {menu && `${menu.deliveryTime1}-${menu.deliveryTime2} min`}
-                  </span>
-                </p>
-                <p> As soon as possible</p>
-              </div>
-              <div className="delivery-info margin-top">
-                <img
-                  src="https://res.cloudinary.com/glovoapp//CX/backendCheckout/light/phone-input"
-                  alt="flag image"
-                />
-                <div className="delivery-container">
-                  <p className="phone-number">Add your phone number</p>
-                  <img
-                    src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/thin-arrow--right.svg"
-                    alt=""
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="payment-method margin-top">
-              <h3>Payment method</h3>
-            </div>
-            <Dropdown options={paymentDropdownOptions} />
-          </div>
-          <div className="order-summary">
-            <div className="sticky-container">
-              <div className="summary-title">
-                <h2>Summary</h2>
-                <img
-                  src={food}
-                  alt="salad and burger with bottle of beverage"
-                />
-              </div>
-              <div className="summary-position">
-                <p>Products</p>
-                <p> {showDollarPrice(productsPrice)} $</p>
-              </div>
-              <div className="summary-position">
-                <p>Delivery</p>
-                <p>
-                  {menu !== null && `${showDollarPrice(menu.deliveryPrice)} $`}
-                </p>
-              </div>
-              {productsPrice < 5 ? (
                 <div className="summary-position">
-                  <p>Small order</p>
-                  <p> {showDollarPrice(smallOrderFeePrice)} $</p>
+                  <p>Products</p>
+                  <p> {showDollarPrice(productsPrice)} $</p>
                 </div>
-              ) : null}
-              <div className="summary-position total-position">
-                <p>TOTAL</p>
-                <p>
-                  {menu &&
-                    (productsPrice < 5
-                      ? `${showDollarPrice(
-                          productsPrice +
-                            smallOrderFeePrice +
-                            menu.deliveryPrice
-                        )} $`
-                      : `${showDollarPrice(
-                          productsPrice + menu.deliveryPrice
-                        )} $`)}
-                </p>
-              </div>
-              <div className="btn-container center">
-                <button className="btn center">Confirm Order</button>
+                <div className="summary-position">
+                  <p>Delivery</p>
+                  <p>
+                    {menu !== null &&
+                      `${showDollarPrice(menu.deliveryPrice)} $`}
+                  </p>
+                </div>
+                {productsPrice < 5 ? (
+                  <div className="summary-position">
+                    <p>Small order</p>
+                    <p> {showDollarPrice(smallOrderFeePrice)} $</p>
+                  </div>
+                ) : null}
+                <div className="summary-position total-position">
+                  <p>TOTAL</p>
+                  <p>
+                    {menu &&
+                      (productsPrice < 5
+                        ? `${showDollarPrice(
+                            productsPrice +
+                              smallOrderFeePrice +
+                              menu.deliveryPrice
+                          )} $`
+                        : `${showDollarPrice(
+                            productsPrice + menu.deliveryPrice
+                          )} $`)}
+                  </p>
+                </div>
+                <div className="btn-container center">
+                  <button className="btn center">Confirm Order</button>
+                </div>
               </div>
             </div>
           </div>
+        </main>
+        <div className="transition-container">
+          <footer className="transition" />
         </div>
-      </main>
-      <div className="transition-container">
-        <footer className="transition" />
-      </div>
-    </Wrapper>
+      </Wrapper>
+    </>
   );
 };
 

@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import letter from "../images/registration/letter.svg";
-import person from "../images/registration/person.svg";
-import lock from "../images/registration/lock.svg";
-import closeIcon from "../images/common/closeIcon.svg";
+import letter from "../../images/registration/letter.svg";
+import person from "../../images/registration/person.svg";
+import lock from "../../images/registration/lock.svg";
+import closeIcon from "../../images/common/closeIcon.svg";
 import { GrFacebook } from "react-icons/gr";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -186,8 +186,8 @@ const Wrapper = styled.main`
     justify-content: center;
     padding: 4rem 0;
     z-index: 0;
-    opacity: 0;
     overflow: auto;
+    opacity: 0;
     transition: all 0.5s ease;
   }
 
@@ -198,7 +198,6 @@ const Wrapper = styled.main`
   .show-registration {
     z-index: 99;
     opacity: 1; 
-
   }
 
   .content {

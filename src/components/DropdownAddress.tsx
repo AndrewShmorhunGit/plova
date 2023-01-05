@@ -1,9 +1,17 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { IDropdownOptions } from "../modules/modules";
+import { IDropdownOptions, IOrderState } from "../modules/modules";
 import rightArrow from "../images/order/thin_arrow_right.svg";
 
-export const Dropdown = ({ options }: { options: IDropdownOptions }) => {
+export const DropdownAddress = ({
+  options,
+  orderState,
+  setOrderState,
+}: {
+  options: IDropdownOptions;
+  setOrderState: React.Dispatch<React.SetStateAction<IOrderState>>;
+  orderState: IOrderState;
+}) => {
   const [isActive, setIsActive] = useState(false);
 
   const dropdownOptions = options;
@@ -11,10 +19,14 @@ export const Dropdown = ({ options }: { options: IDropdownOptions }) => {
   return (
     <Wrapper>
       <main>
-        <div>
+        <div className="label-container">
           <img
-            className="label"
-            src={dropdownOptions.default.img}
+            className="label center"
+            src={
+              orderState.paymentMethod
+                ? orderState.paymentMethod.img
+                : dropdownOptions.default.img
+            }
             alt=""
             onClick={() => setIsActive(!isActive)}
           />
@@ -24,14 +36,28 @@ export const Dropdown = ({ options }: { options: IDropdownOptions }) => {
             className={isActive ? "dropdown-btn active" : "dropdown-btn"}
             onClick={() => setIsActive(!isActive)}
           >
-            <p>{dropdownOptions.default.text}</p>
+            <p>
+              {orderState.paymentMethod
+                ? orderState.paymentMethod.text
+                : dropdownOptions.default.text}
+            </p>
             <img className="arrow" src={rightArrow} alt="" />
           </div>
           {isActive && (
             <div className="dropdown-content">
               {dropdownOptions.options.map((option, index) => {
                 return (
-                  <div key={index} className="dropdown-item">
+                  <div
+                    key={index}
+                    className="dropdown-item"
+                    onClick={() => {
+                      setOrderState({
+                        ...orderState,
+                        paymentMethod: { img: option.img, text: option.text },
+                      });
+                      setIsActive(false);
+                    }}
+                  >
                     <img src={option.img} alt={`${option.text} image`} />
                     <p>{option.text}</p>
                   </div>
@@ -49,12 +75,17 @@ const Wrapper = styled.div`
   main {
     margin-top: 2rem;
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
   }
 
-  .label {
-    width: auto;
-    cursor: pointer;
+  .label-container {
+    min-width: 2rem;
+    .label {
+      position: absolute;
+      height: 3rem;
+      width: auto;
+      cursor: pointer;
+    }
   }
 
   .arrow {

@@ -28,7 +28,7 @@ const defaultOptions = {
   styles: defaultTheme,
 };
 
-export const Map = () => {
+export const Map: React.FC = () => {
   const geolocation = useGeolocation();
 
   const { isLoaded } = useJsApiLoader({

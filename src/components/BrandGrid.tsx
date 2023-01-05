@@ -7,12 +7,17 @@ import { IMenu } from "../modules/modules";
 import { showDollarPrice } from "../units/functions";
 import { Cart, Products, Sections } from "./index";
 
-export const BrandGrid: React.FC<{
+export const BrandGrid = ({
+  menu,
+  selectedCategory,
+  loading,
+  error,
+}: {
   menu: IMenu;
+  selectedCategory: string | null;
   loading: boolean;
   error: string;
-  selectedCategory: string | null;
-}> = ({ menu, selectedCategory }) => {
+}) => {
   const getCurrentSubMenu = (categoryName: string | undefined) => {
     const currentMenu = menu.menu.find(
       (item) => item.category.categoryName === categoryName

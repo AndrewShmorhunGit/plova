@@ -8,15 +8,15 @@ import { MainHeader } from "./MainHeader";
 import { Path } from "./Path";
 import { PopularNear } from "./PopularNear";
 import { Products } from "./Products";
-import { ChangeLocationModal } from "./ChangeLocationModal";
+import { ChangeLocationModal } from "./modals/ChangeLocationModal";
 import { SingleProduct } from "./SingleProduct";
 import { StartOrderWindow } from "./StartOrderWindow";
 import { UserComponent } from "./UserComponent";
 import { ChooseLocation } from "./ChooseLocation";
-import { RegistrationModal } from "./RegistrationModal";
+import { RegistrationModal } from "./modals/RegistrationModal";
 import { Partnership } from "./Partnership";
 import { LocationInput } from "./LocationInput";
-import { SearchLocationModal } from "./SearchLocationModal";
+import { SearchLocationModal } from "./modals/SearchLocationModal";
 import { MapSearch } from "./MapSearch";
 import { Sections } from "./Sections";
 import { InputHeader } from "./InputHeader";
@@ -27,9 +27,11 @@ import { LoadingHeader } from "./LoadingHeader";
 import { LoadingBrandGrid } from "./LoadingBrandGrid";
 import { LoadingProducts } from "./LoadingProducts";
 import { CartUnit } from "./CartUnit";
-import { ExitFromOrderModal } from "./ExitFromOrderModal";
-import { AllergyModal } from "./AllergyModal";
+import { ExitFromOrderModal } from "./modals/ExitFromOrderModal";
+import { AllergyModal } from "./modals/AllergyModal";
+import { DeliveryTermsModal } from "./modals/DeliveryTermsModal";
 export {
+  DeliveryTermsModal,
   AllergyModal,
   ExitFromOrderModal,
   CartUnit,

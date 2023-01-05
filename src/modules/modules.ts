@@ -303,3 +303,25 @@ export interface IDropdownOptions {
   default: { img: string | undefined; text: string };
   options: Options[];
 }
+
+export interface IOrderState {
+  delAddress: null | string;
+  delTerms: null | string;
+  paymentMethod: null | IPaymentMethod;
+  allergyInfo: string;
+  cutlery: boolean;
+  totalPrice: string;
+  promoCode: boolean;
+  orderList: ICart | null;
+}
+
+export interface IPaymentMethod {
+  img?: string;
+  text: string;
+}
+
+export interface IModalState {
+  allergy: boolean;
+  confirmExit: boolean;
+  deliveryTerms: boolean;
+}

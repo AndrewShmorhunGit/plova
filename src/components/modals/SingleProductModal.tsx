@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
-import { useAppDispatch } from "../hooks/redux";
-import { cartSlice } from "../store/slices/cartSlice";
-import { getSlugFromLocation, showDollarPrice } from "../units/functions";
-import { Product } from "./SingleProduct";
-import closeIcon from "../images/common/closeIcon.svg";
-import plus from "../images/menu/plusNew.svg";
-import minus from "../images/menu/minusNew.svg";
-import minusDisabled from "../images/menu/minusNewDisabled.svg";
+import { useAppDispatch } from "../../hooks/redux";
+import { cartSlice } from "../../store/slices/cartSlice";
+import { getSlugFromLocation, showDollarPrice } from "../../units/functions";
+import { Product } from "../SingleProduct";
+import closeIcon from "../../images/common/closeIcon.svg";
+import plus from "../../images/menu/plusNew.svg";
+import minus from "../../images/menu/minusNew.svg";
+import minusDisabled from "../../images/menu/minusNewDisabled.svg";
 
 export const SingleProductModal = ({
   setShowModalProduct,
