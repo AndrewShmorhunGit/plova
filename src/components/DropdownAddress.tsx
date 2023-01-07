@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IDropdownOptions, IOrderState } from "../modules/modules";
 import rightArrow from "../images/order/thin_arrow_right.svg";
 
@@ -12,21 +12,30 @@ export const DropdownAddress = ({
   setOrderState: React.Dispatch<React.SetStateAction<IOrderState>>;
   orderState: IOrderState;
 }) => {
-  const [isActive, setIsActive] = useState(false);
-
+  const [isActive, setIsActive] = useState(true);
+  const contentRef = useRef<HTMLDivElement | null>(null);
   const dropdownOptions = options;
+
+  useEffect(() => {
+    function handleClickOutside(event: any): void {
+      if (contentRef.current && !contentRef.current.contains(event.target)) {
+        setIsActive(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isActive, contentRef]);
 
   return (
     <Wrapper>
-      <main>
+      <main className="main">
         <div className="label-container">
           <img
             className="label center"
-            src={
-              orderState.paymentMethod
-                ? orderState.paymentMethod.img
-                : dropdownOptions.default.img
-            }
+            src={dropdownOptions.default.img}
             alt=""
             onClick={() => setIsActive(!isActive)}
           />
@@ -37,14 +46,14 @@ export const DropdownAddress = ({
             onClick={() => setIsActive(!isActive)}
           >
             <p>
-              {orderState.paymentMethod
-                ? orderState.paymentMethod.text
+              {orderState.delAddress
+                ? orderState.delAddress
                 : dropdownOptions.default.text}
             </p>
             <img className="arrow" src={rightArrow} alt="" />
           </div>
           {isActive && (
-            <div className="dropdown-content">
+            <div ref={contentRef} className="dropdown-content">
               {dropdownOptions.options.map((option, index) => {
                 return (
                   <div
@@ -53,12 +62,17 @@ export const DropdownAddress = ({
                     onClick={() => {
                       setOrderState({
                         ...orderState,
-                        paymentMethod: { img: option.img, text: option.text },
+                        delAddress: dropdownOptions.default.text,
                       });
                       setIsActive(false);
+                      window.alert(
+                        "Sorry, location update is under development"
+                      );
                     }}
                   >
-                    <img src={option.img} alt={`${option.text} image`} />
+                    {option.img === "" ? null : (
+                      <img src={option.img} alt={`${option.text} image`} />
+                    )}
                     <p>{option.text}</p>
                   </div>
                 );
@@ -72,7 +86,7 @@ export const DropdownAddress = ({
 };
 
 const Wrapper = styled.div`
-  main {
+  .main {
     margin-top: 2rem;
     display: flex;
     gap: 3rem;

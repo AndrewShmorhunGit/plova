@@ -313,6 +313,7 @@ export interface IOrderState {
   totalPrice: string;
   promoCode: boolean;
   orderList: ICart | null;
+  phoneNumber: string | null;
 }
 
 export interface IPaymentMethod {
@@ -324,4 +325,5 @@ export interface IModalState {
   allergy: boolean;
   confirmExit: boolean;
   deliveryTerms: boolean;
+  phoneVerify: boolean;
 }

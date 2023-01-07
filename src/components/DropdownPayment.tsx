@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { IDropdownOptions, IOrderState } from "../modules/modules";
 import rightArrow from "../images/order/thin_arrow_right.svg";
-
+import { useClickOutside } from "../hooks/useClickOutside";
 export const PaymentDropdown = ({
   options,
   orderState,
@@ -13,12 +13,13 @@ export const PaymentDropdown = ({
   orderState: IOrderState;
 }) => {
   const [isActive, setIsActive] = useState(false);
+  const ref = useRef<HTMLDivElement | null>(null);
+  useClickOutside(ref, () => setIsActive(false));
 
   const dropdownOptions = options;
-
   return (
     <Wrapper>
-      <main>
+      <main className="main">
         <div className="label-container">
           <img
             className="label center"
@@ -44,7 +45,7 @@ export const PaymentDropdown = ({
             <img className="arrow" src={rightArrow} alt="" />
           </div>
           {isActive && (
-            <div className="dropdown-content">
+            <div ref={ref} className="dropdown-content">
               {dropdownOptions.options.map((option, index) => {
                 return (
                   <div
@@ -72,7 +73,7 @@ export const PaymentDropdown = ({
 };
 
 const Wrapper = styled.div`
-  main {
+  .main {
     margin-top: 2rem;
     display: flex;
     gap: 3rem;

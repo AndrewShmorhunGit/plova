@@ -1,32 +1,34 @@
 import styled from "styled-components";
-import { useState } from "react";
-import { IDropdownOptions, IOrderState } from "../modules/modules";
+import { useRef, useState } from "react";
+import { IDropdownOptions, IModalState, IOrderState } from "../modules/modules";
 import rightArrow from "../images/order/thin_arrow_right.svg";
+import { useClickOutside } from "../hooks/useClickOutside";
 
 export const DropdownPhone = ({
   options,
   orderState,
-  setOrderState,
+
+  setModalState,
+  modalState,
 }: {
   options: IDropdownOptions;
-  setOrderState: React.Dispatch<React.SetStateAction<IOrderState>>;
+
   orderState: IOrderState;
+  setModalState: React.Dispatch<React.SetStateAction<IModalState>>;
+  modalState: IModalState;
 }) => {
   const [isActive, setIsActive] = useState(false);
-
+  const ref = useRef<HTMLDivElement | null>(null);
+  useClickOutside(ref, () => setIsActive(false));
   const dropdownOptions = options;
 
   return (
     <Wrapper>
-      <main>
+      <main className="main">
         <div className="label-container">
           <img
             className="label center"
-            src={
-              orderState.paymentMethod
-                ? orderState.paymentMethod.img
-                : dropdownOptions.default.img
-            }
+            src={dropdownOptions.default.img}
             alt=""
             onClick={() => setIsActive(!isActive)}
           />
@@ -37,28 +39,30 @@ export const DropdownPhone = ({
             onClick={() => setIsActive(!isActive)}
           >
             <p>
-              {orderState.paymentMethod
-                ? orderState.paymentMethod.text
+              {orderState.phoneNumber
+                ? orderState.phoneNumber
                 : dropdownOptions.default.text}
             </p>
             <img className="arrow" src={rightArrow} alt="" />
           </div>
           {isActive && (
-            <div className="dropdown-content">
+            <div ref={ref} className="dropdown-content">
               {dropdownOptions.options.map((option, index) => {
                 return (
                   <div
                     key={index}
                     className="dropdown-item"
                     onClick={() => {
-                      setOrderState({
-                        ...orderState,
-                        paymentMethod: { img: option.img, text: option.text },
+                      setModalState({
+                        ...modalState,
+                        phoneVerify: true,
                       });
                       setIsActive(false);
                     }}
                   >
-                    <img src={option.img} alt={`${option.text} image`} />
+                    {option.img !== "" && (
+                      <img src={option.img} alt={`${option.text} image`} />
+                    )}
                     <p>{option.text}</p>
                   </div>
                 );
@@ -72,7 +76,7 @@ export const DropdownPhone = ({
 };
 
 const Wrapper = styled.div`
-  main {
+  .main {
     margin-top: 2rem;
     display: flex;
     gap: 3rem;
@@ -91,6 +95,7 @@ const Wrapper = styled.div`
   .arrow {
     transform: rotate(90deg);
   }
+
   .dropdown {
     width: 90%;
     font-size: 1.8rem;

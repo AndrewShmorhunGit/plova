@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../hooks/useAppDispatch";
 import { fetchRestaurants } from "../store/actions/restaurantActions";
 import styled from "styled-components";
 import { Link } from "react-router-dom";

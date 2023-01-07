@@ -5,7 +5,6 @@ import plus from "../images/menu/plusNew.svg";
 import minus from "../images/menu/minusNew.svg";
 import food from "../images/order/food.svg";
 import hardcodedLocation from "../images/order/hardcodedLocation.png";
-import flag from "../images/order/addressInputFlag.png";
 import { Link, useLocation } from "react-router-dom";
 import {
   getCurrentCard,
@@ -16,7 +15,7 @@ import {
   goToTop,
   showDollarPrice,
 } from "../units/functions";
-import { useAppDispatch, useAppSelector } from "../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../hooks/useAppDispatch";
 import { cartSlice } from "../store/slices/cartSlice";
 import { useEffect, useMemo, useState } from "react";
 import {
@@ -25,8 +24,15 @@ import {
   ExitFromOrderModal,
 } from "../components/index";
 import { PaymentDropdown } from "../components/DropdownPayment";
-import { paymentDropdownOptions } from "../units/data";
+import {
+  addressDropdownOptions,
+  paymentDropdownOptions,
+  phoneDropdownOptions,
+} from "../units/data";
 import { IModalState, IOrderState } from "../modules/modules";
+import { DropdownPhone } from "../components/DropdownPhone";
+import { DropdownAddress } from "../components/DropdownAddress";
+import { PhoneVerifyMOdal } from "../components/modals/PhoneVerifiyModal";
 
 export const OrderPage = () => {
   const dispatch = useAppDispatch();
@@ -41,8 +47,10 @@ export const OrderPage = () => {
     allergy: false,
     confirmExit: false,
     deliveryTerms: false,
+    phoneVerify: false,
   });
 
+  //  const [{ delAddress, delTerms, paymentMethod, allergyInfo, ...}, setOrderState];
   const [orderState, setOrderState] = useState<IOrderState>({
     delAddress: null,
     delTerms: null,
@@ -52,7 +60,10 @@ export const OrderPage = () => {
     totalPrice: "0",
     promoCode: false,
     orderList: currentCart,
+    phoneNumber: null,
   });
+
+  // const { delAddress, delTerms, paymentMethod, ...} = orderState;
 
   useEffect(() => {
     goToTop();
@@ -99,6 +110,13 @@ export const OrderPage = () => {
 
   return (
     <>
+      {/* VERIFY PHONE MODAL */}
+      <PhoneVerifyMOdal
+        modalState={modalState}
+        setModalState={setModalState}
+        orderState={orderState}
+        setOrderState={setOrderState}
+      />
       {/* ALLERGY MODAL */}
       <AllergyModal
         modalState={modalState}
@@ -120,7 +138,7 @@ export const OrderPage = () => {
         modalState={modalState}
       />
       <Wrapper>
-        <main className="container">
+        <main className="container main-container">
           <div className="order-header">
             <div className="logo-container">
               <Link to="/">
@@ -236,17 +254,19 @@ export const OrderPage = () => {
                   src={hardcodedLocation}
                   alt="current location on the map"
                 />
-                <div className="delivery-info margin-top">
-                  <img src={flag} alt="flag image" />
-                  <div className="delivery-container">
-                    <p>Antonovicha str. 74</p>
-                    <img
-                      src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/thin-arrow--right.svg"
-                      alt="thin arrow right"
-                    />
-                  </div>
-                </div>
-                <div className="delivery-terms">
+
+                <DropdownAddress
+                  options={addressDropdownOptions}
+                  orderState={orderState}
+                  setOrderState={setOrderState}
+                />
+
+                <div
+                  className="delivery-terms"
+                  onClick={() =>
+                    setModalState({ ...modalState, deliveryTerms: true })
+                  }
+                >
                   <p>
                     <span>
                       {menu &&
@@ -255,21 +275,14 @@ export const OrderPage = () => {
                   </p>
                   <p> As soon as possible</p>
                 </div>
-                <div className="delivery-info margin-top">
-                  <img
-                    src="https://res.cloudinary.com/glovoapp//CX/backendCheckout/light/phone-input"
-                    alt="flag image"
-                  />
-                  <div className="delivery-container">
-                    <p className="phone-number">Add your phone number</p>
-                    <img
-                      src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/thin-arrow--right.svg"
-                      alt=""
-                    />
-                  </div>
-                </div>
+                <DropdownPhone
+                  setModalState={setModalState}
+                  modalState={modalState}
+                  options={phoneDropdownOptions}
+                  orderState={orderState}
+                />
               </div>
-              <div className="payment-method margin-top">
+              <div className="payment-method">
                 <h3>Payment method</h3>
               </div>
               <PaymentDropdown
@@ -335,10 +348,15 @@ export const OrderPage = () => {
 };
 
 const Wrapper = styled.main`
-  main {
+  .main-container {
     padding-bottom: 10rem;
   }
+
   .margin-top {
+    margin-top: 3rem;
+  }
+
+  .margin-bottom {
     margin-top: 3rem;
   }
 
@@ -514,6 +532,7 @@ const Wrapper = styled.main`
   .delivery-info {
     height: 3.2rem;
     cursor: pointer;
+    width: 100%;
     display: flex;
     gap: 1.6rem;
   }
@@ -574,39 +593,30 @@ const Wrapper = styled.main`
 
   .btn {
     margin-top: 4rem;
-    padding: 2rem 8rem;
-    font-size: 1.8rem;
+    padding: 3rem 8rem;
+    font-size: 2.2rem;
     letter-spacing: 0;
+    border-radius: 10rem;
   }
 
   .delivery-details {
     margin-top: 8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 
   .delivery-terms {
-    margin: 2rem 0;
+    margin: 0rem 0;
     padding: 2rem;
-    display: flex;
-    flex-direction: column;
     border-radius: 1rem;
     border: solid 1px orange;
     background-color: #fff3da;
+    cursor: pointer;
   }
 
   .payment-method {
     margin-top: 8rem;
-
-    select {
-      font-size: 1.8rem;
-      width: 90%;
-      border: 0;
-      border-bottom: 1px solid lightgrey;
-      appearance: none;
-    }
-
-    option {
-      padding: 1rem;
-    }
   }
 
   .transition-container {

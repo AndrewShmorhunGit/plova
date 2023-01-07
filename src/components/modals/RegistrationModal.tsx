@@ -185,7 +185,7 @@ const Wrapper = styled.main`
     display: flex;
     justify-content: center;
     padding: 4rem 0;
-    z-index: 0;
+    z-index: -1;
     overflow: auto;
     opacity: 0;
     transition: all 0.5s ease;
@@ -260,7 +260,7 @@ const Wrapper = styled.main`
     }
   }
 
-  .btn-email:hover {
+  .btn-email_not-allowed:hover {
     cursor: not-allowed;
   }
 

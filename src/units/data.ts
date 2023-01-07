@@ -20,6 +20,8 @@ import riderImage from "../images/cooperation/riderImage.avif";
 import partnersImage from "../images/cooperation/partnersImage.avif";
 import careersImage from "../images/cooperation/careersImage.avif";
 import { IDropdownOptions, IJumbotron } from "../modules/modules";
+import flag from "../images/order/addressInputFlag.png";
+// import plus from "../images/menu/plusNew.svg";
 
 export const joinLinks = [
   {
@@ -110,18 +112,6 @@ export const categories = [
   "Alcohol",
   "Beer",
 ];
-
-// interface jumbotron {
-//   id: number;
-//   category: string;
-//   icon: File;
-//   subcategory: Subcategory[] | null;
-// }
-
-// interface Subcategory {
-//   category: string;
-//   icon: File;
-// }
 
 export const jumbotron: IJumbotron[] = [
   {
@@ -230,8 +220,38 @@ export const paymentDropdownOptions: IDropdownOptions = {
       text: "Pay with cash",
     },
     {
-      img: "https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/payment-methods-icons/add-card.svg",
-      text: "Add a new card",
+      img: general,
+      text: "Pay with card",
+    },
+  ],
+};
+
+export const phoneDropdownOptions: IDropdownOptions = {
+  default: {
+    img: "https://res.cloudinary.com/glovoapp//CX/backendCheckout/light/phone-input",
+    text: "+3807777777",
+  },
+  options: [
+    {
+      img: "",
+      text: "Add new phone number",
+    },
+  ],
+};
+
+export const addressDropdownOptions: IDropdownOptions = {
+  default: {
+    img: flag,
+    text: "Antonovicha str. 74",
+  },
+  options: [
+    {
+      img: "",
+      text: "Antonovicha str. 74",
+    },
+    {
+      img: "",
+      text: "Add new address",
     },
   ],
 };

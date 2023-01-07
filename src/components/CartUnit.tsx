@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useAppDispatch } from "../hooks/redux";
+import { useAppDispatch } from "../hooks/useAppDispatch";
 import { Order } from "../modules/modules";
 import { cartSlice } from "../store/slices/cartSlice";
 import { showDollarPrice } from "../units/functions";

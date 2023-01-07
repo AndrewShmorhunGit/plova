@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
-import { useAppDispatch } from "../../hooks/redux";
+import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { cartSlice } from "../../store/slices/cartSlice";
 import { getSlugFromLocation, showDollarPrice } from "../../units/functions";
 import { Product } from "../SingleProduct";

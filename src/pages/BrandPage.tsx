@@ -6,7 +6,7 @@ import {
   LoadingBrandGrid,
   BrandHeader,
 } from "../components/index";
-import { useAppDispatch, useAppSelector } from "../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../hooks/useAppDispatch";
 import { fetchMenu } from "../store/actions/menuActions";
 import { getSlugFromLocation, goToTop } from "../units/functions";
 import { ErrorPage } from "./ErrorPage";
