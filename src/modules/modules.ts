@@ -326,4 +326,6 @@ export interface IModalState {
   confirmExit: boolean;
   deliveryTerms: boolean;
   phoneVerify: boolean;
+  inValidOrder: boolean;
+  successOrder: boolean;
 }

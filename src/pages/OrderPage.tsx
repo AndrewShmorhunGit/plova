@@ -29,11 +29,11 @@ import {
   paymentDropdownOptions,
   phoneDropdownOptions,
 } from "../units/data";
-import { IModalState, IOrderState } from "../modules/modules";
+import { IModalState } from "../modules/modules";
 import { DropdownPhone } from "../components/DropdownPhone";
 import { DropdownAddress } from "../components/DropdownAddress";
-import { PhoneVerifyMOdal } from "../components/modals/PhoneVerifiyModal";
-
+import { PhoneVerifyMOdal } from "../components/modals/PhoneVerifyModal";
+import { useLocalStorageState } from "../hooks/useLocalStorageState";
 export const OrderPage = () => {
   const dispatch = useAppDispatch();
   const { carts } = useAppSelector((state) => state.carts);
@@ -41,17 +41,19 @@ export const OrderPage = () => {
   const location = useLocation();
   const menu = useMemo(() => getLocalStorageMenu(), []);
   const slug = useMemo(() => getSlugFromLocation(location), [location]);
-  const currentCart = useMemo(() => getCurrentCard(slug, carts), [carts]);
+  const currentCart = getCurrentCard(slug, carts);
 
   const [modalState, setModalState] = useState<IModalState>({
     allergy: false,
     confirmExit: false,
     deliveryTerms: false,
     phoneVerify: false,
+    inValidOrder: false,
+    successOrder: false,
   });
 
   //  const [{ delAddress, delTerms, paymentMethod, allergyInfo, ...}, setOrderState];
-  const [orderState, setOrderState] = useState<IOrderState>({
+  const [orderState, setOrderState] = useLocalStorageState("order", {
     delAddress: null,
     delTerms: null,
     paymentMethod: null,
@@ -59,7 +61,7 @@ export const OrderPage = () => {
     cutlery: false,
     totalPrice: "0",
     promoCode: false,
-    orderList: currentCart,
+    orderList: null,
     phoneNumber: null,
   });
 
@@ -69,9 +71,34 @@ export const OrderPage = () => {
     goToTop();
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(carts));
+  }, [orderState.orderList]);
+
+  const isValidOrder =
+    orderState.delAddress && orderState.paymentMethod && orderState.phoneNumber;
+
   const productsPrice = getTotalCardPrice(slug, carts);
   const brandName = menu?.brandName;
   const smallOrderFeePrice = 1;
+  const totalPrice =
+    menu &&
+    (productsPrice < 5
+      ? `${showDollarPrice(
+          productsPrice + smallOrderFeePrice + menu.deliveryPrice
+        )} $`
+      : `${showDollarPrice(productsPrice + menu.deliveryPrice)} $`);
+
+  const confirmHandle = () =>
+    isValidOrder
+      ? (setOrderState({
+          ...orderState,
+          delTerms: `${menu?.deliveryTime1}-${menu?.deliveryTime2} min`,
+          orderList: currentCart,
+          totalPrice: `${totalPrice}`,
+        }),
+        setModalState({ ...modalState, successOrder: true }))
+      : setModalState({ ...modalState, inValidOrder: true });
 
   const increase = (productName: string) => {
     dispatch(
@@ -81,6 +108,7 @@ export const OrderPage = () => {
         operation: "inc",
       })
     );
+    setOrderState({ ...orderState, orderList: currentCart });
   };
 
   const properDecrease = (productName: string): void => {
@@ -95,6 +123,7 @@ export const OrderPage = () => {
           operation: "dec",
         })
       );
+      setOrderState({ ...orderState, orderList: currentCart });
     }
   };
 
@@ -247,7 +276,17 @@ export const OrderPage = () => {
 
                       <div>
                         <label className="switch">
-                          <input type="checkbox" />
+                          <input
+                            type="checkbox"
+                            name="cutlery"
+                            checked={orderState.cutlery}
+                            onChange={(event) => {
+                              setOrderState({
+                                ...orderState,
+                                [event?.target.name]: event.target.checked,
+                              });
+                            }}
+                          />
                           <span className="slider"></span>
                         </label>
                       </div>
@@ -327,21 +366,15 @@ export const OrderPage = () => {
                 ) : null}
                 <div className="summary-position total-position">
                   <p>TOTAL</p>
-                  <p>
-                    {menu &&
-                      (productsPrice < 5
-                        ? `${showDollarPrice(
-                            productsPrice +
-                              smallOrderFeePrice +
-                              menu.deliveryPrice
-                          )} $`
-                        : `${showDollarPrice(
-                            productsPrice + menu.deliveryPrice
-                          )} $`)}
-                  </p>
+                  <p>{totalPrice}</p>
                 </div>
                 <div className="btn-container center">
-                  <button className="btn center">Confirm Order</button>
+                  <button
+                    className="btn center"
+                    onClick={() => confirmHandle()}
+                  >
+                    Confirm Order
+                  </button>
                 </div>
               </div>
             </div>

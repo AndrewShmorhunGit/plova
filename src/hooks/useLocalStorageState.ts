@@ -1,16 +1,15 @@
 import React from "react";
+import { IOrderState } from "../modules/modules";
 
 export function useLocalStorageState(
   key: string,
-  defaultValue: string | Function = "",
+  defaultValue: string | Function | IOrderState = "",
 
   { serialize = JSON.stringify, deserialize = JSON.parse } = {}
 ) {
   const [state, setState] = React.useState(() => {
     const valueInLocalStorage = window.localStorage.getItem(key);
     if (valueInLocalStorage) {
-      7;
-
       try {
         return deserialize(valueInLocalStorage);
       } catch (error) {

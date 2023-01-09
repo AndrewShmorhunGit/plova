@@ -229,7 +229,7 @@ export const paymentDropdownOptions: IDropdownOptions = {
 export const phoneDropdownOptions: IDropdownOptions = {
   default: {
     img: "https://res.cloudinary.com/glovoapp//CX/backendCheckout/light/phone-input",
-    text: "+3807777777",
+    text: "Add a phone number",
   },
   options: [
     {
@@ -242,7 +242,7 @@ export const phoneDropdownOptions: IDropdownOptions = {
 export const addressDropdownOptions: IDropdownOptions = {
   default: {
     img: flag,
-    text: "Antonovicha str. 74",
+    text: "Add an address",
   },
   options: [
     {

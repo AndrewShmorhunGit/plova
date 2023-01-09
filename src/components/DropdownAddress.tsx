@@ -12,7 +12,7 @@ export const DropdownAddress = ({
   setOrderState: React.Dispatch<React.SetStateAction<IOrderState>>;
   orderState: IOrderState;
 }) => {
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
   const contentRef = useRef<HTMLDivElement | null>(null);
   const dropdownOptions = options;
 
@@ -60,14 +60,15 @@ export const DropdownAddress = ({
                     key={index}
                     className="dropdown-item"
                     onClick={() => {
-                      setOrderState({
-                        ...orderState,
-                        delAddress: dropdownOptions.default.text,
-                      });
-                      setIsActive(false);
-                      window.alert(
-                        "Sorry, location update is under development"
-                      );
+                      option.text === "Add new address"
+                        ? window.alert(
+                            "Sorry, location update is under development"
+                          )
+                        : setOrderState({
+                            ...orderState,
+                            delAddress: option.text,
+                          });
+                      option.text !== "Add new address" && setIsActive(false);
                     }}
                   >
                     {option.img === "" ? null : (
