@@ -111,32 +111,40 @@ export const OrderPage = () => {
   return (
     <>
       {/* VERIFY PHONE MODAL */}
-      <PhoneVerifyMOdal
-        modalState={modalState}
-        setModalState={setModalState}
-        orderState={orderState}
-        setOrderState={setOrderState}
-      />
+      {modalState.phoneVerify && (
+        <PhoneVerifyMOdal
+          modalState={modalState}
+          setModalState={setModalState}
+          orderState={orderState}
+          setOrderState={setOrderState}
+        />
+      )}
       {/* ALLERGY MODAL */}
-      <AllergyModal
-        modalState={modalState}
-        setModalState={setModalState}
-        orderState={orderState}
-        setOrderState={setOrderState}
-      />
+      {modalState.allergy && (
+        <AllergyModal
+          modalState={modalState}
+          setModalState={setModalState}
+          orderState={orderState}
+          setOrderState={setOrderState}
+        />
+      )}
       {/* CONFIRM EXIT MODAL */}
-      <ExitFromOrderModal
-        setModalState={setModalState}
-        modalState={modalState}
-        currentCart={currentCart}
-        slug={slug}
-        decrease={decrease}
-      />
+      {modalState && (
+        <ExitFromOrderModal
+          setModalState={setModalState}
+          modalState={modalState}
+          currentCart={currentCart}
+          slug={slug}
+          decrease={decrease}
+        />
+      )}
       {/* DELIVERY TERMS MODAL */}
-      <DeliveryTermsModal
-        setModalState={setModalState}
-        modalState={modalState}
-      />
+      {modalState.deliveryTerms && (
+        <DeliveryTermsModal
+          setModalState={setModalState}
+          modalState={modalState}
+        />
+      )}
       <Wrapper>
         <main className="container main-container">
           <div className="order-header">

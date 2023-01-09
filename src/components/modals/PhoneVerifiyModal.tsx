@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { IModalState, IOrderState } from "../../modules/modules";
 import closeIcon from "../../images/common/closeIcon.svg";
+import flagUA from "../../images/order/FlagUA.svg.png";
 import { useState } from "react";
 
 export const PhoneVerifyMOdal = ({
@@ -19,7 +20,7 @@ export const PhoneVerifyMOdal = ({
   const valid =
     currentPhoneNumber &&
     Number.isInteger(parseInt(currentPhoneNumber)) &&
-    currentPhoneNumber.length === 7;
+    currentPhoneNumber.length === 9;
   return (
     <Wrapper>
       <main
@@ -37,22 +38,27 @@ export const PhoneVerifyMOdal = ({
             <img src={closeIcon} alt="close X" />
           </button>
           <h1>Verify your phone number</h1>
-          <p className="phone">Phone</p>
-          <label className="label" htmlFor="#phone-input">
-            +380
-          </label>
-          <input
-            className="input"
-            type="text"
-            value={currentPhoneNumber}
-            onChange={(event) => {
-              setCurrentPhoneNumber(event.target.value);
-            }}
-            id="#phone-input"
-          />
-          {error && !valid && (
-            <p className="error-message">Hey! Not valid number!</p>
-          )}
+          <div className="add-phone-container">
+            <p className="phone">Phone</p>
+            <label className="label" htmlFor="#phone-input">
+              <img src={flagUA} alt="flag of UA" className="flag"></img>
+              +380
+              <input
+                className="input"
+                type="text"
+                value={currentPhoneNumber}
+                onChange={(event) => {
+                  setCurrentPhoneNumber(event.target.value);
+                }}
+                id="#phone-input"
+              />
+            </label>
+          </div>
+
+          <div className="error-message-container">
+            {error && <p className="error-message">Invalid phone number!</p>}
+          </div>
+
           <button
             className={
               valid ? "btn btn-active center" : "btn btn-not-allowed center"
@@ -102,7 +108,7 @@ const Wrapper = styled.main`
     border-radius: 1rem;
     flex-direction: column;
     gap: 4rem;
-    margin: 5rem auto;
+    margin: 10rem auto;
     padding: 0;
 
     h1 {
@@ -110,7 +116,7 @@ const Wrapper = styled.main`
     }
 
     p {
-      font-size: 1.8rem;
+      font-size: 2.4rem;
       font-weight: 400;
     }
   }
@@ -120,9 +126,63 @@ const Wrapper = styled.main`
     gap: 2rem;
   }
 
-  .buttons {
-    flex-direction: column;
-    gap: 1rem;
+  .add-phone-container {
+    font-size: 2rem;
+  }
+
+  .phone {
+    justify-content: start;
+    padding-bottom: 1rem;
+  }
+
+  .error-message-container {
+    min-height: 2rem;
+  }
+
+  .error-message {
+    font-size: 1.2rem;
+    color: #db4437;
+    margin-top: 0rem;
+    margin-left: 0rem;
+  }
+
+  .label {
+    display: flex;
+    min-height: 4rem;
+    gap: 0.2rem;
+    background: lightgrey;
+    align-items: center;
+  }
+
+  .flag {
+    display: flex;
+    background: linear-gradient(180deg, blue 50%, yellow 50%);
+    max-hight: 2.4rem;
+    max-width: 4.8rem;
+    border: solid 1rem lightgrey;
+  }
+
+  .input {
+    display: flex;
+    align-items: center;
+    min-height: 4rem;
+
+    padding-left: 1rem;
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+    color: #212529;
+    border: none;
+    border-top: solid 4px transparent;
+    border-bottom: solid 1px lightgrey;
+  }
+
+  .input:hover {
+    border-bottom: solid 2px lightgrey;
+  }
+
+  .input:focus {
+    outline: none;
+    border-bottom: solid 2px lightgrey;
   }
 
   .btn {
