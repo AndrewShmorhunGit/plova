@@ -235,6 +235,12 @@ export interface ResponseRestaurants {
   statusText: string;
 }
 
+export interface RestaurantState {
+  loading: boolean;
+  error: string;
+  restaurants: IRestaurants;
+}
+
 export interface IJumbotron {
   id: number;
   category: string;
@@ -328,4 +334,20 @@ export interface IModalState {
   phoneVerify: boolean;
   inValidOrder: boolean;
   successOrder: boolean;
+}
+
+export interface UserState {
+  loading: boolean;
+  error: string;
+  isActive: boolean;
+  user: {};
+}
+
+export interface IUser {
+  name?: string;
+  email: string;
+  password: string;
+  phone?: string;
+  card?: string;
+  token?: string | null;
 }

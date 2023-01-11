@@ -1,11 +1,5 @@
-import { IRestaurants } from "../../modules/modules";
+import { IRestaurants, RestaurantState } from "../../modules/modules";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-interface RestaurantState {
-  loading: boolean;
-  error: string;
-  restaurants: IRestaurants;
-}
 
 const initialState: RestaurantState = {
   loading: false,

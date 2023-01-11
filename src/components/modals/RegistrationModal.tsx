@@ -6,6 +6,9 @@ import closeIcon from "../../images/common/closeIcon.svg";
 import { GrFacebook } from "react-icons/gr";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useAppDispatch } from "../../hooks/useAppDispatch";
+import { fetchUserLogin } from "../../store/actions/userActions";
+import { IUser } from "../../modules/modules";
 
 export const RegistrationModal = ({
   setShowRegistration,
@@ -14,30 +17,28 @@ export const RegistrationModal = ({
   setShowRegistration: React.Dispatch<React.SetStateAction<boolean>>;
   showRegistration: boolean;
 }) => {
+  const dispatch = useAppDispatch();
+
+  // const { loading, error, isActive, user } = useAppSelector((state) => state.user);
+
   const [login, setIsLogin] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
-  } = useForm<IData>({
+  } = useForm<IUser>({
     mode: "onBlur",
     defaultValues: {
-      name: "",
-      email: "",
-      password: "",
-      // name: "Shmorgy",
-      // email: "shmorgy@gmail.com",
-      // password: "shorgyshmorg",
+      // name: "",
+      // email: "",
+      // password: "",
+      name: "Shmorgy",
+      email: "shmorgy@gmail.com",
+      password: "shorgyshmorg",
     },
   });
 
-  interface IData {
-    name: string;
-    email: string;
-    password: string;
-  }
-
-  const onSubmit = (data: IData) => data;
+  const onSubmit = (data: IUser) => !login && dispatch(fetchUserLogin(data));
 
   return (
     <Wrapper>
@@ -204,7 +205,7 @@ const Wrapper = styled.main`
     background: #fff;
     width: 60rem;
     border-radius: 1rem;
-    padding: 2rem 2rem 3rem 2rem;
+    padding: 4rem 2rem 3rem 2rem;
     position: relative;
     display: flex;
     align-items: center;
