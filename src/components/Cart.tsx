@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
-import { useAppSelector } from "../hooks/redux";
+import { useAppSelector } from "../hooks/useAppDispatch";
 import { Link } from "react-router-dom";
 import {
   getCurrentCard,

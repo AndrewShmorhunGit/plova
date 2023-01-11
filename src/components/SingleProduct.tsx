@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { showDollarPrice } from "../units/functions";
-import { SingleProductModal } from "./SingleProductModal";
+import { SingleProductModal } from "./modals/SingleProductModal";
 
 export interface Product {
   name: string;

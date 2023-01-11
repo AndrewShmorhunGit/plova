@@ -1,19 +1,40 @@
 import styled from "styled-components";
-import { useState } from "react";
-import { IDropdownOptions } from "../modules/modules";
+import { useEffect, useRef, useState } from "react";
+import { IDropdownOptions, IOrderState } from "../modules/modules";
 import rightArrow from "../images/order/thin_arrow_right.svg";
 
-export const Dropdown = ({ options }: { options: IDropdownOptions }) => {
+export const DropdownAddress = ({
+  options,
+  orderState,
+  setOrderState,
+}: {
+  options: IDropdownOptions;
+  setOrderState: React.Dispatch<React.SetStateAction<IOrderState>>;
+  orderState: IOrderState;
+}) => {
   const [isActive, setIsActive] = useState(false);
-
+  const contentRef = useRef<HTMLDivElement | null>(null);
   const dropdownOptions = options;
+
+  useEffect(() => {
+    function handleClickOutside(event: any): void {
+      if (contentRef.current && !contentRef.current.contains(event.target)) {
+        setIsActive(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isActive, contentRef]);
 
   return (
     <Wrapper>
-      <main>
-        <div>
+      <main className="main">
+        <div className="label-container">
           <img
-            className="label"
+            className="label center"
             src={dropdownOptions.default.img}
             alt=""
             onClick={() => setIsActive(!isActive)}
@@ -24,15 +45,35 @@ export const Dropdown = ({ options }: { options: IDropdownOptions }) => {
             className={isActive ? "dropdown-btn active" : "dropdown-btn"}
             onClick={() => setIsActive(!isActive)}
           >
-            <p>{dropdownOptions.default.text}</p>
+            <p>
+              {orderState.delAddress
+                ? orderState.delAddress
+                : dropdownOptions.default.text}
+            </p>
             <img className="arrow" src={rightArrow} alt="" />
           </div>
           {isActive && (
-            <div className="dropdown-content">
+            <div ref={contentRef} className="dropdown-content">
               {dropdownOptions.options.map((option, index) => {
                 return (
-                  <div key={index} className="dropdown-item">
-                    <img src={option.img} alt={`${option.text} image`} />
+                  <div
+                    key={index}
+                    className="dropdown-item"
+                    onClick={() => {
+                      option.text === "Add new address"
+                        ? window.alert(
+                            "Sorry, location update is under development"
+                          )
+                        : setOrderState({
+                            ...orderState,
+                            delAddress: option.text,
+                          });
+                      option.text !== "Add new address" && setIsActive(false);
+                    }}
+                  >
+                    {option.img === "" ? null : (
+                      <img src={option.img} alt={`${option.text} image`} />
+                    )}
                     <p>{option.text}</p>
                   </div>
                 );
@@ -46,15 +87,20 @@ export const Dropdown = ({ options }: { options: IDropdownOptions }) => {
 };
 
 const Wrapper = styled.div`
-  main {
+  .main {
     margin-top: 2rem;
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
   }
 
-  .label {
-    width: auto;
-    cursor: pointer;
+  .label-container {
+    min-width: 2rem;
+    .label {
+      position: absolute;
+      height: 3rem;
+      width: auto;
+      cursor: pointer;
+    }
   }
 
   .arrow {

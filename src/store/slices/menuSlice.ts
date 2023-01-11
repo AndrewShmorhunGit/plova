@@ -23,6 +23,7 @@ export const menusSlice = createSlice({
       state.loading = true;
     },
     fetchSuccess(state, action: PayloadAction<IMenu>) {
+      state.menu = null;
       state.loading = false;
       state.menu = action.payload;
     },

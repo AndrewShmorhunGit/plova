@@ -1,22 +1,30 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import penErasing from "../images/order/penErasing.svg";
-import { ICart } from "../modules/modules";
+import penErasing from "../../images/order/penErasing.svg";
+import { ICart, IModalState } from "../../modules/modules";
 
 export const ExitFromOrderModal = ({
-  setConfirmExitModal,
+  setModalState,
+  modalState,
   currentCart,
   slug,
   decrease,
 }: {
-  setConfirmExitModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setModalState: React.Dispatch<React.SetStateAction<IModalState>>;
+  modalState: IModalState;
   currentCart: ICart | null;
   slug: string;
   decrease: Function;
 }) => {
   return (
     <Wrapper>
-      <main className="modal-container show-modal">
+      <main
+        className={
+          modalState.confirmExit
+            ? "modal-container show-modal"
+            : "modal-container"
+        }
+      >
         <div className="content center">
           <div className="content-info center">
             <h1>Remove product</h1>
@@ -28,7 +36,7 @@ export const ExitFromOrderModal = ({
                 className="btn center confirm"
                 onClick={() =>
                   decrease(currentCart?.order[0].name) &&
-                  setConfirmExitModal(false)
+                  setModalState({ ...modalState, confirmExit: false })
                 }
               >
                 Confirm
@@ -36,7 +44,9 @@ export const ExitFromOrderModal = ({
 
               <button
                 className="btn center"
-                onClick={() => setConfirmExitModal(false)}
+                onClick={() =>
+                  setModalState({ ...modalState, confirmExit: false })
+                }
               >
                 Cancel
               </button>
@@ -58,6 +68,8 @@ const Wrapper = styled.main`
     padding: 0rem 0 0 2rem;
     z-index: -1;
     overflow: auto;
+    opacity: 0;
+    transition: all 0.5s ease;
   }
 
   .show-modal {
@@ -71,8 +83,7 @@ const Wrapper = styled.main`
     min-width: 80rem;
     height: 50rem;
     border-radius: 1rem;
-
-    margin: 5rem auto;
+    margin: 10rem auto;
     padding: 0;
 
     h1 {
