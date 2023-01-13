@@ -1,7 +1,7 @@
 const ChooseAddressModal = () => {
   return (
     <div>
-      <h1>Choos Address</h1>
+      <h1>Choose Address</h1>
     </div>
   );
 };

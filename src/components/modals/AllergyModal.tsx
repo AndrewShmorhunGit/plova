@@ -1,19 +1,40 @@
-import { useState } from "react";
 import styled from "styled-components";
-import closeIcon from "../images/common/closeIcon.svg";
+import { IModalState, IOrderState } from "../../modules/modules";
+import closeIcon from "../../images/common/closeIcon.svg";
 
 export const AllergyModal = ({
-  setAllergyModal,
+  setModalState,
+  modalState,
+  setOrderState,
+  orderState,
 }: {
-  setAllergyModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setOrderState: React.Dispatch<React.SetStateAction<IOrderState>>;
+  orderState: IOrderState;
+  setModalState: React.Dispatch<React.SetStateAction<IModalState>>;
+  modalState: IModalState;
 }) => {
-  const [allergyInfo, setAllergyInfo] = useState("");
-
   return (
     <Wrapper>
-      <main className="modal-container show-modal">
+      <main
+        className={
+          modalState.allergy ? "modal-container show-modal" : "modal-container"
+        }
+      >
         <div className="content center">
-          <button className="close-btn" onClick={() => setAllergyModal(false)}>
+          <button
+            className="close-btn"
+            onClick={() => {
+              setModalState({ ...modalState, allergy: false });
+              setTimeout(
+                () =>
+                  setOrderState({
+                    ...orderState,
+                    allergyInfo: "",
+                  }),
+                500
+              );
+            }}
+          >
             <img src={closeIcon} alt="close X" />
           </button>
 
@@ -24,15 +45,25 @@ export const AllergyModal = ({
             <textarea
               className="text-content"
               name="Allergy area"
-              value={allergyInfo}
+              value={orderState.allergyInfo}
               placeholder="Let the restaurant know what they should take into account"
               maxLength={255}
-              onChange={(event) => setAllergyInfo(event.target.value)}
+              onChange={(event) =>
+                setOrderState({
+                  ...orderState,
+                  allergyInfo: event.target.value,
+                })
+              }
             />
-            <p className="characters-left">{255 - allergyInfo.length}</p>
+            <p className="characters-left">
+              {255 - orderState.allergyInfo.length}
+            </p>
           </form>
 
-          <button className="btn center" onClick={() => setAllergyModal(false)}>
+          <button
+            className="btn center"
+            onClick={() => setModalState({ ...modalState, allergy: false })}
+          >
             Save
           </button>
         </div>
@@ -51,6 +82,9 @@ const Wrapper = styled.main`
     padding: 0rem 0 0 2rem;
     z-index: -1;
     overflow: auto;
+    opacity: 0;
+    transition: all 0.5s ease;
+   
   }
 
   .show-modal {

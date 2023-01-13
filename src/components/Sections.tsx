@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useAppDispatch } from "../hooks/redux";
+import { useAppDispatch } from "../hooks/useAppDispatch";
 import { IMenu } from "../modules/modules";
 import { menusSlice } from "../store/slices/menuSlice";
 import { goToMenuStart } from "../units/functions";

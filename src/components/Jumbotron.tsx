@@ -2,17 +2,20 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { LocationInput } from "./index";
-import { useAppDispatch, useAppSelector } from "../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../hooks/useAppDispatch";
 import { fetchJumbotron } from "../store/actions/jumbotronActions";
 import { ErrorPage } from "../pages";
 import useGeolocation from "react-hook-geolocation";
 
 // const currentLocation: string = "136 Pym St, Nottingham";
 
-export const Jumbotron: React.FC<{
+export const Jumbotron = ({
+  setShowLocationModal,
+  showLocationModal,
+}: {
   setShowLocationModal: React.Dispatch<React.SetStateAction<boolean>>;
   showLocationModal: boolean;
-}> = ({ setShowLocationModal, showLocationModal }) => {
+}) => {
   const [showAddressInput, setShowAddressInput] = useState(false);
   const location: boolean = false;
   const dispatch = useAppDispatch();
