@@ -11,7 +11,6 @@ import { Products } from "./Products";
 import { ChangeLocationModal } from "./modals/ChangeLocationModal";
 import { SingleProduct } from "./SingleProduct";
 import { StartOrderWindow } from "./StartOrderWindow";
-import { UserComponent } from "./UserComponent";
 import { ChooseLocation } from "./ChooseLocation";
 import { RegistrationModal } from "./modals/RegistrationModal";
 import { Partnership } from "./Partnership";
@@ -36,8 +35,13 @@ import { InDevelopmentModal } from "./modals/InDevelopmentModal";
 import { DropdownPhone } from "./DropdownPhone";
 import { DropdownAddress } from "./DropdownAddress";
 import { PaymentDropdown } from "./DropdownPayment";
-
+import { UserInfoList } from "./UserInfoList";
+import { UserOrdersList } from "./UserOrdersList";
+import { GetStarted } from "./GetStarted";
 export {
+  GetStarted,
+  UserOrdersList,
+  UserInfoList,
   DropdownPhone,
   DropdownAddress,
   PaymentDropdown,
@@ -69,7 +73,6 @@ export {
   ChangeLocationModal,
   SingleProduct,
   StartOrderWindow,
-  UserComponent,
   ChooseLocation,
   RegistrationModal,
   Partnership,

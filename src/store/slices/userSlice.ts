@@ -1,7 +1,7 @@
 import { IUser, UserState } from "../../modules/modules";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState: UserState = {
+const initialUserState: UserState = {
   loading: false,
   error: "",
   isActive: false,
@@ -10,17 +10,17 @@ const initialState: UserState = {
 
 export const userSlice = createSlice({
   name: "user",
-  initialState: initialState,
+  initialState: initialUserState,
   reducers: {
-    fetching(state) {
+    fetchingUser(state) {
       state.loading = true;
     },
-    fetchSuccess(state, action: PayloadAction<IUser>) {
+    fetchUserSuccess(state, action: PayloadAction<IUser>) {
       state.loading = false;
       state.user = action.payload;
       state.isActive = true;
     },
-    fetchError(state, action: PayloadAction<Error>) {
+    fetchUserError(state, action: PayloadAction<Error>) {
       state.loading = false;
       state.error = action.payload.message;
     },
