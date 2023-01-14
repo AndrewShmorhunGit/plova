@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-
-// import { Transition } from "react-transition-group";
 import {
   FoodNearGallery,
   Partnership,
@@ -39,6 +37,7 @@ export const HomePage = () => {
         setShowLocationModal={setShowLocationModal}
         showLocationModal={showLocationModal}
       />
+
       <FoodNearGallery />
       <PopularNear />
       <Partnership />

@@ -25,11 +25,11 @@ const mockFetchGetUser = (userLoginObject: IUser) => {
 export const fetchUserLogin = (user: IUser) => {
   return async (dispatch: AppDispatch) => {
     try {
-      dispatch(userSlice.actions.fetching());
+      dispatch(userSlice.actions.fetchingUser());
       const response = await wait(() => mockFetchGetUser(user), 2000);
-      dispatch(userSlice.actions.fetchSuccess(response));
+      dispatch(userSlice.actions.fetchUserSuccess(response));
     } catch (error) {
-      dispatch(userSlice.actions.fetchError(error as Error));
+      dispatch(userSlice.actions.fetchUserError(error as Error));
     }
   };
 };
