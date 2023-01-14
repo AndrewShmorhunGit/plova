@@ -22,18 +22,23 @@ import {
   AllergyModal,
   DeliveryTermsModal,
   ExitFromOrderModal,
+  InValidOrderModal,
+  SuccessOrderModal,
+  DropdownPhone,
+  DropdownAddress,
+  PaymentDropdown,
+  InDevelopmentModal,
 } from "../components/index";
-import { PaymentDropdown } from "../components/DropdownPayment";
+
 import {
   addressDropdownOptions,
   paymentDropdownOptions,
   phoneDropdownOptions,
 } from "../units/data";
 import { IModalState } from "../modules/modules";
-import { DropdownPhone } from "../components/DropdownPhone";
-import { DropdownAddress } from "../components/DropdownAddress";
 import { PhoneVerifyMOdal } from "../components/modals/PhoneVerifyModal";
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
+
 export const OrderPage = () => {
   const dispatch = useAppDispatch();
   const { carts } = useAppSelector((state) => state.carts);
@@ -50,6 +55,7 @@ export const OrderPage = () => {
     phoneVerify: false,
     inValidOrder: false,
     successOrder: false,
+    inDevelopment: false,
   });
 
   //  const [{ delAddress, delTerms, paymentMethod, allergyInfo, ...}, setOrderState];
@@ -75,7 +81,7 @@ export const OrderPage = () => {
     localStorage.setItem("cart", JSON.stringify(carts));
   }, [orderState.orderList]);
 
-  const isValidOrder =
+  const isValidOrder: boolean =
     orderState.delAddress && orderState.paymentMethod && orderState.phoneNumber;
 
   const productsPrice = getTotalCardPrice(slug, carts);
@@ -174,6 +180,25 @@ export const OrderPage = () => {
           modalState={modalState}
         />
       )}
+      {modalState.inValidOrder && (
+        <InValidOrderModal
+          setModalState={setModalState}
+          modalState={modalState}
+        />
+      )}
+      {modalState.successOrder && (
+        <SuccessOrderModal
+          setModalState={setModalState}
+          modalState={modalState}
+        />
+      )}
+      {modalState.inDevelopment && (
+        <InDevelopmentModal
+          setModalState={setModalState}
+          modalState={modalState}
+        />
+      )}
+
       <Wrapper>
         <main className="container main-container">
           <div className="order-header">
@@ -304,6 +329,8 @@ export const OrderPage = () => {
 
                 <DropdownAddress
                   options={addressDropdownOptions}
+                  setModalState={setModalState}
+                  modalState={modalState}
                   orderState={orderState}
                   setOrderState={setOrderState}
                 />
@@ -370,7 +397,12 @@ export const OrderPage = () => {
                 </div>
                 <div className="btn-container center">
                   <button
-                    className="btn center"
+                    className={
+                      isValidOrder
+                        ? `btn-confirm btn btn-active `
+                        : "btn-confirm btn not-allowed"
+                    }
+                    // className="btn center"
                     onClick={() => confirmHandle()}
                   >
                     Confirm Order
@@ -632,12 +664,36 @@ const Wrapper = styled.main`
     }
   }
 
-  .btn {
+  .btn-confirm {
     margin-top: 4rem;
-    padding: 3rem 8rem;
-    font-size: 2.2rem;
-    letter-spacing: 0;
-    border-radius: 10rem;
+    width: 33.8rem;
+    height: 5.4rem;
+    color: white
+    padding: 3rem 6rem;
+    letter-spacing: 0.05rem;
+    font-size: 2rem;
+
+    p {
+      color: white;
+      font-weight: 600;
+      font-size: 1.8rem;
+    }
+  }
+
+  .not-allowed {
+    background: #c1c1c1;
+  }
+
+  .not-allowed:hover {
+    cursor: not-allowed;
+  }
+
+  .btn-active {
+    background-color: #00a082ff;
+  }
+
+  .btn-active:hover {
+    background-color: #006653ff;
   }
 
   .delivery-details {

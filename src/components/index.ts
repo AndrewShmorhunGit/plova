@@ -30,7 +30,20 @@ import { CartUnit } from "./CartUnit";
 import { ExitFromOrderModal } from "./modals/ExitFromOrderModal";
 import { AllergyModal } from "./modals/AllergyModal";
 import { DeliveryTermsModal } from "./modals/DeliveryTermsModal";
+import { SuccessOrderModal } from "./modals/SuccessOrderModal";
+import { InValidOrderModal } from "./modals/InValidOrderModal";
+import { InDevelopmentModal } from "./modals/InDevelopmentModal";
+import { DropdownPhone } from "./DropdownPhone";
+import { DropdownAddress } from "./DropdownAddress";
+import { PaymentDropdown } from "./DropdownPayment";
+
 export {
+  DropdownPhone,
+  DropdownAddress,
+  PaymentDropdown,
+  InDevelopmentModal,
+  InValidOrderModal,
+  SuccessOrderModal,
   DeliveryTermsModal,
   AllergyModal,
   ExitFromOrderModal,
