@@ -1,13 +1,17 @@
 import styled from "styled-components";
 import { useEffect, useRef, useState } from "react";
-import { IDropdownOptions, IOrderState } from "../modules/modules";
+import { IDropdownOptions, IModalState, IOrderState } from "../modules/modules";
 import rightArrow from "../images/order/thin_arrow_right.svg";
 
 export const DropdownAddress = ({
+  modalState,
+  setModalState,
   options,
   orderState,
   setOrderState,
 }: {
+  setModalState: React.Dispatch<React.SetStateAction<IModalState>>;
+  modalState: IModalState;
   options: IDropdownOptions;
   setOrderState: React.Dispatch<React.SetStateAction<IOrderState>>;
   orderState: IOrderState;
@@ -61,9 +65,7 @@ export const DropdownAddress = ({
                     className="dropdown-item"
                     onClick={() => {
                       option.text === "Add new address"
-                        ? window.alert(
-                            "Sorry, location update is under development"
-                          )
+                        ? setModalState({ ...modalState, inDevelopment: true })
                         : setOrderState({
                             ...orderState,
                             delAddress: option.text,

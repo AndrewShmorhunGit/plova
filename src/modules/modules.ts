@@ -334,6 +334,7 @@ export interface IModalState {
   phoneVerify: boolean;
   inValidOrder: boolean;
   successOrder: boolean;
+  inDevelopment: boolean;
 }
 
 export interface UserState {
