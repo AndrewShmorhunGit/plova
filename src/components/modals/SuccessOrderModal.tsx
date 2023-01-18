@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { IModalState } from "../../modules/modules";
-
+import success from "../../images/design/success.svg";
 import { Link } from "react-router-dom";
 export const SuccessOrderModal = ({
   setModalState,
@@ -26,7 +26,7 @@ export const SuccessOrderModal = ({
             }
           ></button>
           <h1>Success Order!</h1>
-          {/* <img src={bell} alt="" /> */}
+          <img className="img" src={success} alt="" />
           <p>Your order is added to order list 👍</p>
           <Link
             to={"/"}
@@ -81,6 +81,10 @@ const Wrapper = styled.main`
       font-size: 1.8rem;
       font-weight: 400;
     }
+  }
+
+  .img {
+    height: 14rem;
   }
 
   .content-info {

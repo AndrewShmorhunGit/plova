@@ -2,10 +2,8 @@ import styled from "styled-components";
 import headerLogo from "../logos/headerLogo.png";
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import useGeolocation from "react-hook-geolocation";
-import locationMarker from "../images/common/location2.svg";
-import arrowDown from "../images/common/dropdownBlack.svg";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { MainHeaderLocation, UserData } from "./index";
 
 export const MainHeader = ({
   showRegistration,
@@ -18,53 +16,9 @@ export const MainHeader = ({
   changeLocationModal: boolean;
   setChangeLocationModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const location = useGeolocation();
-  const address: string = `lat: ${location.latitude}, lng: ${location.longitude}`;
-
-  const MainHeaderLocation = (): JSX.Element => {
-    const [scroll, setScroll] = useState(true);
-
-    useEffect(() => {
-      const handleScroll = () => {
-        const scroll = window.scrollY < 50 && true;
-        return setScroll(scroll);
-      };
-      window.addEventListener("scroll", handleScroll);
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    }, []);
-
-    return (
-      <div
-        id="#scroll"
-        className={!scroll ? "header-user-address-content" : "hide"}
-        onClick={() => setChangeLocationModal(true)}
-      >
-        <img
-          src={locationMarker}
-          alt="location marker"
-          className="header-user-address-content-location-icon"
-        />
-        <div
-          data-v-7ff8f296=""
-          data-test-id="user-address-text"
-          className="header-user-address-content-text"
-        >
-          <span className="address-content-text">
-            {`${address.length < 20 ? address : address.slice(0, 20) + "..."}`}
-          </span>
-        </div>
-        <img
-          data-v-7ff8f296=""
-          src={arrowDown}
-          alt="arrow down"
-          role="presentation"
-          className="header-user-address__content__arrow"
-        />
-      </div>
-    );
-  };
+  // Temporary state // Temporary state // Temporary state
+  const [isLogin, setIsLogin] = useState(false);
+  // Temporary state // Temporary state // Temporary state
 
   return (
     <Wrapper>
@@ -93,14 +47,20 @@ export const MainHeader = ({
               </form>
             </div>
             <div className="header-right">
-              <MainHeaderLocation />
-
-              <button
-                className="btn-start"
-                onClick={() => setShowRegistration(!showRegistration)}
-              >
-                Get started
-              </button>
+              <MainHeaderLocation
+                changeLocationModal={changeLocationModal}
+                setChangeLocationModal={setChangeLocationModal}
+              />
+              {!isLogin ? (
+                <button
+                  className="btn-start"
+                  onClick={() => setShowRegistration(!showRegistration)}
+                >
+                  Get started
+                </button>
+              ) : (
+                <UserData />
+              )}
             </div>
           </div>
         </div>
