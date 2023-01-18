@@ -37,9 +37,11 @@ import { DropdownAddress } from "./DropdownAddress";
 import { PaymentDropdown } from "./DropdownPayment";
 import { UserInfoList } from "./UserInfoList";
 import { UserOrdersList } from "./UserOrdersList";
-import { GetStarted } from "./GetStarted";
+import { UserData } from "./UserData";
+import { MainHeaderLocation } from "./MainHeaderLocation";
 export {
-  GetStarted,
+  MainHeaderLocation,
+  UserData,
   UserOrdersList,
   UserInfoList,
   DropdownPhone,

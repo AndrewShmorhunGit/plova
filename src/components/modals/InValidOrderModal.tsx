@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { IModalState } from "../../modules/modules";
 import closeIcon from "../../images/common/closeIcon.svg";
+import form from "../../images/design/form.png";
 export const InValidOrderModal = ({
   setModalState,
   modalState,
@@ -26,11 +27,10 @@ export const InValidOrderModal = ({
           >
             <img src={closeIcon} alt="close X" />
           </button>
-          <h1>Not all necessary information!</h1>
-          {/* <img src={bell} alt="" /> */}
+          <h1>Need more information!</h1>
+          <img className="img" src={form} alt="" />
           <p>
-            Please fill out all necessary forms: <span>address</span>,
-            <span> phone </span>
+            Please fill out <span>address</span>,<span> phone </span>
             and <span>payment method</span>
           </p>
           <button
@@ -39,7 +39,7 @@ export const InValidOrderModal = ({
               setModalState({ ...modalState, inValidOrder: false })
             }
           >
-            Yes, ok 👌
+            Ok
           </button>
         </div>
       </main>
@@ -87,6 +87,9 @@ const Wrapper = styled.main`
     }
   }
 
+  .img {
+    height: 14rem;
+  }
   .content-info {
     flex-direction: column;
     gap: 2rem;

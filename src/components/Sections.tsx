@@ -63,6 +63,7 @@ const Wrapper = styled.main`
     font-size: 1.2rem;
     cursor: pointer;
     max-height: 4rem;
+    gap: 0.5rem;
   }
 
   .squares {
