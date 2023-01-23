@@ -15,7 +15,7 @@ export const fetchMenu = (slug: string) => {
   return async (dispatch: AppDispatch) => {
     try {
       dispatch(menusSlice.actions.fetching());
-      const response = await wait(() => mockFetchMenusRequest(slug), 3000);
+      const response = await wait(() => mockFetchMenusRequest(slug), 2000);
       dispatch(menusSlice.actions.fetchSuccess(response));
     } catch (error) {
       dispatch(menusSlice.actions.fetchError(error as Error));
