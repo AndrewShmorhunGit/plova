@@ -25,9 +25,9 @@ export const BrandPage = () => {
     goToTop();
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("menu", JSON.stringify(menu));
-  }, [menu]);
+  // useEffect(() => {
+  //   localStorage.setItem("menu", JSON.stringify(menu));
+  // }, [menu]);
 
   if (error) {
     <ErrorPage />;
@@ -44,7 +44,7 @@ export const BrandPage = () => {
 
   return (
     <>
-      {menu ? (
+      {menu && !loading ? (
         <>
           <BrandHeader menu={menu} loading={loading} />
           <BrandGrid

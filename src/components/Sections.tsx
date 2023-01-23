@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 import { IMenu } from "../modules/modules";
 import { menusSlice } from "../store/slices/menuSlice";
-import { goToMenuStart } from "../units/functions";
+// import { goToMenuStart } from "../units/functions";
 import squares from "../images/menu/squares.svg";
 
 export const Sections = ({
@@ -29,10 +29,14 @@ export const Sections = ({
             <div
               key={index}
               className="menu-container"
-              onClick={() =>
-                dispatch(
-                  menusSlice.actions.selectCategory(item.category.categoryName)
-                ) && goToMenuStart()
+              onClick={
+                () =>
+                  dispatch(
+                    menusSlice.actions.selectCategory(
+                      item.category.categoryName
+                    )
+                  )
+                // && goToMenuStart()
               }
             >
               <p className="menu">
@@ -63,6 +67,7 @@ const Wrapper = styled.main`
     font-size: 1.2rem;
     cursor: pointer;
     max-height: 4rem;
+    gap: 0.5rem;
   }
 
   .squares {

@@ -19,7 +19,7 @@ export const RegistrationModal = ({
 }) => {
   const dispatch = useAppDispatch();
 
-  // const { loading, error, isActive, user } = useAppSelector((state) => state.user);
+  // const { user } = useAppSelector((state) => state.user);
 
   const [login, setIsLogin] = useState(false);
   const {
@@ -29,16 +29,16 @@ export const RegistrationModal = ({
   } = useForm<IUser>({
     mode: "onBlur",
     defaultValues: {
-      // name: "",
-      // email: "",
-      // password: "",
-      name: "Shmorgy",
-      email: "shmorgy@gmail.com",
-      password: "shorgyshmorg",
+      name: "",
+      email: "",
+      password: "",
+      // name: "Shmorgy",
+      // email: "shmorgy@gmail.com",
+      // password: "shorgyshmorg",
     },
   });
 
-  const onSubmit = (data: IUser) => !login && dispatch(fetchUserLogin(data));
+  const onSubmit = (data: IUser) => login && dispatch(fetchUserLogin(data));
 
   return (
     <Wrapper>
@@ -70,8 +70,7 @@ export const RegistrationModal = ({
             <div className="deco-line"></div>
           </div>
           <form
-            // action={`http://plova-backend.fly.dev/users`}
-            action="#"
+            action={`${process.env.REACT_APP_AUTH_URL}/users`}
             className="form"
             onSubmit={handleSubmit(onSubmit)}
           >
@@ -127,8 +126,8 @@ export const RegistrationModal = ({
                     {...register("password", {
                       required: "Password is required",
                       minLength: {
-                        value: 5,
-                        message: "Password must contain at least 5 characters",
+                        value: 8,
+                        message: "Password must contain at least 8 characters",
                       },
                     })}
                     type="password"

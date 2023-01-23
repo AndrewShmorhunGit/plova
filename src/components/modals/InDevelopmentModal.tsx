@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { IModalState } from "../../modules/modules";
-
+import inDev from "../../images/design/InDev.jpg";
 export const InDevelopmentModal = ({
   setModalState,
   modalState,
@@ -25,7 +25,7 @@ export const InDevelopmentModal = ({
             }
           ></button>
           <h1>Address setup is under development </h1>
-          {/* <img src={bell} alt="" /> */}
+          <img className="in-dev-img" src={inDev} alt="" />
           <p>Please choose hardcoded address</p>
           <button
             className="btn center"
@@ -33,7 +33,7 @@ export const InDevelopmentModal = ({
               setModalState({ ...modalState, inDevelopment: false })
             }
           >
-            Okay
+            Get it
           </button>
         </div>
       </main>
@@ -79,6 +79,10 @@ const Wrapper = styled.main`
       font-size: 1.8rem;
       font-weight: 400;
     }
+  }
+
+  .in-dev-img {
+    height: 14rem;
   }
 
   .content-info {

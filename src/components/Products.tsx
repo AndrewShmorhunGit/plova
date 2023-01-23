@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 import { IMenu, IProducts } from "../modules/modules";
 import { menusSlice } from "../store/slices/menuSlice";
-import { goToMenuStart } from "../units/functions";
+// import { goToMenuStart } from "../units/functions";
 import { ProductsCategory } from "./ProductsCategory";
 import { SingleProduct } from "./SingleProduct";
 
@@ -13,7 +13,7 @@ export const Products = ({
   getCurrentSubMenu,
 }: {
   selectedCategory: string | null;
-  menu: IMenu;
+  menu: IMenu | null;
   loading: boolean;
   getCurrentSubMenu: (categoryName: string | undefined) => IProducts[];
 }) => {
@@ -22,20 +22,20 @@ export const Products = ({
   return (
     <Wrapper>
       <main>
-        {selectedCategory !== null && (
+        {selectedCategory && (
           <h3 className="category-title__name">{selectedCategory}</h3>
         )}
         <div
           className="products"
           style={{
             margin: `${
-              selectedCategory === null ? "5.4rem 0 0 -0rem" : "2rem 0 0 -0rem"
+              !selectedCategory ? "5.4rem 0 0 -0rem" : "2rem 0 0 -0rem"
             }`,
-            rowGap: `${selectedCategory === null ? "1rem" : "0rem "}`,
+            rowGap: `${!selectedCategory ? "1rem" : "0rem "}`,
           }}
         >
-          {selectedCategory === null
-            ? menu.menu.map((item, index) => {
+          {!selectedCategory
+            ? menu?.menu.map((item, index) => {
                 return (
                   <div
                     key={index}
@@ -44,7 +44,8 @@ export const Products = ({
                         menusSlice.actions.selectCategory(
                           item.category.categoryName
                         )
-                      ) && goToMenuStart()
+                      ) 
+                      // && goToMenuStart()
                     }
                   >
                     <ProductsCategory
