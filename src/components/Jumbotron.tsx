@@ -52,16 +52,13 @@ export const Jumbotron = ({
             </div>
           </div>
         )}
-
-        {!loading && (
-          <>
-            <h2>
-              Delivery to lat {geolocation.latitude}, lng{" "}
-              {geolocation.longitude},
-            </h2>
-            <LocationInput setShowLocationModal={setShowLocationModal} />
-          </>
-        )}
+        <div>
+          <h2>
+            Delivery to lat {geolocation.latitude}, lng
+            {geolocation.longitude},
+          </h2>
+          <LocationInput setShowLocationModal={setShowLocationModal} />
+        </div>
 
         <div className="jumbotron-container">
           {jumbotron.map((item) => {

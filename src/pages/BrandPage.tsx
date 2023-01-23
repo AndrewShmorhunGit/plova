@@ -22,12 +22,12 @@ export const BrandPage = () => {
 
   useEffect(() => {
     dispatch(fetchMenu(slug));
-    // goToTop();
+    goToTop();
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("menu", JSON.stringify(menu));
-  }, [menu]);
+  // useEffect(() => {
+  //   localStorage.setItem("menu", JSON.stringify(menu));
+  // }, [menu]);
 
   if (error) {
     <ErrorPage />;
