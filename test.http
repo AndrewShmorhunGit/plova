@@ -1,0 +1,24 @@
+### Create user
+POST http://{{host}}/users
+Content-Type: application/json
+
+{
+  "name": "Shmorgy",
+  "email": "shmorgysmorg@gmail.com",
+  "password": "shorgyshmorg"
+}
+
+### Login
+POST http://{{host}}/users/login
+Content-Type: application/json
+
+{
+  "email": "shmorgy@gmail.com",
+  "password": "shorgyshmorg"
+}
+
+> {% client.global.set("jwt", response.body.data.token); %}
+
+### Test authentication. Returns 200 for success
+GET http://{{host}}/
+Authorization: Bearer {{jwt}}

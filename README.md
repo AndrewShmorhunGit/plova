@@ -1,46 +1,61 @@
-# Getting Started with Create React App
+![Markdown Logo](./src/logos/logo.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+`Demo version of famous delivery application 'Glovo'`
 
-## Available Scripts
+####[Glovo](https://glovoapp.com/)
 
-In the project directory, you can run:
+> **App presentation using development best practices like:**
 
-### `npm start`
+1. JavaScript
+2. React
+3. Type Script
+4. React Testing Library
+5. Git and Github
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**Libraries**
 
-### `npm test`
+- [React Router](https://reactrouter.com/en/main)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Axios](https://axios-http.com/)
+- [Normalize.css](https://github.com/necolas/normalize.css/)
+- [Styled Components](https://styled-components.com/)
+- [React Hook Form](https://legacy.react-hook-form.com/)
+- [CSS Transition](https://reactcommunity.org/react-transition-group/)
+- [React Use Geolocation](https://www.npmjs.com/package/react-hook-geolocation)
+- [Web Vitals](https://www.npmjs.com/package/web-vitals)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  **Design tools**
 
-### `npm run build`
+- [Figma](https://www.figma.com/)
+- [Favicon](https://favicon.io/)
+- [Snazzy Maps](https://snazzymaps.com/)
+- [Perfect Pixel](https://www.welldonecode.com/perfectpixel/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!-- - [Use Places Autocomplete](https://developers.google.com/maps/documentation/javascript/place-autocomplete) -->
+<!-- - [Geocoding](https://developers.google.com/maps/documentation/geocoding/overview) -->
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**API's**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- - [Sentry](https://sentry.io/for/web-vitals/?platform=sentry.javascript.react) -->
 
-### `npm run eject`
+- Mock API Server(Temporary)
+- Google Maps Platform:
+  Geocoding API, Maps JavaScript API, Places API
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Else**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Postman
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Collaboration**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Cooperation with back-end developer to operate with server
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Special thanks for the development of the back-end for the application and mentoring in the project to my mentor, senior software developer Andrew Danko
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<!-- ## How to start app?
+
+- In progress.. -->
