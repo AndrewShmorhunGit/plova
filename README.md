@@ -46,7 +46,7 @@
 
 **Else**
 
-- No else yet..)
+- Postman
 
 **Collaboration**
 
@@ -56,6 +56,6 @@
 
 Special thanks for the development of the back-end for the application and mentoring in the project to my mentor, senior software developer Andrew Danko
 
-## How to start app?
+<!-- ## How to start app?
 
-- In progress..
+- In progress.. -->

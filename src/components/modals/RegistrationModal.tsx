@@ -19,7 +19,7 @@ export const RegistrationModal = ({
 }) => {
   const dispatch = useAppDispatch();
 
-  // const { loading, error, isActive, user } = useAppSelector((state) => state.user);
+  // const { user } = useAppSelector((state) => state.user);
 
   const [login, setIsLogin] = useState(false);
   const {
@@ -38,7 +38,7 @@ export const RegistrationModal = ({
     },
   });
 
-  const onSubmit = (data: IUser) => !login && dispatch(fetchUserLogin(data));
+  const onSubmit = (data: IUser) => login && dispatch(fetchUserLogin(data));
 
   return (
     <Wrapper>
@@ -70,8 +70,7 @@ export const RegistrationModal = ({
             <div className="deco-line"></div>
           </div>
           <form
-            // action={`http://plova-backend.fly.dev/users`}
-            action="#"
+            action={`${process.env.REACT_APP_AUTH_URL}/users`}
             className="form"
             onSubmit={handleSubmit(onSubmit)}
           >
