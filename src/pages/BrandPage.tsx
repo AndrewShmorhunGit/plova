@@ -23,7 +23,7 @@ export const BrandPage = () => {
   useEffect(() => {
     dispatch(fetchMenu(slug));
     goToTop();
-  }, []);
+  }, [dispatch, slug]);
 
   // useEffect(() => {
   //   localStorage.setItem("menu", JSON.stringify(menu));

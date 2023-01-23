@@ -25,7 +25,7 @@ export const Jumbotron = ({
 
   useEffect(() => {
     dispatch(fetchJumbotron());
-  }, []);
+  }, [dispatch]);
 
   if (error) {
     return <ErrorPage />;

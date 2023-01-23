@@ -18,7 +18,7 @@ export const FoodNearGallery = () => {
 
   useEffect(() => {
     dispatch(fetchRestaurants());
-  }, []);
+  }, [dispatch]);
 
   const dataDel = restaurants.delivery;
 

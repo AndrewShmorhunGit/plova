@@ -39,7 +39,8 @@ export const RegistrationModal = ({
   });
 
   const onSubmit = (data: IUser) => login && dispatch(fetchUserLogin(data));
-
+  const emailValidation: RegExp =
+    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
   return (
     <Wrapper>
       <main
@@ -104,8 +105,7 @@ export const RegistrationModal = ({
                     {...register("email", {
                       required: "Email is required",
                       pattern: {
-                        value:
-                          /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
+                        value: emailValidation,
                         message: "Email address is not valid",
                       },
                     })}

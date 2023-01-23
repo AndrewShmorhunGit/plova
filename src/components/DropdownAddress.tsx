@@ -74,7 +74,7 @@ export const DropdownAddress = ({
                     }}
                   >
                     {option.img === "" ? null : (
-                      <img src={option.img} alt={`${option.text} image`} />
+                      <img src={option.img} alt={`${option.text}`} />
                     )}
                     <p>{option.text}</p>
                   </div>

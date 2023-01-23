@@ -79,7 +79,7 @@ export const OrderPage = () => {
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(carts));
-  }, [orderState.orderList]);
+  }, [orderState.orderList, carts]);
 
   const isValidOrder: boolean =
     orderState.delAddress && orderState.paymentMethod && orderState.phoneNumber;
@@ -275,7 +275,7 @@ export const OrderPage = () => {
                           ? "https://res.cloudinary.com/glovoapp//CX/backendCheckout/light/allergies-active"
                           : "https://res.cloudinary.com/glovoapp//CX/backendCheckout/light/allergies-checked"
                       }
-                      alt="pill image"
+                      alt="pill"
                     />
                     <div className="allergy-container">
                       <p>Any allergies?</p>
