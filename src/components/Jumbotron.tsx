@@ -21,9 +21,7 @@ export const Jumbotron = ({
   const dispatch = useAppDispatch();
   const geolocation = useGeolocation();
 
-  const { loading, error, jumbotron } = useAppSelector(
-    (state) => state.jumbotron
-  );
+  const { error, jumbotron } = useAppSelector((state) => state.jumbotron);
 
   useEffect(() => {
     dispatch(fetchJumbotron());
@@ -52,13 +50,12 @@ export const Jumbotron = ({
             </div>
           </div>
         )}
-        <div>
-          <h2>
-            Delivery to lat {geolocation.latitude}, lng
-            {geolocation.longitude},
-          </h2>
-          <LocationInput setShowLocationModal={setShowLocationModal} />
-        </div>
+
+        <h2>
+          Delivery to lat {geolocation.latitude}, lng
+          {geolocation.longitude},
+        </h2>
+        <LocationInput setShowLocationModal={setShowLocationModal} />
 
         <div className="jumbotron-container">
           {jumbotron.map((item) => {
