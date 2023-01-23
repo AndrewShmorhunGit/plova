@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import footerLogo1 from "../logos/footerLogo1.png";
 import { IMenu } from "../modules/modules";
-import { Path } from "./index";
+import { Path, UserData } from "./index";
 
 export const BrandHeader = ({
   menu,
@@ -60,53 +60,7 @@ export const BrandHeader = ({
                   className="header__content__arrow"
                 />
                 <div className="center">
-                  <div className="menu-icon-user">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      width="34"
-                      height="34"
-                      viewBox="0 0 32 32"
-                      className="profile-icon header-action"
-                    >
-                      <g
-                        fill="none"
-                        stroke="#FFFFFF"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="profile-icon__paths"
-                      >
-                        <path d="M25.0801 24.1107c-2.2971-3.0455-5.4822-5.5086-9.0186-5.5086-3.7536 0-7.12573 2.128-9.44431 5.5086"></path>{" "}
-                        <circle cx="16" cy="13.5874" r="4.91841"></circle>{" "}
-                        <circle cx="16.0001" cy="16.0001" r="13.0909"></circle>
-                      </g>
-                    </svg>
-                  </div>
-                  <div className="menu-icon-orders">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="34"
-                      height="34"
-                      fill="none"
-                      className="orders-icon header-action"
-                    >
-                      <g
-                        stroke="#FFFFFF"
-                        strokeWidth="2"
-                        className="orders-icon__paths"
-                      >
-                        <circle cx="5.5" cy="6.66815" r="3"></circle>{" "}
-                        <circle cx="5.5" cy="16.66815" r="3"></circle>{" "}
-                        <circle cx="5.5" cy="26.66815" r="3"></circle>{" "}
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M13.5 6.66815h16m-16 10h16m-16 10h16"
-                        ></path>
-                      </g>
-                    </svg>
-                  </div>
+                  <UserData />
                 </div>
               </div>
               {/* <div className="header-address">{address}</div> */}
@@ -169,6 +123,7 @@ const Wrapper = styled.header`
     cursor: pointer;
     margin-top: 0.1rem;
   }
+
   .menu-icon-orders {
     padding: 0.1rem 0.8rem;
     cursor: pointer;

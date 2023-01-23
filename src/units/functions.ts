@@ -119,8 +119,8 @@ export const getTotalCardPrice = (
 };
 
 export function goToMenuStart() {
-  if (window.pageYOffset > 350) {
-    window.scrollBy(350, -50);
+  if (window.scrollY > 350) {
+    window.scrollBy(350, -10);
     setTimeout(goToMenuStart, 0);
   }
 }

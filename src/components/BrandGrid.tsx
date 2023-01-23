@@ -19,7 +19,7 @@ export const BrandGrid = ({
   error: string;
 }) => {
   const getCurrentSubMenu = (categoryName: string | undefined) => {
-    const currentMenu = menu.menu.find(
+    const currentMenu = menu?.menu.find(
       (item) => item.category.categoryName === categoryName
     );
     if (currentMenu === undefined) {

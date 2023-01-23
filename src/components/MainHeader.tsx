@@ -17,7 +17,7 @@ export const MainHeader = ({
   setChangeLocationModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   // Temporary state // Temporary state // Temporary state
-  const [isLogin, setIsLogin] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   // Temporary state // Temporary state // Temporary state
 
   return (

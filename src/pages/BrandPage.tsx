@@ -22,7 +22,7 @@ export const BrandPage = () => {
 
   useEffect(() => {
     dispatch(fetchMenu(slug));
-    goToTop();
+    // goToTop();
   }, []);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export const BrandPage = () => {
 
   return (
     <>
-      {menu ? (
+      {menu && !loading ? (
         <>
           <BrandHeader menu={menu} loading={loading} />
           <BrandGrid
