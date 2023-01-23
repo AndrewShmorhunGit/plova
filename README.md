@@ -2,7 +2,7 @@
 
 `Demo version of famous delivery application 'Glovo'`
 
-####[Glovo](https://glovoapp.com/)
+[Glovo](https://glovoapp.com/)
 
 > **App presentation using development best practices like:**
 
