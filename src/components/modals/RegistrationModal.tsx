@@ -29,12 +29,12 @@ export const RegistrationModal = ({
   } = useForm<IUser>({
     mode: "onBlur",
     defaultValues: {
-      // name: "",
-      // email: "",
-      // password: "",
-      name: "Shmorgy",
-      email: "shmorgy@gmail.com",
-      password: "shorgyshmorg",
+      name: "",
+      email: "",
+      password: "",
+      // name: "Shmorgy",
+      // email: "shmorgy@gmail.com",
+      // password: "shorgyshmorg",
     },
   });
 
@@ -126,8 +126,8 @@ export const RegistrationModal = ({
                     {...register("password", {
                       required: "Password is required",
                       minLength: {
-                        value: 5,
-                        message: "Password must contain at least 5 characters",
+                        value: 8,
+                        message: "Password must contain at least 8 characters",
                       },
                     })}
                     type="password"

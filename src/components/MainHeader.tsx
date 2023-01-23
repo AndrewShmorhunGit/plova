@@ -2,7 +2,7 @@ import styled from "styled-components";
 import headerLogo from "../logos/headerLogo.png";
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import React from "react";
 import { MainHeaderLocation, UserData } from "./index";
 
 export const MainHeader = ({
@@ -17,7 +17,7 @@ export const MainHeader = ({
   setChangeLocationModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   // Temporary state // Temporary state // Temporary state
-  const [isLogin, setIsLogin] = useState(true);
+  // const [isLogin, setIsLogin] = React.useState(false);
   // Temporary state // Temporary state // Temporary state
 
   return (
@@ -51,7 +51,7 @@ export const MainHeader = ({
                 changeLocationModal={changeLocationModal}
                 setChangeLocationModal={setChangeLocationModal}
               />
-              {!isLogin ? (
+              {!null ? (
                 <button
                   className="btn-start"
                   onClick={() => setShowRegistration(!showRegistration)}

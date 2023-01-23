@@ -75,7 +75,7 @@ export const FoodNearGallery = () => {
             })}
           </div>
           <div className="center">
-            <Link to="/brand" className="btn-more center">
+            <Link to="/" className="btn-more center">
               See more restaurants
             </Link>
           </div>
