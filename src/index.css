@@ -84,7 +84,6 @@ body::-webkit-scrollbar-thumb:hover {
 .container {
   width: 126.75rem;
   margin: 0 auto;
-  max-width: var(--max-width);
 }
 
 .container-products {

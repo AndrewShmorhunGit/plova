@@ -25,19 +25,19 @@ export const Partnership = () => {
       </div>
 
       <section className="cooperation">
-        <div className="container">
+        <div className="cooperation-container">
           <h2 className="center">Let’s do it together</h2>
           <div className="join center">
-            {cooperationData.map((item) => {
+            {cooperationData.map((item, index) => {
               return (
-                <div key={item.id} className="join-unit center">
+                <div key={item.id} className={`join-unit unit${index} center`}>
                   <img
                     src={item.image}
                     alt="working people"
                     className="cooperation-image center"
                   />
                   <h3 className="sub-title center">{item.theme}</h3>
-                  <p className="center">{item.text}</p>
+                  <p>{item.text}</p>
                   <a href={item.linkTo} className="btn-join btn center">
                     Join us
                   </a>
@@ -58,8 +58,8 @@ export const Partnership = () => {
 };
 
 const Wrapper = styled.section`
-  .container {
-    padding: 2rem 0 5rem 0;
+  .cooperation-container {
+    padding: 3rem 4rem;
   }
 
   .cooperation {
@@ -113,8 +113,7 @@ const Wrapper = styled.section`
 
   .wave {
     display: flex;
-    min-width: 100%;
-    max-width: 200%;
+    width: 100vw;
   }
 
   .transition-container {
@@ -124,12 +123,12 @@ const Wrapper = styled.section`
 
   .transition {
     display: block;
-    width: 110%;
+    width: 100%;
     height: 12.5rem;
     background-color: #1d1d1d;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
-    margin: 0rem -5rem -5rem -5rem;
+    margin: 0rem -5rem 0rem -5rem;
   }
 
   h2 {
@@ -150,5 +149,104 @@ const Wrapper = styled.section`
     font-size: 1.7rem;
     text-align: center;
     font-weight: 400;
+  }
+
+  @media (max-width: 81.25em) {
+    .join {
+      padding: 4rem 4rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(1, 1fr);
+      row-gap: 4rem;
+      column-gap: 4rem;
+      padding-bottom: 0;
+    }
+
+    .unit2 {
+      display: flex;
+      flex-direction: column;
+      grid-column: 1/3;
+      grid-row: 2/3;
+      padding: 0 20rem;
+    }
+
+    .transition-container {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .transition {
+      display: block;
+      width: 120%;
+      height: 4.5rem;
+    }
+  }
+
+  @media (max-width: 56.25em) {
+    .join {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      row-gap: 4rem;
+      padding: 0 25rem;
+    }
+
+    .unit0 {
+      display: flex;
+      flex-direction: column;
+      grid-column: 1;
+      grid-row: 1;
+      padding: 0 20rem;
+    }
+    .unit1 {
+      display: flex;
+      flex-direction: column;
+      grid-column: 1;
+      grid-row: 2;
+      padding: 0 20rem;
+    }
+    .unit2 {
+      display: flex;
+      flex-direction: column;
+      grid-column: 1;
+      grid-row: 3;
+      padding: 0 20rem;
+    }
+
+    .transition-container {
+      overflow: hidden;
+      width: 100vw;
+    }
+
+    .transition {
+      display: block;
+      width: 120%;
+      height: 4.5rem;
+      background-color: #1d1d1d;
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
+      margin: 0rem -5rem 0rem -5rem;
+    }
+  }
+
+  @media (max-width: 45em) {
+    h2 {
+      font-size: 3.6rem;
+    }
+  }
+
+  @media (max-width: 31.25em) {
+    .unit0 {
+      padding: 0 5rem;
+    }
+    .unit1 {
+      padding: 0 5rem;
+    }
+    .unit2 {
+      padding: 0 5rem;
+    }
+    .join {
+      row-gap: 3rem;
+      padding: 0 2rem;
+    }
   }
 `;

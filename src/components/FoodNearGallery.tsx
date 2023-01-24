@@ -39,7 +39,7 @@ export const FoodNearGallery = () => {
           </div>
         </div>
       ) : (
-        <section className="container gallery">
+        <section className="gallery">
           <div className="title">
             <span className="food-title">
               <div className="food-deco">Food</div> near you
@@ -100,7 +100,10 @@ const Wrapper = styled.section`
   }
   .gallery {
     color: #212529;
-    padding: 4rem 0 8rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content;
   }
 
   .decoration-swg {
@@ -213,8 +216,8 @@ const Wrapper = styled.section`
   }
 
   .title {
-    padding: 7.8rem 0 4.8rem 8rem;
-    position: relative;
+    padding: 7rem 2rem;;
+
   }
 
   .food-title {
@@ -312,4 +315,31 @@ const Wrapper = styled.section`
     // gap: 0.4rem;
     font-size: 1.6rem;
   }
+
+  @media (max-width: 78.125em) {
+    .gallery-container {
+      grid-template-columns: repeat(2, 45rem);
+      grid-template-rows: repeat(6, 20rem);
+    }
+  }
+  @media (max-width: 62.5em) {
+    .gallery-container {
+      grid-template-columns: repeat(1, 50rem);
+      grid-template-rows: repeat(12, 18rem);
+      row-gap: 6rem;
+    }
+  }
+
+  @media (max-width: 34.375em) {
+    .gallery-container {
+      grid-template-columns: repeat(1, 45rem);
+    }
+  }
+
+  @media (max-width: 31.25em) {
+    .gallery-container {
+      grid-template-columns: repeat(1, 35rem);
+    }
+  }
+
 `;

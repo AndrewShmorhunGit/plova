@@ -31,18 +31,6 @@ export const Footer = () => {
               })}
             </div>
             <div className="links">
-              <h2>Links of interest</h2>
-              {aboutLinks.map((link) => {
-                return (
-                  <div key={link.id} className="social-sub-links">
-                    <a href="#">
-                      <p className="sub-links">{link.text}</p>
-                    </a>
-                  </div>
-                );
-              })}
-            </div>
-            <div className="links">
               <h2>Follow us</h2>
               {socialLinks.map((link) => {
                 return (
@@ -54,6 +42,19 @@ export const Footer = () => {
                 );
               })}
             </div>
+            <div className="links">
+              <h2>Links of interest</h2>
+              {aboutLinks.map((link) => {
+                return (
+                  <div key={link.id} className="social-sub-links">
+                    <a href="#">
+                      <p className="sub-links">{link.text}</p>
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+
             <div className="links">
               <div>{appleStoreSVG}</div>
               <div>{googleStoreSVG}</div>
@@ -80,7 +81,9 @@ export const Footer = () => {
                   );
                 })}
               </div>
-              <p>See all categories</p>
+              <a href="#" className="link">
+                <p>See all categories</p>
+              </a>
             </div>
           </div>
         </div>
@@ -98,8 +101,9 @@ export const Footer = () => {
 
 const Wrapper = styled.main`
   .footer-container {
-    width: 110rem;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10vw;
   }
 
   .app-footer {
@@ -112,20 +116,17 @@ const Wrapper = styled.main`
     color: #ffc244;
   }
 
-  h3 {
-    font-size: 1.6rem;
+  h2 {
+    font-size: 2.4rem;
     color: #fff;
-    font-weight: 500;
   }
 
-  h2 {
-    font-size: 2rem;
-    color: #fff;
+  h6 {
+    text-align: center;
   }
 
   p {
-    font-size: 1.4rem;
-    // text-transform: capitalize;
+    font-size: 1.6rem;
     color: #cccccc;
   }
 
@@ -135,20 +136,19 @@ const Wrapper = styled.main`
 
   .footer-info {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 2fr 1fr;
     justify-items: center;
-    column-gap: 10rem;
+    column-gap: 5rem;
     row-gap: 5rem;
   }
 
   .footer-bottom {
-    padding-top: 2rem;
     color: #fff;
-    flex-direction: column;
-    gap: 1rem;
     font-weight: 200;
+    padding: 3rem;
   }
+
   .links {
     display: flex;
     flex-direction: column;
@@ -168,7 +168,8 @@ const Wrapper = styled.main`
 
   .footer-logo {
     width: 12rem;
-    padding: 0 0 3.2rem 0;
+    padding-bottom: 3.2rem;
+    margin-left: 3vw;
   }
 
   .language-picker {
@@ -177,7 +178,6 @@ const Wrapper = styled.main`
   }
 
   .categories {
-    padding-left: 8rem;
     text-align: left;
     grid-column: 1/3;
     grid-row: 2/3;
@@ -185,6 +185,7 @@ const Wrapper = styled.main`
 
   .country-links {
     display: flex;
+    flex-wrap: wrap;
     padding: 2rem 0rem;
     gap: 1rem;
   }
@@ -198,5 +199,58 @@ const Wrapper = styled.main`
   .link:hover,
   .link:active {
     color: red;
+  }
+
+  @media (max-width: 75em) {
+    .footer-info {
+      column-gap: 3vw;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 2fr 1fr;
+    }
+  }
+
+  @media (max-width: 68.75em) {
+    .footer-info {
+      column-gap: 1vw;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 62.5em) {
+    h2 {
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    p {
+      font-size: 1.4rem;
+      color: #cccccc;
+    }
+
+    .footer-bottom {
+      color: #fff;
+      font-weight: 200;
+      padding: 3rem 2rem 1rem 2rem;
+    }
+  }
+
+  @media (max-width: 56.25em) {
+    .footer-info {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: start;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #fff;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #cccccc;
+    }
   }
 `;
