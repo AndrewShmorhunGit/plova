@@ -31,18 +31,6 @@ export const Footer = () => {
               })}
             </div>
             <div className="links">
-              <h2>Links of interest</h2>
-              {aboutLinks.map((link) => {
-                return (
-                  <div key={link.id} className="social-sub-links">
-                    <a href="#">
-                      <p className="sub-links">{link.text}</p>
-                    </a>
-                  </div>
-                );
-              })}
-            </div>
-            <div className="links">
               <h2>Follow us</h2>
               {socialLinks.map((link) => {
                 return (
@@ -54,6 +42,19 @@ export const Footer = () => {
                 );
               })}
             </div>
+            <div className="links">
+              <h2>Links of interest</h2>
+              {aboutLinks.map((link) => {
+                return (
+                  <div key={link.id} className="social-sub-links">
+                    <a href="#">
+                      <p className="sub-links">{link.text}</p>
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+
             <div className="links">
               <div>{appleStoreSVG}</div>
               <div>{googleStoreSVG}</div>
@@ -102,7 +103,7 @@ const Wrapper = styled.main`
   .footer-container {
     display: flex;
     flex-direction: column;
-    padding: 0 5rem;
+    padding: 0 10vw;
   }
 
   .app-footer {
@@ -120,6 +121,10 @@ const Wrapper = styled.main`
     color: #fff;
   }
 
+  h6 {
+    text-align: center;
+  }
+
   p {
     font-size: 1.6rem;
     color: #cccccc;
@@ -131,7 +136,7 @@ const Wrapper = styled.main`
 
   .footer-info {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 2fr 1fr;
     justify-items: center;
     column-gap: 5rem;
@@ -141,6 +146,7 @@ const Wrapper = styled.main`
   .footer-bottom {
     color: #fff;
     font-weight: 200;
+    padding: 3rem;
   }
 
   .links {
@@ -163,7 +169,7 @@ const Wrapper = styled.main`
   .footer-logo {
     width: 12rem;
     padding-bottom: 3.2rem;
-    margin-left: 7rem;
+    margin-left: 3vw;
   }
 
   .language-picker {
@@ -195,7 +201,7 @@ const Wrapper = styled.main`
     color: red;
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 75em) {
     .footer-info {
       column-gap: 3vw;
       grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -203,7 +209,7 @@ const Wrapper = styled.main`
     }
   }
 
-  @media (max-width: 1100px) {
+  @media (max-width: 68.75em) {
     .footer-info {
       column-gap: 1vw;
       grid-template-columns: 1fr 1fr 1fr;
@@ -211,7 +217,7 @@ const Wrapper = styled.main`
     }
   }
 
-  @media (max-width: 1000px) {
+  @media (max-width: 62.5em) {
     h2 {
       font-size: 2rem;
       color: #fff;
@@ -219,6 +225,31 @@ const Wrapper = styled.main`
 
     p {
       font-size: 1.4rem;
+      color: #cccccc;
+    }
+
+    .footer-bottom {
+      color: #fff;
+      font-weight: 200;
+      padding: 3rem 2rem 1rem 2rem;
+    }
+  }
+
+  @media (max-width: 56.25em) {
+    .footer-info {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: start;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #fff;
+    }
+
+    p {
+      font-size: 1.2rem;
       color: #cccccc;
     }
   }

@@ -90,7 +90,7 @@ const Wrapper = styled.section`
     cursor: pointer;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 43.75em) {
     .title-container {
       // padding: 0 5rem;
     }

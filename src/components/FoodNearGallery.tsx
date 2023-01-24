@@ -316,13 +316,13 @@ const Wrapper = styled.section`
     font-size: 1.6rem;
   }
 
-  @media (max-width: 1250px) {
+  @media (max-width: 78.125em) {
     .gallery-container {
       grid-template-columns: repeat(2, 45rem);
       grid-template-rows: repeat(6, 20rem);
     }
   }
-  @media (max-width: 1000px) {
+  @media (max-width: 62.5em) {
     .gallery-container {
       grid-template-columns: repeat(1, 50rem);
       grid-template-rows: repeat(12, 18rem);
@@ -330,9 +330,15 @@ const Wrapper = styled.section`
     }
   }
 
-  @media (max-width: 550px) {
+  @media (max-width: 34.375em) {
     .gallery-container {
       grid-template-columns: repeat(1, 45rem);
+    }
+  }
+
+  @media (max-width: 31.25em) {
+    .gallery-container {
+      grid-template-columns: repeat(1, 35rem);
     }
   }
 
