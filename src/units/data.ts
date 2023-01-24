@@ -21,6 +21,7 @@ import partnersImage from "../images/cooperation/partnersImage.avif";
 import careersImage from "../images/cooperation/careersImage.avif";
 import { IDropdownOptions, IJumbotron } from "../modules/modules";
 import flag from "../images/order/addressInputFlag.png";
+import { IconType } from "react-icons";
 // import plus from "../images/menu/plusNew.svg";
 
 export const joinLinks = [
@@ -78,10 +79,10 @@ export const footerStore: string[] = [
 interface socialLinks {
   id: number;
   text: string;
-  icon: JSX.Element;
+  icon: IconType;
 }
 
-export const socialLinks = [
+export const socialLinks: socialLinks[] = [
   {
     id: 1,
     text: "Facebook",

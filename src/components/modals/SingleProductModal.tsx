@@ -59,7 +59,7 @@ export const SingleProductModal = ({
               <img
                 className="product-image"
                 src={product.image}
-                alt="product image"
+                alt="product"
               />
             </div>
             <h2 className="product-name">{product.name}</h2>

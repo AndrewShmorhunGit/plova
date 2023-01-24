@@ -59,7 +59,7 @@ export const PaymentDropdown = ({
                       setIsActive(false);
                     }}
                   >
-                    <img src={option.img} alt={`${option.text} image`} />
+                    <img src={option.img} alt={`${option.text}`} />
                     <p>{option.text}</p>
                   </div>
                 );

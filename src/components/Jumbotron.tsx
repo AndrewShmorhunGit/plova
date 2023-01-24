@@ -25,7 +25,7 @@ export const Jumbotron = ({
 
   useEffect(() => {
     dispatch(fetchJumbotron());
-  }, []);
+  }, [dispatch]);
 
   if (error) {
     return <ErrorPage />;
@@ -52,8 +52,9 @@ export const Jumbotron = ({
         )}
 
         <h2>
-          Delivery to lat {geolocation.latitude}, lng
-          {geolocation.longitude},
+          {`Delivery to lat ${geolocation.latitude}, lng 
+          ${geolocation.longitude}`}
+          ,
         </h2>
         <LocationInput setShowLocationModal={setShowLocationModal} />
 
