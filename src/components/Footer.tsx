@@ -80,7 +80,9 @@ export const Footer = () => {
                   );
                 })}
               </div>
-              <p>See all categories</p>
+              <a href="#" className="link">
+                <p>See all categories</p>
+              </a>
             </div>
           </div>
         </div>
@@ -98,8 +100,9 @@ export const Footer = () => {
 
 const Wrapper = styled.main`
   .footer-container {
-    width: 110rem;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0 5rem;
   }
 
   .app-footer {
@@ -112,20 +115,13 @@ const Wrapper = styled.main`
     color: #ffc244;
   }
 
-  h3 {
-    font-size: 1.6rem;
-    color: #fff;
-    font-weight: 500;
-  }
-
   h2 {
-    font-size: 2rem;
+    font-size: 2.4rem;
     color: #fff;
   }
 
   p {
-    font-size: 1.4rem;
-    // text-transform: capitalize;
+    font-size: 1.6rem;
     color: #cccccc;
   }
 
@@ -138,17 +134,15 @@ const Wrapper = styled.main`
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 2fr 1fr;
     justify-items: center;
-    column-gap: 10rem;
+    column-gap: 5rem;
     row-gap: 5rem;
   }
 
   .footer-bottom {
-    padding-top: 2rem;
     color: #fff;
-    flex-direction: column;
-    gap: 1rem;
     font-weight: 200;
   }
+
   .links {
     display: flex;
     flex-direction: column;
@@ -168,7 +162,8 @@ const Wrapper = styled.main`
 
   .footer-logo {
     width: 12rem;
-    padding: 0 0 3.2rem 0;
+    padding-bottom: 3.2rem;
+    margin-left: 7rem;
   }
 
   .language-picker {
@@ -177,7 +172,6 @@ const Wrapper = styled.main`
   }
 
   .categories {
-    padding-left: 8rem;
     text-align: left;
     grid-column: 1/3;
     grid-row: 2/3;
@@ -185,6 +179,7 @@ const Wrapper = styled.main`
 
   .country-links {
     display: flex;
+    flex-wrap: wrap;
     padding: 2rem 0rem;
     gap: 1rem;
   }
@@ -198,5 +193,33 @@ const Wrapper = styled.main`
   .link:hover,
   .link:active {
     color: red;
+  }
+
+  @media (max-width: 1200px) {
+    .footer-info {
+      column-gap: 3vw;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 2fr 1fr;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .footer-info {
+      column-gap: 1vw;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    h2 {
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    p {
+      font-size: 1.4rem;
+      color: #cccccc;
+    }
   }
 `;
