@@ -50,13 +50,16 @@ export const Jumbotron = ({
             </div>
           </div>
         )}
-
-        <h2>
-          {`Delivery to lat ${geolocation.latitude}, lng 
+        {window.innerWidth > 900 && (
+          <div className="location-input">
+            <h2>
+              {`Delivery to lat ${geolocation.latitude}, lng 
           ${geolocation.longitude}`}
-          ,
-        </h2>
-        <LocationInput setShowLocationModal={setShowLocationModal} />
+              ,
+            </h2>
+            <LocationInput setShowLocationModal={setShowLocationModal} />
+          </div>
+        )}
 
         <div className="jumbotron-container">
           {jumbotron.map((item) => {
@@ -105,6 +108,14 @@ const Wrapper = styled.section`
     display: flex;
     background-color: #ffc244ff;
     min-height: 30rem;
+  }
+
+  .location-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
   }
 
   .user-address-content {
@@ -187,7 +198,6 @@ const Wrapper = styled.section`
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    // transform:scale(0.1);
   }
 
   .link-bubble {
@@ -212,16 +222,6 @@ const Wrapper = styled.section`
       height: 1rem;
       width: 1rem;
     }
-    ,
-    25% {
-    //   height: 3rem;
-    //   width: 3rem;
-    // }
-    ,
-    50% {
-      // height: 6rem;
-      // width: 6rem;
-    }
 
     ,
     75% {
@@ -235,6 +235,25 @@ const Wrapper = styled.section`
       opacity: 100%;
       // height: 11.5rem;
       // width: 11.5rem;
+    }
+
+    @media (max-width: 56.25em) {
+      .location-input {
+        display: none;
+      }
+
+      .category {
+        height: 9rem;
+        width: 9rem;
+      }
+
+      .category-text {
+        font-size: 1rem;
+        margin-top: -1.5rem;
+        font-weight: 400;
+        color: dark-grey;
+        padding: 1rem 1rem;
+      }
     }
   }
 `;

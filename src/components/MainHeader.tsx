@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import headerLogo from "../logos/headerLogo.png";
+import headerMobileLogo from "../logos/glovo-logo-location.svg";
 import { FiSearch } from "react-icons/fi";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import React from "react";
 import { MainHeaderLocation, UserData } from "./index";
 
@@ -25,32 +26,44 @@ export const MainHeader = ({
       <header className="nav-sticky">
         <div className="header-for-city-page">
           <div className="header-layout">
-            <Link to="/">
-              <img src={headerLogo} alt="plova logo" className="logo" />
-            </Link>
-
+            <img
+              src={headerMobileLogo}
+              alt="plova logo"
+              className="mobile-logo"
+            />
+            <img src={headerLogo} alt="plova logo" className="logo" />
             <div className="header-center">
-              <label className="search-label">
-                <FiSearch />
-              </label>
-
-              <form
-                className="form-input"
-                onSubmit={() => console.log("onSubmit!")}
-                onClick={() => {}}
-              >
-                <input
-                  type="text"
-                  className="search-input"
-                  onChange={() => console.log("onChange!")}
+              <div className="location-center">
+                <MainHeaderLocation
+                  changeLocationModal={changeLocationModal}
+                  setChangeLocationModal={setChangeLocationModal}
                 />
-              </form>
+              </div>
+              <div className="search">
+                <label className="search-label">
+                  <FiSearch />
+                </label>
+
+                <form
+                  className="form-input"
+                  onSubmit={() => console.log("onSubmit!")}
+                  onClick={() => {}}
+                >
+                  <input
+                    type="text"
+                    className="search-input"
+                    onChange={() => console.log("onChange!")}
+                  />
+                </form>
+              </div>
             </div>
             <div className="header-right">
-              <MainHeaderLocation
-                changeLocationModal={changeLocationModal}
-                setChangeLocationModal={setChangeLocationModal}
-              />
+              <div className="location-right">
+                <MainHeaderLocation
+                  changeLocationModal={changeLocationModal}
+                  setChangeLocationModal={setChangeLocationModal}
+                />
+              </div>
               {!null ? (
                 <button
                   className="btn-start"
@@ -86,7 +99,7 @@ const Wrapper = styled.header`
   }
 
   .header-layout {
-    padding: 3rem 7.5%;
+    padding: 3rem 6vw;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -95,10 +108,14 @@ const Wrapper = styled.header`
 
   .logo {
     margin-top: -1.4rem;
-    width: 12rem;
+    width: 14rem;
   }
 
-  .header-center {
+  .mobile-logo {
+    display: none;
+  }
+
+  .search {
     height: 4.6rem;
     min-width: 42rem;
     background: #ffffff;
@@ -139,8 +156,8 @@ const Wrapper = styled.header`
     overflow: hidden;
     text-overflow: ellipsis;
     border: none;
-    height: 100%;
-    width: 100%;
+    // height: 100%;
+    // width: 100%;
     font-size: 1.8rem;
     line-height: 1.4;
     font-weight: 300;
@@ -196,5 +213,58 @@ const Wrapper = styled.header`
 
   .header-user-address-content-location-icon {
     min-width: 2rem;
+  }
+
+  .location-center {
+    display: none;
+  }
+
+  @media (max-width: 90.625em) {
+    .location-right {
+      display: none;
+    }
+
+    .location-center {
+      display: flex;
+    }
+
+    .search {
+      position: static;
+      top: 0;
+      left: 0;
+      transform: translate(0, 0);
+    }
+
+    .header-center {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 68.75em) {
+    .header-center {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 56.25em) {
+    .header-layout {
+      padding: 2rem 6vw;
+    }
+    .search {
+      display: none;
+    }
+
+    .logo {
+      width: 10rem;
+    }
+
+    .location-center {
+      display: none;
+    }
   }
 `;

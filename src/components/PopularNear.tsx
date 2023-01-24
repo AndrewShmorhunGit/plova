@@ -3,7 +3,7 @@ import { categories } from "../units/data";
 
 export const PopularNear = () => {
   return (
-    <Wrapper className="container">
+    <Wrapper className="center">
       <section className="popular">
         <div className="center">
           <img
@@ -12,9 +12,12 @@ export const PopularNear = () => {
             className="image"
           />
         </div>
-        <h1 className="title center">
-          Top Categories in <span>{` City`}</span>
-        </h1>
+        <div className="title-container">
+          <h1 className="title">
+            Top Categories in <br />
+            <span>{`Your City`}</span>
+          </h1>
+        </div>
         <div className="categories-popular-container center">
           {categories.map((item, index) => {
             const category = item;
@@ -32,12 +35,23 @@ export const PopularNear = () => {
 
 const Wrapper = styled.section`
   .popular {
+    display: flex;
+    flex-direction: column;
     min-hight: 20rem;
     padding: 4rem 8rem;
+    margin-bottom: 6rem;
+  }
+
+  .categories-popular-container {
+    flex-wrap: wrap;
   }
 
   span {
     color: red;
+  }
+
+  .title-container {
+    margin-bottom: 4rem;
   }
 
   .title {
@@ -45,12 +59,13 @@ const Wrapper = styled.section`
     display: block;
     font-size: 4.4rem;
   }
+
   .link {
     background-color: #fff3da;
     color: #343434;
     text-align: center;
     text-decoration: none;
-    margin: 4rem 1rem;
+    margin: 1rem 1rem;
     padding-left: 1.6rem;
     padding-right: 1.6rem;
     height: 4.8rem;
@@ -73,5 +88,14 @@ const Wrapper = styled.section`
     background-color: #ffd47c;
     color: #343434;
     cursor: pointer;
+  }
+
+  @media (max-width: 43.75em) {
+    .title-container {
+      // padding: 0 5rem;
+    }
+    .title {
+      font-size: 4rem;
+    }
   }
 `;
