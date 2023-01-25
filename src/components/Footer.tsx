@@ -153,7 +153,7 @@ const Wrapper = styled.main`
     display: flex;
     flex-direction: column;
     text-align: center;
-    gap: 2.2rem;
+    gap: 1.8rem;
   }
 
   .social-sub-links {
@@ -239,6 +239,7 @@ const Wrapper = styled.main`
     .footer-info {
       display: flex;
       flex-direction: column;
+      gap: 2rem;
       align-items: stretch;
       justify-content: start;
     }

@@ -91,11 +91,18 @@ const Wrapper = styled.section`
   }
 
   @media (max-width: 43.75em) {
-    .title-container {
-      // padding: 0 5rem;
-    }
     .title {
-      font-size: 4rem;
+      font-size: 2.4rem;
+    }
+
+    .link {
+      padding-left: 1.4rem;
+      padding-right: 1.4rem;
+      height: 3.2rem;
+      width: auto;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.05rem;
     }
   }
 `;
