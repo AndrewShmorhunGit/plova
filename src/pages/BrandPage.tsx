@@ -8,7 +8,11 @@ import {
 } from "../components/index";
 import { useAppDispatch, useAppSelector } from "../hooks/useAppDispatch";
 import { fetchMenu } from "../store/actions/menuActions";
-import { getSlugFromLocation, goToTop } from "../units/functions";
+import {
+  getCurrentMenu,
+  getSlugFromLocation,
+  goToTop,
+} from "../units/functions";
 import { ErrorPage } from "./ErrorPage";
 
 export const BrandPage = () => {
@@ -16,22 +20,16 @@ export const BrandPage = () => {
   const slug = getSlugFromLocation(location);
   const dispatch = useAppDispatch();
 
-  const { selectedCategory, loading, error, menu } = useAppSelector(
+  const { selectedCategory, loading, error, menus } = useAppSelector(
     (state) => state.menu
   );
 
   useEffect(() => {
-    dispatch(fetchMenu(slug));
+    dispatch(fetchMenu());
     goToTop();
-  }, [dispatch, slug]);
+  }, [dispatch]);
 
-  // useEffect(() => {
-  //   localStorage.setItem("menu", JSON.stringify(menu));
-  // }, [menu]);
-
-  if (error) {
-    <ErrorPage />;
-  }
+  const currentMenu = getCurrentMenu(slug, menus);
 
   if (loading) {
     return (
@@ -42,21 +40,18 @@ export const BrandPage = () => {
     );
   }
 
+  if (error || !currentMenu || currentMenu === undefined) {
+    return <ErrorPage />;
+  }
   return (
     <>
-      {menu && !loading ? (
-        <>
-          <BrandHeader menu={menu} loading={loading} />
-          <BrandGrid
-            menu={menu}
-            loading={loading}
-            error={error}
-            selectedCategory={selectedCategory}
-          />
-        </>
-      ) : (
-        <ErrorPage />
-      )}
+      <BrandHeader menu={currentMenu} loading={loading} />
+      <BrandGrid
+        menu={currentMenu}
+        loading={loading}
+        error={error}
+        selectedCategory={selectedCategory}
+      />
     </>
   );
 };

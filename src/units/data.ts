@@ -4,16 +4,16 @@ import {
   TiSocialFacebook,
 } from "react-icons/ti";
 import general from "../images/order/general.svg";
-// import charity from "../images/jumbotron/charity.png";
+import charity from "../images/jumbotron/charity.png";
 import coffee from "../images/jumbotron/coffee.png";
 import food from "../images/jumbotron/food.png";
 import plovaExpress from "../images/jumbotron/plovaExpress.png";
 import groceries from "../images/jumbotron/groceries.png";
 import magicStick from "../images/jumbotron/magicStick.png";
-// import pharmacy from "../images/jumbotron/pharmacy.png";
+import pharmacy from "../images/jumbotron/pharmacy.png";
 import shops from "../images/jumbotron/shops.png";
 import drinks from "../images/jumbotron/drinks.png";
-// import drugs from "../images/jumbotron/drugs.png";
+import drugs from "../images/jumbotron/drugs.png";
 import tobacco from "../images/jumbotron/tobacco.png";
 import courier from "../images/jumbotron/courier.png";
 import riderImage from "../images/cooperation/riderImage.png";
@@ -115,12 +115,12 @@ export const categories = [
 ];
 
 export const jumbotron: IJumbotron[] = [
-  // {
-  //   id: 1,
-  //   category: "Charity",
-  //   icon: charity,
-  //   subcategory: null,
-  // },
+  {
+    id: 1,
+    category: "Charity",
+    icon: charity,
+    subcategory: null,
+  },
   {
     id: 2,
     category: "Food",
@@ -135,8 +135,8 @@ export const jumbotron: IJumbotron[] = [
   },
   {
     id: 4,
-    category: "Groceries",
-    icon: groceries,
+    category: "Drinks & Alcohol",
+    icon: drinks,
     subcategory: [
       { category: "Groceries", icon: groceries },
       { category: "Alcohol & Drinks", icon: drinks },
@@ -144,22 +144,22 @@ export const jumbotron: IJumbotron[] = [
   },
   {
     id: 5,
-    category: "Shops & Services",
-    icon: shops,
+    category: "Tobacco",
+    icon: tobacco,
     subcategory: [
       { category: "Shops & Services", icon: shops },
       { category: "Tobacco", icon: tobacco },
     ],
   },
-  // {
-  //   id: 6,
-  //   category: "Pharmacy & Beauty",
-  //   icon: pharmacy,
-  //   subcategory: [
-  //     { category: "Pharmacy & Beauty", icon: shops },
-  //     { category: "Medical services", icon: drugs },
-  //   ],
-  // },
+  {
+    id: 6,
+    category: "Medical services",
+    icon: drugs,
+    subcategory: [
+      { category: "Pharmacy & Beauty", icon: pharmacy },
+      { category: "Medical services", icon: drugs },
+    ],
+  },
   {
     id: 7,
     category: "Coffee & Desserts",
@@ -168,8 +168,8 @@ export const jumbotron: IJumbotron[] = [
   },
   {
     id: 8,
-    category: "Anything",
-    icon: magicStick,
+    category: "Courier",
+    icon: courier,
     subcategory: [
       { category: "Anything", icon: magicStick },
       { category: "Courier", icon: courier },

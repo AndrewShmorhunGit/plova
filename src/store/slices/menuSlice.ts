@@ -5,14 +5,14 @@ interface MenuState {
   selectedCategory: string | null;
   loading: boolean;
   error: string;
-  menu: IMenu | null;
+  menus: IMenu[] | null;
 }
 
 const initialState: MenuState = {
   selectedCategory: null,
   loading: false,
   error: "",
-  menu: null,
+  menus: null,
 };
 
 export const menusSlice = createSlice({
@@ -22,10 +22,9 @@ export const menusSlice = createSlice({
     fetching(state) {
       state.loading = true;
     },
-    fetchSuccess(state, action: PayloadAction<IMenu>) {
-      state.menu = null;
+    fetchSuccess(state, action: PayloadAction<IMenu[]>) {
       state.loading = false;
-      state.menu = action.payload;
+      state.menus = action.payload;
     },
     fetchError(state, action: PayloadAction<Error>) {
       state.loading = false;

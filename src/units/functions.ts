@@ -23,6 +23,16 @@ export const showDollarPrice = (price: number): string => {
   return actualPrice;
 };
 
+export const getCurrentMenu = (slug: string, menus: IMenu[] | null) => {
+  if (menus === undefined) {
+    throw new Error(`menus is undefined! Why, God, Nooo!`);
+  }
+  if (menus) {
+    const currentMenu = menus.find((menu) => menu.slug === slug);
+    return currentMenu;
+  }
+};
+
 export const getSlugFromLocation = (data: Location) => {
   const name = data.pathname.split("/").pop();
   if (name === undefined) {

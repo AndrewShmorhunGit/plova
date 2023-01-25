@@ -18,16 +18,6 @@ export const BrandGrid = ({
   loading: boolean;
   error: string;
 }) => {
-  const getCurrentSubMenu = (categoryName: string | undefined) => {
-    const currentMenu = menu.menu.find(
-      (item) => item.category.categoryName === categoryName
-    );
-    if (currentMenu === undefined) {
-      throw new Error("Sorry, something went wrong, currentMenu is undefined");
-    }
-    return currentMenu.products;
-  };
-
   return (
     <Wrapper>
       <div className="container-products">
@@ -85,7 +75,7 @@ export const BrandGrid = ({
               selectedCategory={selectedCategory}
               menu={menu}
               loading={false}
-              getCurrentSubMenu={getCurrentSubMenu}
+              // getCurrentSubMenu={getCurrentSubMenu}
             />
           </div>
         </div>
