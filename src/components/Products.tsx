@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 import { IMenu, IProducts } from "../modules/modules";
 import { menusSlice } from "../store/slices/menuSlice";
-// import { goToMenuStart } from "../units/functions";
 import { ProductsCategory } from "./ProductsCategory";
 import { SingleProduct } from "./SingleProduct";
 
@@ -10,14 +9,25 @@ export const Products = ({
   selectedCategory,
   menu,
   loading,
-  getCurrentSubMenu,
 }: {
   selectedCategory: string | null;
-  menu: IMenu | null;
+  menu: IMenu;
   loading: boolean;
-  getCurrentSubMenu: (categoryName: string | undefined) => IProducts[];
 }) => {
   const dispatch = useAppDispatch();
+
+  const getCurrentSubMenu = (categoryName: string | undefined): IProducts[] => {
+    const currentCategory = menu.menu.find(
+      (item) => item.category.categoryName === categoryName
+    );
+
+    if (currentCategory === undefined) {
+      throw new Error(
+        "Sorry, something went wrong, currentCategory is undefined"
+      );
+    }
+    return currentCategory.products;
+  };
 
   return (
     <Wrapper>
@@ -39,12 +49,13 @@ export const Products = ({
                 return (
                   <div
                     key={index}
-                    onClick={() =>
-                      dispatch(
-                        menusSlice.actions.selectCategory(
-                          item.category.categoryName
+                    onClick={
+                      () =>
+                        dispatch(
+                          menusSlice.actions.selectCategory(
+                            item.category.categoryName
+                          )
                         )
-                      ) 
                       // && goToMenuStart()
                     }
                   >
