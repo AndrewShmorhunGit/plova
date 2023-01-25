@@ -4,10 +4,10 @@ import person from "../../images/registration/person.svg";
 import lock from "../../images/registration/lock.svg";
 import closeIcon from "../../images/common/closeIcon.svg";
 import { GrFacebook } from "react-icons/gr";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
-import { fetchUserLogin } from "../../store/actions/userActions";
+import { fetchLogin, fetchRegister } from "../../store/actions/userActions";
 import { IUser } from "../../modules/modules";
 
 export const RegistrationModal = ({
@@ -20,8 +20,9 @@ export const RegistrationModal = ({
   const dispatch = useAppDispatch();
 
   // const { user } = useAppSelector((state) => state.user);
-
   const [login, setIsLogin] = useState(false);
+  const [userData, setUserData] = useState<IUser | null>(null);
+
   const {
     register,
     handleSubmit,
@@ -32,15 +33,21 @@ export const RegistrationModal = ({
       name: "",
       email: "",
       password: "",
-      // name: "Shmorgy",
-      // email: "shmorgy@gmail.com",
-      // password: "shorgyshmorg",
     },
   });
 
-  const onSubmit = (data: IUser) => login && dispatch(fetchUserLogin(data));
+  const onSubmit = (data: IUser) => {
+    setUserData(data);
+  };
+
+  // useEffect(() => {
+  //   login ? dispatch(fetchLogin(userData)) : dispatch(fetchRegister(userData));
+  //   // console.log(userData);
+  // }, [userData, onSubmit]);
+
   const emailValidation: RegExp =
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
   return (
     <Wrapper>
       <main
@@ -71,7 +78,8 @@ export const RegistrationModal = ({
             <div className="deco-line"></div>
           </div>
           <form
-            action={`${process.env.REACT_APP_AUTH_URL}/users`}
+            // action={`${process.env.REACT_APP_AUTH_URL}/users`}
+            action="#"
             className="form"
             onSubmit={handleSubmit(onSubmit)}
           >

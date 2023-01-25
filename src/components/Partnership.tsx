@@ -1,16 +1,10 @@
 import styled from "styled-components";
 import { cooperationData } from "../units/data";
-// import corporateWaveDesktopPartnership from "../images/design/corporateWaveDesktopPartnership.svg";
 
 export const Partnership = () => {
   return (
     <Wrapper>
       <div className="top-transition">
-        {/* <img
-          src={corporateWaveDesktopPartnership}
-          alt="wave"
-          className="wave"
-        /> */}
         <img
           src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/landing/waves/corporate-wave-desktop.svg"
           alt=""

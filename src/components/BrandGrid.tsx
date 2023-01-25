@@ -10,13 +10,9 @@ import { Cart, Products, Sections } from "./index";
 export const BrandGrid = ({
   menu,
   selectedCategory,
-  loading,
-  error,
 }: {
   menu: IMenu;
   selectedCategory: string | null;
-  loading: boolean;
-  error: string;
 }) => {
   return (
     <Wrapper>

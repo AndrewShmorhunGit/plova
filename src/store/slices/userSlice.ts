@@ -12,15 +12,42 @@ export const userSlice = createSlice({
   name: "user",
   initialState: initialUserState,
   reducers: {
-    fetchingUser(state) {
+    // Login
+    fetchingLogin(state) {
       state.loading = true;
     },
-    fetchUserSuccess(state, action: PayloadAction<IUser>) {
+    fetchLoginSuccess(state, action: PayloadAction<IUser>) {
       state.loading = false;
       state.user = action.payload;
       state.isActive = true;
     },
-    fetchUserError(state, action: PayloadAction<Error>) {
+    fetchLoginError(state, action: PayloadAction<Error>) {
+      state.loading = false;
+      state.error = action.payload.message;
+    },
+    // Register
+    fetchingRegister(state) {
+      state.loading = true;
+    },
+    fetchRegisterSuccess(state, action: PayloadAction<IUser>) {
+      state.loading = false;
+      state.user = action.payload;
+      state.isActive = true;
+    },
+    fetchRegisterError(state, action: PayloadAction<Error>) {
+      state.loading = false;
+      state.error = action.payload.message;
+    },
+    // Test JWT
+    fetchingJWT(state) {
+      state.loading = true;
+    },
+    fetchJWTSuccess(state, action: PayloadAction<IUser>) {
+      state.loading = false;
+      state.user = action.payload;
+      state.isActive = true;
+    },
+    fetchJWTError(state, action: PayloadAction<Error>) {
       state.loading = false;
       state.error = action.payload.message;
     },

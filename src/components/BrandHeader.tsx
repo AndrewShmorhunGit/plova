@@ -104,6 +104,7 @@ const Wrapper = styled.header`
     font-weight: 600;
     display: flex;
   }
+
   .header-location-icon {
     height: 1.6rem;
     padding-right: 0.5rem;

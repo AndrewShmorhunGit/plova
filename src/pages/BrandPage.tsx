@@ -46,12 +46,7 @@ export const BrandPage = () => {
   return (
     <>
       <BrandHeader menu={currentMenu} loading={loading} />
-      <BrandGrid
-        menu={currentMenu}
-        loading={loading}
-        error={error}
-        selectedCategory={selectedCategory}
-      />
+      <BrandGrid menu={currentMenu} selectedCategory={selectedCategory} />
     </>
   );
 };
