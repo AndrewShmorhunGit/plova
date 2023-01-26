@@ -30,20 +30,29 @@ export const RegistrationModal = ({
   } = useForm<IUser>({
     mode: "onBlur",
     defaultValues: {
-      name: "",
-      email: "",
-      password: "",
+      // name: "",
+      // email: "",
+      // password: "",
     },
   });
 
   const onSubmit = (data: IUser) => {
+    if (!login && data) {
+      const loginData: IUser = data;
+      delete loginData.name;
+
+      setUserData(loginData);
+    }
     setUserData(data);
   };
 
-  // useEffect(() => {
-  //   login ? dispatch(fetchLogin(userData)) : dispatch(fetchRegister(userData));
-  //   // console.log(userData);
-  // }, [userData, onSubmit]);
+  useEffect(() => {
+    userData &&
+      (userData.name
+        ? dispatch(fetchRegister(userData))
+        : dispatch(fetchLogin(userData)));
+    console.log(userData);
+  }, [userData, onSubmit]);
 
   const emailValidation: RegExp =
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;

@@ -71,7 +71,6 @@ export const BrandGrid = ({
               selectedCategory={selectedCategory}
               menu={menu}
               loading={false}
-              // getCurrentSubMenu={getCurrentSubMenu}
             />
           </div>
         </div>
@@ -95,7 +94,6 @@ const Wrapper = styled.div`
 
   .grid-body {
     max-width: 156rem;
-
     display: grid;
     grid-template-columns: 0.5fr 4.25fr 1.5fr;
     grid-template-rows: auto 1fr;
@@ -233,5 +231,20 @@ const Wrapper = styled.div`
   h2 {
     font-size: 3rem;
     letter-spacing: 0.05rem;
+  }
+
+  @media (max-width: 62.625em) {
+    .grid-body {
+      max-width: 156rem;
+      display: grid;
+      grid-template-columns: 0.5fr 4.25fr;
+      grid-template-rows: auto 1fr;
+      column-gap: 1rem;
+      row-gap: 1.6rem;
+    }
+  }
+  @media (max-width: ) {
+  }
+  @media (max-width: ) {
   }
 `;

@@ -148,4 +148,7 @@ const Wrapper = styled.header`
     padding-top: 1rem;
     text-align: start;
   }
+
+  @media (max-width: 91em) {
+  }
 `;

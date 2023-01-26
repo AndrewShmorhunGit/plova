@@ -1,7 +1,9 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 import { IMenu, IProducts } from "../modules/modules";
 import { menusSlice } from "../store/slices/menuSlice";
+import { goToMenuStart } from "../units/functions";
 import { ProductsCategory } from "./ProductsCategory";
 import { SingleProduct } from "./SingleProduct";
 
@@ -29,6 +31,7 @@ export const Products = ({
     return currentCategory.products;
   };
 
+  useEffect(() => goToMenuStart(), [selectedCategory]);
   return (
     <Wrapper>
       <main>
@@ -49,15 +52,14 @@ export const Products = ({
                 return (
                   <div
                     key={index}
-                    onClick={
-                      () =>
-                        dispatch(
-                          menusSlice.actions.selectCategory(
-                            item.category.categoryName
-                          )
+                    onClick={() => {
+                      dispatch(
+                        menusSlice.actions.selectCategory(
+                          item.category.categoryName
                         )
-                      // && goToMenuStart()
-                    }
+                      );
+                      //
+                    }}
                   >
                     <ProductsCategory
                       key={index}
@@ -94,5 +96,11 @@ const Wrapper = styled.main`
   .category-title__name {
     transform: translate(1rem, 1rem);
     font-size: 2rem;
+  }
+
+  @media (max-width: 91em) {
+    .products {
+      grid-template-columns: 1fr;
+    }
   }
 `;

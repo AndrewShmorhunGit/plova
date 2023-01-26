@@ -217,4 +217,10 @@ const Wrapper = styled.div`
     letter-spacing: 0rem;
     border-radius: 100rem;
   }
+
+  @media (max-width: 62.625em) {
+    .cart {
+      display: none;
+    }
+  }
 `;
