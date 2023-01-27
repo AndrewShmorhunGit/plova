@@ -8,7 +8,8 @@ import hardcodedLocation from "../images/order/hardcodedLocation.png";
 import { Link, useLocation } from "react-router-dom";
 import {
   getCurrentCard,
-  getLocalStorageMenu,
+  getCurrentMenu,
+  // getLocalStorageMenu,
   getSlugFromLocation,
   getTotalCardAmount,
   getTotalCardPrice,
@@ -40,13 +41,13 @@ import { PhoneVerifyMOdal } from "../components/modals/PhoneVerifyModal";
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
 
 export const OrderPage = () => {
+  const location = useLocation();
   const dispatch = useAppDispatch();
   const { carts } = useAppSelector((state) => state.carts);
-
-  const location = useLocation();
-  const menu = useMemo(() => getLocalStorageMenu(), []);
+  const { menus } = useAppSelector((state) => state.menu);
   const slug = useMemo(() => getSlugFromLocation(location), [location]);
   const currentCart = getCurrentCard(slug, carts);
+  const menu = getCurrentMenu(slug, menus);
 
   const [modalState, setModalState] = useState<IModalState>({
     allergy: false,
@@ -381,7 +382,7 @@ export const OrderPage = () => {
                 <div className="summary-position">
                   <p>Delivery</p>
                   <p>
-                    {menu !== null &&
+                    {menu !== undefined &&
                       `${showDollarPrice(menu.deliveryPrice)} $`}
                   </p>
                 </div>

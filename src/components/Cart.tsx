@@ -2,15 +2,12 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { useAppSelector } from "../hooks/useAppDispatch";
-import { Link } from "react-router-dom";
 import {
   getCurrentCard,
   getSlugFromLocation,
-  getTotalCardAmount,
   getTotalCardPrice,
-  showDollarPrice,
 } from "../units/functions";
-import { CartUnit } from "./index";
+import { CartUnit, MakeAnOrderBtn } from "./index";
 
 export const Cart = () => {
   const location = useLocation();
@@ -109,15 +106,7 @@ export const Cart = () => {
               </p>
             </div>
           )}
-
-          {currentCart !== null && currentCart.order.length > 0 && (
-            <div className="center">
-              <Link to={`/order/${slug}`} className="order-btn btn">
-                Make an Order ({getTotalCardAmount(slug, carts)}) <br />
-                for {showDollarPrice(totalPrice)}$
-              </Link>
-            </div>
-          )}
+          <MakeAnOrderBtn />
         </div>
       </main>
     </Wrapper>

@@ -75,7 +75,6 @@ const Wrapper = styled.main`
         position: absolute;
         right: -2rem;
         top: 7.5rem;
-        z-index: 5;
       }
     }
   }

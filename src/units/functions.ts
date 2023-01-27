@@ -137,7 +137,7 @@ export function goToMenuStart() {
 
 export function goToTop() {
   if (window.pageYOffset > 0) {
-    window.scrollBy(0, -75);
+    window.scrollBy(0, -20);
     setTimeout(goToTop, 0);
   }
 }

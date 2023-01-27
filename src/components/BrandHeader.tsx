@@ -39,26 +39,28 @@ export const BrandHeader = ({
                 className="header-address center"
                 // onClick={() => setShowLocation(!showLocation)}
               >
-                <img
-                  src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/location2-white.svg"
-                  alt="location marker"
-                  className="header-location-icon"
-                />
-                <div className="header-text">
-                  <span className="address-content-text">
-                    {`${
-                      address.length < 30
-                        ? address
-                        : address.slice(0, 30) + "..."
-                    }`}
-                  </span>
+                <div className="location">
+                  <img
+                    src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/location2-white.svg"
+                    alt="location marker"
+                    className="header-location-icon"
+                  />
+                  <div className="header-text">
+                    <span className="address-content-text">
+                      {`${
+                        address.length < 30
+                          ? address
+                          : address.slice(0, 30) + "..."
+                      }`}
+                    </span>
+                  </div>
+                  <img
+                    src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/landing/dropdown-white.svg"
+                    alt=""
+                    role="presentation"
+                    className="header__content__arrow"
+                  />
                 </div>
-                <img
-                  src="https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/landing/dropdown-white.svg"
-                  alt=""
-                  role="presentation"
-                  className="header__content__arrow"
-                />
                 <div className="center">
                   <UserData />
                 </div>
@@ -94,15 +96,15 @@ const Wrapper = styled.header`
     height: 24.5rem;
   }
 
+  .location {
+    display: flex;
+  }
+
   .header-address {
-    margin-right: -1rem;
-    min-width: 31.75rem;
     padding-top: 0.9rem;
-    margin-top: -0.1rem;
     color: white;
     font-size: 1.6rem;
     font-weight: 600;
-    display: flex;
   }
 
   .header-location-icon {
@@ -143,12 +145,15 @@ const Wrapper = styled.header`
 
   .path {
     font-weight: 200;
-    font-size: 2.4rem;
+    font-size: 1.6rem;
     color: white;
     padding-top: 1rem;
     text-align: start;
   }
 
-  @media (max-width: 91em) {
+  @media (max-width: 62.5em) {
+    .location {
+      display: none;
+    }
   }
 `;
