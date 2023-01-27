@@ -1,17 +1,7 @@
 import axios from "../../axios";
 import { IMenu } from "../../modules/modules";
-// import { wait } from "../../units/functions";
-// import { allMenus } from "../../units/menu/BigMenuDataSet";
 import { AppDispatch } from "../index";
 import { menusSlice } from "../slices/menuSlice";
-
-// const mockFetchMenusRequest = (slug: string) => {
-//   const menu = allMenus.find((menu) => menu.slug === slug);
-//   if (menu === undefined) {
-//     throw new Error("Sorry, wrong menu address");
-//   }
-//   return menu;
-// };
 
 export const fetchMenu = () => {
   return async (dispatch: AppDispatch) => {

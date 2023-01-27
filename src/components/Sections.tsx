@@ -90,4 +90,10 @@ const Wrapper = styled.main`
     color: #3a3a3a;
     font-size: 1.4rem;
   }
+
+  @media (max-width: 40.625em) {
+    .main-container {
+      display: none;
+    }
+  }
 `;

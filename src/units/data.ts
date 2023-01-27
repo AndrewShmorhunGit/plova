@@ -11,10 +11,10 @@ import plovaExpress from "../images/jumbotron/plovaExpress.png";
 import groceries from "../images/jumbotron/groceries.png";
 import magicStick from "../images/jumbotron/magicStick.png";
 import pharmacy from "../images/jumbotron/pharmacy.png";
-import shops from "../images/jumbotron/shops.png";
+// import shops from "../images/jumbotron/shops.png";
 import drinks from "../images/jumbotron/drinks.png";
 import drugs from "../images/jumbotron/drugs.png";
-import tobacco from "../images/jumbotron/tobacco.png";
+// import tobacco from "../images/jumbotron/tobacco.png";
 import courier from "../images/jumbotron/courier.png";
 import riderImage from "../images/cooperation/riderImage.png";
 import partnersImage from "../images/cooperation/partnersImage.png";
@@ -142,17 +142,17 @@ export const jumbotron: IJumbotron[] = [
       { category: "Alcohol & Drinks", icon: drinks },
     ],
   },
+  // {
+  //   id: 5,
+  //   category: "Tobacco",
+  //   icon: tobacco,
+  //   subcategory: [
+  //     { category: "Shops & Services", icon: shops },
+  //     { category: "Tobacco", icon: tobacco },
+  //   ],
+  // },
   {
     id: 5,
-    category: "Tobacco",
-    icon: tobacco,
-    subcategory: [
-      { category: "Shops & Services", icon: shops },
-      { category: "Tobacco", icon: tobacco },
-    ],
-  },
-  {
-    id: 6,
     category: "Medical services",
     icon: drugs,
     subcategory: [
@@ -161,13 +161,13 @@ export const jumbotron: IJumbotron[] = [
     ],
   },
   {
-    id: 7,
+    id: 6,
     category: "Coffee & Desserts",
     icon: coffee,
     subcategory: null,
   },
   {
-    id: 8,
+    id: 7,
     category: "Courier",
     icon: courier,
     subcategory: [
