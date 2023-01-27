@@ -348,7 +348,4 @@ export interface IUser {
   name?: string;
   email: string;
   password: string;
-  phone?: string;
-  card?: string;
-  token?: string | null;
 }

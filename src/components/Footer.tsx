@@ -8,15 +8,21 @@ import {
   footerStore,
 } from "../units/data";
 import { appleStoreSVG, googleStoreSVG } from "../images/footer/SVG";
+import { goToTop } from "../units/functions";
 
 export const Footer = () => {
   const country: string = "Country";
 
   return (
     <Wrapper>
-      <footer className="app-footer">
+      <footer className="app-footer center">
         <div className="footer-container">
-          <img src={footerLogo1} alt="plova logo" className="footer-logo" />
+          <img
+            src={footerLogo1}
+            alt="plova logo"
+            className="footer-logo"
+            onClick={() => goToTop()}
+          />
           <div className="footer-info">
             <div className="links">
               <h2>Let’s do it together</h2>
@@ -86,13 +92,13 @@ export const Footer = () => {
               </a>
             </div>
           </div>
-        </div>
-        <div className="footer-bottom center">
-          <h6>
-            &copy; {`${new Date().getFullYear()} `}
-            <strong>Plova</strong> All rights reserved. This application is
-            portfolio project created by Andrew Shmorhun. Design by Glovo.
-          </h6>
+          <div className="footer-bottom">
+            <h6>
+              &copy; {`${new Date().getFullYear()} `}
+              <strong>Plova</strong> All rights reserved. This application is
+              portfolio project created by Andrew Shmorhun. Design by Glovo.
+            </h6>
+          </div>
         </div>
       </footer>
     </Wrapper>
@@ -103,7 +109,8 @@ const Wrapper = styled.main`
   .footer-container {
     display: flex;
     flex-direction: column;
-    padding: 0 10vw;
+    max-width: 126.75rem;
+    // padding: 0 10vw;
   }
 
   .app-footer {

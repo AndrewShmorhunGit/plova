@@ -129,15 +129,15 @@ export const getTotalCardPrice = (
 };
 
 export function goToMenuStart() {
-  if (window.scrollY > 350) {
-    window.scrollBy(350, -10);
+  if (window.pageYOffset >= 360) {
+    window.scrollBy(0, -20);
     setTimeout(goToMenuStart, 0);
   }
 }
 
 export function goToTop() {
   if (window.pageYOffset > 0) {
-    window.scrollBy(0, -75);
+    window.scrollBy(0, -20);
     setTimeout(goToTop, 0);
   }
 }

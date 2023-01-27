@@ -39,7 +39,9 @@ import { UserInfoList } from "./UserInfoList";
 import { UserOrdersList } from "./UserOrdersList";
 import { UserData } from "./UserData";
 import { MainHeaderLocation } from "./MainHeaderLocation";
+import { MakeAnOrderBtn } from "./MakeAnOrderBtn";
 export {
+  MakeAnOrderBtn,
   MainHeaderLocation,
   UserData,
   UserOrdersList,
