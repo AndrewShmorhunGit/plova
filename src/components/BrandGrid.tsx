@@ -253,7 +253,7 @@ const Wrapper = styled.div`
   @media (max-width: 62.5em) {
     .grid-body {
       grid-template-columns: 0.5fr 4.25fr;
-      column-gap: 0rem;
+      column-gap: 1rem;
     }
 
     .brand-title {
@@ -291,21 +291,16 @@ const Wrapper = styled.div`
 
     .del-icon {
       height: 2.8rem;
-      // padding-right: 0.8rem;
     }
   }
 
   @media (max-width: 40.625em) {
     .grid-body {
       grid-template-columns: 1fr;
-      // column-gap: 1rem;
     }
 
     .grid-sections {
       display: none;
     }
   }
-
-  // @media (max-width: ) {
-  // }
 `;
