@@ -58,8 +58,9 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  border-radius: 1rem;
-  margin-block: 1.5rem;
+  /* border-radius: 1rem; */
+  /* margin-block: 1.5rem; */
+  /* background: lightgray; */
 }
 
 body::-webkit-scrollbar-thumb {
@@ -68,7 +69,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 body::-webkit-scrollbar-thumb:hover {
-  background: #9b9b9bff;
+  background: darkgrey;
   border-radius: 1rem;
 }
 
@@ -94,6 +95,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .container-loader {
   max-width: 142.5rem;
+  padding: 0 2rem;
   margin: 0 auto;
 }
 

@@ -6,6 +6,7 @@ import { menusSlice } from "../store/slices/menuSlice";
 import { goToMenuStart } from "../units/functions";
 import { ProductsCategory } from "./ProductsCategory";
 import { SingleProduct } from "./SingleProduct";
+import arrowBack from "../images/design/arrowBack.svg";
 
 export const Products = ({
   selectedCategory,
@@ -17,8 +18,7 @@ export const Products = ({
   loading: boolean;
 }) => {
   const dispatch = useAppDispatch();
-
-  const getCurrentSubMenu = (categoryName: string | undefined): IProducts[] => {
+  const getCurrentSubMenu = (categoryName: string): IProducts[] => {
     const currentCategory = menu.menu.find(
       (item) => item.category.categoryName === categoryName
     );
@@ -36,7 +36,18 @@ export const Products = ({
     <Wrapper>
       <main>
         {selectedCategory && (
-          <h3 className="category-title__name">{selectedCategory}</h3>
+          <>
+            <div
+              className="brand-hidden"
+              onClick={() => {
+                dispatch(menusSlice.actions.unselectCategory());
+              }}
+            >
+              <img src={arrowBack} alt="arrow left" />
+              <h3 className="brand-name">{menu.brandName}</h3>
+            </div>
+            <h3 className="category-title__name">{selectedCategory}</h3>
+          </>
         )}
         <div
           className="products"
@@ -58,7 +69,6 @@ export const Products = ({
                           item.category.categoryName
                         )
                       );
-                      //
                     }}
                   >
                     <ProductsCategory
@@ -92,7 +102,9 @@ const Wrapper = styled.main`
     row-gap: 2rem;
     font-weight: 700;
   }
-
+  .brand-hidden {
+    display: none;
+  }
   .category-title__name {
     transform: translate(1rem, 1rem);
     font-size: 2rem;
@@ -101,6 +113,22 @@ const Wrapper = styled.main`
   @media (max-width: 91em) {
     .products {
       grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 40.625em) {
+    .brand-hidden {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      // color: #00a082;
+
+      .brand-name {
+        font-size: 2rem;
+        // color: red;
+      }
     }
   }
 `;

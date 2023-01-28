@@ -132,7 +132,7 @@ const Wrapper = styled.div`
 
   .grid-products {
     background-color: #fff;
-    padding: 1rem 0rem 1rem 0rem;
+    padding: 1rem 0rem;
     height: auto;
     max-width: 120rem;
   }
@@ -233,9 +233,27 @@ const Wrapper = styled.div`
     letter-spacing: 0.05rem;
   }
 
+  @media (max-width: 81.25em) {
+    .transition-container {
+      overflow: hidden;
+      width: 100vw;
+    }
+
+    .transition {
+      display: block;
+      width: 120%;
+      height: 4.5rem;
+      background-color: #1d1d1d;
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
+      margin: 0rem -5rem 0rem -5rem;
+    }
+  }
+
   @media (max-width: 62.5em) {
     .grid-body {
       grid-template-columns: 0.5fr 4.25fr;
+      column-gap: 0rem;
     }
 
     .brand-title {
@@ -273,13 +291,14 @@ const Wrapper = styled.div`
 
     .del-icon {
       height: 2.8rem;
-      padding-right: 0.8rem;
+      // padding-right: 0.8rem;
     }
   }
 
   @media (max-width: 40.625em) {
     .grid-body {
       grid-template-columns: 1fr;
+      // column-gap: 1rem;
     }
 
     .grid-sections {

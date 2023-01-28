@@ -205,6 +205,7 @@ const Wrapper = styled.div`
     font-size: 1.8rem;
     letter-spacing: 0rem;
     border-radius: 100rem;
+    text-decoration: none;
   }
 
   @media (max-width: 62.625em) {
