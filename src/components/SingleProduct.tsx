@@ -41,9 +41,11 @@ export const SingleProduct: React.FC<{
           </div>
         </div>
         <div className="sp-div2">
-          <p className="single-product-price">
-            {showDollarPrice(product.price)} $
-          </p>
+          <div>
+            <p className="single-product-price">
+              {showDollarPrice(product.price)} $
+            </p>
+          </div>
           <div className="single-product-plus">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -72,9 +74,9 @@ export const SingleProduct: React.FC<{
 
 const Wrapper = styled.main`
   .single-product {
-    max-height: 16rem;
+    min-height: 16rem;
     margin: 1rem 1rem;
-    padding: 1.6rem 1rem 2rem 1.6rem;
+    padding: 1.6rem 1rem 0rem 1.6rem;
     background-color: #fff;
     border-radius: 1rem;
     display: flex;
@@ -120,7 +122,16 @@ const Wrapper = styled.main`
     font-weight: 400;
   }
 
+  .single-product-price {
+    position: absolute;
+  }
   .single-product-plus {
     transform: translateY(-0.8rem);
+  }
+
+  @media (max-width: 30em) {
+    .single-product {
+      min-height: auto;
+    }
   }
 `;
