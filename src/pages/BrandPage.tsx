@@ -75,7 +75,7 @@ const Wrapper = styled.div`
 
       transform: translateX(-50%);
       height: auto;
-      min-width: 100rem;
+      min-width: 80dvw;
       padding: 1.4rem 5rem;
       font-size: 1.6rem;
       // letter-spacing: 0rem;

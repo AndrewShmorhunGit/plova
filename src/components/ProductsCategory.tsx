@@ -50,7 +50,7 @@ const Wrapper = styled.main`
   }
 
   .cart-content {
-    min-width: 100%;
+    max-width: 15rem;
     display: block;
     grid-column: 1/2;
   }

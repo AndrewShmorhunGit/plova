@@ -133,10 +133,10 @@ export const LoadingHeader = () => {
 };
 
 const Wrapper = styled.header`
-  padding-top: 2rem;
+  padding: 2rem 0rem;
   min-height: 24.5rem;
   background: linear-gradient(#f5f5f5, #5d5d5d);
-  z-index: -10;
+  max-width: 100dvw;
 
   .logo-address {
     display: flex;
@@ -151,8 +151,8 @@ const Wrapper = styled.header`
 
   .loader-placeholder--address {
     margin-top: 3rem;
-    height: 3rem;
-    width: 50rem;
+    max-height: 3rem;
+    max-width: 50rem;
   }
 
   .loader-placeholder--path {

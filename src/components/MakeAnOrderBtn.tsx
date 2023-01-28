@@ -36,14 +36,14 @@ export const MakeAnOrderBtn = () => {
   );
 };
 const Wrapper = styled.main`
-  .order-btn {
-    z-index: 100;
+  a {
+    text-decoration: none;
   }
 
   @media (max-width: 62.5em) {
     .order-btn {
-      display: flex;
-      flex-direction: row;
+      display: block;
+      // flex-direction: row;
       gap: 0.8rem;
     }
   } ;

@@ -208,7 +208,6 @@ const Wrapper = styled.section`
 
     .transition-container {
       overflow: hidden;
-      width: 100vw;
     }
 
     .transition {

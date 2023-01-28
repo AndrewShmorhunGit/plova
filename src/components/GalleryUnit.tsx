@@ -6,6 +6,8 @@ import deliveryImage from "../images/common/storeDeliveryLight.svg";
 import { hryvniaToDollarConverter, cutName } from "../units/functions";
 import { Link } from "react-router-dom";
 import { Store } from "../modules/modules";
+import { menusSlice } from "../store/slices/menuSlice";
+import { useAppDispatch } from "../hooks/useAppDispatch";
 
 interface GalleryProps {
   store: Store;
@@ -16,7 +18,6 @@ interface GalleryProps {
   };
   promo: string[];
 }
-
 export const GalleryUnit: React.FC<GalleryProps> = ({
   store,
   delObj,
@@ -56,10 +57,17 @@ export const GalleryUnit: React.FC<GalleryProps> = ({
     return "Not a number!";
   };
 
+  const dispatch = useAppDispatch();
   return (
     <Wrapper>
       <div className="gallery-div">
-        <Link to={`brand/${store.slug}`} className="gallery-unit-link">
+        <Link
+          to={`brand/${store.slug}`}
+          className="gallery-unit-link"
+          onClick={() => {
+            dispatch(menusSlice.actions.unselectCategory());
+          }}
+        >
           <div className="div-container ">
             <div
               className="gallery-unit"
