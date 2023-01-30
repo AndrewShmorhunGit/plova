@@ -130,7 +130,7 @@ const Wrapper = styled.div`
   .dropdown-content {
     position: absolute;
     background: white;
-    min-width: 63.5rem;
+    min-width: 45wv;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -159,6 +159,18 @@ const Wrapper = styled.div`
 
     img {
       height: 1.8em;
+    }
+  }
+
+  @media (max-width: 84.375em) {
+    .dropdown-content {
+      min-width: 67.5dvw;
+    }
+  }
+
+  @media (max-width: 50em) {
+    .dropdown-content {
+      min-width: 75dvw;
     }
   }
 `;

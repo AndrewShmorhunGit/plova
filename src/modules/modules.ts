@@ -311,6 +311,7 @@ export interface IDropdownOptions {
 }
 
 export interface IOrderState {
+  brandName: string;
   delAddress: null | string;
   delTerms: null | string;
   paymentMethod: null | IPaymentMethod;
