@@ -233,27 +233,36 @@ const Wrapper = styled.section`
     ,
     100% {
       opacity: 100%;
-      // height: 11.5rem;
-      // width: 11.5rem;
+    }
+  }
+
+  @media (max-width: 26.25em) {
+    .location-input {
+      display: none;
     }
 
-    @media (max-width: 56.25em) {
-      .location-input {
-        display: none;
-      }
+    .link-bubble {
+      text-decoration: none;
+      color: #343a40;
+      // color: red;
+      margin: 1.2rem;
+      border-radius: 50%;
+      overflow: visible;
+    }
 
-      .category {
-        height: 9rem;
-        width: 9rem;
-      }
-
-      .category-text {
-        font-size: 1rem;
-        margin-top: -1.5rem;
-        font-weight: 400;
-        color: dark-grey;
-        padding: 1rem 1rem;
-      }
+    .category {
+      max-height: 10rem;
+      width: 10rem;
+    }
+    .category:hover {
+      transform: scale(1.05);
+    }
+    .category-text {
+      font-size: 1.2rem;
+      // margin-top: 1rem;
+      font-weight: 400;
+      color: dark-grey;
+      padding: 1rem 1rem;
     }
   }
 `;

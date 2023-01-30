@@ -305,7 +305,4 @@ const Wrapper = styled.div`
       display: none;
     }
   }
-
-  // @media (max-width: ) {
-  // }
 `;

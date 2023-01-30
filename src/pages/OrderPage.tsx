@@ -61,6 +61,7 @@ export const OrderPage = () => {
 
   //  const [{ delAddress, delTerms, paymentMethod, allergyInfo, ...}, setOrderState];
   const [orderState, setOrderState] = useLocalStorageState("order", {
+    brandName: "",
     delAddress: null,
     delTerms: null,
     paymentMethod: null,
@@ -76,7 +77,9 @@ export const OrderPage = () => {
 
   useEffect(() => {
     goToTop();
-  }, []);
+    if (menu !== undefined)
+      setOrderState({ ...orderState, brandName: menu.brandName });
+  }, [menu]);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(carts));
@@ -86,7 +89,8 @@ export const OrderPage = () => {
     orderState.delAddress && orderState.paymentMethod && orderState.phoneNumber;
 
   const productsPrice = getTotalCardPrice(slug, carts);
-  const brandName = menu?.brandName;
+
+  const brandName = orderState.brandName;
   const smallOrderFeePrice = 1;
   const totalPrice =
     menu &&
@@ -204,9 +208,9 @@ export const OrderPage = () => {
         <main className="container main-container">
           <div className="order-header">
             <div className="logo-container">
-              <Link to="/">
-                <img className="logo" src={logo} alt="Plova logo" />
-              </Link>
+              {/* <Link to="/"> */}
+              <img className="logo" src={logo} alt="Plova logo" />
+              {/* </Link> */}
             </div>
           </div>
           <div className="order-grid">
@@ -254,6 +258,7 @@ export const OrderPage = () => {
                           </div>
                           <p className="name">{order.name}</p>
                         </div>
+
                         <p className="price">
                           {showDollarPrice(order.price * order.amount)} $
                         </p>
@@ -294,10 +299,7 @@ export const OrderPage = () => {
                     <div className="cutlery-container">
                       <div>
                         <h4>Need any cutlery?</h4>
-                        <p>
-                          Help us minimize waste. Only ask for cutlery when you
-                          need it.
-                        </p>
+                        <p>Help us minimize waste.</p>
                       </div>
 
                       <div>
@@ -435,7 +437,7 @@ const Wrapper = styled.main`
   }
 
   .container {
-    min-width: 145rem;
+    max-width: 145rem;
     margin: 0 auto;
     max-width: var(--max-width);
   }
@@ -471,6 +473,7 @@ const Wrapper = styled.main`
     grid-column: 1/-1;
     min-height: 15rem;
     margin-bottom: 3.6rem;
+    // min-width: 40rem;
 
     img {
       height: 2.4rem;
@@ -502,7 +505,6 @@ const Wrapper = styled.main`
     padding: 2rem 1rem;
     border-inline: 0.3rem solid;
     border-block-start: 0.3rem solid;
-
     border-image-source: radial-gradient(
       circle at 50%,
       lightgrey,
@@ -522,20 +524,22 @@ const Wrapper = styled.main`
 
   .single-position {
     display: flex;
+    width: auto;
     justify-content: space-between;
-    padding: 1rem 2rem 1rem 0.5rem;
+    align-items: center;
+    padding: 1rem 0rem 1rem 0.5rem;
     font-size: 1.6rem;
-
     .price {
       font-weight: 300;
     }
   }
-
+  
   .single-product-info {
     display: flex;
     gap: 1.4rem;
     align-items: center;
-
+    // min-width: 45vw;
+    
     .amount {
       font-weight: 600;
     }
@@ -543,6 +547,8 @@ const Wrapper = styled.main`
       font-weight: 400;
     }
   }
+
+
 
   .dec-btn,
   .inc-btn {
@@ -606,7 +612,7 @@ const Wrapper = styled.main`
   .delivery-info {
     height: 3.2rem;
     cursor: pointer;
-    width: 100%;
+    // width: 100%;
     display: flex;
     gap: 1.6rem;
   }
@@ -614,7 +620,7 @@ const Wrapper = styled.main`
   .allergy-container,
   .delivery-container,
   .payment-container {
-    width: 90%;
+    min-width: 45dvw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -639,7 +645,7 @@ const Wrapper = styled.main`
   }
 
   .cutlery-container {
-    width: 90%;
+    width: 45dvw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -719,7 +725,7 @@ const Wrapper = styled.main`
 
   .transition-container {
     overflow: hidden;
-    width: 100vw;
+    width: 100dvw;
   }
 
   .transition {
@@ -744,7 +750,7 @@ const Wrapper = styled.main`
   }
 
   .single-position-exit-active {
-    animation: appear 500ms inverts;
+    animation: appear 1500ms inverts;
   }
 
   .single-position-enter-active {
@@ -760,4 +766,129 @@ const Wrapper = styled.main`
       opacity: 1;
     }
   }
+
+  @media (max-width: 84.375em) {
+    .order-header {
+      height: 8rem;
+    }
+    
+
+    .order-details {
+      padding: 1rem;
+    }  
+    .order-grid {
+      padding: 2rem 2rem 2rem 15rem;
+      grid-template-columns: 75dvw;
+    }
+
+    .order-summary {
+      padding-top: 5rem;
+      grid-column: 1/2;
+    }
+    
+    
+    .allergy-container,
+    .delivery-container,
+    .payment-container,
+    .cutlery-container {
+      width: 100%;
+    }
+
+    .sticky-container {
+      border-top-left-radius: 0rem;
+      border-top-right-radius: 0rem;
+      border-bottom-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+      border-block-end: none;
+      padding-block-end: none;
+      border-block-start: 1rem solid;
+      padding-block-start: 3rem;
+    }
+
+    .transition-container {
+      overflow: hidden;
+      width: 100vw;
+    }
+
+    .transition {
+      display: block;
+      width: 120%;
+      height: 4.5rem;
+      background-color: #1d1d1d;
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
+      margin: 0rem -5rem 0rem -5rem;
+    }
+
+  }
+
+  @media (max-width: 50em) {
+
+    .order-header {
+      max-width: 100dvw;
+      height: 6rem;
+      z-index: 10;
+      background: white;
+      border-bottom: solid 1px lightgrey;
+    }
+
+    .info-header {
+      margin-bottom: 0rem;
+    }
+    
+   .logo {
+      position: absolute;
+      top: 25%;
+      left: 1rem;
+      transform: translateY(20%);
+      height: 4rem;
+    }
+
+    .single-position {
+      padding: 1rem 1rem 0.5rem 0.5rem;
+      font-size: 1.2rem;
+     .price {
+        font-weight: 300;
+      }
+    }
+
+    .single-product-info {
+      .name {
+        max-width: 20rem;
+        // text-align: center;
+        font-size: 1.4rem;
+        font-weight: 400;
+      }
+    }
+
+    .total-amount {
+      font-size: 1.6rem;
+    }
+
+    .cart-info {
+      padding-top: 1.6rem;
+    }
+    
+    .order-grid {
+      padding: 2rem;
+      grid-template-columns: 90dvw;
+    }
+
+    .order-summary {
+      padding-top: 5rem;
+      grid-column: 1/2;
+    }
+
+  }
+
+   @media (max-width: 27.5em) {
+    .single-product-info {
+      .name {
+        max-width: 15rem;
+       
+      }
+    }
+   
+   }
+
 `;

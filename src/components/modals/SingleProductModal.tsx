@@ -84,7 +84,7 @@ export const SingleProductModal = ({
               />
             </div>
           </div>
-          <div className="center">
+          <div className="button-container center">
             <button
               className="add-btn btn center"
               onClick={() =>
@@ -108,7 +108,6 @@ const Wrapper = styled.main`
     background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
-    padding: 0rem 0 0 2rem;
     z-index: -1;
     overflow: auto;
   }
@@ -120,30 +119,26 @@ const Wrapper = styled.main`
     width: 0;
   }
 
-  .product-image {
-    margin: 2rem;
-    min-width: 30rem;
-    border-radius: 2rem;
-  }
-
   .content {
     background: #fff;
     position: relative;
     min-width: 60rem;
     border-radius: 1rem;
     flex-direction: column;
-    margin: 10vh auto;
-    gap: 1rem;
+    margin: 0rem auto;
+    gap: 0.6rem;
   }
 
-  .margin {
-    margin-top: 3rem;
+  .product-image {
+    min-width: 25rem;
+    max-height: 30rem;
+    border-radius: 2rem;
   }
 
   .close-btn {
     position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
+    top: 1rem;
+    right: 1rem;
     background: transparent;
     border-color: transparent;
     font-size: 2rem;
@@ -189,11 +184,14 @@ const Wrapper = styled.main`
   .counter {
     font-size: 2rem;
     gap: 1.6rem;
-    padding: 2rem 0;
+    padding: 1rem 0;
   }
 
   .inc-btn {
     cursor: pointer;
+  }
+
+  .button-container {
   }
 
   .add-btn {
@@ -201,6 +199,59 @@ const Wrapper = styled.main`
     border-radius: 10rem;
     font-size: 1.8rem;
     max-width: auto;
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 75em) {
+    .product-image {
+      max-height: 22rem;
+    }
+  }
+
+  @media (max-width: 40.625em) {
+    .content {
+      min-width: 100vw;
+      min-height: 100%;
+      margin: auto;
+      gap: 2rem;
+    }
+
+    .data-div {
+      display: flex;
+      flex-direction: column;
+      gap: 3.2rem;
+      max-width: auto;
+      overflow-y: scroll;
+      margin-right: -6rem;
+      padding-right: 3rem;
+    }
+
+    .modal-container {
+      overflow: scroll;
+    }
+  }
+
+  @media (max-width: 28.125em) {
+    .content {
+      min-width: 100vw;
+      min-height: 100%;
+      margin: auto;
+      gap: 2rem;
+    }
+
+    .data-div {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: auto;
+      overflow-y: scroll;
+      margin-right: 0rem;
+      padding: 0 4rem;
+      // padding-right: 3rem;
+    }
+
+    .modal-container {
+      overflow: auto;
+    }
   }
 `;
