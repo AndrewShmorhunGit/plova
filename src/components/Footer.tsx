@@ -11,7 +11,7 @@ import { appleStoreSVG, googleStoreSVG } from "../images/footer/SVG";
 import { goToTop } from "../units/functions";
 
 export const Footer = () => {
-  const country: string = "Country";
+  const country: string = "Your City";
 
   return (
     <Wrapper>
@@ -185,6 +185,7 @@ const Wrapper = styled.main`
   }
 
   .categories {
+    padding: 0 2rem;
     text-align: left;
     grid-column: 1/3;
     grid-row: 2/3;
@@ -259,6 +260,13 @@ const Wrapper = styled.main`
     p {
       font-size: 1.2rem;
       color: #cccccc;
+    }
+
+    .categories {
+      padding: 0 2rem;
+      text-align: center;
+      grid-column: 1/3;
+      grid-row: 2/3;
     }
   }
 `;
