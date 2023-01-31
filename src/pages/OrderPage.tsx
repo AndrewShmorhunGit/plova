@@ -62,6 +62,7 @@ export const OrderPage = () => {
   //  const [{ delAddress, delTerms, paymentMethod, allergyInfo, ...}, setOrderState];
   const [orderState, setOrderState] = useLocalStorageState("order", {
     brandName: "",
+    delPrice: 0,
     delAddress: null,
     delTerms: null,
     paymentMethod: null,
@@ -77,8 +78,13 @@ export const OrderPage = () => {
 
   useEffect(() => {
     goToTop();
-    if (menu !== undefined)
-      setOrderState({ ...orderState, brandName: menu.brandName });
+    if (menu !== undefined) {
+      setOrderState({
+        ...orderState,
+        brandName: menu.brandName,
+        delPrice: menu.deliveryPrice,
+      });
+    }
   }, [menu]);
 
   useEffect(() => {
@@ -93,12 +99,11 @@ export const OrderPage = () => {
   const brandName = orderState.brandName;
   const smallOrderFeePrice = 1;
   const totalPrice =
-    menu &&
-    (productsPrice < 5
+    productsPrice < 5
       ? `${showDollarPrice(
-          productsPrice + smallOrderFeePrice + menu.deliveryPrice
+          productsPrice + smallOrderFeePrice + orderState.delPrice
         )} $`
-      : `${showDollarPrice(productsPrice + menu.deliveryPrice)} $`);
+      : `${showDollarPrice(productsPrice + orderState.delPrice)} $`;
 
   const confirmHandle = () =>
     isValidOrder
@@ -383,10 +388,7 @@ export const OrderPage = () => {
                 </div>
                 <div className="summary-position">
                   <p>Delivery</p>
-                  <p>
-                    {menu !== undefined &&
-                      `${showDollarPrice(menu.deliveryPrice)} $`}
-                  </p>
+                  <p>{`${showDollarPrice(orderState.delPrice)} $`}</p>
                 </div>
                 {productsPrice < 5 ? (
                   <div className="summary-position">
@@ -855,7 +857,6 @@ const Wrapper = styled.main`
     .single-product-info {
       .name {
         max-width: 20rem;
-        // text-align: center;
         font-size: 1.4rem;
         font-weight: 400;
       }
@@ -888,7 +889,6 @@ const Wrapper = styled.main`
        
       }
     }
-   
    }
 
 `;

@@ -46,11 +46,12 @@ export const SuccessOrderModal = ({
 const Wrapper = styled.main`
   .modal-container {
     position: fixed;
+    max-width: 100%;
+    max-height: 100%;
     inset: 0;
     background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
-    padding: 0rem 0 0 2rem;
     z-index: -1;
     overflow: auto;
     opacity: 0;
@@ -65,13 +66,13 @@ const Wrapper = styled.main`
   .content {
     background: #fff;
     position: relative;
-    min-width: 80rem;
-    height: 50rem;
+    max-width: 70rem;
+    max-height: 50rem;
     border-radius: 1rem;
     flex-direction: column;
     gap: 4rem;
-    margin: 5rem auto;
-    padding: 0;
+    margin: auto;
+    padding: 5rem;
 
     h1 {
       font-size: 3rem;
@@ -108,6 +109,7 @@ const Wrapper = styled.main`
     color: grey;
     border: 1px solid #e9f8f5;
   }
+
   .close-btn {
     position: absolute;
     top: 1.5rem;
@@ -117,5 +119,22 @@ const Wrapper = styled.main`
     font-size: 2rem;
     color: grey;
     cursor: pointer;
+  }
+
+  @media (max-width: 43.75em) {
+    .content {
+      max-width: 70rem;
+      max-height: 50rem;
+      border-radius: 1rem;
+      padding: 2rem 3rem;
+      gap: 2rem;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 31.25em) {
+    .btn {
+      padding: 2.6rem 10rem;
+    }
   }
 `;
