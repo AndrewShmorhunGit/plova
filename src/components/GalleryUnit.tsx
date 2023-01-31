@@ -133,6 +133,7 @@ const Wrapper = styled.section`
     background-image: url(https://res.cloudinary.com/glovoapp/image/fetch//q_auto/https://glovoapp.com/images/svg/bckg-pattern.svg);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     transition: all 0.5s;
   }
 

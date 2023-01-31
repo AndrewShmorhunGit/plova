@@ -79,12 +79,10 @@ const Wrapper = styled.main`
     background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
-    padding: 0rem 0 0 2rem;
     z-index: -1;
     overflow: auto;
     opacity: 0;
     transition: all 0.5s ease;
-   
   }
 
   .show-modal {
@@ -96,11 +94,12 @@ const Wrapper = styled.main`
     background: #fff;
     position: relative;
     min-width: 60rem;
+    min-height: 40rem;
     max-height: 45rem;
     border-radius: 1rem;
     flex-direction: column;
     gap: 2rem;
-    margin: 10vh auto;
+    margin: auto auto;
     padding: 0;
 
     h1 {
@@ -110,18 +109,17 @@ const Wrapper = styled.main`
     p {
       font-weight: 400;
     }
-
   }
 
   .form {
     position: relative;
-    
   }
 
   .text-content {
     display: flex;
     background-color: #f5f5f5;
-    width: 54rem;
+    min-width: 42rem;
+    max-width: 52rem;
     height: 18rem;
     border-radius: 2rem;
     padding 1rem;
@@ -153,4 +151,36 @@ const Wrapper = styled.main`
     color: grey;
     cursor: pointer;
   }
+
+  @media (max-width: 40.625em) {
+    .content {
+      min-width: 100dvw;
+      min-height: 40rem;
+      max-height: 45rem;
+      gap: 2rem;
+
+  
+      h1 {
+        font-size: 3.2rem;
+      }
+
+      p {
+        font-weight: 400;
+      }
+    }
+
+    .text-content {
+      min-width: 32rem;
+    }
+
+    .btn {
+      padding: 2.6rem 10rem;
+    }
+
+  }
+
+
+  
+  
+
 `;

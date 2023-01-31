@@ -50,64 +50,8 @@
 
 **Collaboration**
 
-- Cooperation with back-end developer to operate with server
+- Cooperation with back-end developer to create and operate with server
 
 ---
 
 Special thanks for the development of the back-end for the application and mentoring in the project to my mentor, senior software developer Andrew Danko
-
-##Todo:
-
-**Global Tasks**
-
-- [x] Deploy an app on netlify
-- [ ] Authentication
-- [ ] Create all request
-- [ ] Finish user info and order layouts
-- [ ] Start to make my app responsive
-- [ ] Tests
-- [ ] Authentication with facebook
-- [ ] Work with location
-
-**Small Tasks**
-
-- [ ] Show password button
-- [ ] Products in menu loading
-
----
-
-##Project Refactoring and Updates:
-
-**CSS**
-
-- [ ] Use `<Wrapped Components>` to style components
-- [ ] Create all-purpose components inside Style component
-- [ ] Use `root` variables of colors, media and other styles
-- [ ] Create standard @media templates
-- [ ] Refactor all css code in wrappers
-
-**React**
-
-- [ ] Refactor big components to smaller
-- [ ] Confirm order validation
-- [ ] Create standard templates for user request's
-- [ ] Redux environment refactoring
-- [ ] Redux plovaAPI setup
-- [ ] Error boundary (_End of React Hooks_)
-- [ ] Implement Hooks: (_Advanced React Hooks_)
-  - useLayoutEffect
-  - useDebugValue
-  - useImperativeHandle
-- [ ] Add useContext for modal windows
-- [ ] Implement custom useAsync hook with responsive reducer
-- [ ] Cash implementation
-- [ ] Toggle button implementations
-- [ ] Performance settings and improvement
-- [ ] Custom React components:
-  - Modal window
-  - Toggle button
-- [ ] Use HTTPS
-
-**Fix**
-
-- [ ] Scrolling bugs on Brand Page

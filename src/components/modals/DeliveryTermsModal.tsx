@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { IModalState } from "../../modules/modules";
-import closeIcon from "../../images/common/closeIcon.svg";
 import bell from "../../images/order/deliveryTrms.svg";
 export const DeliveryTermsModal = ({
   setModalState,
@@ -19,14 +18,6 @@ export const DeliveryTermsModal = ({
         }
       >
         <div className="content center">
-          <button
-            className="close-btn"
-            onClick={() =>
-              setModalState({ ...modalState, deliveryTerms: false })
-            }
-          >
-            <img src={closeIcon} alt="close X" />
-          </button>
           <h1>On demand only</h1>
           <img src={bell} alt="" />
           <p>You can’t schedule a plova for this store.</p>
@@ -47,11 +38,12 @@ export const DeliveryTermsModal = ({
 const Wrapper = styled.main`
   .modal-container {
     position: fixed;
+    max-width: 100%;
+    max-height: 100%;
     inset: 0;
     background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
-    padding: 0rem 0 0 2rem;
     z-index: -1;
     overflow: auto;
     opacity: 0;
@@ -66,13 +58,13 @@ const Wrapper = styled.main`
   .content {
     background: #fff;
     position: relative;
-    min-width: 80rem;
-    height: 50rem;
+    max-width: 70rem;
+    max-height: 50rem;
     border-radius: 1rem;
     flex-direction: column;
+    padding: 5rem;
     gap: 4rem;
-    margin: 5rem auto;
-    padding: 0;
+    margin: auto;
 
     h1 {
       font-size: 3rem;
@@ -105,14 +97,18 @@ const Wrapper = styled.main`
     color: grey;
     border: 1px solid #e9f8f5;
   }
-  .close-btn {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    background: transparent;
-    border-color: transparent;
-    font-size: 2rem;
-    color: grey;
-    cursor: pointer;
+
+  @media (max-width: 43.75em) {
+    .content {
+      max-width: 70rem;
+      max-height: 50rem;
+      padding: 3rem;
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .btn {
+      padding: 2.6rem 10rem;
+    }
   }
 `;
