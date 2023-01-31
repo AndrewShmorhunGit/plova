@@ -18,8 +18,7 @@ import {
 import { ErrorPage } from "./ErrorPage";
 
 export const BrandPage = () => {
-  const location = useLocation();
-  const slug = getSlugFromLocation(location);
+  const slug = getSlugFromLocation(useLocation());
   const dispatch = useAppDispatch();
   const { selectedCategory, loading, error, menus } = useAppSelector(
     (state) => state.menu
@@ -41,7 +40,7 @@ export const BrandPage = () => {
     );
   }
 
-  if (error || !currentMenu || currentMenu === undefined) {
+  if (error || !currentMenu || currentMenu === undefined || !menus) {
     return <ErrorPage />;
   }
   return (
