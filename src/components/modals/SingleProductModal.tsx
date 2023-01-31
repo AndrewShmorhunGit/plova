@@ -104,13 +104,18 @@ export const SingleProductModal = ({
 const Wrapper = styled.main`
   .modal-container {
     position: fixed;
+    max-width: 100%;
+    max-height: 100%;
     inset: 0;
     background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     z-index: -1;
     overflow: auto;
+    opacity: 0;
+    transition: all 0.5s ease;
   }
+
   .show-modal {
     z-index: 99;
     opacity: 1;
@@ -123,10 +128,11 @@ const Wrapper = styled.main`
     background: #fff;
     position: relative;
     min-width: 60rem;
+    min-height: 50rem;
     border-radius: 1rem;
     flex-direction: column;
-    margin: 0rem auto;
-    gap: 0.6rem;
+    margin: auto;
+    gap: 1rem;
   }
 
   .product-image {
@@ -212,7 +218,7 @@ const Wrapper = styled.main`
     .content {
       min-width: 100vw;
       min-height: 100%;
-      margin: auto;
+      margin: 0 0;
       gap: 2rem;
     }
 
@@ -222,8 +228,8 @@ const Wrapper = styled.main`
       gap: 3.2rem;
       max-width: auto;
       overflow-y: scroll;
-      margin-right: -6rem;
-      padding-right: 3rem;
+      // margin-right: -6rem;
+      // padding-right: 3rem;
     }
 
     .modal-container {
@@ -237,6 +243,7 @@ const Wrapper = styled.main`
       min-height: 100%;
       margin: auto;
       gap: 2rem;
+      border-radius: 0rem;
     }
 
     .data-div {
@@ -246,8 +253,7 @@ const Wrapper = styled.main`
       max-width: auto;
       overflow-y: scroll;
       margin-right: 0rem;
-      padding: 0 4rem;
-      // padding-right: 3rem;
+      padding: 0 3rem;
     }
 
     .modal-container {

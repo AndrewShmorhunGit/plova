@@ -88,7 +88,6 @@ const Wrapper = styled.main`
     background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
-    padding: 0rem 0 0 2rem;
     z-index: -1;
     overflow: auto;
     opacity: 0;
@@ -103,12 +102,13 @@ const Wrapper = styled.main`
   .content {
     background: #fff;
     position: relative;
-    min-width: 80rem;
-    height: 50rem;
+    min-width: 60rem;
+    min-height: 40rem;
+    max-height: 45rem;
     border-radius: 1rem;
     flex-direction: column;
     gap: 4rem;
-    margin: 10rem auto;
+    margin: auto;
     padding: 0;
 
     h1 {
@@ -222,6 +222,7 @@ const Wrapper = styled.main`
     color: grey;
     border: 1px solid #e9f8f5;
   }
+
   .close-btn {
     position: absolute;
     top: 1.5rem;
@@ -231,5 +232,27 @@ const Wrapper = styled.main`
     font-size: 2rem;
     color: grey;
     cursor: pointer;
+  }
+
+  @media (max-width: 40.625em) {
+    .content {
+      min-width: 100dvw;
+      min-height: 40rem;
+      max-height: 45rem;
+      gap: 2rem;
+
+      h1 {
+        text-align: center;
+        font-size: 3.2rem;
+      }
+
+      p {
+        font-weight: 400;
+      }
+    }
+
+    .btn {
+      padding: 2.6rem 10rem;
+    }
   }
 `;

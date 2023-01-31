@@ -21,7 +21,6 @@ export const BrandPage = () => {
   const location = useLocation();
   const slug = getSlugFromLocation(location);
   const dispatch = useAppDispatch();
-
   const { selectedCategory, loading, error, menus } = useAppSelector(
     (state) => state.menu
   );
@@ -51,9 +50,7 @@ export const BrandPage = () => {
       <BrandGrid menu={currentMenu} selectedCategory={selectedCategory} />
       <Wrapper>
         <div className="order-btn">
-          {/* <div className="center"> */}
           <MakeAnOrderBtn />
-          {/* </div> */}
         </div>
       </Wrapper>
     </>
@@ -68,17 +65,14 @@ const Wrapper = styled.div`
   @media (max-width: 62.5em) {
     .order-btn {
       display: block;
-
       position: fixed;
       bottom: 1em;
       left: 50%;
-
       transform: translateX(-50%);
       height: auto;
       min-width: 80dvw;
       padding: 1.4rem 5rem;
       font-size: 1.6rem;
-      // letter-spacing: 0rem;
       border-radius: 100rem;
     }
   }

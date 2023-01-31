@@ -197,6 +197,8 @@ export const RegistrationModal = ({
 const Wrapper = styled.main`
   .registration-container {
     position: fixed;
+    max-width: 100%;
+    max-height: 100%;
     inset: 0;
     background: rgba(0, 0, 0, 0.7);
     display: flex;

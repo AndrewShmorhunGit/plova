@@ -65,7 +65,6 @@ const Wrapper = styled.main`
     background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
-    padding: 0rem 0 0 2rem;
     z-index: -1;
     overflow: auto;
     opacity: 0;
@@ -80,10 +79,10 @@ const Wrapper = styled.main`
   .content {
     background: #fff;
     position: relative;
-    min-width: 80rem;
-    height: 50rem;
+    min-width: 70rem;
+    min-height: 50rem;
     border-radius: 1rem;
-    margin: 10rem auto;
+    margin: auto auto;
     padding: 0;
 
     h1 {
@@ -97,6 +96,8 @@ const Wrapper = styled.main`
   }
 
   .content-info {
+    padding: 0 3rem;
+    text-align: center;
     flex-direction: column;
     gap: 2rem;
   }
@@ -116,5 +117,36 @@ const Wrapper = styled.main`
     background: transparent;
     color: grey;
     border: 1px solid #e9f8f5;
+  }
+
+  @media (max-width: 56.25em) {
+    .content {
+      min-width: 55rem;
+      min-height: 37.5rem;
+      border-radius: 1rem;
+      h1 {
+        font-size: 2.6rem;
+      }
+      p {
+        font-size: 1.6rem;
+      }
+    }
+
+    .btn {
+      padding: 2.6rem 10rem;
+      border-radius: 10rem;
+      margin: 0;
+    }
+
+    .deco-image {
+      max-height: 10rem;
+    }
+  }
+
+  @media (max-width: 37.5em) {
+    .content {
+      min-width: 100dvw;
+      min-height: 45rem;
+    }
   }
 `;
