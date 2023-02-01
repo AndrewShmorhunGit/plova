@@ -44,14 +44,12 @@ export const InDevelopmentModal = ({
 const Wrapper = styled.main`
   .modal-container {
     position: fixed;
-    max-width: 100%;
-    max-height: 100%;
+
     inset: 0;
     background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     z-index: -1;
-    overflow: auto;
     opacity: 0;
     transition: all 0.5s ease;
   }
@@ -120,13 +118,14 @@ const Wrapper = styled.main`
     cursor: pointer;
   }
 
-  @media (max-width: 43.75em) {
+  @media (max-width: 56.25em) {
     .content {
-      max-width: 70rem;
-      max-height: 50rem;
+      max-width: auto;
+      max-height: auto;
       border-radius: 1rem;
       padding: 2rem 3rem;
       gap: 2rem;
+      margin: auto 1rem;
     }
   }
 

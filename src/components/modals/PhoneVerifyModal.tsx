@@ -84,6 +84,8 @@ export const PhoneVerifyMOdal = ({
 const Wrapper = styled.main`
   .modal-container {
     position: fixed;
+    max-width: 100%;
+    max-height: 100%;
     inset: 0;
     background: rgba(0, 0, 0, 0.7);
     display: flex;
@@ -102,8 +104,8 @@ const Wrapper = styled.main`
   .content {
     background: #fff;
     position: relative;
-    min-width: 60rem;
-    min-height: 40rem;
+    // min-width: 60rem;
+    // min-height: 40rem;
     max-height: 45rem;
     border-radius: 1rem;
     flex-direction: column;
@@ -234,16 +236,18 @@ const Wrapper = styled.main`
     cursor: pointer;
   }
 
-  @media (max-width: 40.625em) {
+  @media (max-width: 56.25em) {
     .content {
-      min-width: 100dvw;
-      min-height: 40rem;
-      max-height: 45rem;
-      gap: 2rem;
+      max-width: 98dvw;
+      max-height: auto;
+      gap: 1.6rem;
+      padding: 5rem;
+      margin: auto 1rem;
 
       h1 {
         text-align: center;
-        font-size: 3.2rem;
+        font-size: 2.6rem;
+        padding-bottom: 1rem;
       }
 
       p {
@@ -251,6 +255,11 @@ const Wrapper = styled.main`
       }
     }
 
+    .btn {
+      padding: 2.6rem 10rem;
+    }
+  }
+  @media (max-width: 31.25em) {
     .btn {
       padding: 2.6rem 10rem;
     }

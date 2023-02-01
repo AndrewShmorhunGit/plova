@@ -131,6 +131,7 @@ const Wrapper = styled.main`
     min-height: 50rem;
     border-radius: 1rem;
     flex-direction: column;
+    padding: 2rem;
     margin: auto;
     gap: 1rem;
   }
@@ -218,7 +219,7 @@ const Wrapper = styled.main`
     .content {
       min-width: 100vw;
       min-height: 100%;
-      margin: 0 0;
+      margin: 1rem 1rem;
       gap: 2rem;
     }
 
@@ -228,8 +229,7 @@ const Wrapper = styled.main`
       gap: 3.2rem;
       max-width: auto;
       overflow-y: scroll;
-      // margin-right: -6rem;
-      // padding-right: 3rem;
+      padding: 0.5rem;
     }
 
     .modal-container {

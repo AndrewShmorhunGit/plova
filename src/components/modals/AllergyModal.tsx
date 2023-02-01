@@ -75,12 +75,14 @@ export const AllergyModal = ({
 const Wrapper = styled.main`
   .modal-container {
     position: fixed;
+    max-width: 100%;
+    max-height: 100%;
     inset: 0;
     background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     z-index: -1;
-    overflow: auto;
+    // overflow: auto;
     opacity: 0;
     transition: all 0.5s ease;
   }
@@ -100,7 +102,7 @@ const Wrapper = styled.main`
     flex-direction: column;
     gap: 2rem;
     margin: auto auto;
-    padding: 0;
+    padding: 2rem 3rem;
 
     h1 {
       font-size: 3.2rem;
@@ -120,7 +122,7 @@ const Wrapper = styled.main`
     background-color: #f5f5f5;
     min-width: 42rem;
     max-width: 52rem;
-    height: 18rem;
+    min-height: 15rem;
     border-radius: 2rem;
     padding 1rem;
     color: #343a40  ;
@@ -152,14 +154,13 @@ const Wrapper = styled.main`
     cursor: pointer;
   }
 
-  @media (max-width: 40.625em) {
+  @media (max-width: 53.125em) {
     .content {
-      min-width: 100dvw;
-      min-height: 40rem;
-      max-height: 45rem;
+      min-width: auto;
+      min-height: auto;
       gap: 2rem;
+      margin: auto 1rem;
 
-  
       h1 {
         font-size: 3.2rem;
       }
@@ -176,11 +177,6 @@ const Wrapper = styled.main`
     .btn {
       padding: 2.6rem 10rem;
     }
-
-  }
-
-
-  
-  
+  }    
 
 `;

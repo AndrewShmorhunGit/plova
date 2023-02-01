@@ -61,12 +61,13 @@ export const ExitFromOrderModal = ({
 const Wrapper = styled.main`
   .modal-container {
     position: fixed;
+    max-width: 100%;
+    max-height: 100%;
     inset: 0;
     background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     z-index: -1;
-    overflow: auto;
     opacity: 0;
     transition: all 0.5s ease;
   }
@@ -81,8 +82,9 @@ const Wrapper = styled.main`
     position: relative;
     min-width: 70rem;
     min-height: 50rem;
+    max-height: 50rem;
     border-radius: 1rem;
-    margin: auto auto;
+    margin: auto 0;
     padding: 0;
 
     h1 {
@@ -121,8 +123,9 @@ const Wrapper = styled.main`
 
   @media (max-width: 56.25em) {
     .content {
-      min-width: 55rem;
-      min-height: 37.5rem;
+      min-width: auto;
+      min-height: auto;
+      margin: 1rem 1rem;
       border-radius: 1rem;
       h1 {
         font-size: 2.6rem;
@@ -145,8 +148,8 @@ const Wrapper = styled.main`
 
   @media (max-width: 37.5em) {
     .content {
-      min-width: 100dvw;
-      min-height: 45rem;
+      margin: auto 1rem;
+      padding: 2rem 0;
     }
   }
 `;

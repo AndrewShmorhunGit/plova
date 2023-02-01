@@ -45,7 +45,7 @@ const Wrapper = styled.main`
     display: flex;
     justify-content: center;
     z-index: -1;
-    overflow: auto;
+
     opacity: 0;
     transition: all 0.5s ease;
   }
@@ -98,17 +98,25 @@ const Wrapper = styled.main`
     border: 1px solid #e9f8f5;
   }
 
-  @media (max-width: 43.75em) {
+  @media (max-width: 53.125em) {
     .content {
       max-width: 70rem;
       max-height: 50rem;
       padding: 3rem;
       gap: 2rem;
       text-align: center;
+      margin: auto 1rem;
     }
 
     .btn {
       padding: 2.6rem 10rem;
+    }
+  }
+
+  @media (max-width: 31.25em) {
+    .content {
+      max-height: auto;
+      margin: auto 1rem;
     }
   }
 `;

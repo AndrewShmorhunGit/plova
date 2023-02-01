@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { IModalState } from "../../modules/modules";
 import closeIcon from "../../images/common/closeIcon.svg";
-import form from "../../images/design/form.png";
+import errorImage from "../../images/error/sad_glopi.svg";
+
 export const InValidOrderModal = ({
   setModalState,
   modalState,
@@ -27,12 +28,9 @@ export const InValidOrderModal = ({
           >
             <img src={closeIcon} alt="close X" />
           </button>
-          <h1>Need more information!</h1>
-          <img className="img" src={form} alt="" />
-          <p>
-            Please fill out <span>address</span>,<span> phone </span>
-            and <span>payment method</span>
-          </p>
+          <h1>Need more info</h1>
+          <img className="img" src={errorImage} alt="" />
+          <p>Please fill out address, phone and payment method</p>
           <button
             className="btn center"
             onClick={() =>
@@ -125,7 +123,7 @@ const Wrapper = styled.main`
     cursor: pointer;
   }
 
-  @media (max-width: 43.75em) {
+  @media (max-width: 56.25em) {
     .content {
       max-width: 70rem;
       max-height: 50rem;
@@ -133,6 +131,7 @@ const Wrapper = styled.main`
       padding: 2rem 3rem;
       gap: 2rem;
       text-align: center;
+      margin: auto 1rem;
     }
   }
 

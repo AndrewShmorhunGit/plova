@@ -67,7 +67,9 @@ export const RegistrationModal = ({
         }
       >
         <div className="content" style={{ height: login ? "75rem" : "65rem" }}>
-          <h1>{login ? "Sign up to Plova" : "Log in to Plova"}</h1>
+          <h1 className="title">
+            {login ? "Sign up to Plova" : "Log in to Plova"}
+          </h1>
           <button className="close-btn">
             <img
               src={closeIcon}
@@ -177,13 +179,12 @@ export const RegistrationModal = ({
             </button>
           </p>
           {login ? (
-            <div className="footer center">
-              By creating an account, you automatically accept our
-              <div>
-                <a href="#">Terms of service, </a>
-                <a href="#">Privacy Policy</a> and
-                <a href="#"> Cookies Policy</a>
-              </div>
+            <div className="footer">
+              <p>By creating an account, you accept: </p>
+              <a href="#">Terms of service, </a>
+              <a href="#">Privacy Policy</a>
+              and
+              <a href="#"> Cookies Policy</a>
             </div>
           ) : (
             ""
@@ -198,12 +199,11 @@ const Wrapper = styled.main`
   .registration-container {
     position: fixed;
     max-width: 100%;
-    max-height: 100%;
+    height: 100%;
     inset: 0;
     background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
-    padding: 4rem 0;
     z-index: -1;
     overflow: auto;
     opacity: 0;
@@ -221,9 +221,11 @@ const Wrapper = styled.main`
 
   .content {
     background: #fff;
-    width: 60rem;
+    max-height: auto;
     border-radius: 1rem;
-    padding: 4rem 2rem 3rem 2rem;
+    padding: 4rem;
+    padding-top: 6rem;
+    margin: auto;
     position: relative;
     display: flex;
     align-items: center;
@@ -403,10 +405,18 @@ const Wrapper = styled.main`
 
   .footer {
     display: block;
-    width: 40rem;
-    flex-direction: column;
+    text-align: center;
+    max-width: 40rem;
+    // flex-direction: column;
     font-weight: 300;
-    margin-bottom: 5rem;
+    // margin-bottom: 5rem;
+    // gap: 1rem;
+    
+    p, a {
+      font-size: 1.2rem;
+
+    }
+
   }
 
   .or {
@@ -429,6 +439,7 @@ const Wrapper = styled.main`
 
   h1 {
     font-size: 3rem;
+    padding-bottom: 2rem;
   }
 
   a {
@@ -447,6 +458,29 @@ const Wrapper = styled.main`
     font-weight: 400;
   }
 
-}
+ @media (max-width: 40.625em) {
+    .content {
+      max-width: 100dvw;
+      min-height: 100%;
+      margin: auto;
+      border-radius: 0;
+      gap: 2.4rem;
+      .deco-line {
+        min-width: 10rem;
+      }
+    }
+  }
+
+  @media (max-width: 31.25em) {
+    .input-line {
+      padding-left: 3rem;
+    }
+
+    .input-box input {
+      min-width: 25rem;
+      font-size: 1.8rem;
+    }
+  }
+
 
 `;
