@@ -5,7 +5,7 @@ import menuReducer from "./slices/menuSlice";
 import jumbotronReducer from "./slices/jumbotronSlice";
 import cartReducer from "./slices/cartSlice";
 import userReducer from "./slices/cartSlice";
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
   restaurant: restaurantReducer,
   menu: menuReducer,
   jumbotron: jumbotronReducer,

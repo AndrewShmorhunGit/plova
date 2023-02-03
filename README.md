@@ -1,4 +1,4 @@
-![Markdown Logo](./src/logos/logo.png)
+[![Markdown Logo](./src/logos/logo.png)](https://plova.netlify.app/)
 
 `Demo version of famous delivery application 'Glovo'`
 
@@ -26,7 +26,7 @@
 - [React Use Geolocation](https://www.npmjs.com/package/react-hook-geolocation)
 - [Web Vitals](https://www.npmjs.com/package/web-vitals)
 
-  **Design tools**
+**Design tools**
 
 - [Figma](https://www.figma.com/)
 - [Favicon](https://favicon.io/)

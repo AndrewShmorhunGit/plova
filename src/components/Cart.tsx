@@ -10,8 +10,7 @@ import {
 import { CartUnit, MakeAnOrderBtn } from "./index";
 
 export const Cart = () => {
-  const location = useLocation();
-  const slug = getSlugFromLocation(location);
+  const slug = getSlugFromLocation(useLocation());
   const { carts } = useAppSelector((state) => state.carts);
 
   useEffect(() => {

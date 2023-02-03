@@ -38,13 +38,17 @@ export const CartUnit = ({
       <div className="center">
         <div className="orders-container">
           <div>
-            <p className="amount"> x{singleOrder.amount} </p>
+            <p className="amount" role="amount">
+              x{singleOrder.amount}
+            </p>
           </div>
           <div>
-            <p className="name">{singleOrder.name}</p>
+            <p className="name" role="position-name">
+              {singleOrder.name}
+            </p>
           </div>
           <div>
-            <p className="total-price">
+            <p className="total-price" role="total-price">
               {showDollarPrice(singleOrder.price * singleOrder.amount)}$
             </p>
           </div>
@@ -52,17 +56,17 @@ export const CartUnit = ({
             <img
               onClick={() => decrease()}
               className="dec-btn"
+              role="decrease"
               src={minus}
-              alt=""
+              alt="minus in circle"
             />
-
             {/* <button className="edit-btn">Edit</button> */}
-
             <img
               onClick={() => increase()}
               className="inc-btn"
+              role="increase"
               src={plus}
-              alt=""
+              alt="plus in circle"
             />
           </div>
         </div>
@@ -70,6 +74,7 @@ export const CartUnit = ({
     </Wrapper>
   );
 };
+
 const Wrapper = styled.main`
   .orders-container {
     max-width: 100%;
