@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 // import userEvent from "@testing-library/user-event";
 import { CartUnit } from "../components/CartUnit";
-import { renderWithProviders } from "./test-utils";
+import { renderWithProviders } from "./utils/test-utils";
 
 test("cartUnit display all parameters", async () => {
   renderWithProviders(
