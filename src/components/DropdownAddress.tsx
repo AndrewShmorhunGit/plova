@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { IDropdownOptions, IModalState, IOrderState } from "../modules/modules";
 import rightArrow from "../images/order/thin_arrow_right.svg";
+import { useClickOutside } from "../hooks/useClickOutside";
 
 export const DropdownAddress = ({
   modalState,
@@ -17,25 +18,13 @@ export const DropdownAddress = ({
   orderState: IOrderState;
 }) => {
   const [isActive, setIsActive] = useState(false);
-  const contentRef = useRef<HTMLDivElement | null>(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const dropdownOptions = options;
-
-  useEffect(() => {
-    function handleClickOutside(event: any): void {
-      if (contentRef.current && !contentRef.current.contains(event.target)) {
-        setIsActive(false);
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isActive, contentRef]);
+  useClickOutside(ref, () => setIsActive(false));
 
   return (
     <Wrapper>
-      <main className="main">
+      <main ref={ref} className="main">
         <div className="label-container">
           <img
             className="label center"
@@ -57,7 +46,7 @@ export const DropdownAddress = ({
             <img className="arrow" src={rightArrow} alt="" />
           </div>
           {isActive && (
-            <div ref={contentRef} className="dropdown-content">
+            <div className="dropdown-content">
               {dropdownOptions.options.map((option, index) => {
                 return (
                   <div
@@ -142,6 +131,7 @@ const Wrapper = styled.div`
   .dropdown-content {
     position: absolute;
     background: white;
+    min-width: 45vw;
     min-width: 45dvw;
     display: flex;
     flex-direction: column;
@@ -176,12 +166,14 @@ const Wrapper = styled.div`
 
   @media (max-width: 84.375em) {
     .dropdown-content {
+      min-width: 67.5vw;
       min-width: 67.5dvw;
     }
   }
 
   @media (max-width: 50em) {
     .dropdown-content {
+      min-width: 75vw;
       min-width: 75dvw;
     }
   }

@@ -35,8 +35,8 @@ import { InDevelopmentModal } from "./modals/InDevelopmentModal";
 import { DropdownPhone } from "./DropdownPhone";
 import { DropdownAddress } from "./DropdownAddress";
 import { PaymentDropdown } from "./DropdownPayment";
-import { UserInfoList } from "./UserInfoList";
-import { UserOrdersList } from "./UserOrdersList";
+import { UserInfoButton } from "./UserInfoButton";
+import { UserOrdersButton } from "./UserOrdersButton";
 import { UserData } from "./UserData";
 import { MainHeaderLocation } from "./MainHeaderLocation";
 import { MakeAnOrderBtn } from "./MakeAnOrderBtn";
@@ -44,8 +44,8 @@ export {
   MakeAnOrderBtn,
   MainHeaderLocation,
   UserData,
-  UserOrdersList,
-  UserInfoList,
+  UserOrdersButton,
+  UserInfoButton,
   DropdownPhone,
   DropdownAddress,
   PaymentDropdown,

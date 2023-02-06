@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CartUnit create snapshot 1`] = `
+<CartUnit
+  singleOrder={
+    Object {
+      "amount": 5,
+      "name": "Spaghetti",
+      "price": 6.2,
+    }
+  }
+  slug="anyRestaurant"
+/>
+`;

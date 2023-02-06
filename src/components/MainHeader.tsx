@@ -64,7 +64,7 @@ export const MainHeader = ({
                   setChangeLocationModal={setChangeLocationModal}
                 />
               </div>
-              {!null ? (
+              {null ? (
                 <button
                   className="btn-start"
                   onClick={() => setShowRegistration(!showRegistration)}
@@ -72,7 +72,7 @@ export const MainHeader = ({
                   Get started
                 </button>
               ) : (
-                <UserData />
+                <UserData color={"#212529"} />
               )}
             </div>
           </div>

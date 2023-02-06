@@ -62,7 +62,7 @@ export const BrandHeader = ({
                   />
                 </div>
                 <div className="center">
-                  <UserData />
+                  <UserData color={"white"} />
                 </div>
               </div>
               {/* <div className="header-address">{address}</div> */}
