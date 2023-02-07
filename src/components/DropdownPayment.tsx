@@ -19,7 +19,7 @@ export const PaymentDropdown = ({
   const dropdownOptions = options;
   return (
     <Wrapper>
-      <main className="main">
+      <main className="main" ref={ref}>
         <div className="label-container">
           <img
             className="label center"
@@ -45,7 +45,7 @@ export const PaymentDropdown = ({
             <img className="arrow" src={rightArrow} alt="" />
           </div>
           {isActive && (
-            <div ref={ref} className="dropdown-content">
+            <div className="dropdown-content">
               {dropdownOptions.options.map((option, index) => {
                 return (
                   <div
@@ -127,6 +127,7 @@ const Wrapper = styled.div`
     z-index: 10;
     position: absolute;
     background: white;
+    min-width: 45vw;
     min-width: 45dvw;
     display: flex;
     flex-direction: column;
@@ -150,6 +151,7 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     gap: 1.6rem;
+
     p {
       font-size: 1.8rem;
     }
@@ -161,11 +163,15 @@ const Wrapper = styled.div`
 
   @media (max-width: 84.375em) {
     .dropdown-content {
+      min-width: 67.5vw;
       min-width: 67.5dvw;
     }
   }
-  @media (max-width: 50em) {
+
+  @media (max-width: 50
+    em) {
     .dropdown-content {
+      min-width: 75vw;
       min-width: 75dvw;
     }
   }

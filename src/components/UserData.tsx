@@ -1,10 +1,10 @@
-import { UserInfoList, UserOrdersList } from "./index";
+import { UserInfoButton, UserOrdersButton } from "./index";
 
-export const UserData = () => {
+export const UserData = (props: { color: string }) => {
   return (
     <div className="center">
-      <UserInfoList />
-      <UserOrdersList />
+      <UserInfoButton color={props.color} />
+      <UserOrdersButton color={props.color} />
     </div>
   );
 };

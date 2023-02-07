@@ -1,10 +1,10 @@
-import { useEffect } from "react";
+import React from "react";
 
 export function useClickOutside(
   ref: React.MutableRefObject<HTMLDivElement | null>,
   handler: Function
 ) {
-  useEffect(() => {
+  React.useEffect(() => {
     const listener = (event: any) => {
       if (!ref.current || ref.current.contains(event.target)) {
         return;

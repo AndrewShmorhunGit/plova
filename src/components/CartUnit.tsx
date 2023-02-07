@@ -43,18 +43,18 @@ export const CartUnit = ({
             </p>
           </div>
           <div>
-            <p className="name" role="position-name">
+            <p className="name" role="position">
               {singleOrder.name}
             </p>
           </div>
           <div>
-            <p className="total-price" role="total-price">
+            <p className="total-price" role="price">
               {showDollarPrice(singleOrder.price * singleOrder.amount)}$
             </p>
           </div>
           <div className="buttons">
             <img
-              onClick={() => decrease()}
+              onClick={decrease}
               className="dec-btn"
               role="decrease"
               src={minus}
@@ -62,7 +62,7 @@ export const CartUnit = ({
             />
             {/* <button className="edit-btn">Edit</button> */}
             <img
-              onClick={() => increase()}
+              onClick={increase}
               className="inc-btn"
               role="increase"
               src={plus}
