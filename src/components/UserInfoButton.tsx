@@ -5,11 +5,10 @@ import { useClickOutside } from "../hooks/useClickOutside";
 export const UserInfoButton = (props: { color: string }) => {
   const [isActive, setIsActive] = React.useState(false);
   const insideRef = React.useRef<HTMLDivElement | null>(null);
-
   useClickOutside(insideRef, () => setIsActive(false));
   return (
     <Wrapper>
-      <div ref={insideRef} className="menu-icon-user">
+      <main ref={insideRef} className="menu-icon-user">
         <div className="icon-container" onClick={() => setIsActive(!isActive)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +81,7 @@ export const UserInfoButton = (props: { color: string }) => {
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </Wrapper>
   );
 };
@@ -92,6 +91,7 @@ const Wrapper = styled.main`
     padding: 0.1rem 1.6rem;
     cursor: pointer;
     margin-top: 0.1rem;
+    position: relative;
   }
 
   .info-container {
@@ -100,9 +100,9 @@ const Wrapper = styled.main`
     min-width: 35rem;
     background-color: white;
     position: absolute;
-    top: 8rem;
+    top: 5.5rem;
     padding: 2.4rem;
-    right: 4rem;
+    right: -11.2rem;
     border-radius: 1rem;
     cursor: auto;
     box-shadow: 0 2px 20px rgb(0 0 0 / 10%);
@@ -170,7 +170,6 @@ const Wrapper = styled.main`
     width: 3rem;
     height: 1rem;
     top: -1rem;
-    // transform: rotate(30deg);
     transform: translateX(16.6rem);
     clip-path: polygon(50% 0, 50% 0, 100% 100%, 0 100%);
   }
