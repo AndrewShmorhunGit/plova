@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CartUnit check component increment and decrement amount in position 1`] = `<DocumentFragment />`;
+
 exports[`CartUnit create snapshot 1`] = `
 <CartUnit
   singleOrder={

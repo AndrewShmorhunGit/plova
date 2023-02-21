@@ -4,11 +4,11 @@ import person from "../../images/registration/person.svg";
 import lock from "../../images/registration/lock.svg";
 import closeIcon from "../../images/common/closeIcon.svg";
 import { GrFacebook } from "react-icons/gr";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { fetchLogin, fetchRegister } from "../../store/actions/userActions";
-import { IUser } from "../../modules/modules";
+import { IUserSignUp } from "../../modules/modules";
 
 export const RegistrationModal = ({
   setShowRegistration,
@@ -21,38 +21,35 @@ export const RegistrationModal = ({
 
   // const { user } = useAppSelector((state) => state.user);
   const [login, setIsLogin] = useState(false);
-  const [userData, setUserData] = useState<IUser | null>(null);
+  // const [userData, setUserData] = useState<IUserSignUp | null>(null);
 
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
-  } = useForm<IUser>({
+  } = useForm<IUserSignUp>({
     mode: "onBlur",
-    defaultValues: {
-      // name: "",
-      // email: "",
-      // password: "",
-    },
+    // defaultValues: {
+    //   name: "",
+    //   email: "",
+    //   password: "",
+    // },
   });
 
-  const onSubmit = (data: IUser) => {
-    if (!login && data) {
-      const loginData: IUser = data;
-      delete loginData.name;
-
-      setUserData(loginData);
+  const onSubmit = (data: IUserSignUp) => {
+    if (!login) {
+      return dispatch(fetchRegister(data));
     }
-    setUserData(data);
+    dispatch(fetchLogin({ email: data.email, password: data.password }));
   };
 
-  useEffect(() => {
-    userData &&
-      (userData.name
-        ? dispatch(fetchRegister(userData))
-        : dispatch(fetchLogin(userData)));
-    console.log(userData);
-  }, [userData, onSubmit]);
+  // useEffect(() => {
+  //   userData &&
+  //     (userData.name
+  //       ? dispatch(fetchRegister(userData))
+  //       : dispatch(fetchLogin(userData)));
+  //   console.log(userData);
+  // }, [userData]);
 
   const emailValidation: RegExp =
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;

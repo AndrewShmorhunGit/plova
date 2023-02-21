@@ -64,7 +64,7 @@ export const MainHeader = ({
                   setChangeLocationModal={setChangeLocationModal}
                 />
               </div>
-              {null ? (
+              {1 ? (
                 <button
                   className="btn-start"
                   onClick={() => setShowRegistration(!showRegistration)}

@@ -1,4 +1,4 @@
-import { IUser, UserState } from "../../modules/modules";
+import { IUserSignUp, UserState } from "../../modules/modules";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialUserState: UserState = {
@@ -16,7 +16,7 @@ export const userSlice = createSlice({
     fetchingLogin(state) {
       state.loading = true;
     },
-    fetchLoginSuccess(state, action: PayloadAction<IUser>) {
+    fetchLoginSuccess(state, action: PayloadAction<string>) {
       state.loading = false;
       state.user = action.payload;
       state.isActive = true;
@@ -29,7 +29,7 @@ export const userSlice = createSlice({
     fetchingRegister(state) {
       state.loading = true;
     },
-    fetchRegisterSuccess(state, action: PayloadAction<IUser>) {
+    fetchRegisterSuccess(state, action: PayloadAction<string>) {
       state.loading = false;
       state.user = action.payload;
       state.isActive = true;
@@ -42,7 +42,7 @@ export const userSlice = createSlice({
     fetchingJWT(state) {
       state.loading = true;
     },
-    fetchJWTSuccess(state, action: PayloadAction<IUser>) {
+    fetchJWTSuccess(state, action: PayloadAction<IUserSignUp>) {
       state.loading = false;
       state.user = action.payload;
       state.isActive = true;

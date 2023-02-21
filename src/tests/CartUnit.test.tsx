@@ -3,10 +3,9 @@ import { renderWithProviders } from "./utils/test-utils";
 import * as reduxHooks from "react-redux";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-// import { useAppDispatch } from "../hooks/useAppDispatch";
-
-// import { testUseAppSelector } from "./utils/test-app-selector";
 // import * as actions from "../store/slices/cartSlice";
+// import { useAppDispatch } from "../hooks/useAppDispatch";
+// import { testUseAppSelector } from "./utils/test-app-selector";
 // import { useAppSelector } from "../hooks/useAppDispatch";
 
 const fakeOrder = { amount: 5, name: "Spaghetti", price: 6.2 };
@@ -22,13 +21,21 @@ describe("CartUnit", () => {
 
   it("create snapshot", () => {
     mockDispatch.mockReturnValue(jest.fn());
-    renderWithProviders(
-      <CartUnit singleOrder={fakeOrder} slug={"anyRestaurant"} />
-    );
-
     const component = (
       <CartUnit singleOrder={fakeOrder} slug={"anyRestaurant"} />
     );
+    renderWithProviders(component, {
+      // preloadedState: {
+      //   carts: {
+      //     carts: {
+      //       anyRestaurant: {
+      //         order: [fakeOrder],
+      //       },
+      //     },
+      //   },
+      // },
+    });
+
     expect(component).toMatchSnapshot();
   });
 
@@ -58,15 +65,32 @@ describe("CartUnit", () => {
   });
 
   it("check component increment and decrement amount in position", () => {
-    render(<CartUnit singleOrder={fakeOrder} slug={"anyRestaurant"} />);
+    const component = (
+      <CartUnit singleOrder={fakeOrder} slug={"anyRestaurant"} />
+    );
+    const result = renderWithProviders(component, {
+      preloadedState: {
+        carts: {
+          carts: {
+            anyRestaurant: {
+              order: [fakeOrder],
+            },
+          },
+        },
+      },
+    });
     const dispatch = jest.fn;
     mockDispatch.mockReturnValue(dispatch);
 
-    const increment = screen.getByRole("increase", { name: /plus in circle/i });
-    const decrement = screen.getByRole("decrease", {
+    // const mackedIncreaseValue = jest.spyOn(actions, "changeCartAmount");
+
+    result.debug();
+
+    const increment = result.getByRole("increase");
+    const decrement = result.getByRole("decrease", {
       name: /minus in circle/i,
     });
-    const amount = screen.getByRole("amount");
+    const amount = result.getByRole("amount");
     userEvent.click(increment);
     expect(amount).toHaveTextContent("x6");
     userEvent.click(decrement);

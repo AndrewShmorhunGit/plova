@@ -230,8 +230,23 @@ export interface UserState {
   user: {};
 }
 
-export interface IUser {
-  name?: string;
+export interface IUserSignUp {
+  name: string;
   email: string;
   password: string;
+}
+
+export interface IUserSignIn {
+  email: string;
+  password: string;
+}
+
+export interface SignInResponse {
+  accessToken: string;
+  user: {
+    id: string;
+    email: string;
+    name: string;
+    phone: null | string;
+  };
 }
