@@ -19,9 +19,7 @@ export const RegistrationModal = ({
 }) => {
   const dispatch = useAppDispatch();
 
-  // const { user } = useAppSelector((state) => state.user);
   const [login, setIsLogin] = useState(false);
-  // const [userData, setUserData] = useState<IUserSignUp | null>(null);
 
   const {
     register,
@@ -29,27 +27,14 @@ export const RegistrationModal = ({
     formState: { errors, isValid },
   } = useForm<IUserSignUp>({
     mode: "onBlur",
-    // defaultValues: {
-    //   name: "",
-    //   email: "",
-    //   password: "",
-    // },
   });
 
   const onSubmit = (data: IUserSignUp) => {
-    if (!login) {
+    if (login) {
       return dispatch(fetchRegister(data));
     }
     dispatch(fetchLogin({ email: data.email, password: data.password }));
   };
-
-  // useEffect(() => {
-  //   userData &&
-  //     (userData.name
-  //       ? dispatch(fetchRegister(userData))
-  //       : dispatch(fetchLogin(userData)));
-  //   console.log(userData);
-  // }, [userData]);
 
   const emailValidation: RegExp =
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;

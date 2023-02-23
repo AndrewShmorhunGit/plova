@@ -223,11 +223,20 @@ export interface IModalState {
   inDevelopment: boolean;
 }
 
+export interface User {
+  id: string;
+  email: string;
+  name: string;
+  phone: null | string;
+}
+
 export interface UserState {
   loading: boolean;
   error: string;
+
+  JWT: string;
   isActive: boolean;
-  user: {};
+  user: User | null;
 }
 
 export interface IUserSignUp {
@@ -243,10 +252,5 @@ export interface IUserSignIn {
 
 export interface SignInResponse {
   accessToken: string;
-  user: {
-    id: string;
-    email: string;
-    name: string;
-    phone: null | string;
-  };
+  user: User;
 }

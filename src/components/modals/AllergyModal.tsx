@@ -82,7 +82,7 @@ const Wrapper = styled.main`
     display: flex;
     justify-content: center;
     z-index: -1;
-    // overflow: auto;
+    overflow: auto;
     opacity: 0;
     transition: all 0.5s ease;
   }

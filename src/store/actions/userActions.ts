@@ -9,17 +9,17 @@ import {
 } from "../../modules/modules";
 import axios from "../../axios";
 
+export const userActions = userSlice.actions;
+
 export const fetchLogin = (user: IUserSignIn) => {
   return async (dispatch: AppDispatch) => {
     try {
-      dispatch(userSlice.actions.fetchingLogin());
+      dispatch(userActions.fetchingLogin());
       const response = await axios.post<SignInResponse>(`/auth/signin`, user);
-      dispatch(
-        userSlice.actions.fetchLoginSuccess(JSON.stringify(response.data))
-      );
-      console.log(`Login POST response: ${response.data}`);
+      dispatch(userActions.fetchLoginSuccess(response.data));
+      dispatch(userActions.storeUserData(response.data));
     } catch (error) {
-      dispatch(userSlice.actions.fetchLoginError(error as Error));
+      dispatch(userActions.fetchLoginError(error as Error));
     }
   };
 };
@@ -27,14 +27,12 @@ export const fetchLogin = (user: IUserSignIn) => {
 export const fetchRegister = (user: IUserSignUp) => {
   return async (dispatch: AppDispatch) => {
     try {
-      dispatch(userSlice.actions.fetchingRegister());
+      dispatch(userActions.fetchingRegister());
       const response = await axios.post<SignInResponse>(`/auth/signup`, user);
-      dispatch(
-        userSlice.actions.fetchRegisterSuccess(JSON.stringify(response.data))
-      );
+      dispatch(userActions.fetchRegisterSuccess(response.data));
       console.log(`Register POST response: ${response.data}`);
     } catch (error) {
-      dispatch(userSlice.actions.fetchRegisterError(error as Error));
+      dispatch(userActions.fetchRegisterError(error as Error));
     }
   };
 };
@@ -42,12 +40,12 @@ export const fetchRegister = (user: IUserSignUp) => {
 export const fetchJWT = (userID: IUserSignUp) => {
   return async (dispatch: AppDispatch) => {
     try {
-      dispatch(userSlice.actions.fetchingJWT());
+      dispatch(userActions.fetchingJWT());
       const response = await axios.get<any>(`/users/${userID}`);
-      dispatch(userSlice.actions.fetchJWTSuccess(response.data));
+      dispatch(userActions.fetchJWTSuccess(response.data));
       console.log(`JWT GET response: ${response.data}`);
     } catch (error) {
-      dispatch(userSlice.actions.fetchJWTError(error as Error));
+      dispatch(userActions.fetchJWTError(error as Error));
     }
   };
 };

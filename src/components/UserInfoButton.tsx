@@ -1,11 +1,17 @@
+import { User } from "@sentry/react";
 import React from "react";
 import styled from "styled-components";
+import { useAppDispatch } from "../hooks/useAppDispatch";
 import { useClickOutside } from "../hooks/useClickOutside";
+import { userActions } from "../store/actions/userActions";
 
-export const UserInfoButton = (props: { color: string }) => {
+export const UserInfoButton = (props: { color: string; user: User | null }) => {
   const [isActive, setIsActive] = React.useState(false);
   const insideRef = React.useRef<HTMLDivElement | null>(null);
   useClickOutside(insideRef, () => setIsActive(false));
+
+  const dispatch = useAppDispatch();
+
   return (
     <Wrapper>
       <main ref={insideRef} className="menu-icon-user">
@@ -42,7 +48,7 @@ export const UserInfoButton = (props: { color: string }) => {
         >
           <div className="info">
             <div className="icon-pointer"></div>
-            <h3 className="greeting">Hello, {`userName`}!</h3>
+            <h3 className="greeting">Hello, {props.user?.name}!</h3>
             <div className="info-unit">
               <div className="edit-container">
                 <p className="info-title">Name</p>
@@ -50,12 +56,11 @@ export const UserInfoButton = (props: { color: string }) => {
                   Edit
                 </p>
               </div>
-              <p className="user-info">{`username`}</p>
+              <p className="user-info">{props.user?.name}</p>
               <p className="info-title">Email</p>
-              <p
-                className="user-info"
-                onClick={() => setIsActive(false)}
-              >{`user e-mail`}</p>
+              <p className="user-info" onClick={() => setIsActive(false)}>
+                {props.user?.email}
+              </p>
             </div>
             <div className="info-unit">
               <div className="edit-container">
@@ -64,7 +69,7 @@ export const UserInfoButton = (props: { color: string }) => {
                   Edit
                 </p>
               </div>
-              <p className="user-info">{`+380777777777`}</p>
+              <p className="user-info">{props.user?.phone}</p>
             </div>
 
             <div className="info-unit">
@@ -77,7 +82,12 @@ export const UserInfoButton = (props: { color: string }) => {
               <p className="user-info">{`***********`}</p>
             </div>
             <div className="info-unit-button">
-              <button className="logout-button">Log out</button>
+              <button
+                className="logout-button"
+                onClick={() => dispatch(userActions.userLogOut())}
+              >
+                Log out
+              </button>
             </div>
           </div>
         </div>

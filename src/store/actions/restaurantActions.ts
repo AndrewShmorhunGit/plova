@@ -3,16 +3,18 @@ import axios from "../../axios";
 import { ResponseRestaurants } from "../../modules/modules";
 import { restaurantsSlice } from "../slices/restaurantsSlice";
 
+export const restaurantActions = restaurantsSlice.actions;
+
 export const fetchRestaurants = () => {
   return async (dispatch: AppDispatch) => {
     try {
-      dispatch(restaurantsSlice.actions.fetching());
+      dispatch(restaurantActions.fetching());
       const response = await axios.get<ResponseRestaurants, any>(
         "/restaurants"
       );
-      dispatch(restaurantsSlice.actions.fetchSuccess(response.data));
+      dispatch(restaurantActions.fetchSuccess(response.data));
     } catch (error) {
-      dispatch(restaurantsSlice.actions.fetchError(error as Error));
+      dispatch(restaurantActions.fetchError(error as Error));
     }
   };
 };

@@ -44,13 +44,13 @@ export const InDevelopmentModal = ({
 const Wrapper = styled.main`
   .modal-container {
     position: fixed;
-
     inset: 0;
     background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     z-index: -1;
     opacity: 0;
+    overflow: auto;
     transition: all 0.5s ease;
   }
 

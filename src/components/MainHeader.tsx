@@ -2,9 +2,9 @@ import styled from "styled-components";
 import headerLogo from "../logos/headerLogo.png";
 import headerMobileLogo from "../logos/glovo-logo-location.svg";
 import { FiSearch } from "react-icons/fi";
-// import { Link } from "react-router-dom";
 import React from "react";
 import { MainHeaderLocation, UserData } from "./index";
+import { useAppSelector } from "../hooks/useAppDispatch";
 
 export const MainHeader = ({
   showRegistration,
@@ -17,9 +17,7 @@ export const MainHeader = ({
   changeLocationModal: boolean;
   setChangeLocationModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  // Temporary state // Temporary state // Temporary state
-  // const [isLogin, setIsLogin] = React.useState(false);
-  // Temporary state // Temporary state // Temporary state
+  const { user } = useAppSelector((state) => state.user);
 
   return (
     <Wrapper>
@@ -64,7 +62,7 @@ export const MainHeader = ({
                   setChangeLocationModal={setChangeLocationModal}
                 />
               </div>
-              {1 ? (
+              {!user ? (
                 <button
                   className="btn-start"
                   onClick={() => setShowRegistration(!showRegistration)}
@@ -72,7 +70,7 @@ export const MainHeader = ({
                   Get started
                 </button>
               ) : (
-                <UserData color={"#212529"} />
+                <UserData color={"#212529"} user={user} />
               )}
             </div>
           </div>

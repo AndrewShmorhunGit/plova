@@ -1,11 +1,12 @@
-import { IUserSignUp, UserState } from "../../modules/modules";
+import { SignInResponse, UserState } from "../../modules/modules";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialUserState: UserState = {
   loading: false,
   error: "",
+  JWT: "",
   isActive: false,
-  user: {},
+  user: null,
 };
 
 export const userSlice = createSlice({
@@ -16,10 +17,9 @@ export const userSlice = createSlice({
     fetchingLogin(state) {
       state.loading = true;
     },
-    fetchLoginSuccess(state, action: PayloadAction<string>) {
+    fetchLoginSuccess(state, action: PayloadAction<SignInResponse>) {
       state.loading = false;
-      state.user = action.payload;
-      state.isActive = true;
+      state.user = action.payload.user;
     },
     fetchLoginError(state, action: PayloadAction<Error>) {
       state.loading = false;
@@ -29,10 +29,9 @@ export const userSlice = createSlice({
     fetchingRegister(state) {
       state.loading = true;
     },
-    fetchRegisterSuccess(state, action: PayloadAction<string>) {
+    fetchRegisterSuccess(state, action: PayloadAction<SignInResponse>) {
       state.loading = false;
-      state.user = action.payload;
-      state.isActive = true;
+      state.user = action.payload.user;
     },
     fetchRegisterError(state, action: PayloadAction<Error>) {
       state.loading = false;
@@ -42,14 +41,26 @@ export const userSlice = createSlice({
     fetchingJWT(state) {
       state.loading = true;
     },
-    fetchJWTSuccess(state, action: PayloadAction<IUserSignUp>) {
+    fetchJWTSuccess(state, action: PayloadAction<SignInResponse>) {
       state.loading = false;
-      state.user = action.payload;
-      state.isActive = true;
+      state.user = action.payload.user;
+      // state.isActive = true;
     },
     fetchJWTError(state, action: PayloadAction<Error>) {
       state.loading = false;
       state.error = action.payload.message;
+    },
+    storeUserData(state, action: PayloadAction<SignInResponse>) {
+      state.JWT = action.payload.accessToken;
+      state.user = {
+        id: action.payload.user.id,
+        email: action.payload.user.email,
+        name: action.payload.user.name,
+        phone: action.payload.user.phone,
+      };
+    },
+    userLogOut(state) {
+      state.user = null;
     },
   },
 });

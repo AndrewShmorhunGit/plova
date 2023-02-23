@@ -1,6 +1,7 @@
 import useGeolocation from "react-hook-geolocation";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useAppSelector } from "../hooks/useAppDispatch";
 import footerLogo1 from "../logos/footerLogo1.png";
 import { IMenu } from "../modules/modules";
 import { Path, UserData } from "./index";
@@ -15,6 +16,7 @@ export const BrandHeader = ({
   const location = useGeolocation();
   const address: string = `lat: ${location.latitude}, lng: ${location.longitude}`;
   const backgroundImage: string = menu.headerBackgroundImage;
+  const { user } = useAppSelector((state) => state.user);
   return (
     <Wrapper>
       <header className="header">
@@ -62,7 +64,7 @@ export const BrandHeader = ({
                   />
                 </div>
                 <div className="center">
-                  <UserData color={"white"} />
+                  <UserData color={"white"} user={user} />
                 </div>
               </div>
               {/* <div className="header-address">{address}</div> */}
