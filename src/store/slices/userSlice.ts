@@ -1,11 +1,12 @@
-import { IUser, UserState } from "../../modules/modules";
+import { SignInResponse, UserState } from "../../modules/modules";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialUserState: UserState = {
   loading: false,
   error: "",
-  isActive: false,
-  user: {},
+  JWT: null,
+  registerModal: false,
+  user: null,
 };
 
 export const userSlice = createSlice({
@@ -14,25 +15,25 @@ export const userSlice = createSlice({
   reducers: {
     // Login
     fetchingLogin(state) {
-      state.loading = true;
+      state.loading = "pending";
     },
-    fetchLoginSuccess(state, action: PayloadAction<IUser>) {
+    fetchLoginSuccess(state, action: PayloadAction<SignInResponse>) {
+      state.loading = "success";
+      state.user = action.payload.user;
       state.loading = false;
-      state.user = action.payload;
-      state.isActive = true;
     },
     fetchLoginError(state, action: PayloadAction<Error>) {
-      state.loading = false;
+      state.loading = "error";
       state.error = action.payload.message;
+      state.loading = false;
     },
     // Register
     fetchingRegister(state) {
       state.loading = true;
     },
-    fetchRegisterSuccess(state, action: PayloadAction<IUser>) {
+    fetchRegisterSuccess(state, action: PayloadAction<SignInResponse>) {
       state.loading = false;
-      state.user = action.payload;
-      state.isActive = true;
+      state.user = action.payload.user;
     },
     fetchRegisterError(state, action: PayloadAction<Error>) {
       state.loading = false;
@@ -42,14 +43,29 @@ export const userSlice = createSlice({
     fetchingJWT(state) {
       state.loading = true;
     },
-    fetchJWTSuccess(state, action: PayloadAction<IUser>) {
+    fetchJWTSuccess(state, action: PayloadAction<SignInResponse>) {
       state.loading = false;
-      state.user = action.payload;
-      state.isActive = true;
+      state.user = action.payload.user;
+      // state.isActive = true;
     },
     fetchJWTError(state, action: PayloadAction<Error>) {
       state.loading = false;
       state.error = action.payload.message;
+    },
+    setUserData(state, action: PayloadAction<SignInResponse>) {
+      state.JWT = action.payload.accessToken;
+      state.user = {
+        id: action.payload.user.id,
+        email: action.payload.user.email,
+        name: action.payload.user.name,
+        phone: action.payload.user.phone,
+      };
+    },
+    toggleRegisterModal(state) {
+      state.registerModal = !state.registerModal;
+    },
+    userLogOut(state) {
+      state.user = null;
     },
   },
 });

@@ -4,13 +4,13 @@ import restaurantReducer from "./slices/restaurantsSlice";
 import menuReducer from "./slices/menuSlice";
 import jumbotronReducer from "./slices/jumbotronSlice";
 import cartReducer from "./slices/cartSlice";
-import userReducer from "./slices/cartSlice";
-const rootReducer = combineReducers({
+import userReducer from "./slices/userSlice";
+export const rootReducer = combineReducers({
   restaurant: restaurantReducer,
   menu: menuReducer,
   jumbotron: jumbotronReducer,
-  carts: cartReducer,
   user: userReducer,
+  carts: cartReducer,
 });
 
 export function setupStore() {

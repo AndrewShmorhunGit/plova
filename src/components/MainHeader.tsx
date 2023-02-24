@@ -2,24 +2,18 @@ import styled from "styled-components";
 import headerLogo from "../logos/headerLogo.png";
 import headerMobileLogo from "../logos/glovo-logo-location.svg";
 import { FiSearch } from "react-icons/fi";
-// import { Link } from "react-router-dom";
 import React from "react";
-import { MainHeaderLocation, UserData } from "./index";
+import { GetStartedBtn, MainHeaderLocation, UserData } from "./index";
+import { useAppSelector } from "../hooks/useAppDispatch";
 
 export const MainHeader = ({
-  showRegistration,
-  setShowRegistration,
   changeLocationModal,
   setChangeLocationModal,
 }: {
-  showRegistration: boolean;
-  setShowRegistration: React.Dispatch<React.SetStateAction<boolean>>;
   changeLocationModal: boolean;
   setChangeLocationModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  // Temporary state // Temporary state // Temporary state
-  // const [isLogin, setIsLogin] = React.useState(false);
-  // Temporary state // Temporary state // Temporary state
+  const { user } = useAppSelector((state) => state.user);
 
   return (
     <Wrapper>
@@ -64,16 +58,13 @@ export const MainHeader = ({
                   setChangeLocationModal={setChangeLocationModal}
                 />
               </div>
-              {!null ? (
-                <button
-                  className="btn-start"
-                  onClick={() => setShowRegistration(!showRegistration)}
-                >
-                  Get started
-                </button>
-              ) : (
-                <UserData />
-              )}
+              <div className="start-btn">
+                {!user ? (
+                  <GetStartedBtn />
+                ) : (
+                  <UserData color={"#212529"} user={user} />
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -163,29 +154,6 @@ const Wrapper = styled.header`
     font-weight: 300;
   }
 
-  .btn-start {
-    background-color: #00a082;
-    color: #fff;
-    text-align: center;
-    padding-left: 1.6rem;
-    padding-right: 1.6rem;
-    height: 4.2rem;
-    width: 13.6rem;
-    border-radius: 2.4rem;
-    font-size: 1.5rem;
-    font-family: "Gotham", "Arial", "Helvetica Neue", Helvetica, sans-serif;
-    font-weight: 700;
-    box-shadow: 0 3px 5px 0 #0000001a;
-    border: none;
-    // letter-spacing: 0.2rem;
-  }
-
-  .btn-start:hover {
-    background-color: #008068;
-    color: #cccccc;
-    cursor: pointer;
-  }
-
   .header-right {
     display: flex;
     justify-content: space-between;
@@ -218,7 +186,9 @@ const Wrapper = styled.header`
   .location-center {
     display: none;
   }
-
+  .start-btn {
+    width: 13.6rem;
+  }
   @media (max-width: 90.625em) {
     .location-right {
       display: none;

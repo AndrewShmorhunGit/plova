@@ -1,9 +1,10 @@
 import useGeolocation from "react-hook-geolocation";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useAppSelector } from "../hooks/useAppDispatch";
 import footerLogo1 from "../logos/footerLogo1.png";
 import { IMenu } from "../modules/modules";
-import { Path, UserData } from "./index";
+import { GetStartedBtn, Path, RegistrationModal, UserData } from "./index";
 
 export const BrandHeader = ({
   menu,
@@ -15,8 +16,10 @@ export const BrandHeader = ({
   const location = useGeolocation();
   const address: string = `lat: ${location.latitude}, lng: ${location.longitude}`;
   const backgroundImage: string = menu.headerBackgroundImage;
+  const { user } = useAppSelector((state) => state.user);
   return (
     <Wrapper>
+      <RegistrationModal />
       <header className="header">
         <div
           className="image-background"
@@ -61,9 +64,11 @@ export const BrandHeader = ({
                     className="header__content__arrow"
                   />
                 </div>
-                <div className="center">
-                  <UserData />
-                </div>
+                {!user ? (
+                  <GetStartedBtn />
+                ) : (
+                  <UserData color={"white"} user={user} />
+                )}
               </div>
               {/* <div className="header-address">{address}</div> */}
             </div>
@@ -105,6 +110,7 @@ const Wrapper = styled.header`
     color: white;
     font-size: 1.6rem;
     font-weight: 600;
+    gap: 2rem;
   }
 
   .header-location-icon {

@@ -1,6 +1,6 @@
-import { IUser } from "../../modules/modules";
+import { IUserSignUp } from "../../modules/modules";
 
-export const user: IUser = {
+export const user: IUserSignUp = {
   name: "Shmorgy",
   email: "shmorgy@gmail.com",
   password: "shorgyshmorg",

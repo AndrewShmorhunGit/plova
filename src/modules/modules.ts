@@ -10,18 +10,33 @@ export interface Delivery {
   etaLowerBound: number;
   etaUpperBound: number;
 }
+
 export interface Element {
-  type: string;
   singleData: SingleData;
-  groupData?: any;
 }
-export interface Scheduling {
-  enabled: boolean;
-  message?: any;
+
+export interface SingleData {
+  storeData: StoreData;
 }
-export interface Location {
-  latitude: number;
-  longitude: number;
+
+export interface StoreData {
+  store: Store;
+  filters: Filter[];
+}
+
+export interface Store {
+  id: number;
+  name: string;
+  slug: string;
+  imageId: string;
+  serviceFee: number;
+  addressId: number;
+  promotions: Promotion[];
+  ratingInfo: RatingInfo;
+}
+
+export interface Filter {
+  name: string;
 }
 
 export interface Promotion {
@@ -32,14 +47,6 @@ export interface Promotion {
   origin: string;
 }
 
-export interface Icon {
-  lightImageId: string;
-  darkImageId: string;
-}
-export interface Color {
-  lightColorHex: string;
-  darkColorHex: string;
-}
 export interface RatingInfo {
   cardLabel: string;
   detailsLabel: string;
@@ -49,156 +56,33 @@ export interface RatingInfo {
   backgroundColor?: any;
 }
 
+///////////////////////
+// LOOK UP MY FRIEND //
+/// IT ALL YOU NEED ///
+///////////////////////
+
+export interface Scheduling {
+  enabled: boolean;
+  message?: any;
+}
+
+export interface Location {
+  latitude: number;
+  longitude: number;
+}
+
+export interface Icon {
+  lightImageId: string;
+  darkImageId: string;
+}
+
+export interface Color {
+  lightColorHex: string;
+  darkColorHex: string;
+}
+
 export interface SupportedStrategy {
   type: string;
-}
-export interface Store {
-  type: string;
-  id: number;
-  urn: string;
-  name: string;
-  slug: string;
-  fiscalName: string;
-  imageId: string;
-  open: boolean;
-  emulateOpen: boolean;
-  mcdPartner: boolean;
-  food: boolean;
-  cityCode: string;
-  scheduling: Scheduling;
-  closedStatusMessage?: any;
-  nextOpeningTime?: any;
-  serviceFee: number;
-  categoryId: number;
-  cartUniqueElements?: number;
-  cartTotalElements?: number;
-  note: string;
-  distance: string;
-  addressId: number;
-  location: Location;
-  customDescriptionAllowed: boolean;
-  productsInformationText: string;
-  productsInformationLink: string;
-  deliveryNotAvailable: boolean;
-  deliveryNotAvailableMessage?: any;
-  specialRequirementsAllowed: boolean;
-  etaEnabled: boolean;
-  allergiesInformationAllowed: boolean;
-  legalCheckboxRequired: boolean;
-  dataSharingRequested: boolean;
-  marketplace: boolean;
-  cashSupported: boolean;
-  promotions: Promotion[];
-  primeAvailable: boolean;
-  cutleryRequestAllowed: boolean;
-  ratingInfo: RatingInfo;
-  selectedStrategyType: string;
-  supportedStrategies: SupportedStrategy[];
-  itemsType: string;
-  suggestionKeywords: string[];
-  phoneNumber: string;
-  address: string;
-  viewType: string;
-  sponsored: boolean;
-  feesPricingCalculationId: string;
-  edenredEnabled: boolean;
-}
-
-export interface Filter {
-  name: string;
-}
-
-export interface StoreData {
-  store: Store;
-  filters: Filter[];
-}
-
-export interface SingleData {
-  type: string;
-  storeData: StoreData;
-  storeProductsData?: any;
-  bannerData?: any;
-}
-
-export interface Restaurant {
-  type: string;
-  singleData: {
-    type: {
-      store: {
-        type: string;
-        id: number;
-        urn: string;
-        name: string;
-        slug: string;
-        fiscalName: string;
-        imageId: string;
-        open: boolean;
-        emulateOpen: boolean;
-        mcdPartner: boolean;
-        food: boolean;
-        cityCode: string;
-        scheduling: { enabled: boolean; message: null };
-        closedStatusMessage?: any;
-        nextOpeningTime?: any;
-        serviceFee: number;
-        categoryId: number;
-        cartUniqueElements?: number;
-        cartTotalElements?: number;
-        note: string;
-        distance: string;
-        addressId: number;
-        location: Location;
-        customDescriptionAllowed: boolean;
-        productsInformationText: string;
-        productsInformationLink: string;
-        deliveryNotAvailable: boolean;
-        deliveryNotAvailableMessage?: any;
-        specialRequirementsAllowed: boolean;
-        etaEnabled: boolean;
-        allergiesInformationAllowed: boolean;
-        legalCheckboxRequired: boolean;
-        dataSharingRequested: boolean;
-        marketplace: boolean;
-        cashSupported: boolean;
-        promotions: Array<{
-          id: number;
-          title: string;
-          type: string;
-          isPrime: boolean;
-          origin: string;
-        }>;
-        primeAvailable: boolean;
-        cutleryRequestAllowed: boolean;
-        ratingInfo: {
-          cardLabel: string;
-          detailsLabel: string;
-          totalRatingLabel: string;
-          icon: {
-            lightImageId: string;
-            darkImageId: string;
-          };
-          color: { lightColorHex: string; darkColorHex: string };
-          backgroundColor: null;
-        };
-        selectedStrategyType: string;
-        supportedStrategies: Array<{
-          type: string;
-        }>;
-        itemsType: string;
-        suggestionKeywords: string[];
-        phoneNumber: string;
-        address: string;
-        viewType: string;
-        sponsored: boolean;
-        feesPricingCalculationId: string;
-        edenredEnabled: boolean;
-      };
-      filters: Array<{ name: string }>;
-    };
-    storeProductsData: null;
-    bannerData: null;
-  };
-  groupData: null;
 }
 
 export interface ResponseRestaurants {
@@ -339,15 +223,33 @@ export interface IModalState {
   inDevelopment: boolean;
 }
 
-export interface UserState {
-  loading: boolean;
-  error: string;
-  isActive: boolean;
-  user: {};
+export interface User {
+  id: string;
+  email: string;
+  name: string;
+  phone: null | string;
 }
 
-export interface IUser {
-  name?: string;
+export interface UserState {
+  loading: boolean | string;
+  error: string;
+  JWT: string | null;
+  registerModal: boolean;
+  user: User | null;
+}
+
+export interface IUserSignUp {
+  name: string;
   email: string;
   password: string;
+}
+
+export interface IUserSignIn {
+  email: string;
+  password: string;
+}
+
+export interface SignInResponse {
+  accessToken: string;
+  user: User;
 }
