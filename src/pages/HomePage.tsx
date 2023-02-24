@@ -10,7 +10,6 @@ import {
 } from "../components";
 
 export const HomePage = () => {
-  // const [showRegistration, setShowRegistration] = useState(false);
   const [showLocationModal, setShowLocationModal] = useState(false);
   const [changeLocationModal, setChangeLocationModal] = useState(false);
 
