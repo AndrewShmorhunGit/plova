@@ -231,11 +231,10 @@ export interface User {
 }
 
 export interface UserState {
-  loading: boolean;
+  loading: boolean | string;
   error: string;
-
-  JWT: string;
-  isActive: boolean;
+  JWT: string | null;
+  registerModal: boolean;
   user: User | null;
 }
 

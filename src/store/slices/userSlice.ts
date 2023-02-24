@@ -4,8 +4,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 const initialUserState: UserState = {
   loading: false,
   error: "",
-  JWT: "",
-  isActive: false,
+  JWT: null,
+  registerModal: false,
   user: null,
 };
 
@@ -15,15 +15,17 @@ export const userSlice = createSlice({
   reducers: {
     // Login
     fetchingLogin(state) {
-      state.loading = true;
+      state.loading = "pending";
     },
     fetchLoginSuccess(state, action: PayloadAction<SignInResponse>) {
-      state.loading = false;
+      state.loading = "success";
       state.user = action.payload.user;
+      state.loading = false;
     },
     fetchLoginError(state, action: PayloadAction<Error>) {
-      state.loading = false;
+      state.loading = "error";
       state.error = action.payload.message;
+      state.loading = false;
     },
     // Register
     fetchingRegister(state) {
@@ -50,7 +52,7 @@ export const userSlice = createSlice({
       state.loading = false;
       state.error = action.payload.message;
     },
-    storeUserData(state, action: PayloadAction<SignInResponse>) {
+    setUserData(state, action: PayloadAction<SignInResponse>) {
       state.JWT = action.payload.accessToken;
       state.user = {
         id: action.payload.user.id,
@@ -58,6 +60,9 @@ export const userSlice = createSlice({
         name: action.payload.user.name,
         phone: action.payload.user.phone,
       };
+    },
+    toggleRegisterModal(state) {
+      state.registerModal = !state.registerModal;
     },
     userLogOut(state) {
       state.user = null;

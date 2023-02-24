@@ -17,7 +17,7 @@ export const fetchLogin = (user: IUserSignIn) => {
       dispatch(userActions.fetchingLogin());
       const response = await axios.post<SignInResponse>(`/auth/signin`, user);
       dispatch(userActions.fetchLoginSuccess(response.data));
-      dispatch(userActions.storeUserData(response.data));
+      dispatch(userActions.setUserData(response.data));
     } catch (error) {
       dispatch(userActions.fetchLoginError(error as Error));
     }
@@ -37,11 +37,19 @@ export const fetchRegister = (user: IUserSignUp) => {
   };
 };
 
-export const fetchJWT = (userID: IUserSignUp) => {
+export const fetchJWT = (userID: string, JWT: string) => {
+  const config = {
+    headers: {
+      Authorization: JWT,
+    },
+  };
   return async (dispatch: AppDispatch) => {
     try {
       dispatch(userActions.fetchingJWT());
-      const response = await axios.get<any>(`/users/${userID}`);
+      const response = await axios.get<SignInResponse>(
+        `/users/${userID}`,
+        config
+      );
       dispatch(userActions.fetchJWTSuccess(response.data));
       console.log(`JWT GET response: ${response.data}`);
     } catch (error) {

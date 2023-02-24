@@ -10,15 +10,13 @@ import {
 } from "../components";
 
 export const HomePage = () => {
-  const [showRegistration, setShowRegistration] = useState(false);
+  // const [showRegistration, setShowRegistration] = useState(false);
   const [showLocationModal, setShowLocationModal] = useState(false);
   const [changeLocationModal, setChangeLocationModal] = useState(false);
 
   return (
     <React.Fragment>
       <MainHeader
-        setShowRegistration={setShowRegistration}
-        showRegistration={showRegistration}
         setChangeLocationModal={setChangeLocationModal}
         changeLocationModal={changeLocationModal}
       />
@@ -28,10 +26,7 @@ export const HomePage = () => {
         showLocationModal={showLocationModal}
       />
 
-      <RegistrationModal
-        setShowRegistration={setShowRegistration}
-        showRegistration={showRegistration}
-      />
+      <RegistrationModal />
 
       <Jumbotron
         setShowLocationModal={setShowLocationModal}

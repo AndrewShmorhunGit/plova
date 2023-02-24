@@ -12,6 +12,10 @@ export const UserInfoButton = (props: { color: string; user: User | null }) => {
 
   const dispatch = useAppDispatch();
 
+  // React.useEffect(() => {
+  //   localStorage.removeItem("user");
+  // }, [userActions.userLogOut()]);
+
   return (
     <Wrapper>
       <main ref={insideRef} className="menu-icon-user">
@@ -66,7 +70,7 @@ export const UserInfoButton = (props: { color: string; user: User | null }) => {
               <div className="edit-container">
                 <p className="info-title">Phone</p>
                 <p className="edit" onClick={() => setIsActive(false)}>
-                  Edit
+                  {props.user && props.user.phone ? `Edit` : `Add Phone`}
                 </p>
               </div>
               <p className="user-info">{props.user?.phone}</p>
@@ -84,7 +88,9 @@ export const UserInfoButton = (props: { color: string; user: User | null }) => {
             <div className="info-unit-button">
               <button
                 className="logout-button"
-                onClick={() => dispatch(userActions.userLogOut())}
+                onClick={() => {
+                  dispatch(userActions.userLogOut());
+                }}
               >
                 Log out
               </button>

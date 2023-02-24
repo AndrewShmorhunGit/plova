@@ -40,7 +40,9 @@ import { UserOrdersButton } from "./UserOrdersButton";
 import { UserData } from "./UserData";
 import { MainHeaderLocation } from "./MainHeaderLocation";
 import { MakeAnOrderBtn } from "./MakeAnOrderBtn";
+import { GetStartedBtn } from "./GetStartedBtn";
 export {
+  GetStartedBtn,
   MakeAnOrderBtn,
   MainHeaderLocation,
   UserData,

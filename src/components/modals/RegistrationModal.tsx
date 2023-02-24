@@ -4,22 +4,35 @@ import person from "../../images/registration/person.svg";
 import lock from "../../images/registration/lock.svg";
 import closeIcon from "../../images/common/closeIcon.svg";
 import { GrFacebook } from "react-icons/gr";
-import { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
-import { useAppDispatch } from "../../hooks/useAppDispatch";
-import { fetchLogin, fetchRegister } from "../../store/actions/userActions";
+import { useAppDispatch, useAppSelector } from "../../hooks/useAppDispatch";
+import {
+  // fetchJWT,
+  fetchLogin,
+  fetchRegister,
+  userActions,
+} from "../../store/actions/userActions";
 import { IUserSignUp } from "../../modules/modules";
+// import { useLocalStorageState } from "../../hooks/useLocalStorageState";
 
-export const RegistrationModal = ({
-  setShowRegistration,
-  showRegistration,
-}: {
-  setShowRegistration: React.Dispatch<React.SetStateAction<boolean>>;
-  showRegistration: boolean;
-}) => {
+export const RegistrationModal = (
+  {
+    //   setShowRegistration,
+    //   showRegistration,
+    // }: {
+    //   setShowRegistration: React.Dispatch<React.SetStateAction<boolean>>;
+    //   showRegistration: boolean;
+  }
+) => {
   const dispatch = useAppDispatch();
+  const { user, registerModal } = useAppSelector((state) => state.user);
+  const [login, setIsLogin] = React.useState(false);
 
-  const [login, setIsLogin] = useState(false);
+  React.useEffect(() => {
+    user && dispatch(userActions.toggleRegisterModal());
+    console.log(user);
+  }, [user]);
 
   const {
     register,
@@ -43,7 +56,7 @@ export const RegistrationModal = ({
     <Wrapper>
       <main
         className={
-          showRegistration
+          registerModal
             ? "registration-container show-registration"
             : "registration-container"
         }
@@ -56,7 +69,7 @@ export const RegistrationModal = ({
             <img
               src={closeIcon}
               alt="close x"
-              onClick={() => setShowRegistration(false)}
+              onClick={() => dispatch(userActions.toggleRegisterModal())}
             />
           </button>
           <button className="btn-fb btn center">
