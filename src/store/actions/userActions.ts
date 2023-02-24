@@ -2,44 +2,58 @@
 // import { user } from "../../units/data/userData";
 import { AppDispatch } from "../index";
 import { userSlice } from "../slices/userSlice";
-import { IUser } from "../../modules/modules";
+import {
+  IUserSignIn,
+  IUserSignUp,
+  SignInResponse,
+} from "../../modules/modules";
 import axios from "../../axios";
 
-export const fetchLogin = (user: IUser) => {
+export const userActions = userSlice.actions;
+
+export const fetchLogin = (user: IUserSignIn) => {
   return async (dispatch: AppDispatch) => {
     try {
-      dispatch(userSlice.actions.fetchingLogin());
-      const response = await axios.post<IUser>(`/user/login`);
-      dispatch(userSlice.actions.fetchLoginSuccess(response.data));
-      console.log(`Login POST response: ${response.data}`);
+      dispatch(userActions.fetchingLogin());
+      const response = await axios.post<SignInResponse>(`/auth/signin`, user);
+      dispatch(userActions.fetchLoginSuccess(response.data));
+      dispatch(userActions.setUserData(response.data));
     } catch (error) {
-      dispatch(userSlice.actions.fetchLoginError(error as Error));
+      dispatch(userActions.fetchLoginError(error as Error));
     }
   };
 };
 
-export const fetchRegister = (user: IUser) => {
+export const fetchRegister = (user: IUserSignUp) => {
   return async (dispatch: AppDispatch) => {
     try {
-      dispatch(userSlice.actions.fetchingRegister());
-      const response = await axios.post<any>(`/users`);
-      dispatch(userSlice.actions.fetchRegisterSuccess(response.data));
+      dispatch(userActions.fetchingRegister());
+      const response = await axios.post<SignInResponse>(`/auth/signup`, user);
+      dispatch(userActions.fetchRegisterSuccess(response.data));
       console.log(`Register POST response: ${response.data}`);
     } catch (error) {
-      dispatch(userSlice.actions.fetchRegisterError(error as Error));
+      dispatch(userActions.fetchRegisterError(error as Error));
     }
   };
 };
 
-export const fetchJWT = (user: IUser) => {
+export const fetchJWT = (userID: string, JWT: string) => {
+  const config = {
+    headers: {
+      Authorization: JWT,
+    },
+  };
   return async (dispatch: AppDispatch) => {
     try {
-      dispatch(userSlice.actions.fetchingJWT());
-      const response = await axios.get<any>(`/`);
-      dispatch(userSlice.actions.fetchJWTSuccess(response.data));
+      dispatch(userActions.fetchingJWT());
+      const response = await axios.get<SignInResponse>(
+        `/users/${userID}`,
+        config
+      );
+      dispatch(userActions.fetchJWTSuccess(response.data));
       console.log(`JWT GET response: ${response.data}`);
     } catch (error) {
-      dispatch(userSlice.actions.fetchJWTError(error as Error));
+      dispatch(userActions.fetchJWTError(error as Error));
     }
   };
 };

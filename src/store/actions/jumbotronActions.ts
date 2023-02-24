@@ -11,17 +11,17 @@ const mockFetchJumbotronRequest = () => {
   return jumbotronData;
 };
 
+export const jumbotronActions = jumbotronSlice.actions;
+
 export const fetchJumbotron = () => {
   return (dispatch: AppDispatch) => {
-    dispatch(jumbotronSlice.actions.fetching());
+    dispatch(jumbotronActions.fetching());
 
     wait(mockFetchJumbotronRequest, 1000)
       .then(function (value) {
-        dispatch(jumbotronSlice.actions.fetchSuccess(value));
+        dispatch(jumbotronActions.fetchSuccess(value));
       })
-      .catch((error) =>
-        dispatch(jumbotronSlice.actions.fetchError(error as Error))
-      );
+      .catch((error) => dispatch(jumbotronActions.fetchError(error as Error)));
   };
 };
 

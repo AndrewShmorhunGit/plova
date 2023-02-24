@@ -69,6 +69,7 @@ const Wrapper = styled.main`
     justify-content: center;
     z-index: -1;
     opacity: 0;
+    overflow: auto;
     transition: all 0.5s ease;
   }
 

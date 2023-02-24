@@ -223,15 +223,33 @@ export interface IModalState {
   inDevelopment: boolean;
 }
 
-export interface UserState {
-  loading: boolean;
-  error: string;
-  isActive: boolean;
-  user: {};
+export interface User {
+  id: string;
+  email: string;
+  name: string;
+  phone: null | string;
 }
 
-export interface IUser {
-  name?: string;
+export interface UserState {
+  loading: boolean | string;
+  error: string;
+  JWT: string | null;
+  registerModal: boolean;
+  user: User | null;
+}
+
+export interface IUserSignUp {
+  name: string;
   email: string;
   password: string;
+}
+
+export interface IUserSignIn {
+  email: string;
+  password: string;
+}
+
+export interface SignInResponse {
+  accessToken: string;
+  user: User;
 }

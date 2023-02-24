@@ -65,6 +65,11 @@ export const getAPI_ID_KEY = (): string => {
   return KEY;
 };
 
+export const getLocalStorageJWT = (): string | null => {
+  let JWT: string | null = localStorage.getItem(`user`);
+  return JWT;
+};
+
 export const getLocalStorageMenu = (): IMenu | null => {
   let menu: string | null = localStorage.getItem(`menu`);
 

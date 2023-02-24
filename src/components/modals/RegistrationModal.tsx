@@ -4,55 +4,50 @@ import person from "../../images/registration/person.svg";
 import lock from "../../images/registration/lock.svg";
 import closeIcon from "../../images/common/closeIcon.svg";
 import { GrFacebook } from "react-icons/gr";
-import { useEffect, useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
-import { useAppDispatch } from "../../hooks/useAppDispatch";
-import { fetchLogin, fetchRegister } from "../../store/actions/userActions";
-import { IUser } from "../../modules/modules";
+import { useAppDispatch, useAppSelector } from "../../hooks/useAppDispatch";
+import {
+  // fetchJWT,
+  fetchLogin,
+  fetchRegister,
+  userActions,
+} from "../../store/actions/userActions";
+import { IUserSignUp } from "../../modules/modules";
+// import { useLocalStorageState } from "../../hooks/useLocalStorageState";
 
-export const RegistrationModal = ({
-  setShowRegistration,
-  showRegistration,
-}: {
-  setShowRegistration: React.Dispatch<React.SetStateAction<boolean>>;
-  showRegistration: boolean;
-}) => {
+export const RegistrationModal = (
+  {
+    //   setShowRegistration,
+    //   showRegistration,
+    // }: {
+    //   setShowRegistration: React.Dispatch<React.SetStateAction<boolean>>;
+    //   showRegistration: boolean;
+  }
+) => {
   const dispatch = useAppDispatch();
+  const { user, registerModal } = useAppSelector((state) => state.user);
+  const [login, setIsLogin] = React.useState(false);
 
-  // const { user } = useAppSelector((state) => state.user);
-  const [login, setIsLogin] = useState(false);
-  const [userData, setUserData] = useState<IUser | null>(null);
+  React.useEffect(() => {
+    user && dispatch(userActions.toggleRegisterModal());
+    console.log(user);
+  }, [user]);
 
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
-  } = useForm<IUser>({
+  } = useForm<IUserSignUp>({
     mode: "onBlur",
-    defaultValues: {
-      // name: "",
-      // email: "",
-      // password: "",
-    },
   });
 
-  const onSubmit = (data: IUser) => {
-    if (!login && data) {
-      const loginData: IUser = data;
-      delete loginData.name;
-
-      setUserData(loginData);
+  const onSubmit = (data: IUserSignUp) => {
+    if (login) {
+      return dispatch(fetchRegister(data));
     }
-    setUserData(data);
+    dispatch(fetchLogin({ email: data.email, password: data.password }));
   };
-
-  useEffect(() => {
-    userData &&
-      (userData.name
-        ? dispatch(fetchRegister(userData))
-        : dispatch(fetchLogin(userData)));
-    console.log(userData);
-  }, [userData, onSubmit]);
 
   const emailValidation: RegExp =
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -61,7 +56,7 @@ export const RegistrationModal = ({
     <Wrapper>
       <main
         className={
-          showRegistration
+          registerModal
             ? "registration-container show-registration"
             : "registration-container"
         }
@@ -74,7 +69,7 @@ export const RegistrationModal = ({
             <img
               src={closeIcon}
               alt="close x"
-              onClick={() => setShowRegistration(false)}
+              onClick={() => dispatch(userActions.toggleRegisterModal())}
             />
           </button>
           <button className="btn-fb btn center">

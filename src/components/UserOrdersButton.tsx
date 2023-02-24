@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { useClickOutside } from "../hooks/useClickOutside";
+import { User } from "../modules/modules";
 
-export const UserOrdersButton = (props: { color: string }) => {
+export const UserOrdersButton = (props: {
+  color: string;
+  user: User | null;
+}) => {
   const [isActive, setIsActive] = React.useState(false);
   const insideRef = React.useRef<HTMLDivElement | null>(null);
   useClickOutside(insideRef, () => setIsActive(false));

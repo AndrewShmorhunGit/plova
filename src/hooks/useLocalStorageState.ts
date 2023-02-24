@@ -3,7 +3,7 @@ import { IOrderState } from "../modules/modules";
 
 export function useLocalStorageState(
   key: string,
-  defaultValue: string | Function | IOrderState = "",
+  defaultValue: null | string | Function | IOrderState = "",
 
   { serialize = JSON.stringify, deserialize = JSON.parse } = {}
 ) {
