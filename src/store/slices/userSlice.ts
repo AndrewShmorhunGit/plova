@@ -14,7 +14,10 @@ export const userSlice = createSlice({
   initialState: initialUserState,
   reducers: {
     // Login
-    fetchingLogin(state) {},
+    fetchingLogin(state) {
+      state.loading = true;
+      state.error = "";
+    },
     fetchLoginSuccess(state, action: PayloadAction<SignInResponse>) {
       state.user = action.payload.user;
       state.loading = false;
@@ -26,6 +29,7 @@ export const userSlice = createSlice({
     // Register
     fetchingRegister(state) {
       state.loading = true;
+      state.error = "";
     },
     fetchRegisterSuccess(state, action: PayloadAction<SignInResponse>) {
       state.loading = false;

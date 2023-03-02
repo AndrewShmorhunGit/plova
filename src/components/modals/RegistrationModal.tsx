@@ -36,7 +36,9 @@ export const RegistrationModal = () => {
   });
 
   const onSubmit = (data: IUserSignUp) => {
-    setIsSubmitted(isSubmitted + 1);
+    if (!user && !loading) {
+      setIsSubmitted(isSubmitted + 1);
+    }
     if (login) {
       return dispatch(fetchRegister(data));
     }
@@ -50,7 +52,7 @@ export const RegistrationModal = () => {
     setIsError(error);
     setTimeout(() => {
       setIsError("");
-    }, 5000);
+    }, 3000);
   }, [error, setIsError, isSubmitted]);
 
   const emailValidation: RegExp =
