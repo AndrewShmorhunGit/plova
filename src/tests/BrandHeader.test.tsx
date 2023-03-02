@@ -1,1 +1,3 @@
-import { BrandHeader } from "../components";
+// import { BrandHeader } from "../components";
+
+export const hi = "Hello";

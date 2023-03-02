@@ -16,12 +16,18 @@ import { IUserSignUp } from "../../modules/modules";
 
 export const RegistrationModal = () => {
   const dispatch = useAppDispatch();
-  const { user, registerModal, error } = useAppSelector((state) => state.user);
+  const { user, registerModal, error, loading } = useAppSelector(
+    (state) => state.user
+  );
   const [login, setIsLogin] = React.useState(false);
 
   React.useEffect(() => {
     user && dispatch(userActions.closeRegisterModal());
   }, [user]);
+
+  React.useEffect(() => {
+    console.log(`registration error: ${error}`);
+  }, [error]);
 
   const {
     register,
@@ -142,11 +148,25 @@ export const RegistrationModal = () => {
               </label>
               <p className="form-error-message">{errors.password?.message}</p>
             </div>
-
-            <div className="center">
+            <div className="submit-container center">
+              {error ? (
+                <p className="submit-error-message">
+                  {login
+                    ? error === "Request failed with status code 409" &&
+                      `This email is already in use. Try another one..`
+                    : error === "Request failed with status code 403" &&
+                      `Wrong email or password`}
+                </p>
+              ) : null}
               <input
                 type="submit"
-                value={login ? "Sign up with email" : "Log in with email"}
+                value={
+                  loading
+                    ? "Loading..."
+                    : login
+                    ? "Sign up with email"
+                    : "Log in with email"
+                }
                 disabled={!isValid}
                 className={
                   isValid
@@ -327,6 +347,18 @@ const Wrapper = styled.main`
     margin-left: 0rem;
   }
 
+  .submit-container {
+    position: relative;  
+  }
+
+  .submit-error-message {
+    position: absolute;
+    bottom: 7rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #DB4437;
+  }
+
   .input-box {
     position: relative;
   }
@@ -398,9 +430,7 @@ const Wrapper = styled.main`
     
     p, a {
       font-size: 1.2rem;
-
     }
-
   }
 
   .or {

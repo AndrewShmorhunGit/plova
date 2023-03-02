@@ -1,7 +1,7 @@
 import { RegistrationModal } from "../components";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
-import { fireEvent, screen } from "@testing-library/react";
+// import { fireEvent, screen } from "@testing-library/react";
 import { renderWithProviders } from "./utils/test-utils";
 
 export const handlers = [

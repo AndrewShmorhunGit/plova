@@ -35,19 +35,6 @@ export const userSlice = createSlice({
       state.loading = false;
       state.error = action.payload.message;
     },
-    // Test JWT
-    fetchingJWT(state) {
-      state.loading = true;
-    },
-    fetchJWTSuccess(state, action: PayloadAction<SignInResponse>) {
-      state.loading = false;
-      state.user = action.payload.user;
-      // state.isActive = true;
-    },
-    fetchJWTError(state, action: PayloadAction<Error>) {
-      state.loading = false;
-      state.error = action.payload.message;
-    },
     setUserData(state, action: PayloadAction<SignInResponse>) {
       state.JWT = action.payload.accessToken;
       state.user = {
