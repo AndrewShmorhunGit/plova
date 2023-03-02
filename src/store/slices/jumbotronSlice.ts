@@ -1,7 +1,7 @@
 import { IJumbotron } from "../../modules/modules";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface JumbotronState {
+export interface JumbotronState {
   loading: boolean;
   error: string;
   jumbotron: IJumbotron[];

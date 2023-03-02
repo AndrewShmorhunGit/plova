@@ -1,5 +1,7 @@
+import { Dispatch } from "@reduxjs/toolkit";
 import { Location } from "react-router-dom";
-import { ICart, IMenu } from "../modules/modules";
+import { ICart, IMenu, SignInResponse } from "../modules/modules";
+import { fetchJWT, userActions } from "../store/actions/userActions";
 
 export const hryvniaToDollarConverter = (price: number) => {
   const newPrice: number = price / 40;
@@ -90,6 +92,27 @@ export const getLocalStorageCart = ():
     return JSON.parse(cart);
   }
   return {};
+};
+
+export const getStorageUser = (): null | SignInResponse => {
+  let user: string | null = localStorage.getItem(`user`);
+
+  if (user !== null) {
+    return JSON.parse(user);
+  }
+  return null;
+};
+
+export const autoLogin = (dispatch: Dispatch) => {
+  const currentUser = getStorageUser();
+  console.log(currentUser);
+  if (!currentUser) {
+    dispatch(userActions.userLogOut());
+    return;
+  }
+
+  currentUser &&
+    fetchJWT(currentUser.user.id, currentUser.accessToken, dispatch);
 };
 
 export const getCurrentCard = (

@@ -8,30 +8,19 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../hooks/useAppDispatch";
 import {
-  // fetchJWT,
   fetchLogin,
   fetchRegister,
   userActions,
 } from "../../store/actions/userActions";
 import { IUserSignUp } from "../../modules/modules";
-// import { useLocalStorageState } from "../../hooks/useLocalStorageState";
 
-export const RegistrationModal = (
-  {
-    //   setShowRegistration,
-    //   showRegistration,
-    // }: {
-    //   setShowRegistration: React.Dispatch<React.SetStateAction<boolean>>;
-    //   showRegistration: boolean;
-  }
-) => {
+export const RegistrationModal = () => {
   const dispatch = useAppDispatch();
-  const { user, registerModal } = useAppSelector((state) => state.user);
+  const { user, registerModal, error } = useAppSelector((state) => state.user);
   const [login, setIsLogin] = React.useState(false);
 
   React.useEffect(() => {
-    user && dispatch(userActions.toggleRegisterModal());
-    console.log(user);
+    user && dispatch(userActions.closeRegisterModal());
   }, [user]);
 
   const {

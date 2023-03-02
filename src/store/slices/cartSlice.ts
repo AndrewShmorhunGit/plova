@@ -2,7 +2,7 @@ import { ICart, newOrder } from "../../modules/modules";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { getLocalStorageCart } from "../../units/functions";
 
-interface CartState {
+export interface CartState {
   carts: { [slug: string]: ICart | undefined };
 }
 
@@ -130,5 +130,7 @@ export const cartSlice = createSlice({
     },
   },
 });
+
+export const { addToCart, changeCartAmount } = cartSlice.actions;
 
 export default cartSlice.reducer;

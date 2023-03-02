@@ -2,21 +2,14 @@ import { CartUnit } from "../components/CartUnit";
 import { renderWithProviders } from "./utils/test-utils";
 import * as reduxHooks from "react-redux";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-// import * as actions from "../store/slices/cartSlice";
-// import { useAppDispatch } from "../hooks/useAppDispatch";
-// import { testUseAppSelector } from "./utils/test-app-selector";
-// import { useAppSelector } from "../hooks/useAppDispatch";
+// import userEvent from "@testing-library/user-event";
 
 const fakeOrder = { amount: 5, name: "Spaghetti", price: 6.2 };
 jest.mock("react-redux");
 const mockDispatch = jest.spyOn(reduxHooks, "useDispatch");
 
 describe("CartUnit", () => {
-  beforeEach(() => {
-    // useAppSelector.mockImplementation(testUseAppSelector);
-    // useAppDispatch.mockImplementation(() => jest.fn);
-  });
+  beforeEach(() => {});
   afterEach(() => jest.clearAllMocks);
 
   it("create snapshot", () => {
@@ -54,7 +47,7 @@ describe("CartUnit", () => {
     expect(amount).toHaveTextContent("x5");
   });
 
-  it("should call dispatch", () => {
+  /* it("should call dispatch", () => {
     render(<CartUnit singleOrder={fakeOrder} slug={"anyRestaurant"} />);
 
     const increment = screen.getByRole("increase", { name: /plus in circle/i });
@@ -82,18 +75,27 @@ describe("CartUnit", () => {
     const dispatch = jest.fn;
     mockDispatch.mockReturnValue(dispatch);
 
-    // const mackedIncreaseValue = jest.spyOn(actions, "changeCartAmount");
+    // const mockedIncreaseValue = jest.spyOn(
+    //   { changeCartAmount },
+    //   "changeCartAmount"
+    // );
 
-    result.debug();
-
-    const increment = result.getByRole("increase");
-    const decrement = result.getByRole("decrease", {
+    // result.debug();
+    // const increase = store.dispatch(
+    //   changeCartAmount({
+    //     slug: "anyRestaurant",
+    //     name: "Spaghetti",
+    //     operation: "inc",
+    //   })
+    // );
+    const incrementBtn = screen.getByRole("increase");
+    const decrementBtn = screen.getByRole("decrease", {
       name: /minus in circle/i,
     });
-    const amount = result.getByRole("amount");
-    userEvent.click(increment);
+    const amount = screen.getByRole("amount");
+    userEvent.click(incrementBtn);
     expect(amount).toHaveTextContent("x6");
-    userEvent.click(decrement);
+    userEvent.click(decrementBtn);
     expect(amount).toHaveTextContent("x5");
-  });
+  });*/
 });

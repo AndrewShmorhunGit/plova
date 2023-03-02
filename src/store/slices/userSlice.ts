@@ -14,16 +14,12 @@ export const userSlice = createSlice({
   initialState: initialUserState,
   reducers: {
     // Login
-    fetchingLogin(state) {
-      state.loading = "pending";
-    },
+    fetchingLogin(state) {},
     fetchLoginSuccess(state, action: PayloadAction<SignInResponse>) {
-      state.loading = "success";
       state.user = action.payload.user;
       state.loading = false;
     },
     fetchLoginError(state, action: PayloadAction<Error>) {
-      state.loading = "error";
       state.error = action.payload.message;
       state.loading = false;
     },
@@ -64,8 +60,12 @@ export const userSlice = createSlice({
     toggleRegisterModal(state) {
       state.registerModal = !state.registerModal;
     },
+    closeRegisterModal(state) {
+      state.registerModal = false;
+    },
     userLogOut(state) {
       state.user = null;
+      localStorage.removeItem("user");
     },
   },
 });

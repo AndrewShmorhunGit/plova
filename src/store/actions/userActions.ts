@@ -18,6 +18,8 @@ export const fetchLogin = (user: IUserSignIn) => {
       const response = await axios.post<SignInResponse>(`/auth/signin`, user);
       dispatch(userActions.fetchLoginSuccess(response.data));
       dispatch(userActions.setUserData(response.data));
+      dispatch(userActions.toggleRegisterModal());
+      localStorage.setItem("user", JSON.stringify(response.data));
     } catch (error) {
       dispatch(userActions.fetchLoginError(error as Error));
     }
@@ -37,23 +39,29 @@ export const fetchRegister = (user: IUserSignUp) => {
   };
 };
 
-export const fetchJWT = (userID: string, JWT: string) => {
-  const config = {
+export const fetchJWT = (
+  userID: string,
+  JWT: string,
+  dispatch: AppDispatch
+) => {
+  let config = {
+    method: "get",
+    url: `${process.env.REACT_APP_BASE_URL}/users/${userID}`,
     headers: {
-      Authorization: JWT,
+      Authorization: `Bearer ${JWT}`,
+      // "Content-Type": "application/json",
     },
+    // data: data,
   };
-  return async (dispatch: AppDispatch) => {
-    try {
-      dispatch(userActions.fetchingJWT());
-      const response = await axios.get<SignInResponse>(
-        `/users/${userID}`,
-        config
-      );
-      dispatch(userActions.fetchJWTSuccess(response.data));
-      console.log(`JWT GET response: ${response.data}`);
-    } catch (error) {
-      dispatch(userActions.fetchJWTError(error as Error));
-    }
-  };
+
+  axios(config)
+    .then(function (response: any) {
+      () => {
+        dispatch(userActions.setUserData(response.data));
+        localStorage.setItem("user", JSON.stringify(response.data));
+      };
+    })
+    .catch(function (error: any) {
+      console.log(error);
+    });
 };
