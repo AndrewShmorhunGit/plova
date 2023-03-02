@@ -155,7 +155,7 @@ export const RegistrationModal = () => {
                     ? error === "Request failed with status code 409" &&
                       `This email is already in use. Try another one..`
                     : error === "Request failed with status code 403" &&
-                      `Wrong email or password`}
+                      `Wrong email or password!`}
                 </p>
               ) : null}
               <input
