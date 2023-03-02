@@ -1,5 +1,5 @@
 import { Location } from "react-router-dom";
-import { ICart, IMenu } from "../modules/modules";
+import { ICart, IMenu, SignInResponse } from "../modules/modules";
 
 export const hryvniaToDollarConverter = (price: number) => {
   const newPrice: number = price / 40;
@@ -90,6 +90,15 @@ export const getLocalStorageCart = ():
     return JSON.parse(cart);
   }
   return {};
+};
+
+export const getStorageUser = (): null | SignInResponse => {
+  let user: string | null = localStorage.getItem(`user`);
+
+  if (user !== null) {
+    return JSON.parse(user);
+  }
+  return null;
 };
 
 export const getCurrentCard = (

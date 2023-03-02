@@ -1,7 +1,7 @@
 import { IMenu } from "../../modules/modules";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface MenuState {
+export interface MenuState {
   selectedCategory: string | null;
   loading: boolean;
   error: string;

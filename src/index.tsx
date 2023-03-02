@@ -9,7 +9,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { setupStore } from "./store";
 
-const store = setupStore();
+export const store = setupStore();
 
 // const root = ReactDOM.createRoot(
 //   document.getElementById("root") as HTMLElement

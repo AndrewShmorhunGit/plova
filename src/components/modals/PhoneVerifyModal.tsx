@@ -19,7 +19,7 @@ export const PhoneVerifyMOdal = ({
   const [error, setError] = useState(false);
   const valid =
     currentPhoneNumber &&
-    Number.isInteger(parseInt(currentPhoneNumber)) &&
+    +currentPhoneNumber &&
     currentPhoneNumber.length === 9;
   return (
     <Wrapper>
@@ -111,7 +111,7 @@ const Wrapper = styled.main`
     flex-direction: column;
     gap: 4rem;
     margin: auto;
-    padding: 0;
+    padding: 4rem 2rem 2rem 2rem;
 
     h1 {
       font-size: 3rem;

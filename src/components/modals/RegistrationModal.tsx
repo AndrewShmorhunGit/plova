@@ -8,30 +8,23 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../hooks/useAppDispatch";
 import {
-  // fetchJWT,
   fetchLogin,
   fetchRegister,
   userActions,
 } from "../../store/actions/userActions";
 import { IUserSignUp } from "../../modules/modules";
-// import { useLocalStorageState } from "../../hooks/useLocalStorageState";
 
-export const RegistrationModal = (
-  {
-    //   setShowRegistration,
-    //   showRegistration,
-    // }: {
-    //   setShowRegistration: React.Dispatch<React.SetStateAction<boolean>>;
-    //   showRegistration: boolean;
-  }
-) => {
+export const RegistrationModal = () => {
   const dispatch = useAppDispatch();
-  const { user, registerModal } = useAppSelector((state) => state.user);
+  const { user, registerModal, error, loading } = useAppSelector(
+    (state) => state.user
+  );
   const [login, setIsLogin] = React.useState(false);
+  const [isError, setIsError] = React.useState("");
+  const [isSubmitted, setIsSubmitted] = React.useState(0);
 
   React.useEffect(() => {
-    user && dispatch(userActions.toggleRegisterModal());
-    console.log(user);
+    user && dispatch(userActions.closeRegisterModal());
   }, [user]);
 
   const {
@@ -43,11 +36,24 @@ export const RegistrationModal = (
   });
 
   const onSubmit = (data: IUserSignUp) => {
+    if (!user && !loading) {
+      setIsSubmitted(isSubmitted + 1);
+    }
     if (login) {
       return dispatch(fetchRegister(data));
     }
     dispatch(fetchLogin({ email: data.email, password: data.password }));
   };
+
+  React.useEffect(() => {
+    if (error === "") {
+      return;
+    }
+    setIsError(error);
+    setTimeout(() => {
+      setIsError("");
+    }, 3000);
+  }, [error, setIsError, isSubmitted]);
 
   const emailValidation: RegExp =
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -153,11 +159,25 @@ export const RegistrationModal = (
               </label>
               <p className="form-error-message">{errors.password?.message}</p>
             </div>
-
-            <div className="center">
+            <div className="submit-container center">
+              {isError ? (
+                <p className="submit-error-message">
+                  {login
+                    ? isError === "Request failed with status code 409" &&
+                      `This email is already in use. Try another one..`
+                    : isError === "Request failed with status code 403" &&
+                      `Wrong email or password!`}
+                </p>
+              ) : null}
               <input
                 type="submit"
-                value={login ? "Sign up with email" : "Log in with email"}
+                value={
+                  loading
+                    ? "Loading..."
+                    : login
+                    ? "Sign up with email"
+                    : "Log in with email"
+                }
                 disabled={!isValid}
                 className={
                   isValid
@@ -338,6 +358,18 @@ const Wrapper = styled.main`
     margin-left: 0rem;
   }
 
+  .submit-container {
+    position: relative;  
+  }
+
+  .submit-error-message {
+    position: absolute;
+    bottom: 7rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #DB4437;
+  }
+
   .input-box {
     position: relative;
   }
@@ -409,9 +441,7 @@ const Wrapper = styled.main`
     
     p, a {
       font-size: 1.2rem;
-
     }
-
   }
 
   .or {
