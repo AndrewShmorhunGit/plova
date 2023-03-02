@@ -20,14 +20,12 @@ export const RegistrationModal = () => {
     (state) => state.user
   );
   const [login, setIsLogin] = React.useState(false);
+  const [isError, setIsError] = React.useState("");
+  const [isSubmitted, setIsSubmitted] = React.useState(0);
 
   React.useEffect(() => {
     user && dispatch(userActions.closeRegisterModal());
   }, [user]);
-
-  React.useEffect(() => {
-    console.log(`registration error: ${error}`);
-  }, [error]);
 
   const {
     register,
@@ -38,11 +36,22 @@ export const RegistrationModal = () => {
   });
 
   const onSubmit = (data: IUserSignUp) => {
+    setIsSubmitted(isSubmitted + 1);
     if (login) {
       return dispatch(fetchRegister(data));
     }
     dispatch(fetchLogin({ email: data.email, password: data.password }));
   };
+
+  React.useEffect(() => {
+    if (error === "") {
+      return;
+    }
+    setIsError(error);
+    setTimeout(() => {
+      setIsError("");
+    }, 5000);
+  }, [error, setIsError, isSubmitted]);
 
   const emailValidation: RegExp =
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -149,12 +158,12 @@ export const RegistrationModal = () => {
               <p className="form-error-message">{errors.password?.message}</p>
             </div>
             <div className="submit-container center">
-              {error ? (
+              {isError ? (
                 <p className="submit-error-message">
                   {login
-                    ? error === "Request failed with status code 409" &&
+                    ? isError === "Request failed with status code 409" &&
                       `This email is already in use. Try another one..`
-                    : error === "Request failed with status code 403" &&
+                    : isError === "Request failed with status code 403" &&
                       `Wrong email or password!`}
                 </p>
               ) : null}
