@@ -15,40 +15,27 @@ export const userSlice = createSlice({
   reducers: {
     // Login
     fetchingLogin(state) {
-      state.loading = "pending";
+      state.loading = true;
+      state.error = "";
     },
     fetchLoginSuccess(state, action: PayloadAction<SignInResponse>) {
-      state.loading = "success";
       state.user = action.payload.user;
       state.loading = false;
     },
     fetchLoginError(state, action: PayloadAction<Error>) {
-      state.loading = "error";
       state.error = action.payload.message;
       state.loading = false;
     },
     // Register
     fetchingRegister(state) {
       state.loading = true;
+      state.error = "";
     },
     fetchRegisterSuccess(state, action: PayloadAction<SignInResponse>) {
       state.loading = false;
       state.user = action.payload.user;
     },
     fetchRegisterError(state, action: PayloadAction<Error>) {
-      state.loading = false;
-      state.error = action.payload.message;
-    },
-    // Test JWT
-    fetchingJWT(state) {
-      state.loading = true;
-    },
-    fetchJWTSuccess(state, action: PayloadAction<SignInResponse>) {
-      state.loading = false;
-      state.user = action.payload.user;
-      // state.isActive = true;
-    },
-    fetchJWTError(state, action: PayloadAction<Error>) {
       state.loading = false;
       state.error = action.payload.message;
     },
@@ -64,8 +51,12 @@ export const userSlice = createSlice({
     toggleRegisterModal(state) {
       state.registerModal = !state.registerModal;
     },
+    closeRegisterModal(state) {
+      state.registerModal = false;
+    },
     userLogOut(state) {
       state.user = null;
+      localStorage.removeItem("user");
     },
   },
 });
