@@ -37,7 +37,7 @@ import {
   phoneDropdownOptions,
 } from "../units/data";
 import { IModalState } from "../modules/modules";
-import { PhoneVerifyMOdal } from "../components/modals/PhoneVerifyModal";
+import { PhoneVerifyModal } from "../components/modals/PhoneVerifyModal";
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
 
 export const OrderPage = () => {
@@ -157,7 +157,7 @@ export const OrderPage = () => {
     <>
       {/* VERIFY PHONE MODAL */}
       {modalState.phoneVerify && (
-        <PhoneVerifyMOdal
+        <PhoneVerifyModal
           modalState={modalState}
           setModalState={setModalState}
           orderState={orderState}

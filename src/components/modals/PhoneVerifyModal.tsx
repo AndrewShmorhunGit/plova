@@ -4,7 +4,7 @@ import closeIcon from "../../images/common/closeIcon.svg";
 import flagUA from "../../images/order/FlagUA.svg.png";
 import { useState } from "react";
 
-export const PhoneVerifyMOdal = ({
+export const PhoneVerifyModal = ({
   setModalState,
   modalState,
   setOrderState,
@@ -111,7 +111,7 @@ const Wrapper = styled.main`
     flex-direction: column;
     gap: 4rem;
     margin: auto;
-    padding: 4rem 2rem 2rem 2rem;
+    padding: 6rem 6rem;
 
     h1 {
       font-size: 3rem;
@@ -259,7 +259,15 @@ const Wrapper = styled.main`
       padding: 2.6rem 10rem;
     }
   }
+
   @media (max-width: 31.25em) {
+    .content {
+      padding: 4rem 2rem;
+
+      h1 {
+        padding: 3rem 0;
+      }
+    }
     .btn {
       padding: 2.6rem 10rem;
     }

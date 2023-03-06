@@ -235,6 +235,8 @@ export interface UserState {
   error: string;
   JWT: string | null;
   registerModal: boolean;
+  phoneModal: boolean;
+  profileModal: boolean;
   user: User | null;
 }
 

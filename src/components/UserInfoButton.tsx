@@ -56,7 +56,13 @@ export const UserInfoButton = (props: { color: string; user: User | null }) => {
             <div className="info-unit">
               <div className="edit-container">
                 <p className="info-title">Name</p>
-                <p className="edit" onClick={() => setIsActive(false)}>
+                <p
+                  className="edit"
+                  onClick={() => {
+                    setIsActive(false);
+                    dispatch(userActions.toggleProfileModal());
+                  }}
+                >
                   Edit
                 </p>
               </div>
@@ -69,7 +75,13 @@ export const UserInfoButton = (props: { color: string; user: User | null }) => {
             <div className="info-unit">
               <div className="edit-container">
                 <p className="info-title">Phone</p>
-                <p className="edit" onClick={() => setIsActive(false)}>
+                <p
+                  className="edit"
+                  onClick={() => {
+                    setIsActive(false);
+                    dispatch(userActions.togglePhoneModal());
+                  }}
+                >
                   {props.user && props.user.phone ? `Edit` : `Add Phone`}
                 </p>
               </div>

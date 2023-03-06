@@ -7,14 +7,21 @@ import {
   MainHeader,
   Jumbotron,
   SearchLocationModal,
+  EditUserModal,
 } from "../components";
+
+// import { useAppSelector } from "../hooks/useAppDispatch";
+// import { userActions } from "../store/actions/userActions";
 
 export const HomePage = () => {
   const [showLocationModal, setShowLocationModal] = useState(false);
   const [changeLocationModal, setChangeLocationModal] = useState(false);
 
+  // const { user, phoneModal } = useAppSelector((state) => state.user);
+
   return (
     <React.Fragment>
+      <EditUserModal />
       <MainHeader
         setChangeLocationModal={setChangeLocationModal}
         changeLocationModal={changeLocationModal}

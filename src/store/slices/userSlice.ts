@@ -6,6 +6,8 @@ const initialUserState: UserState = {
   error: "",
   JWT: null,
   registerModal: false,
+  profileModal: false,
+  phoneModal: false,
   user: null,
 };
 
@@ -53,6 +55,12 @@ export const userSlice = createSlice({
     },
     closeRegisterModal(state) {
       state.registerModal = false;
+    },
+    toggleProfileModal(state) {
+      state.profileModal = !state.profileModal;
+    },
+    togglePhoneModal(state) {
+      state.phoneModal = !state.phoneModal;
     },
     userLogOut(state) {
       state.user = null;
