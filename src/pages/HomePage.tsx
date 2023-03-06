@@ -9,6 +9,7 @@ import {
   SearchLocationModal,
   EditUserModal,
 } from "../components";
+import { EditUserPhoneModal } from "../components/modals/EditUserPhoneModal";
 
 // import { useAppSelector } from "../hooks/useAppDispatch";
 // import { userActions } from "../store/actions/userActions";
@@ -22,6 +23,7 @@ export const HomePage = () => {
   return (
     <React.Fragment>
       <EditUserModal />
+      <EditUserPhoneModal />
       <MainHeader
         setChangeLocationModal={setChangeLocationModal}
         changeLocationModal={changeLocationModal}

@@ -70,6 +70,22 @@ const Wrapper = styled.main`
     }
   }
 
+  .btn {
+    padding: 2.6rem 14rem;
+    border-radius: 10rem;
+    margin: 0;
+  }
+  .close-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: transparent;
+    border-color: transparent;
+    font-size: 2rem;
+    color: grey;
+    cursor: pointer;
+  }
+
   @media (max-width: 56.25em) {
     .content {
       max-width: auto;

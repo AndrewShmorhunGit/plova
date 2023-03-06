@@ -92,10 +92,20 @@ export const UserInfoButton = (props: { color: string; user: User | null }) => {
               <div className="edit-container">
                 <p className="info-title">Password</p>
                 <p className="edit" onClick={() => setIsActive(false)}>
-                  Edit
+                  Forgot Password?
                 </p>
               </div>
-              <p className="user-info">{`***********`}</p>
+              <div className="fake-password">
+                <span className="oval" />
+                <span className="oval" />
+                <span className="oval" />
+                <span className="oval" />
+                <span className="oval" />
+                <span className="oval" />
+                <span className="oval" />
+                <span className="oval" />
+              </div>
+              {/* <p className="user-info">{`***********`}</p> */}
             </div>
             <div className="info-unit-button">
               <button
@@ -190,6 +200,15 @@ const Wrapper = styled.main`
   .edit {
     color: #00a082;
     cursor: pointer;
+  }
+
+  .oval {
+    margin: 0 1px;
+    border-radius: 4px;
+    width: 8px;
+    height: 8px;
+    background-color: #333;
+    display: inline-block;
   }
 
   .icon-pointer {
