@@ -41,7 +41,9 @@ import { UserData } from "./UserData";
 import { MainHeaderLocation } from "./MainHeaderLocation";
 import { MakeAnOrderBtn } from "./MakeAnOrderBtn";
 import { GetStartedBtn } from "./GetStartedBtn";
+import { EditUserModal } from "./modals/EditUserModal";
 export {
+  EditUserModal,
   GetStartedBtn,
   MakeAnOrderBtn,
   MainHeaderLocation,
