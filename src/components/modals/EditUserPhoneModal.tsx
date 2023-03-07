@@ -65,8 +65,14 @@ export const EditUserPhoneModal = ({}: {}) => {
               valid ? "btn btn-active center" : "btn btn-not-allowed center"
             }
             onClick={() => {
-              valid ? window.alert("Phone is valid!") : setError(true);
-              dispatch(userActions.togglePhoneModal());
+              valid
+                ? dispatch(
+                    userActions.setUserPhone({
+                      phone: `+380${currentPhoneNumber}`,
+                    })
+                  )
+                : setError(true);
+              valid && dispatch(userActions.togglePhoneModal());
             }}
           >
             Confirm

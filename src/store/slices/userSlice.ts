@@ -50,6 +50,20 @@ export const userSlice = createSlice({
         phone: action.payload.user.phone,
       };
     },
+    setUserPhone(state, action: PayloadAction<{ phone: string }>) {
+      state.user && (state.user.phone = action.payload.phone);
+    },
+    setEditedUser(
+      state,
+      action: PayloadAction<{ name: string; email: string }>
+    ) {
+      state.user &&
+        (state.user = {
+          ...state.user,
+          name: action.payload.name,
+          email: action.payload.email,
+        });
+    },
     toggleRegisterModal(state) {
       state.registerModal = !state.registerModal;
     },
