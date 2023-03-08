@@ -13,6 +13,7 @@ import {
   userActions,
 } from "../../store/actions/userActions";
 import { IUserSignUp } from "../../modules/modules";
+import { emailValidation } from "../../units/data";
 
 export const RegistrationModal = () => {
   const dispatch = useAppDispatch();
@@ -54,9 +55,6 @@ export const RegistrationModal = () => {
       setIsError("");
     }, 3000);
   }, [error, setIsError, isSubmitted]);
-
-  const emailValidation: RegExp =
-    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
   return (
     <Wrapper>

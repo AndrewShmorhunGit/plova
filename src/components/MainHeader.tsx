@@ -2,9 +2,10 @@ import styled from "styled-components";
 import headerLogo from "../logos/headerLogo.png";
 import headerMobileLogo from "../logos/glovo-logo-location.svg";
 import { FiSearch } from "react-icons/fi";
-import React from "react";
+import React, { FormEvent } from "react";
 import { GetStartedBtn, MainHeaderLocation, UserData } from "./index";
 import { useAppSelector } from "../hooks/useAppDispatch";
+import { getStorageUser } from "../units/functions";
 
 export const MainHeader = ({
   changeLocationModal,
@@ -14,6 +15,18 @@ export const MainHeader = ({
   setChangeLocationModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const { user } = useAppSelector((state) => state.user);
+  const currentUser = getStorageUser();
+
+  const [searchInput, setSearchInput] = React.useState("");
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(event.target.value);
+  };
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    window.alert("Submitted 👍");
+  };
 
   return (
     <Wrapper>
@@ -38,15 +51,12 @@ export const MainHeader = ({
                   <FiSearch />
                 </label>
 
-                <form
-                  className="form-input"
-                  onSubmit={() => console.log("onSubmit!")}
-                  onClick={() => {}}
-                >
+                <form className="form-input" onSubmit={handleSubmit}>
                   <input
                     type="text"
                     className="search-input"
-                    onChange={() => console.log("onChange!")}
+                    value={searchInput}
+                    onChange={handleChange}
                   />
                 </form>
               </div>
@@ -60,7 +70,11 @@ export const MainHeader = ({
               </div>
               <div className="start-btn">
                 {!user ? (
-                  <GetStartedBtn />
+                  currentUser ? (
+                    <div className="center">Loading...</div>
+                  ) : (
+                    <GetStartedBtn />
+                  )
                 ) : (
                   <UserData color={"#212529"} user={user} />
                 )}
@@ -124,7 +138,7 @@ const Wrapper = styled.header`
   }
 
   .form-input {
-    max-width: 46rem;
+    min-width: 95%;
   }
 
   .form-input:focus {
@@ -147,8 +161,7 @@ const Wrapper = styled.header`
     overflow: hidden;
     text-overflow: ellipsis;
     border: none;
-    // height: 100%;
-    // width: 100%;
+    width: 90%;
     font-size: 1.8rem;
     line-height: 1.4;
     font-weight: 300;
@@ -162,9 +175,6 @@ const Wrapper = styled.header`
   }
 
   .header-user-address-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 1rem;
     min-width: 20rem;
     max-width: 25rem;

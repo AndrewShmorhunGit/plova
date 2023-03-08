@@ -12,10 +12,6 @@ export const UserInfoButton = (props: { color: string; user: User | null }) => {
 
   const dispatch = useAppDispatch();
 
-  // React.useEffect(() => {
-  //   localStorage.removeItem("user");
-  // }, [userActions.userLogOut()]);
-
   return (
     <Wrapper>
       <main ref={insideRef} className="menu-icon-user">
@@ -56,7 +52,13 @@ export const UserInfoButton = (props: { color: string; user: User | null }) => {
             <div className="info-unit">
               <div className="edit-container">
                 <p className="info-title">Name</p>
-                <p className="edit" onClick={() => setIsActive(false)}>
+                <p
+                  className="edit"
+                  onClick={() => {
+                    setIsActive(false);
+                    dispatch(userActions.toggleProfileModal());
+                  }}
+                >
                   Edit
                 </p>
               </div>
@@ -69,7 +71,13 @@ export const UserInfoButton = (props: { color: string; user: User | null }) => {
             <div className="info-unit">
               <div className="edit-container">
                 <p className="info-title">Phone</p>
-                <p className="edit" onClick={() => setIsActive(false)}>
+                <p
+                  className="edit"
+                  onClick={() => {
+                    setIsActive(false);
+                    dispatch(userActions.togglePhoneModal());
+                  }}
+                >
                   {props.user && props.user.phone ? `Edit` : `Add Phone`}
                 </p>
               </div>
@@ -80,10 +88,20 @@ export const UserInfoButton = (props: { color: string; user: User | null }) => {
               <div className="edit-container">
                 <p className="info-title">Password</p>
                 <p className="edit" onClick={() => setIsActive(false)}>
-                  Edit
+                  Forgot Password?
                 </p>
               </div>
-              <p className="user-info">{`***********`}</p>
+              <div className="fake-password">
+                <span className="oval" />
+                <span className="oval" />
+                <span className="oval" />
+                <span className="oval" />
+                <span className="oval" />
+                <span className="oval" />
+                <span className="oval" />
+                <span className="oval" />
+              </div>
+              {/* <p className="user-info">{`***********`}</p> */}
             </div>
             <div className="info-unit-button">
               <button
@@ -178,6 +196,15 @@ const Wrapper = styled.main`
   .edit {
     color: #00a082;
     cursor: pointer;
+  }
+
+  .oval {
+    margin: 0 1px;
+    border-radius: 4px;
+    width: 8px;
+    height: 8px;
+    background-color: #333;
+    display: inline-block;
   }
 
   .icon-pointer {

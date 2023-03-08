@@ -256,3 +256,6 @@ export const addressDropdownOptions: IDropdownOptions = {
     },
   ],
 };
+
+export const emailValidation: RegExp =
+  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
