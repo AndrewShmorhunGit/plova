@@ -26,7 +26,7 @@ export const MainHeaderLocation = ({
   return (
     <div
       id="#scroll"
-      className={!scroll ? "header-user-address-content" : "hide"}
+      className={!scroll ? "header-user-address-content center" : "hide"}
       onClick={() => setChangeLocationModal(true)}
     >
       <img

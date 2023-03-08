@@ -37,7 +37,7 @@ import {
   phoneDropdownOptions,
 } from "../units/data";
 import { IModalState } from "../modules/modules";
-import { PhoneVerifyMOdal } from "../components/modals/PhoneVerifyModal";
+import { PhoneVerifyModal } from "../components/modals/PhoneVerifyModal";
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
 
 export const OrderPage = () => {
@@ -45,6 +45,7 @@ export const OrderPage = () => {
   const dispatch = useAppDispatch();
   const { carts } = useAppSelector((state) => state.carts);
   const { menus } = useAppSelector((state) => state.menu);
+  const { user } = useAppSelector((state) => state.user);
   const slug = useMemo(() => getSlugFromLocation(location), [location]);
   const currentCart = getCurrentCard(slug, carts);
   const menu = getCurrentMenu(slug, menus);
@@ -71,7 +72,7 @@ export const OrderPage = () => {
     totalPrice: "0",
     promoCode: false,
     orderList: null,
-    phoneNumber: null,
+    phoneNumber: (user && user?.phone) || null,
   });
 
   // const { delAddress, delTerms, paymentMethod, ...} = orderState;
@@ -157,7 +158,7 @@ export const OrderPage = () => {
     <>
       {/* VERIFY PHONE MODAL */}
       {modalState.phoneVerify && (
-        <PhoneVerifyMOdal
+        <PhoneVerifyModal
           modalState={modalState}
           setModalState={setModalState}
           orderState={orderState}

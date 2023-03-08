@@ -1,39 +1,40 @@
 import styled from "styled-components";
-import { IModalState, IOrderState } from "../../modules/modules";
 import closeIcon from "../../images/common/closeIcon.svg";
 import flagUA from "../../images/order/FlagUA.svg.png";
-import { useState } from "react";
+import React from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks/useAppDispatch";
+import { userActions } from "../../store/actions/userActions";
 
-export const PhoneVerifyModal = ({
-  setModalState,
-  modalState,
-  setOrderState,
-  orderState,
-}: {
-  setOrderState: React.Dispatch<React.SetStateAction<IOrderState>>;
-  orderState: IOrderState;
-  setModalState: React.Dispatch<React.SetStateAction<IModalState>>;
-  modalState: IModalState;
-}) => {
-  const [currentPhoneNumber, setCurrentPhoneNumber] = useState("");
-  const [error, setError] = useState(false);
+export const EditUserPhoneModal = ({}: {}) => {
+  const [currentPhoneNumber, setCurrentPhoneNumber] = React.useState("");
+  const [error, setError] = React.useState(false);
   const valid =
     currentPhoneNumber &&
     +currentPhoneNumber &&
     currentPhoneNumber.length === 9;
+  const dispatch = useAppDispatch();
+  const { phoneModal } = useAppSelector((state) => state.user);
+
+  React.useEffect(() => {
+    if (!error) return;
+    if (error) {
+      setTimeout(() => {
+        setError(false);
+      }, 3000);
+    }
+  }, [error]);
+
   return (
     <Wrapper>
       <main
         className={
-          modalState.phoneVerify
-            ? "modal-container show-modal"
-            : "modal-container"
+          phoneModal ? "modal-container show-modal" : "modal-container"
         }
       >
         <div className="content center">
           <button
             className="close-btn"
-            onClick={() => setModalState({ ...modalState, phoneVerify: false })}
+            onClick={() => dispatch(userActions.togglePhoneModal())}
           >
             <img src={closeIcon} alt="close X" />
           </button>
@@ -64,13 +65,14 @@ export const PhoneVerifyModal = ({
               valid ? "btn btn-active center" : "btn btn-not-allowed center"
             }
             onClick={() => {
-              valid && setModalState({ ...modalState, phoneVerify: false });
-              valid &&
-                setOrderState({
-                  ...orderState,
-                  phoneNumber: `+380${currentPhoneNumber}`,
-                });
-              !valid && setError(true);
+              valid
+                ? dispatch(
+                    userActions.setUserPhone({
+                      phone: `+380${currentPhoneNumber}`,
+                    })
+                  )
+                : setError(true);
+              valid && dispatch(userActions.togglePhoneModal());
             }}
           >
             Confirm
@@ -138,14 +140,19 @@ const Wrapper = styled.main`
   }
 
   .error-message-container {
-    min-height: 2rem;
+    // min-height: 2rem;
+    position: relative;
+    width: 100%;
+    p {
+      font-size: 1.6rem;
+    }
   }
 
   .error-message {
-    font-size: 1.2rem;
+    position: absolute;
     color: #db4437;
-    margin-top: 0rem;
-    margin-left: 0rem;
+    right: 50%;
+    transform: translateX(50%);
   }
 
   .label {
