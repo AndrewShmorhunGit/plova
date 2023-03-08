@@ -12,10 +12,6 @@ export const UserInfoButton = (props: { color: string; user: User | null }) => {
 
   const dispatch = useAppDispatch();
 
-  // React.useEffect(() => {
-  //   localStorage.removeItem("user");
-  // }, [userActions.userLogOut()]);
-
   return (
     <Wrapper>
       <main ref={insideRef} className="menu-icon-user">

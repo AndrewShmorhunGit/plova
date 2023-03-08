@@ -45,6 +45,7 @@ export const OrderPage = () => {
   const dispatch = useAppDispatch();
   const { carts } = useAppSelector((state) => state.carts);
   const { menus } = useAppSelector((state) => state.menu);
+  const { user } = useAppSelector((state) => state.user);
   const slug = useMemo(() => getSlugFromLocation(location), [location]);
   const currentCart = getCurrentCard(slug, carts);
   const menu = getCurrentMenu(slug, menus);
@@ -71,7 +72,7 @@ export const OrderPage = () => {
     totalPrice: "0",
     promoCode: false,
     orderList: null,
-    phoneNumber: null,
+    phoneNumber: (user && user?.phone) || null,
   });
 
   // const { delAddress, delTerms, paymentMethod, ...} = orderState;

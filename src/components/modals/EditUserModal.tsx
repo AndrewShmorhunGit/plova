@@ -1,34 +1,27 @@
-// import React from "react";
-import React from "react";
+import React, { FormEvent } from "react";
 import styled from "styled-components";
 import { useAppDispatch, useAppSelector } from "../../hooks/useAppDispatch";
 import closeIcon from "../../images/common/closeIcon.svg";
 import { userActions } from "../../store/actions/userActions";
 export const EditUserModal = () => {
-  const { profileModal, user } = useAppSelector((store) => store.user);
+  const { profileModal, user, loading } = useAppSelector((store) => store.user);
 
-  const [name, setName] = React.useState<string | null>(
-    !user ? null : user.name
-  );
-  const [email, setEmail] = React.useState<string | null>(
-    !user ? null : user.email
-  );
+  const [name, setName] = React.useState<string>(!user ? "" : user.name);
 
-  console.log(user);
+  const [email, setEmail] = React.useState<string>(!user ? "" : user.email);
+
   const [error, setError] = React.useState("");
 
   const dispatch = useAppDispatch();
 
-  function handleSubmit(event: any) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     if (name === null || email === null) {
       setError("User is undefined, please refresh page");
       return;
     }
-    // event.preventDefault();
-    // setName(name);
-    // setEmail(email);{
-    dispatch(userActions.setEditedUser({ name: name, email: email }));
+    event.preventDefault();
     refreshUserData({ name, email });
+    dispatch(userActions.setEditedUser({ name: name, email: email }));
   }
 
   function handleChange(
@@ -40,10 +33,8 @@ export const EditUserModal = () => {
     inputName: string
   ) {
     if (event.target === undefined) return;
-    // const { value } = event.target;
-    inputName === "name"
-      ? setName(event.target.value)
-      : setEmail(event.target.value);
+    const { value } = event.target;
+    inputName === "name" ? setName(value) : setEmail(value);
   }
 
   function refreshUserData(data: { name: string; email: string }) {
@@ -52,7 +43,7 @@ export const EditUserModal = () => {
 
   return (
     <Wrapper>
-      {user && (
+      {!loading && (
         <main
           className={
             profileModal ? "modal-container show-modal" : "modal-container"
@@ -75,7 +66,7 @@ export const EditUserModal = () => {
                     id="usernameInput"
                     type="text"
                     className="form-input"
-                    value={name ? name : ""}
+                    value={name}
                     onChange={(e) => handleChange(e, "name")}
                     required
                   />
@@ -86,18 +77,21 @@ export const EditUserModal = () => {
                     id="emailInput"
                     type="email"
                     className="form-input"
-                    value={email ? email : ""}
+                    value={email}
                     onChange={(e) => handleChange(e, "email")}
                     required
                   />
                   <span className="placeholder">Email</span>
                 </div>
                 <div className="center">
-                  <input className="btn center" type="submit" value="Save" />
+                  <input
+                    className="btn btn-submit center"
+                    type="submit"
+                    value="Save"
+                  />
                 </div>
               </form>
             </div>
-            {/* <button className="btn center">Save</button> */}
           </div>
         </main>
       )}
@@ -145,10 +139,11 @@ const Wrapper = styled.main`
     }
   }
 
-  .btn {
-    padding: 2.6rem 14rem;
-    border-radius: 10rem;
-    margin: 0;
+  .btn-submit {
+    padding: 0;
+    margin-top: 2rem;
+    width: 33.8rem;
+    height: 4.8rem;
   }
 
   .close-btn {
