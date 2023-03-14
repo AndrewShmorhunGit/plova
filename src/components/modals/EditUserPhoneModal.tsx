@@ -5,7 +5,14 @@ import React from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/useAppDispatch";
 import { userActions } from "../../store/actions/userActions";
 
-export const EditUserPhoneModal = ({}: {}) => {
+import { usersApi } from "../../api/usersApi";
+import { SignInResponse } from "../../modules/modules";
+
+export const EditUserPhoneModal = ({
+  currentUser,
+}: {
+  currentUser: SignInResponse;
+}) => {
   const [currentPhoneNumber, setCurrentPhoneNumber] = React.useState("");
   const [error, setError] = React.useState(false);
   const valid =
@@ -23,6 +30,27 @@ export const EditUserPhoneModal = ({}: {}) => {
       }, 3000);
     }
   }, [error]);
+
+  const handleSubmit = (currentUser: SignInResponse, phone: string) => {
+    !valid && setError(true);
+    valid && dispatch(userActions.togglePhoneModal());
+
+    usersApi
+      .editProfile(currentUser.user.id, currentUser.accessToken, {
+        phone: `+380${phone}`,
+      })
+      .then((user) => {
+        if (user)
+          dispatch(
+            userActions.setUserPhone({
+              phone: `+380${phone}`,
+            })
+          );
+        else {
+          throw new Error("Bad getUser request");
+        }
+      });
+  };
 
   return (
     <Wrapper>
@@ -64,16 +92,7 @@ export const EditUserPhoneModal = ({}: {}) => {
             className={
               valid ? "btn btn-active center" : "btn btn-not-allowed center"
             }
-            onClick={() => {
-              valid
-                ? dispatch(
-                    userActions.setUserPhone({
-                      phone: `+380${currentPhoneNumber}`,
-                    })
-                  )
-                : setError(true);
-              valid && dispatch(userActions.togglePhoneModal());
-            }}
+            onClick={() => handleSubmit(currentUser, currentPhoneNumber)}
           >
             Confirm
           </button>

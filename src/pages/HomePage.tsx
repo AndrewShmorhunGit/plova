@@ -10,6 +10,9 @@ import {
   EditUserModal,
 } from "../components";
 import { EditUserPhoneModal } from "../components/modals/EditUserPhoneModal";
+import { useAppDispatch } from "../hooks/useAppDispatch";
+import { userActions } from "../store/actions/userActions";
+import { getStorageUser } from "../units/functions";
 
 // import { useAppSelector } from "../hooks/useAppDispatch";
 // import { userActions } from "../store/actions/userActions";
@@ -19,11 +22,17 @@ export const HomePage = () => {
   const [changeLocationModal, setChangeLocationModal] = useState(false);
 
   // const { user, phoneModal } = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+  const currentUser = getStorageUser();
+
+  if (!currentUser) {
+    dispatch(userActions.userLogOut());
+  }
 
   return (
     <React.Fragment>
       <EditUserModal />
-      <EditUserPhoneModal />
+      {currentUser && <EditUserPhoneModal currentUser={currentUser} />}
       <MainHeader
         setChangeLocationModal={setChangeLocationModal}
         changeLocationModal={changeLocationModal}

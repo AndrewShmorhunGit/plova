@@ -7,12 +7,16 @@ import {
   LoadingBrandGrid,
   BrandHeader,
   MakeAnOrderBtn,
+  EditUserModal,
 } from "../components/index";
+import { EditUserPhoneModal } from "../components/modals/EditUserPhoneModal";
 import { useAppDispatch, useAppSelector } from "../hooks/useAppDispatch";
 import { fetchMenu } from "../store/actions/menuActions";
+import { userActions } from "../store/actions/userActions";
 import {
   getCurrentMenu,
   getSlugFromLocation,
+  getStorageUser,
   goToTop,
 } from "../units/functions";
 import { ErrorPage } from "./ErrorPage";
@@ -30,7 +34,10 @@ export const BrandPage = () => {
   }, [dispatch]);
 
   const currentMenu = getCurrentMenu(slug, menus);
-
+  const currentUser = getStorageUser();
+  if (!currentUser) {
+    dispatch(userActions.userLogOut());
+  }
   if (loading) {
     return (
       <>
@@ -45,6 +52,8 @@ export const BrandPage = () => {
   }
   return (
     <>
+      <EditUserModal />
+      {currentUser && <EditUserPhoneModal currentUser={currentUser} />}
       <BrandHeader menu={currentMenu} loading={loading} />
       <BrandGrid menu={currentMenu} selectedCategory={selectedCategory} />
       <Wrapper>

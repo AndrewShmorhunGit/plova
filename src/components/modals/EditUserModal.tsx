@@ -1,8 +1,10 @@
 import React, { FormEvent } from "react";
 import styled from "styled-components";
+import { usersApi } from "../../api/usersApi";
 import { useAppDispatch, useAppSelector } from "../../hooks/useAppDispatch";
 import closeIcon from "../../images/common/closeIcon.svg";
 import { userActions } from "../../store/actions/userActions";
+import { getStorageUser } from "../../units/functions";
 export const EditUserModal = () => {
   const { profileModal, user, loading } = useAppSelector((store) => store.user);
 
@@ -13,15 +15,31 @@ export const EditUserModal = () => {
   const [error, setError] = React.useState("");
 
   const dispatch = useAppDispatch();
+  const currentUser = getStorageUser();
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     if (name === null || email === null) {
       setError("User is undefined, please refresh page");
       return;
     }
+    if (!currentUser) {
+      dispatch(userActions.userLogOut());
+      return;
+    }
     event.preventDefault();
     refreshUserData({ name, email });
-    dispatch(userActions.setEditedUser({ name: name, email: email }));
+    usersApi
+      .editProfile(currentUser.user.id, currentUser.accessToken, {
+        name,
+        email,
+      })
+      .then((user) => {
+        if (user)
+          dispatch(userActions.setEditedUser({ name: name, email: email }));
+        else {
+          throw new Error("Bad getUser request");
+        }
+      });
   }
 
   function handleChange(
