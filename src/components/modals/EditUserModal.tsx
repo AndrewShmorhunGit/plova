@@ -6,37 +6,43 @@ import closeIcon from "../../images/common/closeIcon.svg";
 import { userActions } from "../../store/actions/userActions";
 import { getStorageUser } from "../../units/functions";
 export const EditUserModal = () => {
-  const { profileModal, user, loading } = useAppSelector((store) => store.user);
+  const { profileModal, loading } = useAppSelector((store) => store.user);
 
-  const [name, setName] = React.useState<string>(!user ? "" : user.name);
+  const currentUser = getStorageUser();
+  const [name, setName] = React.useState<string>(
+    !currentUser ? "" : currentUser.user.name
+  );
 
-  const [email, setEmail] = React.useState<string>(!user ? "" : user.email);
+  const [email, setEmail] = React.useState<string>(
+    !currentUser ? "" : currentUser.user.email
+  );
 
   const [error, setError] = React.useState("");
 
   const dispatch = useAppDispatch();
-  const currentUser = getStorageUser();
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     if (name === null || email === null) {
       setError("User is undefined, please refresh page");
       return;
     }
+
     if (!currentUser) {
       dispatch(userActions.userLogOut());
       return;
     }
+
     event.preventDefault();
-    refreshUserData({ name, email });
     usersApi
       .editProfile(currentUser.user.id, currentUser.accessToken, {
         name,
         email,
       })
       .then((user) => {
-        if (user)
+        if (user) {
           dispatch(userActions.setEditedUser({ name: name, email: email }));
-        else {
+          dispatch(userActions.toggleProfileModal());
+        } else {
           throw new Error("Bad getUser request");
         }
       });
@@ -53,10 +59,6 @@ export const EditUserModal = () => {
     if (event.target === undefined) return;
     const { value } = event.target;
     inputName === "name" ? setName(value) : setEmail(value);
-  }
-
-  function refreshUserData(data: { name: string; email: string }) {
-    window.alert(`Data refreshed: name "${data.name}", email "${data.email}"`);
   }
 
   return (
