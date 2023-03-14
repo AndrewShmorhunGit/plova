@@ -1,13 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Footer } from "./components";
 import { BrandPage, HomePage, ErrorPage, OrderPage } from "./pages";
-
 import { useAppDispatch } from "./hooks/useAppDispatch";
-
 import { getStorageUser } from "./units/functions";
 import { userActions } from "./store/actions/userActions";
-import axios from "axios";
 import React from "react";
+import { usersApi } from "./api/usersApi";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -18,21 +16,13 @@ function App() {
       dispatch(userActions.userLogOut());
       return;
     }
-
-    let config = {
-      method: "get",
-      url: `${process.env.REACT_APP_BASE_URL}/users/${currentUser.user.id}`,
-      headers: {
-        Authorization: `Bearer ${currentUser.accessToken}`,
-      },
-    };
-
-    axios(config)
-      .then(function (response: any) {
-        dispatch(userActions.setUserData(response.data));
-      })
-      .catch(function (error: any) {
-        console.log(error);
+    usersApi
+      .getById(currentUser.user.id, currentUser.accessToken)
+      .then((user) => {
+        if (user) dispatch(userActions.setUserData(user));
+        else {
+          throw new Error("Bad getUser request");
+        }
       });
   }, [currentUser, dispatch]);
 
