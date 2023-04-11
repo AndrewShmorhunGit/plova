@@ -8,11 +8,7 @@ import { userActions } from "../../store/actions/userActions";
 import { usersApi } from "../../api/usersApi";
 import { SignInResponse } from "../../modules/modules";
 
-export const EditUserPhoneModal = ({
-  currentUser,
-}: {
-  currentUser: SignInResponse;
-}) => {
+export const EditUserPhoneModal = () => {
   const [currentPhoneNumber, setCurrentPhoneNumber] = React.useState("");
   const [error, setError] = React.useState(false);
   const valid =
@@ -20,7 +16,7 @@ export const EditUserPhoneModal = ({
     +currentPhoneNumber &&
     currentPhoneNumber.length === 9;
   const dispatch = useAppDispatch();
-  const { phoneModal } = useAppSelector((state) => state.user);
+  const { phoneModal, currentUser } = useAppSelector((state) => state.user);
 
   React.useEffect(() => {
     if (!error) return;
@@ -92,7 +88,9 @@ export const EditUserPhoneModal = ({
             className={
               valid ? "btn btn-active center" : "btn btn-not-allowed center"
             }
-            onClick={() => handleSubmit(currentUser, currentPhoneNumber)}
+            onClick={() => {
+              currentUser && handleSubmit(currentUser, currentPhoneNumber);
+            }}
           >
             Confirm
           </button>

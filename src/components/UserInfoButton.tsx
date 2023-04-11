@@ -216,4 +216,26 @@ const Wrapper = styled.main`
     transform: translateX(16.6rem);
     clip-path: polygon(50% 0, 50% 0, 100% 100%, 0 100%);
   }
+
+  @media (max-width: 96.875em) {
+    .info-container {
+      right: 0rem;
+      overflow-y: scroll;
+    }
+    .icon-pointer {
+      transform: translateX(27.8rem);
+    }
+  }
+
+  @media (max-width: 37.5em) {
+    .info-container {
+      min-width: 100dvw;
+      position: fixed;
+      top: 8rem;
+      border-radius: 0rem;
+    }
+    .icon-pointer {
+      display: none;
+    }
+  }
 `;

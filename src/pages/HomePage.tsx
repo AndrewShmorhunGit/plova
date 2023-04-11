@@ -32,7 +32,7 @@ export const HomePage = () => {
   return (
     <React.Fragment>
       <EditUserModal />
-      {currentUser && <EditUserPhoneModal currentUser={currentUser} />}
+      <EditUserPhoneModal />
       <MainHeader
         setChangeLocationModal={setChangeLocationModal}
         changeLocationModal={changeLocationModal}

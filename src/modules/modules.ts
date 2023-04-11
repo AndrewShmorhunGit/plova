@@ -56,11 +56,6 @@ export interface RatingInfo {
   backgroundColor?: any;
 }
 
-///////////////////////
-// LOOK UP MY FRIEND //
-/// IT ALL YOU NEED ///
-///////////////////////
-
 export interface Scheduling {
   enabled: boolean;
   message?: any;
@@ -231,6 +226,7 @@ export interface User {
 }
 
 export interface UserState {
+  currentUser: SignInResponse | null;
   loading: boolean;
   error: string;
   JWT: string | null;

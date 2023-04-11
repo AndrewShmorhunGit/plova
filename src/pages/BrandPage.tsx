@@ -53,7 +53,7 @@ export const BrandPage = () => {
   return (
     <>
       <EditUserModal />
-      {currentUser && <EditUserPhoneModal currentUser={currentUser} />}
+      <EditUserPhoneModal />
       <BrandHeader menu={currentMenu} loading={loading} />
       <BrandGrid menu={currentMenu} selectedCategory={selectedCategory} />
       <Wrapper>

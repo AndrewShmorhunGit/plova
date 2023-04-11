@@ -1,7 +1,9 @@
 import { SignInResponse, UserState } from "../../modules/modules";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { getStorageUser } from "../../units/functions";
 
 const initialUserState: UserState = {
+  currentUser: getStorageUser(),
   loading: false,
   error: "",
   JWT: null,

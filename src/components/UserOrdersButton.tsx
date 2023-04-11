@@ -121,4 +121,25 @@ const Wrapper = styled.main`
     font-weight: 400;
     text-align: center;
   }
+
+  @media (max-width: 96.875em) {
+    .order-container {
+      right: 0rem;
+    }
+    .icon-pointer {
+      transform: translateX(38.4rem);
+    }
+  }
+
+  @media (max-width: 37.5em) {
+    .order-container {
+      min-width: 100dvw;
+      position: fixed;
+      top: 8rem;
+      border-radius: 0rem;
+    }
+    .icon-pointer {
+      display: none;
+    }
+  }
 `;
