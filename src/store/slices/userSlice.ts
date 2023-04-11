@@ -1,4 +1,4 @@
-import { SignInResponse, UserState } from "../../modules/modules";
+import { IUserOrder, SignInResponse, UserState } from "../../modules/modules";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { getStorageUser } from "../../units/functions";
 
@@ -11,6 +11,7 @@ const initialUserState: UserState = {
   profileModal: false,
   phoneModal: false,
   user: null,
+  userOrders: null,
 };
 
 export const userSlice = createSlice({
@@ -81,6 +82,21 @@ export const userSlice = createSlice({
     userLogOut(state) {
       state.user = null;
       localStorage.removeItem("user");
+    },
+    pushAnOrder(state, action: PayloadAction<IUserOrder>) {
+      if (state.userOrders === null) {
+        state.userOrders = [];
+        // Here may be a bonus for first order!
+      }
+
+      state.userOrders = [
+        ...state.userOrders,
+        {
+          orderId: action.payload.orderId,
+          orderCreationTime: action.payload.orderCreationTime,
+          orderObj: action.payload.orderObj,
+        },
+      ];
     },
   },
 });

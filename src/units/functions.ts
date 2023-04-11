@@ -6,6 +6,12 @@ export const hryvniaToDollarConverter = (price: number) => {
   return newPrice.toFixed(2);
 };
 
+export const createOrderForDelivery = (order: string) => {};
+
+export const removeOrderFromStorage = (order: string) => {};
+
+export const deliverOrder = (order: string) => {};
+
 export const cutName = (name: string) => {
   if (name.includes("/")) {
     const newName: string = name.slice(0, name.indexOf("/") - 1);

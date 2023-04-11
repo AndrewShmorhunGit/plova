@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { useClickOutside } from "../hooks/useClickOutside";
 import { User } from "../modules/modules";
+import { useAppSelector } from "../hooks/useAppDispatch";
+import { UserOrder } from "./UserOrder";
 
 export const UserOrdersButton = (props: {
   color: string;
@@ -11,7 +13,9 @@ export const UserOrdersButton = (props: {
   const insideRef = React.useRef<HTMLDivElement | null>(null);
   useClickOutside(insideRef, () => setIsActive(false));
 
-  const order = null;
+  const { userOrders } = useAppSelector((store) => store.user);
+
+  const orders = userOrders;
 
   return (
     <Wrapper>
@@ -51,13 +55,25 @@ export const UserOrdersButton = (props: {
           <div className="order">
             <div className="icon-pointer"></div>
             <h5 className="orders-header">Orders</h5>
-            {!order && (
+            {!orders || orders.length === 0 ? (
               <div className="empty-order">
                 <h4>You've not made any orders just yet!</h4>
                 <h5>
                   Explore our stores and find everything you've been looking for
                 </h5>
               </div>
+            ) : (
+              orders.map((order, idx) => {
+                return (
+                  <div key={idx}>
+                    <UserOrder
+                      orderId={order.orderId}
+                      orderCreationTime={order.orderCreationTime}
+                      orderObj={order.orderObj}
+                    />
+                  </div>
+                );
+              })
             )}
           </div>
         </div>
