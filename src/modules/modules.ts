@@ -218,6 +218,20 @@ export interface IModalState {
   inDevelopment: boolean;
 }
 
+export interface IOrderState {
+  brandName: string;
+  delPrice: number;
+  delAddress: string | null;
+  delTerms: null | string;
+  paymentMethod: IPaymentMethod | null;
+  allergyInfo: string;
+  cutlery: boolean;
+  totalPrice: string;
+  promoCode: boolean;
+  orderList: null | ICart;
+  phoneNumber: string | null;
+}
+
 export interface User {
   id: string;
   email: string;
@@ -234,6 +248,13 @@ export interface UserState {
   phoneModal: boolean;
   profileModal: boolean;
   user: User | null;
+  userOrders: Array<IUserOrder> | null;
+}
+
+export interface IUserOrder {
+  orderId: string;
+  orderCreationTime: string;
+  orderObj: IOrderState;
 }
 
 export interface IUserSignUp {

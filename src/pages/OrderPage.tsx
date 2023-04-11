@@ -39,6 +39,7 @@ import {
 import { IModalState } from "../modules/modules";
 import { PhoneVerifyModal } from "../components/modals/PhoneVerifyModal";
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
+import { userActions } from "../store/actions/userActions";
 
 export const OrderPage = () => {
   const location = useLocation();
@@ -114,6 +115,22 @@ export const OrderPage = () => {
           orderList: currentCart,
           totalPrice: `${totalPrice}`,
         }),
+        dispatch(
+          userActions.pushAnOrder({
+            orderId: `${
+              orderState.brandName +
+              "/" +
+              orderState.phoneNumber +
+              "-" +
+              orderState.totalPrice +
+              "_" +
+              "id" +
+              orderState.orderList?.order.length
+            }`,
+            orderCreationTime: `${new Date()}`,
+            orderObj: orderState,
+          })
+        ),
         setModalState({ ...modalState, successOrder: true }))
       : setModalState({ ...modalState, inValidOrder: true });
 
