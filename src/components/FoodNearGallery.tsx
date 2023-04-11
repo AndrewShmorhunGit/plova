@@ -34,7 +34,7 @@ export const FoodNearGallery = () => {
           </div>
           <div className="error-message">
             <p>Ooops, something went wrong!</p>
-            <img src={errorImage} alt="sad ploppy" className="error-image" />
+            <img src={errorImage} alt="sad Ploppy" className="error-image" />
             <div> {error}!</div>
           </div>
         </div>

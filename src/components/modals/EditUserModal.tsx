@@ -4,11 +4,12 @@ import { usersApi } from "../../api/usersApi";
 import { useAppDispatch, useAppSelector } from "../../hooks/useAppDispatch";
 import closeIcon from "../../images/common/closeIcon.svg";
 import { userActions } from "../../store/actions/userActions";
-import { getStorageUser } from "../../units/functions";
-export const EditUserModal = () => {
-  const { profileModal, loading } = useAppSelector((store) => store.user);
 
-  const currentUser = getStorageUser();
+export const EditUserModal = () => {
+  const { profileModal, loading, currentUser } = useAppSelector(
+    (store) => store.user
+  );
+
   const [name, setName] = React.useState<string>(
     !currentUser ? "" : currentUser.user.name
   );
@@ -236,11 +237,22 @@ const Wrapper = styled.main`
       gap: 2rem;
       margin: auto 1rem;
     }
+
+    .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+    }
   }
 
   @media (max-width: 31.25em) {
-    .btn {
-      padding: 2.6rem 10rem;
+    .content {
+      max-width: 100dvw;
+      max-height: 100dvh;
+      border-radius: 1rem;
+      padding: 2rem 3rem;
+      gap: 2rem;
+      margin: auto 1rem;
     }
   }
 `;

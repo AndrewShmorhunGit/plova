@@ -28,7 +28,9 @@ export const SingleProduct: React.FC<{
           <div
             className="single-product-image"
             style={{ backgroundImage: `url(${product.image})` }}
-          ></div>
+          >
+            <img src="" alt="" />
+          </div>
           <div>
             <h4 className="single-product-name">{product.name}</h4>
             <p className="single-product-description">
